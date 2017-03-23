@@ -1,0 +1,98 @@
+@import "display";
+#home-container {
+	background-color: #f2f6f8;
+	.user-info {
+		height: 5.173333rem;
+		width: 100%;
+		background-image: url("../../assets/images/wdbj.png");
+		background-size: 100% 100%;
+		position: relative;
+		.flex-column;
+		-moz-align-items:center;
+		-ms-align-items:center;
+		-o-align-items:center;
+		align-items:center;
+		-webkit-align-items:center;
+		.head-img {
+			width: 2.0rem;
+			height: 2.0rem;
+			margin-top: 1.0rem;
+			border-radius: 100%;
+		}
+		.account-text {
+			color: #fff;
+			font-size: 0.373333rem;
+			line-height:1.0rem;
+		}
+		.bottom-info {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			height: 1.173333rem;
+			background: rgba(0, 0, 0, 0.1);
+			color: #fff;
+			width: 100%;
+			.flex;
+			-moz-align-items:center;
+			-ms-align-items:center;
+			-o-align-items:center;
+			align-items:center;
+			-webkit-align-items:center;
+			padding: 0.28rem 0;
+			font-size:0.373333rem;
+			.item {
+				-moz-box-flex: 1;        
+				-ms-flex: 1; 
+				-webkit-box-flex: 1 ;           
+				flex: 1;
+				-webkit-flex: 1;
+				.flex-center;
+				border-right: 0.013333rem solid #fff;
+				&:last-child {
+					border-right: none !important;
+				}
+				img {
+					height: 0.6rem;
+					width: 0.573333rem;
+					margin-right: 0.4rem;
+				}
+			}
+		}
+	}
+	.home-nav {
+	    z-index: 100;
+	    width: 100%;
+	    padding:0 0.4rem;
+	    .flex;
+	    -moz-align-items:center;
+	    -ms-align-items:center;
+	    -o-align-items:center;
+	    align-items:center;
+	    -webkit-align-items:center;
+	    flex-wrap:wrap;
+	    -webkit-flex-wrap:wrap;
+	    .item {
+	        .flex;
+	        -moz-align-items:center;
+	        -ms-align-items:center;
+	        -o-align-items:center;
+	        align-items:center;
+	        -webkit-align-items:center;
+	        -moz-flex-direction:column;
+	        -ms-flex-direction:column;
+	        -o-flex-direction:column; 
+	        flex-direction:column; 
+	        -webkit-flex-direction:column;
+	        margin:0.533333rem 0.266667rem 0;
+	      img {
+	        height: 1.76rem;
+	        width: 1.76rem;
+	      }
+	      .text {
+	        font-size: 0.32rem;
+	        color: #666;
+	        margin-top:0.2rem;
+	      }
+	    }
+	}
+}

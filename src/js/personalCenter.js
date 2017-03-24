@@ -10,4 +10,8 @@ index.controller('personalCenterCtrl',
 	$scope.personalTailor = function (){
 		$location.path('personalTailor');
 	};
+	// 会员中心跳转
+	$scope.goVipCenter = function (){
+		$location.path('vipCenter');
+	};
 }]);

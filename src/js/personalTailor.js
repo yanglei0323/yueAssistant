@@ -6,5 +6,7 @@ index.controller('personalTailorCtrl',
 	$scope.tailorData = function (){
 		$location.path('tailorData');
 	};
-	
+	$scope.toMyTailor = function (){
+		$location.path('myTailor');
+	};
 }]);

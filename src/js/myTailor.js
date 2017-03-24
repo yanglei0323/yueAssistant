@@ -1,10 +1,10 @@
-index.controller('tailorDataCtrl',
+index.controller('myTailorCtrl',
 	['$scope', '$http', '$window', '$location', '$rootScope',
 	function ($scope, $http, $window, $location, $rootScope) {
 
 	
-	$scope.toPayTailor = function (){
-		$location.path('payTailor');
-	};
 	
+	$scope.toPay = function (){
+		$location.path('personalTailor');
+	};
 }]);

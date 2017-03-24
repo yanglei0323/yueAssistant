@@ -36,6 +36,14 @@ index.config(['$routeProvider','$locationProvider', function ($routeProvider,$lo
 			templateUrl: '../html/tailorData.html',
 			controller: 'tailorDataCtrl'
 		})
+		.when('/payTailor', {
+			templateUrl: '../html/payTailor.html',
+			controller: 'payTailorCtrl'
+		})
+		.when('/myTailor', {
+			templateUrl: '../html/myTailor.html',
+			controller: 'myTailorCtrl'
+		})
 		.otherwise({
 			redirectTo: '/'
 		});

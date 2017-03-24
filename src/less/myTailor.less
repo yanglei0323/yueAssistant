@@ -1,4 +1,196 @@
 @import "display";
 #myTailor-container {
-	
+	padding-top:1.173333rem;
+	.myTailor-title{
+		width:100%;
+		height:1.173333rem;
+		font-size:0.373333rem;
+		color:#333;
+		background:#fff;
+		position:fixed;
+		left:0;
+		top:0;
+		.flex-around;
+		.item{
+			width:2.0rem;
+			.flex-center;
+			border-bottom:0.053333rem solid transparent;
+		}
+		.active{
+			color:#34d1a8;
+			border-bottom:0.053333rem solid #34d1a8;
+		}
+	}
+	.myTailor-info-content{
+		width:100%;
+		padding:0 0.4rem;
+		.article-progress{
+			width:100%;
+			height:2.666667rem;
+			background:#fff;
+			border-radius:0.066667rem;
+			margin:0.4rem auto 0;
+			font-size:0.32rem;
+			color:#999;
+			padding:0 0.4rem;
+			.flex-column;
+			.progress-title{
+				color:#333;
+				margin-top:0.133333rem;
+				.flex-center;
+			}
+			.progress-img{
+				width:100%;
+				height:1.12rem;
+				.flex-center;
+				.progress-line{
+					width:1.76rem;
+					height:0.026667rem;
+					background:#999;
+					position:relative;
+					margin-left:0.32rem;
+					img{
+						width:0.32rem;
+						height:0.32rem;
+						position:absolute;
+						left:-0.32rem;
+						top:-0.146667rem;
+					}
+				}
+				.active-line{
+					background:#34d1a8;
+				}
+				.progress-line-last{
+					width:0 !important;
+				}
+			}
+			.progress-text{
+				.flex-around;
+				.active-text{
+					color:#34d1a8;
+				}
+			}
+		}
+		.progressInfo{
+			width:100%;
+			color:#333;
+			.prompt-text{
+				font-size:0.32rem;
+				line-height:1.093333rem;
+				.ts-text{
+					margin-left:0.266667rem;
+					font-size:0.266667rem;
+					color:#999;
+				}
+			}
+			.article-item{
+				width:100%;
+				height:1.76rem;
+				background:#fff;
+				border-radius:0.066667rem;
+				padding:0.293333rem;
+				.flex-between;
+				.case-img{
+					width:1.173333rem;
+					height:1.173333rem;
+					border-radius:0.066667rem;
+				}
+			}
+			.progressInfo-container{
+				width:100%;
+				height:2.666667rem;
+				border-radius:0.066667rem;
+				background:#fff;
+				font-size:0.266667rem;
+				padding:0.266667rem 0.266667rem;
+				.flex-column-around;
+			}
+			.progressInfo-2{
+				width:100%;
+				border-radius:0.066667rem;
+				background:#fff;
+				font-size:0.266667rem;
+				.progressInfo-2-container{
+					.flex-column-around;
+					width:100%;
+					padding:0.4rem 0.266667rem;
+					.tailor-state{
+						color:#333;
+					}
+					.tailor-info{
+						width:100%;
+						height:1.76rem;
+						background:#fff;
+						font-size:0.32rem;
+						color:#333;
+						margin:0.4rem 0;
+						.flex;
+						-moz-align-items:center;
+						-ms-align-items:center;
+						-o-align-items:center;
+						align-items:center;
+						-webkit-align-items:center;
+						-moz-justify-content: space-between;
+						-ms-justify-content: space-between;
+						-o-justify-content: space-between;
+						justify-content: space-between;
+						-webkit-justify-content: space-between;
+						.left-content {
+							height: 100%;
+							.flex;
+							-moz-align-items:center;
+							-ms-align-items:center;
+							-o-align-items:center;
+							align-items:center;
+							-webkit-align-items:center;
+							.case-img{
+								width:1.76rem;
+								height:1.76rem;
+							}
+							.item-info{
+								.flex-column-around;
+								margin-left:0.333333rem;
+								.tailor-title{
+									.designer-name{
+										font-size:0.373333rem;
+									}
+								}
+								.tailor-tel{
+									margin-top:0.133333rem;
+									font-size:0.32rem;
+								}
+							}
+						}
+					}
+					.item-title{
+						font-size:0.32rem;
+						margin-bottom:0.2rem;
+					}
+					.item-info{
+						font-size:0.266667rem;
+						margin-bottom:0.2rem;
+						color:#999;
+					}
+				}
+				.progressInfo-bottom{
+					width:100%;
+					height:1.56rem;
+					border-top:0.013333rem solid #ececec;
+					color:#34d1a8;
+					font-size:0.32rem;
+					padding:0 0.8rem;
+					.flex-column-around;
+				}
+			}
+			.progressInfo-4{
+				width:100%;
+				height:2.346667rem;
+				font-size:0.32rem;
+				color:#34d1a8;
+				background:#fff;
+				border-radius:0.066667rem;
+				.flex-column-center;
+			}
+		}
+	}
 }

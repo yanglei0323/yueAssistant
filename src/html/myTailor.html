@@ -1,5 +1,129 @@
 <div class="parent-container bg-color-ececec">
     <div id="myTailor-container">
-        
+        <div class="myTailor-title">
+            <span class="item" ng-click="activeTab=1" ng-class="{'active': activeTab == 1}">文章进度</span>
+            <span class="item" ng-click="activeTab=2" ng-class="{'active': activeTab == 2}">查看文章</span>
+        </div>
+        <div class="myTailor-info-content" ng-if="activeTab == 1" ng-click="add()">
+            <div class="article-progress">
+                <span class="progress-title" ng-bind="progressTitle"></span>
+                <span class="progress-img">
+                    <span class="progress-line" ng-class="{'active-line': progressFlag >= 1}">
+                        <img src="../../assets/images/select.png" alt="" ng-if="progressFlag <= 0">
+                        <img src="../../assets/images/selected.png" alt="" ng-if="progressFlag >= 1">
+                    </span>
+                    <span class="progress-line" ng-class="{'active-line': progressFlag >= 2}">
+                        <img src="../../assets/images/select.png" alt="" ng-if="progressFlag <= 1">
+                        <img src="../../assets/images/selected.png" alt="" ng-if="progressFlag >= 2">
+                    </span>
+                    <span class="progress-line" ng-class="{'active-line': progressFlag >= 3}">
+                        <img src="../../assets/images/select.png" alt="" ng-if="progressFlag <= 2">
+                        <img src="../../assets/images/selected.png" alt="" ng-if="progressFlag >= 3">
+                    </span>
+                    <span class="progress-line progress-line-last" ng-class="{'active-line': progressFlag >= 4}">
+                        <img src="../../assets/images/select.png" alt="" ng-if="progressFlag <= 3">
+                        <img src="../../assets/images/selected.png" alt="" ng-if="progressFlag >= 4">
+                    </span>
+                </span>
+                <span class="progress-text">
+                    <span ng-class="{'active-text': progressFlag >= 1}">提交预约</span>
+                    <span ng-class="{'active-text': progressFlag >= 2}">预约成功</span>
+                    <span ng-class="{'active-text': progressFlag >= 3}">正在服务</span>
+                    <span ng-class="{'active-text': progressFlag >= 4}">完成服务</span>
+                </span>
+            </div>
+            <div class="progressInfo" ng-if="progressFlag == 1">
+                <span class="prompt-text">您的预约信息已经提交</span>
+                <div class="progressInfo-container">
+                    <span>姓名：张三</span>
+                    <span>提交时间：2017年3月24日</span>
+                    <span>备注：要有逼格</span>
+                    <span>提示：信息提交后，我们的作家将在2个工作日内接受您的预约申请</span>
+                </div>
+            </div>
+            <div class="progressInfo" ng-if="progressFlag == 2">
+                <span class="prompt-text">您已预约成功</span>
+                <div class="progressInfo-2">
+                    <div class="progressInfo-2-container">
+                        <span class="tailor-state">您的预约信息已经提交</span>
+                        <div class="tailor-info">
+                            <div class="left-content">
+                                <img src="../../assets/images/tailor_1.png" class="case-img">
+                                <span class="item-info">
+                                    <span class="tailor-title">
+                                        <span class="designer-name">LUCY</span>
+                                    </span>
+                                    <span class="tailor-tel">
+                                        <span>13888888888</span>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <span class="item-title">教育背景</span>
+                        <span class="item-info">北京新空间教育学院、英国TONI&GUY</span>
+                        <span class="item-title">从业经历</span>
+                        <span class="item-info">北京新空间教育学院、英国TONI&GUY</span>
+                        <span class="item-title">参加大型媒体活动</span>
+                        <span class="item-info">北京新空间教育学院、英国TONI&GUY</span>
+                        <span class="item-title">合作媒体杂志</span>
+                        <span class="item-info">北京新空间教育学院、英国TONI&GUY</span>
+                        <span class="item-title">合作艺人</span>
+                        <span class="item-info">北京新空间教育学院、英国TONI&GUY</span>
+                        <span class="item-title">参加品牌发布</span>
+                        <span class="item-info">北京新空间教育学院、英国TONI&GUY</span>
+                    </div>
+                    <div class="progressInfo-bottom">
+                        <span>作家即将开始为您定制专属文章，请您核对信息无误，如要修改，请致电：101-85611588</span>
+                    </div>
+                </div>
+            </div>
+            <div class="progressInfo" ng-if="progressFlag == 3">
+                <span class="prompt-text">正在为您编辑文章</span>
+                <div class="progressInfo-2">
+                    <div class="progressInfo-2-container">
+                        <div class="tailor-info margin-0">
+                            <div class="left-content">
+                                <img src="../../assets/images/tailor_1.png" class="case-img">
+                                <span class="item-info">
+                                    <span class="tailor-title">
+                                        <span class="designer-name">欧阳</span>
+                                    </span>
+                                    <span class="tailor-tel">
+                                        <span>悦艺术家 高级编辑</span>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progressInfo-bottom">
+                        <span>我们的作家将会在3个工作日完成定制内容，创作需要灵感的~</span>
+                    </div>
+                </div>
+            </div>
+            <div class="progressInfo" ng-if="progressFlag == 4">
+                <span class="prompt-text">完成定制</span>
+                <div class="progressInfo-4">
+                    <span>你是专业的，更是独一无二的</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="myTailor-info-content" ng-if="activeTab == 2">
+            <div class="progressInfo">
+                <span class="prompt-text">微信<span class="ts-text">打开后可以收藏到微信哦</span></span>
+                <div class="article-item">
+                    <span><img src="../../assets/images/tailor_1.png" class="case-img"></span>
+                </div>
+                <span class="prompt-text">今日头条</span>
+                <div class="article-item">
+                    <span><img src="../../assets/images/tailor_1.png" class="case-img"></span>
+                </div>
+                <span class="prompt-text">一点资讯</span>
+                <div class="article-item">
+                    <span><img src="../../assets/images/tailor_1.png" class="case-img"></span>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

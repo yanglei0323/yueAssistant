@@ -14,4 +14,12 @@ index.controller('personalCenterCtrl',
 	$scope.goVipCenter = function (){
 		$location.path('vipCenter');
 	};
+	// 我的作品跳转
+	$scope.goWorks = function (){
+		$location.path('works');
+	};
+	// 工作时间跳转
+	$scope.goWorkHours = function (){
+		$location.path('workHours');
+	};
 }]);

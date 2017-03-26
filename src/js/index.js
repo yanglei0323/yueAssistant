@@ -48,6 +48,18 @@ index.config(['$routeProvider','$locationProvider', function ($routeProvider,$lo
 			templateUrl: '../html/vipCenter.html',
 			controller: 'vipCenterCtrl'
 		})
+		.when('/fast_login', {
+			templateUrl: '../html/fast_login.html',
+			controller: 'fastLoginCtrl'
+		})
+		.when('/works', {
+			templateUrl: '../html/works.html',
+			controller: 'worksCtrl'
+		})
+		.when('/workHours', {
+			templateUrl: '../html/workHours.html',
+			controller: 'workHoursCtrl'
+		})
 		.otherwise({
 			redirectTo: '/'
 		});

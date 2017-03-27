@@ -1,6 +1,16 @@
 index.controller('workHoursCtrl',
 	['$scope', '$http', '$window', '$location', '$rootScope','$timeout',
 	function ($scope, $http, $window, $location, $rootScope,$timeout) {
+	var calendartime = new lCalendar();
+    calendartime.init({
+        'trigger': '.starttime',
+        'type': 'time'
+    });
+    var calendartime2 = new lCalendar();
+    calendartime2.init({
+        'trigger': '.endtime',
+        'type': 'time'
+    });
 	var workdayList=[
 		{'name':'星期一','iswork':'0'},
 		{'name':'星期二','iswork':'0'},
@@ -20,6 +30,16 @@ index.controller('workHoursCtrl',
 		}
 		else if (1 === resp.data.code) {
 			$scope.isLogin = true;
+			if(resp.data.data.starttime === ''||resp.data.data.starttime === '未知'){
+				$scope.starttime = '8:00';
+			}else{
+				$scope.starttime=resp.data.data.starttime;
+			}
+			if(resp.data.data.endtime === ''||resp.data.data.endtime === '未知'){
+				$scope.endtime='22:00';
+			}else{
+				$scope.endtime=resp.data.data.endtime;
+			}
 			var workday=resp.data.data.workday;
 			for(var i=0;i<workday.length;i++){
 				workdayList[i].iswork = workday[i];
@@ -46,7 +66,9 @@ index.controller('workHoursCtrl',
 			workData += $scope.workdayList[i].iswork;
 		}
 		var data={
-			'workday':workData
+			'workday':workData,
+			'starttime':$scope.starttime,
+			'endtime':$scope.endtime,
 		};
 		$http.post('/user/edit.json',data, postCfg)
 		.then(function (resp) {
@@ -66,4 +88,5 @@ index.controller('workHoursCtrl',
 		});
 	};
 	
+    
 }]);

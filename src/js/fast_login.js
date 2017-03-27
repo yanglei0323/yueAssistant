@@ -45,13 +45,14 @@ index.controller('fastLoginCtrl', ['$scope', '$http', '$window', '$location', '$
     		check: $scope.code,
             type:1
     	};
-    	$http.post('/user/unl/login.json', data, postCfg)
+    	$http.post('/user/unl/loginbytel.json', data, postCfg)
     	.then(function (resp) {
             if (1 === resp.data.code) {
                 // console.log(resp);
                 // 登录成功，将登录用户信息写到sessionStorage
                 var user = resp.data.data;
                 sessionStorage.setItem('user', JSON.stringify(user));
+                console.log(user);
                 // if (user.nickname === '') {
                 //     // 昵称为空，跳转到完善信息页面
                 //     $location.path('complete_info').search({type: 'modify'}).replace();

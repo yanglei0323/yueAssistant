@@ -5,7 +5,7 @@ var transFn = function(data) {
             headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
             transformRequest: transFn
         },
-        picBasePath = 'http://photo.yueyishujia.com:8115';
+        picBasePath = 'http://101.200.205.162:8891';
 var index = angular.module('index',
 	['ngRoute', 'mobile-angular-ui', 'mobile-angular-ui.gestures', 'ngFileUpload', 'infinite-scroll']);
 index.config(['$routeProvider','$locationProvider', function ($routeProvider,$locationProvider) {
@@ -59,6 +59,10 @@ index.config(['$routeProvider','$locationProvider', function ($routeProvider,$lo
 		.when('/workHours', {
 			templateUrl: '../html/workHours.html',
 			controller: 'workHoursCtrl'
+		})
+		.when('/morningNight', {
+			templateUrl: '../html/morningNight.html',
+			controller: 'morningNightCtrl'
 		})
 		.otherwise({
 			redirectTo: '/'

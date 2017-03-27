@@ -1,7 +1,4 @@
 <div class="parent-container bg-color-ececec">
-    <!-- <div class="title-bar">
-        <span>我的</span>
-    </div> -->
     <div id="edit-information-container">
         <div class="edit-title margin-top-10">
             <span class="item">
@@ -9,7 +6,8 @@
                 <span class="item-prompt margin-top-10">生成主页和模板时所必须的信息</span>
             </span>
             <span class="item">
-                <span>未完善<span class="Identification">&nbsp;*</span></span>
+                <span ng-if="!user.iscomplete">未完善<span class="Identification">&nbsp;*</span></span>
+                <span ng-if="user.iscomplete">已完善<span class="Identification">&nbsp;*</span></span>
             </span>
         </div>
         <div class="edit-head-img margin-top-10">
@@ -25,7 +23,7 @@
             <div class="nav-item" ng-click="chooseQrcode()">
                 <div class="left-content">
                     <span class="item-name">我的二维码</span>
-                    <span class="bz-message">(已上传)</span>
+                    <span class="bz-message" ng-bind="qrState"></span>
                 </div>
                 <img src="../../assets/images/personal_right_2.png" class="arrow-icon margin-right-0">
             </div>
@@ -34,7 +32,7 @@
             <div class="nav-item margin-top-10">
                 <div class="left-content">
                     <span class="item-name">姓名<span class="Identification">&nbsp;*</span></span>
-                    <span class="bz-message"><input type="text" placeholder="用于主页和生成海报"></span>
+                    <span class="bz-message"><input type="text" placeholder="用于主页和生成海报" ng-model="name"></span>
                 </div>
             </div>
         </a>
@@ -42,7 +40,7 @@
             <div class="nav-item">
                 <div class="left-content">
                     <span class="item-name">从业时间<span class="Identification">&nbsp;*</span></span>
-                    <span class="bz-message"><input type="text" placeholder="点击输入数字（例：5）"><span class="years">年</span></span>
+                    <span class="bz-message"><input type="text" placeholder="点击输入数字（例：5）" ng-model="worktime"><span class="years">年</span></span>
                 </div>
             </div>
         </a>
@@ -50,7 +48,7 @@
             <div class="nav-item margin-top-10">
                 <div class="left-content">
                     <span class="item-name">店内等级<span class="Identification">&nbsp;*</span></span>
-                    <span class="bz-message">学徒、初级设计师、高级设计师、设计总监</span>
+                    <span class="bz-message"><input type="text" placeholder="学徒、初级设计师、高级设计师、设计总监" ng-model="worklevel" readonly="readonly" ng-click="showLevel()"></span>
                 </div>
             </div>
         </a>
@@ -58,7 +56,7 @@
             <div class="nav-item">
                 <div class="left-content">
                     <span class="item-name">店面名称<span class="Identification">&nbsp;*</span></span>
-                    <span class="bz-message">悦艺术家</span>
+                    <span class="bz-message"><input type="text" placeholder="悦艺术家" ng-model="storename"></span>
                 </div>
             </div>
         </a>
@@ -66,7 +64,7 @@
             <div class="nav-item">
                 <div class="left-content">
                     <span class="item-name">店面地址<span class="Identification">&nbsp;*</span></span>
-                    <span class="bz-message">朝阳门大街</span>
+                    <span class="bz-message"><input type="text" placeholder="朝阳内大街" ng-model="storeplace"></span>
                 </div>
             </div>
         </a>
@@ -74,7 +72,7 @@
             <div class="nav-item margin-top-10">
                 <div class="left-content">
                     <span class="item-name">洗剪吹价格<span class="Identification">&nbsp;*</span></span>
-                    <span class="bz-message">5800</span>
+                    <span class="bz-message"><input type="text" placeholder="5800" ng-model="cutprice" class="click-input" ></span>
                     <span class="years">元</span>
                 </div>
             </div>
@@ -83,9 +81,9 @@
             <div class="nav-item">
                 <div class="left-content">
                     <span class="item-name">染发价格<span class="Identification">&nbsp;*</span></span>
-                    <span class="bz-message">6000</span><span class="years">元</span>
+                    <span class="bz-message"><input type="text" placeholder="6000" ng-model="colorpricelow" class="click-input"></span><span class="years">元</span>
                     <span class="dividing-line">-</span>
-                    <span class="bz-message">6600</span><span class="years">元</span>
+                    <span class="bz-message"><input type="text" placeholder="6600" ng-model="colorpricehigh" class="click-input"></span><span class="years">元</span>
                 </div>
             </div>
         </a>
@@ -93,9 +91,9 @@
             <div class="nav-item">
                 <div class="left-content">
                     <span class="item-name">烫发价格<span class="Identification">&nbsp;*</span></span>
-                    <span class="bz-message">6000</span><span class="years">元</span>
+                    <span class="bz-message"><input type="text" placeholder="6000" ng-model="permpricelow" class="click-input"></span><span class="years">元</span>
                     <span class="dividing-line">-</span>
-                    <span class="bz-message">6600</span><span class="years">元</span>
+                    <span class="bz-message"><input type="text" placeholder="6600" ng-model="permpricehigh" class="click-input"></span><span class="years">元</span>
                 </div>
             </div>
         </a>
@@ -108,12 +106,38 @@
             </div>
         </a>
         <div class="point-label">
-            <span class="item" ng-repeat="label in pointLabel" ng-class="{'selected-label':label.selected}" ng-click="selectLabel(label)">
+            <span class="item" ng-repeat="label in pointLabel" ng-class="{'selected-label':label.ischoose}" ng-click="selectLabel(label)">
                 <span ng-bind="label.name"></span>
             </span>
         </div>
         <div class="bottom-btn" ng-click="saveInformation()">
             <span>保存并回到首页</span>
+        </div>
+        <div class="fixed-content">
+            <div class="level-content">
+                <div class="level-div">
+                    <div class="nav-item" ng-repeat="item in levelList">
+                        <div class="left-content" ng-click="selectLevel(item)">
+                            <span ng-if="!item.selected"><img src="../../assets/images/vip_select.png" class="level-select-icon"></span>
+                            <span ng-if="item.selected"><img src="../../assets/images/selected.png" class="level-select-icon"></span>
+                            <span class="level-name" ng-bind="item.name"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="prompt-fixed">
+            <div class="prompt-div">
+                <div class="prompt-content">
+                    <div class="prompt-title">
+                        <span>还有信息没有填写，不能保存</span>
+                    </div>
+                    <div class="prompt-bottom">
+                        <span class="item prompt-false" ng-click="promptFalse()">确认退出</span>
+                        <span class="item prompt-true" ng-click="promptTrue()">继续填写</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -4,8 +4,8 @@
     </div> -->
     <div id="home-container">
         <div class="user-info">
-            <img src="../../assets/images/header.png" class="head-img" ng-click="personalCenter()">
-            <span class="account-text" ng-click="setIn()">咕~噜</span>
+            <img ng-src="{{user.avatar}}" class="head-img" ng-click="personalCenter()">
+            <span class="account-text" ng-click="setIn()" ng-bind="user.name"></span>
             <div class="bottom-info">
                 <div class="item">
                     <img src="../../assets/images/figure.png" class="common-icon">
@@ -24,7 +24,7 @@
         <div class="home-nav">
             <span class="item">
                 <span>
-                    <img src="../../assets/images/home_item_1.png">
+                    <img src="../../assets/images/home_item_1.png" ng-click="morningNight()">
                 </span>      
                 <span class="text">早晚安</span>
             </span>

@@ -1,0 +1,46 @@
+<div class="parent-container bg-color-ececec">
+    <div id="morningNight-container">
+        <div class="myTailor-title">
+            <span class="item" ng-click="activeTab=1" ng-class="{'active': activeTab == 1}">早安</span>
+            <span class="item" ng-click="activeTab=2" ng-class="{'active': activeTab == 2}">晚安</span>
+        </div>
+        <div class="myTailor-info-content" ng-if="activeTab == 1" ng-click="add()">
+            <span class="case-item">
+                <span><img src="../../assets/images/header.png" alt=""></span>
+                <span class="case-title">简约话语</span>
+            </span>
+            <span class="case-item">
+                <span><img src="../../assets/images/header.png" alt=""></span>
+                <span class="case-title">匠人精神</span>
+            </span>
+            <span class="case-item">
+                <span><img src="../../assets/images/header.png" alt=""></span>
+                <span class="case-title">励志早安</span>
+            </span>
+            <span class="case-item">
+                <span><img src="../../assets/images/header.png" alt=""></span>
+                <span class="case-title">清新文艺</span>
+            </span>
+        </div>
+
+
+        <div class="myTailor-info-content" ng-if="activeTab == 2">
+            <span class="case-item">
+                <span><img src="../../assets/images/personalTailor_1.png" alt=""></span>
+                <span class="case-title">简约话语</span>
+            </span>
+            <span class="case-item">
+                <span><img src="../../assets/images/personalTailor_1.png" alt=""></span>
+                <span class="case-title">匠人精神</span>
+            </span>
+            <span class="case-item">
+                <span><img src="../../assets/images/personalTailor_1.png" alt=""></span>
+                <span class="case-title">励志早安</span>
+            </span>
+            <span class="case-item">
+                <span><img src="../../assets/images/personalTailor_1.png" alt=""></span>
+                <span class="case-title">清新文艺</span>
+            </span>
+        </div>
+    </div>
+</div>

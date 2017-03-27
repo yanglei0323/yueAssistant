@@ -31,11 +31,81 @@
 			position:relative;
 			.up-muenu-info{
 				width:100%;
-				height:6.666667rem;
 				background:#fff;
 				position:absolute;
 				left:0;
 				bottom:0;
+				.nav-item {
+					height: 1.173333rem;
+					border-bottom: 0.013333rem solid #ececec;
+					width: 100%;
+					.flex;
+					-moz-align-items:center;
+					-ms-align-items:center;
+					-o-align-items:center;
+					align-items:center;
+					-webkit-align-items:center;
+					-moz-justify-content: space-between;
+					-ms-justify-content: space-between;
+					-o-justify-content: space-between;
+					justify-content: space-between;
+					-webkit-justify-content: space-between;
+					background-color: #fff;
+					padding: 0 0.4rem;
+					.left-content {
+						height: 100%;
+						.flex;
+						-moz-align-items:center;
+						-ms-align-items:center;
+						-o-align-items:center;
+						align-items:center;
+						-webkit-align-items:center;
+						.item-name {
+							color: #333;
+							font-size: 0.373333rem;
+						}
+						.vip-select-icon{
+							width:0.32rem;
+							height:0.32rem;
+							margin:0 0.4rem;
+						}
+						.current-price{
+							font-size:0.373333rem;
+							color:#c0a97a;
+							font-weight:bold;
+							min-width:2.0rem;
+						}
+						.current-price-day{
+							font-size:0.373333rem;
+							color:#c0a97a;
+							min-width:2.533333rem;
+						}
+						.discount{
+							font-size:0.266667rem;
+							color:#666;
+							min-width:0.906667rem;
+						}
+						.original-price{
+							font-size:0.266667rem;
+							color:#999;
+							text-decoration: line-through;
+						}
+					}
+					.vip-close-icon{
+						width:0.306667rem;
+						height:0.293333rem;
+					}
+				}
+				.pay-vip-btn{
+					width:66.666%;
+					height:1.173333rem;
+					font-size:0.373333rem;
+					color:#fff;
+					background:#c0a97a;
+					border-radius:0.066667rem;
+					margin:0.4rem auto;
+					.flex-center;
+				}
 			}
 		}
 	}

@@ -94,6 +94,9 @@
 				input[type=text]{
 					border:none;
 				}
+				.click-input{
+					width:1.066667rem;
+				}
 			}
 			.years{
 				color:#333;
@@ -159,5 +162,118 @@
 		bottom:0;
 		background:#34d1a8;
 		.flex-center;
+	}
+	.fixed-content{
+		width:100%;
+		height:100%;
+		background:rgba(0,0,0,0.33);
+		position:fixed;
+		left:0;
+		top:0;
+		display:none;
+		.level-content{
+			width:100%;
+			height:100%;
+			.flex;
+			.level-div{
+				width:5.6rem;
+				background:#fff;
+				border-radius:0.066667rem;
+				font-size:0.32rem;
+				color:#666;
+				margin:auto auto;
+				.nav-item {
+					height: 0.32rem;
+					width: 100%;
+					.flex;
+					-moz-align-items:center;
+					-ms-align-items:center;
+					-o-align-items:center;
+					align-items:center;
+					-webkit-align-items:center;
+					-moz-justify-content: space-between;
+					-ms-justify-content: space-between;
+					-o-justify-content: space-between;
+					justify-content: space-between;
+					-webkit-justify-content: space-between;
+					background-color: #fff;
+					padding: 0.4rem 0 0.4rem 1.68rem;
+					margin:0.4rem 0;
+					border-bottom:none !important;
+					.left-content {
+						height: 100%;
+						.flex;
+						-moz-align-items:center;
+						-ms-align-items:center;
+						-o-align-items:center;
+						align-items:center;
+						-webkit-align-items:center;
+						.level-select-icon{
+							width:0.32rem;
+							height:0.32rem;
+							margin-right:0.266667rem;
+						}
+					}
+				}
+			}
+		}
+	}
+	.prompt-fixed{
+		width:100%;
+		height:100%;
+		background:rgba(0,0,0,0.33);
+		position:fixed;
+		left:0;
+		top:0;
+		display:none;
+		.prompt-div{
+			width:100%;
+			height:100%;
+			.flex;
+			.prompt-content{
+				width:8.0rem;
+				height:3.52rem;
+				background:#fff;
+				border-radius:0.066667rem;
+				margin:auto auto;
+				font-size:0.373333rem;
+				color:#333;
+				.prompt-title{
+					width:100%;
+					height:2.333333rem;
+					.flex-center;
+				}
+				.prompt-bottom{
+					width:100%;
+					height:1.173333rem;
+					border-top:0.013333rem solid #ececec;
+					.flex;
+					-moz-align-items:center;
+					-ms-align-items:center;
+					-o-align-items:center;
+					align-items:center;
+					-webkit-align-items:center;
+					padding:0.293333rem 0;
+					.item {
+						-moz-box-flex: 1;        
+						-ms-flex: 1; 
+						-webkit-box-flex: 1 ;           
+						flex: 1;
+						-webkit-flex: 1;
+						.flex-center;
+						border-right: 0.026667rem solid #ececec;
+						&:last-child {
+							border-right: none !important;
+						}
+					}
+					.prompt-false{
+						color:#999;
+					}
+					.prompt-true{
+						color:#34d1a8;
+					}
+				}
+			}
+		}
 	}
 }

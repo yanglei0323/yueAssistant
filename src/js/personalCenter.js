@@ -1,7 +1,8 @@
 index.controller('personalCenterCtrl',
 	['$scope', '$http', '$window', '$location', '$rootScope',
 	function ($scope, $http, $window, $location, $rootScope) {
-
+	var user=JSON.parse(sessionStorage.getItem('user'));
+	$scope.user=user;
 	// 编辑个人信息跳转
 	$scope.editInformation = function (){
 		$location.path('editInformation');

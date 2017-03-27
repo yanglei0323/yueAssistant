@@ -5,14 +5,14 @@
     <div id="personal-container">
         <div class="user-info">
             <span class="item">
-                <img src="../../assets/images/header.png" class="head-img">
-                <span class="account-text">咕~噜</span>
+                <img ng-src="{{user.avatar}}" class="head-img">
+                <span class="account-text" ng-bind="user.name"></span>
             </span>
             <span class="item">
                 <span class="change-userinfo" ng-click="editInformation()">编辑个人信息</span>
                 <img src="../../assets/images/personal_right.png" class="arrow-icon">
             </span>
-            <span class="prompt-message">未完善！</span>
+            <span class="prompt-message" ng-if="!user.iscomplete">未完善！</span>
         </div>
         <a href="">
             <div class="nav-item margin-top-10" ng-click="personalTailor()">
@@ -56,7 +56,7 @@
             <div class="nav-item">
                 <div class="left-content">
                     <img src="../../assets/images/personal_4.png" class="common-icon">
-                    <span class="item-name">已绑定手机 (<span>13788888888</span>)</span>
+                    <span class="item-name">已绑定手机 (<span ng-bind="user.telephone"></span>)</span>
                 </div>
                 <img src="../../assets/images/personal_right_2.png" class="arrow-icon margin-right-0">
             </div>

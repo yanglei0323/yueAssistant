@@ -36,8 +36,13 @@ index.controller('homeCtrl',
 	//VIP会员跳转
 	$scope.vipCenter = function (){
 		$location.path('vipCenter');
-	};//早晚安跳转
+	};
+	//早晚安跳转
 	$scope.morningNight = function (){
 		$location.path('morningNight');
+	};
+	//个人主页跳转
+	$scope.goHomePage = function (){
+		$location.path('homePage');
 	};
 }]);

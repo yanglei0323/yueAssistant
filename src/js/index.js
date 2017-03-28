@@ -64,6 +64,10 @@ index.config(['$routeProvider','$locationProvider', function ($routeProvider,$lo
 			templateUrl: '../html/morningNight.html',
 			controller: 'morningNightCtrl'
 		})
+		.when('/homePage', {
+			templateUrl: '../html/homePage.html',
+			controller: 'homePageCtrl'
+		})
 		.otherwise({
 			redirectTo: '/'
 		});

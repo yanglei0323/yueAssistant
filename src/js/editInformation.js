@@ -7,7 +7,12 @@ index.controller('editInformationCtrl',
 	$scope.user=user;
 	$scope.name=user.name;
 	$scope.worktime=user.worktime;
-	$scope.worklevel=user.worklevel.name;
+	if(user.worklevel === null){
+		$scope.worklevel='';
+	}else{
+		$scope.worklevel=user.worklevel.name;
+	}
+	
 	$scope.storename=user.storename;
 	$scope.storeplace=user.storeplace;
 	$scope.cutprice=user.cutprice;

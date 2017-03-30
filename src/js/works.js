@@ -4,5 +4,4 @@ index.controller('worksCtrl',
 
 	
 	
-	
 }]);

@@ -4,7 +4,9 @@
     </div> -->
     <div id="home-container">
         <div class="user-info">
-            <img ng-src="{{user.avatar}}" class="head-img" ng-click="personalCenter()">
+            <div class="head-img">
+                <img ng-src="{{user.avatar}}" ng-click="personalCenter()">
+            </div>
             <span class="account-text" ng-click="setIn()" ng-bind="user.name"></span>
             <div class="bottom-info">
                 <div class="item" ng-click="goHomePage()">

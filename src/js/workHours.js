@@ -1,16 +1,20 @@
 index.controller('workHoursCtrl',
 	['$scope', '$http', '$window', '$location', '$rootScope','$timeout',
 	function ($scope, $http, $window, $location, $rootScope,$timeout) {
+	
+	// 设置开始工作时间
 	var calendartime = new lCalendar();
     calendartime.init({
         'trigger': '.starttime',
         'type': 'time'
     });
+    // 设置结束工作时间
     var calendartime2 = new lCalendar();
     calendartime2.init({
         'trigger': '.endtime',
         'type': 'time'
     });
+    // 构造工作状态表
 	var workdayList=[
 		{'name':'星期一','iswork':'0'},
 		{'name':'星期二','iswork':'0'},
@@ -31,12 +35,12 @@ index.controller('workHoursCtrl',
 		else if (1 === resp.data.code) {
 			$scope.isLogin = true;
 			if(resp.data.data.starttime === ''||resp.data.data.starttime === '未知'){
-				$scope.starttime = '8:00';
+				$scope.starttime = '8:00';//默认开始时间
 			}else{
 				$scope.starttime=resp.data.data.starttime;
 			}
 			if(resp.data.data.endtime === ''||resp.data.data.endtime === '未知'){
-				$scope.endtime='22:00';
+				$scope.endtime='22:00';//默认结束时间
 			}else{
 				$scope.endtime=resp.data.data.endtime;
 			}

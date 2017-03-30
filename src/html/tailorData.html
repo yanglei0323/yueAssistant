@@ -3,71 +3,70 @@
         <div class="nav-item margin-top-10">
             <div class="left-content">
                 <span class="item-name">姓名<span class="Identification">&nbsp;*</span></span>
-                <span class="bz-message"><input type="text" placeholder="填写您的真实姓名或者艺名"></span>
+                <span class="bz-message"><input type="text" placeholder="填写您的真实姓名或者艺名" ng-model="name"></span>
             </div>
         </div>
         <div class="nav-item">
             <div class="left-content">
                 <span class="item-name">手机号码<span class="Identification">&nbsp;*</span></span>
-                <span class="bz-message"><input type="text" placeholder="方便工作人员与您沟通"></span>
+                <span class="bz-message"><input type="text" placeholder="方便工作人员与您沟通" ng-model="telephone"></span>
             </div>
         </div>
         <div class="info-item margin-top-10">
             <span class="item-name">教育背景<span class="Identification">&nbsp;*</span></span>
-            <textarea class="item-area" placeholder="可填写多个，以逗号间隔（例：北京新空间教育学院，英国TONI&GUY）"></textarea>
+            <textarea class="item-area" placeholder="可填写多个，以逗号间隔（例：北京新空间教育学院，英国TONI&GUY）" ng-model="education"></textarea>
         </div>
         <div class="info-item">
             <span class="item-name">从业经历<span class="Identification">&nbsp;*</span></span>
-            <textarea class="item-area" placeholder="可填写多个，以逗号间隔（例：北京悦艺术家，北京TONI&GUY）"></textarea>
+            <textarea class="item-area" placeholder="可填写多个，以逗号间隔（例：北京悦艺术家，北京TONI&GUY）" ng-model="work"></textarea>
         </div>
         <div class="info-item">
             <span class="item-name">参加大型媒体活动<span class="Identification">&nbsp;*</span></span>
-            <textarea class="item-area" placeholder="可填写多个，以逗号间隔（例：北京国际时装周，上海国际时装周）"></textarea>
+            <textarea class="item-area" placeholder="可填写多个，以逗号间隔（例：北京国际时装周，上海国际时装周）" ng-model="activity"></textarea>
         </div>
         <div class="info-item">
             <span class="item-name">合作媒体杂志<span class="Identification">&nbsp;*</span></span>
-            <textarea class="item-area" placeholder="可填写多个，以逗号间隔（例：《风尚志》，《BQ北京青年周刊》）"></textarea>
+            <textarea class="item-area" placeholder="可填写多个，以逗号间隔（例：《风尚志》，《BQ北京青年周刊》）" ng-model="magazine"></textarea>
         </div>
         <div class="info-item">
             <span class="item-name">合作艺人<span class="Identification">&nbsp;*</span></span>
-            <textarea class="item-area" placeholder="可填写多个，以逗号间隔（例：范冰冰，李小璐，陈好）"></textarea>
+            <textarea class="item-area" placeholder="可填写多个，以逗号间隔（例：范冰冰，李小璐，陈好）" ng-model="stars"></textarea>
         </div>
         <div class="info-item">
             <span class="item-name">参加品牌发布<span class="Identification">&nbsp;*</span></span>
-            <textarea class="item-area" placeholder="可填写多个，以逗号间隔（例：LV，CHANEL）"></textarea>
+            <textarea class="item-area" placeholder="可填写多个，以逗号间隔（例：LV，CHANEL）" ng-model="brand"></textarea>
         </div>
         <div class="img-item margin-top-10">
             <span class="item-name">生活照<span class="Identification">&nbsp;*&nbsp;</span><span class="placholder-text">可上传3张</span></span>
             <span class="update-img">
-                <img src="../../assets/images/edit-headimg.png" alt="">
+                <img ng-src="{{item}}" alt="" ng-repeat="item in lifeList track by $index">
+                <img src="../../assets/images/edit-headimg.png" alt="" ng-click="addLifePhoto()" ng-if="lifeList.length <= 2">
             </span>
         </div>
         <div class="img-item margin-top-10">
             <span class="item-name">工作照<span class="Identification">&nbsp;*&nbsp;</span><span class="placholder-text">可上传3张</span></span>
             <span class="update-img">
-                <img src="../../assets/images/header.png" alt="">
-                <img src="../../assets/images/edit-headimg.png" alt="">
+                <img ng-src="{{item}}" alt="" ng-repeat="item in workList track by $index">
+                <img src="../../assets/images/edit-headimg.png" alt="" ng-click="addWorkPhoto()" ng-if="workList.length <= 2">
             </span>
         </div>
         <div class="img-item margin-top-10">
             <span class="item-name">艺术照<span class="Identification">&nbsp;*&nbsp;</span><span class="placholder-text">可上传3张</span></span>
             <span class="update-img">
-                <img src="../../assets/images/header.png" alt="">
-                <img src="../../assets/images/tailor_1.png" alt="">
-                <img src="../../assets/images/edit-headimg.png" alt="">
+                <img ng-src="{{item}}" alt="" ng-repeat="item in artList track by $index">
+                <img src="../../assets/images/edit-headimg.png" alt="" ng-click="addArtPhoto()" ng-if="artList.length <= 2">
             </span>
         </div>
         <div class="img-item margin-top-10">
             <span class="item-name">作品照<span class="Identification">&nbsp;*&nbsp;</span><span class="placholder-text">可上传3张</span></span>
             <span class="update-img">
-                <img src="../../assets/images/tailor_1.png" alt="">
-                <img src="../../assets/images/header.png" alt="">
-                <img src="../../assets/images/tailor_1.png" alt="">
+                <img ng-src="{{item}}" alt="" ng-repeat="item in goodsList track by $index">
+                <img src="../../assets/images/edit-headimg.png" alt="" ng-click="addGoodsPhoto()" ng-if="goodsList.length <= 2">
             </span>
         </div>
         <div class="memo-item margin-top-10">
             <span class="item-name">备注</span>
-            <textarea class="item-area" placeholder="可填写对于作品的要求或者建议"></textarea>
+            <textarea class="item-area" placeholder="可填写对于作品的要求或者建议" ng-model="remark"></textarea>
         </div>
         <div class="memo-text">
             <span>注：提交后不可修改</span>

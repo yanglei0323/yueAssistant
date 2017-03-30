@@ -6,9 +6,11 @@
         <span class="chooseQrcode-title">先保存微信“我的二维码”至本地相册</span>
         <img src="../../assets/images/qr.gif" alt="" class="qr-img">
         <span class="chooseQrcode-title">再从本地相册选择二维码图片</span>
-        <img src="../../assets/images/edit-headimg.png" alt="" class="update-img">
+        <div class="update-div">
+            <img ng-src="{{user.qrcode}}" alt="" class="update-img" ng-click="addPhoto()">
+        </div>
         <span class="chooseQrcode-message">点击上传</span>
-        <div class="bottom-btn" ng-click="updateQrcode()">
+        <div class="bottom-btn" ng-click="upload()">
             <span>保 存</span>
         </div>
     </div>

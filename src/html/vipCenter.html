@@ -13,32 +13,19 @@
                         </div>
                         <img src="../../assets/images/vip_center_close.png" class="vip-close-icon" ng-click="hideMenu()">
                     </div>
-                    <div class="nav-item">
+                    <div class="nav-item" ng-repeat="vip in vipList">
                         <div class="left-content">
-                            <span><img src="../../assets/images/vip_select.png" class="vip-select-icon"></span>
-                            <span class="current-price">29元/月</span>
-                            <span class="current-price-day">(0.96元/天)</span>
+                            <span>
+                                <img src="../../assets/images/vip_select.png" class="vip-select-icon" ng-if="!vip.selected" ng-click="selectVip(vip)">
+                                <img src="../../assets/images/vip_selected.png" class="vip-select-icon" ng-if="vip.selected" ng-click="selectVip(vip)">
+                            </span>
+                            <span class="current-price"><span ng-bind="vip.currentprice"></span>元/<span ng-bind="vip.name"></span></span>
+                            <span class="current-price-day">(<span ng-bind="vip.perdayprice"></span>元/天)</span>
+                            <span class="discount"><span ng-bind="vip.discount"></span>折</span>
+                            <span class="original-price">原价<span ng-bind="vip.originalprice"></span>元</span>
                         </div>
                     </div>
-                    <div class="nav-item">
-                        <div class="left-content">
-                            <span><img src="../../assets/images/vip_select.png" class="vip-select-icon"></span>
-                            <span class="current-price">73元/季度</span>
-                            <span class="current-price-day">(0.81元/天)</span>
-                            <span class="discount">8.5折</span>
-                            <span class="original-price">原价87元</span>
-                        </div>
-                    </div>
-                    <div class="nav-item">
-                        <div class="left-content">
-                            <span><img src="../../assets/images/vip_select.png" class="vip-select-icon"></span>
-                            <span class="current-price">257元/年</span>
-                            <span class="current-price-day">(0.7元/天)</span>
-                            <span class="discount">7.4折</span>
-                            <span class="original-price">原价348元</span>
-                        </div>
-                    </div>
-                    <div class="pay-vip-btn">
+                    <div class="pay-vip-btn" ng-click="buyVip()">
                         <span>确认支付</span>
                     </div>
                 </div>

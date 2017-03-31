@@ -64,7 +64,7 @@ index.config(['$routeProvider','$locationProvider', function ($routeProvider,$lo
 			templateUrl: '../html/morningNight.html',
 			controller: 'morningNightCtrl'
 		})
-		.when('/homePage', {
+		.when('/homePage/:uuid', {
 			templateUrl: '../html/homePage.html',
 			controller: 'homePageCtrl'
 		})
@@ -77,13 +77,12 @@ index.config(['$routeProvider','$locationProvider', function ($routeProvider,$lo
 // 获取地理位置并设置到localStorage中，通过code进行登录
 (function init() {
 	var code = getUrlParam('code');
-	var state = getUrlParam('state');
         
     if (code) {
         // 通过code获取access_token等信息
         var data = {
-            appid: 'wx6a71c9758aa42537',
-            secret: '04a307f13f2ab8ffac45c02538cedce7',
+            appid: 'wxef3e1498e754b61d',
+            secret: '5e21b13a8d5e9b071b9bef2ad65e1883',
             code: code,
             grant_type: 'authorization_code'
         };
@@ -114,8 +113,6 @@ index.config(['$routeProvider','$locationProvider', function ($routeProvider,$lo
 								sessionStorage.setItem('login', '1');
 	                      		sessionStorage.setItem('user', JSON.stringify(resp.data));
 							}else if(2 === resp.code){
-								sessionStorage.setItem('login', '1');
-	                      		sessionStorage.setItem('user', JSON.stringify(resp.data));
 								window.location.href = 'fast_login';
 							}
 			            },

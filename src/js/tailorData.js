@@ -216,6 +216,7 @@ index.controller('tailorDataCtrl',
 			if (1 === resp.data.code) {
 				console.log(resp);
 				// 此处存储订单信息
+        $rootScope.customizeOrder=resp.data.data;
 				$location.path('payTailor');
 			}
 		}, function (resp) {

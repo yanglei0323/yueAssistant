@@ -23,20 +23,8 @@
             <div class="line-title-line"></div>
         </div>
         <div class="case-content margin-top-20">
-            <span class="case-item">
-                <img src="../../assets/images/home_page_bg.png" alt="">
-            </span>
-            <span class="case-item">
-                <img src="../../assets/images/home_page_bg.png" alt="">
-            </span>
-            <span class="case-item">
-                <img src="../../assets/images/home_page_bg.png" alt="">
-            </span>
-            <span class="case-item">
-                <img src="../../assets/images/home_page_bg.png" alt="">
-            </span>
-            <span class="case-item">
-                <img src="../../assets/images/home_page_bg.png" alt="">
+            <span class="case-item" ng-repeat="item in user.workslist">
+                <img ng-src="{{item}}" alt="">
             </span>
         </div>
         <div class="line-title margin-top-20">
@@ -44,8 +32,8 @@
             <div class="line-title-line"></div>
         </div>
         <div class="point-label">
-            <span class="item" ng-repeat="label in pointLabel" ng-if="label.ischoose == true">
-                <span ng-bind="label.name"></span>
+            <span class="item" ng-repeat="label in pointLabel">
+                <span ng-bind="label"></span>
             </span>
         </div>
         <div class="line-title">
@@ -151,7 +139,7 @@
                     <div class="prompt-title">
                         <div class="qrcode-item">
                             <div class="left-content">
-                                <img src="../../assets/images/qrcode.png" alt="" class="home-page-qrcode">
+                                <img ng-src="{{user.qrcode}}" alt="" class="home-page-qrcode">
                                 <span class="item-text">
                                     <span class="font-size-28">电话预约</span>
                                     <span ng-bind="user.telephone" class="margin-top-10"></span>

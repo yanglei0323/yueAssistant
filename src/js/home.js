@@ -43,6 +43,6 @@ index.controller('homeCtrl',
 	};
 	//个人主页跳转
 	$scope.goHomePage = function (){
-		$location.path('homePage' + $scope.user.uuid);
+		$location.path('homePage/'+$scope.user.uuid);
 	};
 }]);

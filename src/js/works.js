@@ -47,6 +47,10 @@ index.controller('worksCtrl',
 	};
 	// 选中全部作品为主页作品
 	$scope.addAllworks=function(item){
+		if($scope.recommendworks.length >=6){
+			alert('最多只能设置6张图片作为主页作品展示！');
+			return false;
+		}
 		var data={
 			'add':[item.id],
 			'rm':[]

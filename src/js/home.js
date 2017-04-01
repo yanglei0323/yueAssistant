@@ -43,6 +43,19 @@ index.controller('homeCtrl',
 	};
 	//个人主页跳转
 	$scope.goHomePage = function (){
+		if($scope.user.iscomplete === false){
+			$('.prompt-fixed').show();
+			return;
+		}
 		$location.path('homePage/'+$scope.user.uuid);
+	};
+	// 未填写信息时退出
+	$scope.promptFalse = function (){
+		$('.prompt-fixed').fadeOut(500);
+	};
+	// 未填写信息时继续填写
+	$scope.promptTrue = function (){
+		$('.prompt-fixed').fadeOut();
+		$location.path('editInformation');
 	};
 }]);

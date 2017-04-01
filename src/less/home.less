@@ -100,4 +100,62 @@
 	      }
 	    }
 	}
+	.prompt-fixed{
+		width:100%;
+		height:100%;
+		background:rgba(0,0,0,0.33);
+		position:fixed;
+		left:0;
+		top:0;
+		display:none;
+		.prompt-div{
+			width:100%;
+			height:100%;
+			.flex;
+			.prompt-content{
+				width:8.0rem;
+				height:3.52rem;
+				background:#fff;
+				border-radius:0.066667rem;
+				margin:auto auto;
+				font-size:0.373333rem;
+				color:#333;
+				.prompt-title{
+					width:100%;
+					height:2.333333rem;
+					.flex-center;
+				}
+				.prompt-bottom{
+					width:100%;
+					height:1.173333rem;
+					border-top:0.013333rem solid #ececec;
+					.flex;
+					-moz-align-items:center;
+					-ms-align-items:center;
+					-o-align-items:center;
+					align-items:center;
+					-webkit-align-items:center;
+					padding:0.293333rem 0;
+					.item {
+						-moz-box-flex: 1;        
+						-ms-flex: 1; 
+						-webkit-box-flex: 1 ;           
+						flex: 1;
+						-webkit-flex: 1;
+						.flex-center;
+						border-right: 0.026667rem solid #ececec;
+						&:last-child {
+							border-right: none !important;
+						}
+					}
+					.prompt-false{
+						color:#999;
+					}
+					.prompt-true{
+						color:#34d1a8;
+					}
+				}
+			}
+		}
+	}
 }

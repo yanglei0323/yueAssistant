@@ -5,26 +5,32 @@
                 <span class="item-name">主页作品</span>
             </div>
             <span class="right-content">
-                <span>保存</span>
+                <span ng-click="saveWorkImg()">保存</span>
             </span>
         </div>
         <div class="works-img-content">
-            <div class="works-item">
+            <div class="works-item" ng-repeat="item in recommendworks">
+                <img ng-src="{{item.imgurl}}" alt="" class="worklist-img">
+                <span class="work-btn">
+                    <img src="../../assets/images/work_delete.png" alt="" ng-click="deleteRecommendworks(item)">
+                </span>
+            </div>
+            <div class="works-item" ng-if="recommendworks.length <=0" ng-click="showPrompt()">
                 未设置
             </div>
-            <div class="works-item">
+            <div class="works-item" ng-if="recommendworks.length <=1" ng-click="showPrompt()">
                 未设置
             </div>
-            <div class="works-item">
+            <div class="works-item" ng-if="recommendworks.length <=2" ng-click="showPrompt()">
                 未设置
             </div>
-            <div class="works-item">
+            <div class="works-item" ng-if="recommendworks.length <=3" ng-click="showPrompt()">
                 未设置
             </div>
-            <div class="works-item">
+            <div class="works-item" ng-if="recommendworks.length <=4" ng-click="showPrompt()">
                 未设置
             </div>
-            <div class="works-item">
+            <div class="works-item" ng-if="recommendworks.length <=5" ng-click="showPrompt()">
                 未设置
             </div>
         </div>
@@ -36,30 +42,20 @@
                 <span class="item-name">全部作品</span>
             </div>
             <span class="right-content">
-                <span>删除</span>
+                <span ng-if="!deleteImg" ng-click="showDeleteBtn()">删除</span>
+                <span ng-if="deleteImg" ng-click="showDeleteBtn()">完成</span>
             </span>
         </div>
         <div class="works-img-content padding-bottom-20">
-            <div class="works-item">
-                未设置
-            </div>
-            <div class="works-item">
-                未设置
-            </div>
-            <div class="works-item">
-                未设置
-            </div>
-            <div class="works-item">
-                未设置
-            </div>
-            <div class="works-item">
-                未设置
-            </div>
-            <div class="works-item">
-                未设置
+            <div class="works-item" ng-repeat="item in allworks" ng-click="addAllworks(item)">
+                <img ng-src="{{item.imgurl}}" alt="" class="worklist-img">
+                <span class="work-btn">
+                    <img src="../../assets/images/work_select.png" alt="" ng-if="item.recommend == 1">
+                    <img src="../../assets/images/work_delete.png" alt="" ng-click="deleteAllworks($event,item)" ng-if="deleteImg">
+                </span>
             </div>
         </div>
-        <div class="update-btn">
+        <div class="update-btn" ng-click="updateWorkImg()">
             <span>
                 <img src="../../assets/images/works_update.png" alt="">
                 <span>上传作品</span>

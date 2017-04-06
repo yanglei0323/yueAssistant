@@ -24,4 +24,13 @@ index.controller('personalTailorCtrl',
 	$scope.showCustomize = function (){
 		window.location.href = $scope.customizeInfo.customizeurl;
 	};
+	// 取消
+	$scope.promptFalse = function (){
+		$('.prompt-fixed').fadeOut();
+	};
+	// 去付款
+	$scope.promptTrue = function (){
+		$('.prompt-fixed').fadeOut();
+		$location.path('compeletPayTailor');
+	};
 }]);

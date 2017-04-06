@@ -74,6 +74,7 @@ index.controller('workHoursCtrl',
 			'starttime':$scope.starttime,
 			'endtime':$scope.endtime,
 		};
+		console.log(data);
 		$http.post('/user/edit.json',data, postCfg)
 		.then(function (resp) {
 			// console.log(resp);

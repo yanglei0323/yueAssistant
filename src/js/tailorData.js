@@ -8,7 +8,7 @@ index.controller('tailorDataCtrl',
 	.then(function (resp) {
 		if (1 === resp.data.code) {
 			wx.config({
-			    debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+			    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
 			    appId: resp.data.data.appid, // 必填，公众号的唯一标识
 			    timestamp: resp.data.data.timestamp, // 必填，生成签名的时间戳
 			    nonceStr: resp.data.data.noncestr, // 必填，生成签名的随机串
@@ -63,7 +63,9 @@ index.controller('tailorDataCtrl',
           isShowProgressTips: 1, // 默认为1，显示进度提示
           success: function (res) {
           		$scope.lifeList.push($scope.lifelocalid[0]);
-                $scope.lifemediaid.push(res.serverId);
+              // 暂时未找到无法显示图片的原因，使用这行代码替代方法
+              $('.update-img-life').prepend("<img src="+$scope.lifelocalid[0]+" style='width:1.76rem;height:1.76rem;margin-right:0.266667rem;border-radius:0.066667rem;' />");
+              $scope.lifemediaid.push(res.serverId);
           },
           fail: function (res) {
               alert('上传失败！');
@@ -102,6 +104,7 @@ index.controller('tailorDataCtrl',
           isShowProgressTips: 1, // 默认为1，显示进度提示
           success: function (res) {
           		$scope.workList.push($scope.worklocalid[0]);
+              $('.update-img-work').prepend("<img src="+$scope.worklocalid[0]+" style='width:1.76rem;height:1.76rem;margin-right:0.266667rem;border-radius:0.066667rem;' />");
                 $scope.workmediaid.push(res.serverId);
           },
           fail: function (res) {
@@ -142,6 +145,7 @@ index.controller('tailorDataCtrl',
           isShowProgressTips: 1, // 默认为1，显示进度提示
           success: function (res) {
           		$scope.artList.push($scope.artlocalid[0]);
+              $('.update-img-art').prepend("<img src="+$scope.artlocalid[0]+" style='width:1.76rem;height:1.76rem;margin-right:0.266667rem;border-radius:0.066667rem;' />");
                 $scope.artmediaid.push(res.serverId);
           },
           fail: function (res) {
@@ -182,7 +186,8 @@ index.controller('tailorDataCtrl',
           isShowProgressTips: 1, // 默认为1，显示进度提示
           success: function (res) {
           		$scope.goodsList.push($scope.goodslocalid[0]);
-                $scope.goodsmediaid.push(res.serverId);
+              $('.update-img-goods').prepend("<img src="+$scope.goodslocalid[0]+" style='width:1.76rem;height:1.76rem;margin-right:0.266667rem;border-radius:0.066667rem;' />");
+              $scope.goodsmediaid.push(res.serverId);
           },
           fail: function (res) {
               alert('上传失败！');
@@ -206,10 +211,10 @@ index.controller('tailorDataCtrl',
 			'stars':$scope.stars,
 			'brand':$scope.brand,
 			'remark':$scope.remark,
-			'lifemediaid':[],
-			'workmediaid':[],
-			'artmediaid':[],
-			'goodsmediaid':[],
+			'lifemediaid':$scope.lifemediaid,
+			'workmediaid':$scope.workmediaid,
+			'artmediaid':$scope.artmediaid,
+			'goodsmediaid':$scope.goodsmediaid
 		};
 		$http.post('/user/addcustomize.json',data, postCfg)
 		.then(function (resp) {

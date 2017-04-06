@@ -36,7 +36,7 @@ index.controller('worksCtrl',
 			'add':[],
 			'rm':[item.id]
 		};
-		$http.post('/user/setrecommend.json', postCfg)
+		$http.post('/user/setrecommend.json',data, postCfg)
 		.then(function (resp) {
 			if (1 === resp.data.code) {
 				getWorkList();
@@ -55,8 +55,9 @@ index.controller('worksCtrl',
 			'add':[item.id],
 			'rm':[]
 		};
-		$http.post('/user/setrecommend.json', postCfg)
+		$http.post('/user/setrecommend.json',data, postCfg)
 		.then(function (resp) {
+			console.log(resp);
 			if (1 === resp.data.code) {
 				getWorkList();
 			}
@@ -69,7 +70,7 @@ index.controller('worksCtrl',
 		var data={
 			'worksid':[item.id]
 		};
-		$http.post('/user/deleteworks.json', postCfg)
+		$http.post('/user/deleteworks.json',data, postCfg)
 		.then(function (resp) {
 			if (1 === resp.data.code) {
 				getWorkList();
@@ -101,7 +102,7 @@ index.controller('worksCtrl',
 	.then(function (resp) {
 		if (1 === resp.data.code) {
 			wx.config({
-			    debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+			    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
 			    appId: resp.data.data.appid, // 必填，公众号的唯一标识
 			    timestamp: resp.data.data.timestamp, // 必填，生成签名的时间戳
 			    nonceStr: resp.data.data.noncestr, // 必填，生成签名的随机串
@@ -156,9 +157,7 @@ index.controller('worksCtrl',
                 .then(function (resp) {
 				if (1 === resp.data.code) {
                     var confirm = alert('作品上传成功!');
-                  	confirm.then(function () {
-	                    getWorkList();
-                    });
+	                getWorkList();
 				}
 			}, function (resp) {
 		        // alert('数据请求失败，请稍后再试！');

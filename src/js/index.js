@@ -5,7 +5,7 @@ var transFn = function(data) {
             headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
             transformRequest: transFn
         },
-        picBasePath = 'http://101.200.205.162:8891';
+        picBasePath = 'http://47.92.29.81:8891';
 var index = angular.module('index',
 	['ngRoute', 'mobile-angular-ui', 'mobile-angular-ui.gestures', 'ngFileUpload', 'infinite-scroll']);
 index.config(['$routeProvider','$locationProvider', function ($routeProvider,$locationProvider) {
@@ -39,6 +39,10 @@ index.config(['$routeProvider','$locationProvider', function ($routeProvider,$lo
 		.when('/payTailor', {
 			templateUrl: '../html/payTailor.html',
 			controller: 'payTailorCtrl'
+		})
+		.when('/compeletPayTailor', {
+			templateUrl: '../html/compeletPayTailor.html',
+			controller: 'compeletPayTailorCtrl'
 		})
 		.when('/myTailor', {
 			templateUrl: '../html/myTailor.html',
@@ -92,6 +96,7 @@ index.config(['$routeProvider','$locationProvider', function ($routeProvider,$lo
             data: data,
             async: false,
             success: function (resp) {
+            	// alert('授权成功');
                 resp = JSON.parse(resp);
                 if (resp.errcode) {
                   alert(resp.errmsg);
@@ -114,6 +119,8 @@ index.config(['$routeProvider','$locationProvider', function ($routeProvider,$lo
 	                      		sessionStorage.setItem('user', JSON.stringify(resp.data));
 							}else if(2 === resp.code){
 								window.location.href = 'fast_login';
+							}else if(0 === resp.code){
+								alert(resp.reason);
 							}
 			            },
 			            error: function (resp) {

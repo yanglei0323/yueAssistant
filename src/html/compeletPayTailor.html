@@ -1,0 +1,41 @@
+<div class="parent-container bg-color-ececec">
+    <div id="payTailor-container">
+        <div class="tailor-info margin-top-10">
+            <div class="left-content">
+                <img ng-src="{{user.avatar}}" class="case-img">
+                <span class="item-info">
+                    <span class="tailor-title">
+                        <span class="designer-name" ng-bind="customizeOrder.username">LUCY</span>
+                        <span ng-bind="customizeOrder.typename">私人定制</span>
+                    </span>
+                    <span class="tailor-time">
+                        <span ng-bind="customizeOrder.time">2017-03-24 10:25</span>
+                    </span>
+                    <span class="tailor-price">
+                        <span>￥<span ng-bind="customizeOrder.price">388</span></span>
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div class="pay-type">
+            <span>支付方式：</span>
+        </div>
+        <a href="">
+            <div class="nav-item">
+                <div class="left-content">
+                    <img src="../../assets/images/wx.png" class="wx-icon">
+                    <span class="item-name">微信支付</span>
+                </div>
+                <img src="../../assets/images/selected.png" class="selected-icon">
+            </div>
+        </a>
+        <div class="confirm-btn">
+            <span class="left-btn">
+                合计：￥<span ng-bind="customizeOrder.price">388</span>
+            </span>
+            <span class="right-btn" ng-click="toPay()">
+                确认支付
+            </span>
+        </div>
+    </div>
+</div>

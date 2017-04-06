@@ -1,10 +1,20 @@
-index.controller('payTailorCtrl',
+index.controller('compeletPayTailorCtrl',
 	['$scope', '$http', '$window', '$location', '$rootScope',
 	function ($scope, $http, $window, $location, $rootScope) {
-	$scope.customizeOrder = $rootScope.customizeOrder;
 	var user=JSON.parse(sessionStorage.getItem('user'));
 	$scope.user=user;
-	
+	// 获取定制进度
+	$http.post('/user/customizedetail.json', postCfg)
+	.then(function (resp) {
+		// console.log(resp);
+		if (1 === resp.data.code) {
+			$scope.customizeOrder = resp.data.data.order;
+		}
+	}, function (resp) {
+        // alert('数据请求失败，请稍后再试！');
+	});
+
+
 	$scope.toPay = function (){
 		// $location.path('personalTailor');
 		var predata = {

@@ -47,7 +47,7 @@
             </span>
         </div>
         <div class="works-img-content padding-bottom-20">
-            <div class="works-item" ng-repeat="item in allworks" ng-click="addAllworks(item)">
+            <div class="works-item works-border-solid" ng-repeat="item in allworks" ng-click="addAllworks(item)">
                 <img ng-src="{{item.imgurl}}" alt="" class="worklist-img">
                 <span class="work-btn">
                     <img src="../../assets/images/work_select.png" alt="" ng-if="item.recommend == 1">
@@ -56,7 +56,7 @@
             </div>
         </div>
         <div class="update-btn" ng-click="updateWorkImg()">
-            <span>
+            <span class="update-content">
                 <img src="../../assets/images/works_update.png" alt="">
                 <span>上传作品</span>
             </span>

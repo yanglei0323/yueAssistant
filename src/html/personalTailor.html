@@ -28,5 +28,19 @@
         <div class="bottom-btn" ng-click="tailorData()" ng-if="customizeInfo.status == 0">
             <span>开启专属定制</span>
         </div>
+
+        <div class="prompt-fixed" ng-if="customizeInfo.status == 1">
+            <div class="prompt-div">
+                <div class="prompt-content">
+                    <div class="prompt-title">
+                        <span>您有定制订单未付款，是否前往完成支付？</span>
+                    </div>
+                    <div class="prompt-bottom">
+                        <span class="item prompt-false" ng-click="promptFalse()">下次吧</span>
+                        <span class="item prompt-true" ng-click="promptTrue()">去支付</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

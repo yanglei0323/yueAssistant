@@ -54,7 +54,7 @@ index.controller('homePageCtrl',
 	.then(function (resp) {
 		if (1 === resp.data.code) {
 			wx.config({
-			    debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+			    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
 			    appId: resp.data.data.appid, // 必填，公众号的唯一标识
 			    timestamp: resp.data.data.timestamp, // 必填，生成签名的时间戳
 			    nonceStr: resp.data.data.noncestr, // 必填，生成签名的随机串
@@ -68,10 +68,10 @@ index.controller('homePageCtrl',
 			wx.ready(function () {
 			//分享给朋友
 			wx.onMenuShareAppMessage({
-				title: "美业设计助手·一键生成美图", // 分享标题
+				title: "小悦助手·一键生成美图", // 分享标题
 				desc: "让美业人的每一条朋友圈，都在这里找到模板", // 分享描述
-				link: window.location.href, // 分享链接
-				imgUrl: "http://sheji.yanzijia.cn/static/img/share.jpg", // 分享图标
+				link: 'http://syrapi.yueyishujia.com/yueAssistant/build/html/homePage/'+uuid, // 分享链接
+				imgUrl: "http://syrapi.yueyishujia.com/yueAssistant/assets/images/logo.png", // 分享图标
 				type: 'link', // 分享类型,music、video或link，不填默认为link
 				dataUrl: "", // 如果type是music或video，则要提供数据链接，默认为空
 				success: function () {
@@ -87,8 +87,8 @@ index.controller('homePageCtrl',
 			wx.onMenuShareTimeline({
 				title: "小悦助手·一键生成美图", // 分享标题
 				desc: "让美业人的每一条朋友圈，都在这里找到模板", // 分享描述
-				link: window.location.href, // 分享链接
-				imgUrl: "http://sheji.yanzijia.cn/static/img/share.jpg", // 分享图标
+				link: 'http://syrapi.yueyishujia.com/yueAssistant/build/html/homePage/'+uuid, // 分享链接
+				imgUrl: "http://syrapi.yueyishujia.com/yueAssistant/assets/images/logo.png", // 分享图标
 				success: function () {
 				// 用户确认分享后执行的回调函数
 				//$.diyAlert("分享到朋友圈成功！");

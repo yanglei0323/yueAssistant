@@ -94,9 +94,12 @@ index.controller('fastLoginCtrl', ['$scope', '$http', '$window', '$location', '$
             else if (0 === resp.data.code) {
                 $scope.modalText=resp.data.reason;
                 $('.prompt-container').show().fadeOut(2000);
+            }else {
+                $scope.modalText=resp.data.reason;
+                $('.prompt-container').show().fadeOut(2000);
             }
         }, function (resp) {
-            // alert('数据请求失败，请稍后再试！');
+            alert(resp.reason);
         });
     };
 

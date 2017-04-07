@@ -35,7 +35,7 @@ index.controller('homePageCtrl',
     };
     // 点击关闭弹窗
     $scope.promptFalse = function (){
-    	$('.prompt-fixed').fadeOut(500);
+    	$('.prompt-fixed').fadeOut(10);
     };
     // 获取分享信息
 	$http.post('/user/mypage/share.json', postCfg)

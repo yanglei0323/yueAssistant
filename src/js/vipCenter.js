@@ -35,7 +35,7 @@ index.controller('vipCenterCtrl',
 		$('.up-muenu').show();
 	};
 	$scope.hideMenu = function (){
-		$('.up-muenu').fadeOut(1000);
+		$('.up-muenu').fadeOut(10);
 	};
 
 	// 确认购买

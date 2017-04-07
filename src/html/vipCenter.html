@@ -14,10 +14,10 @@
                         <img src="../../assets/images/vip_center_close.png" class="vip-close-icon" ng-click="hideMenu()">
                     </div>
                     <div class="nav-item" ng-repeat="vip in vipList">
-                        <div class="left-content">
+                        <div class="left-content" ng-click="selectVip(vip)">
                             <span>
-                                <img src="../../assets/images/vip_select.png" class="vip-select-icon" ng-if="!vip.selected" ng-click="selectVip(vip)">
-                                <img src="../../assets/images/vip_selected.png" class="vip-select-icon" ng-if="vip.selected" ng-click="selectVip(vip)">
+                                <img src="../../assets/images/vip_select.png" class="vip-select-icon" ng-if="!vip.selected" >
+                                <img src="../../assets/images/vip_selected.png" class="vip-select-icon" ng-if="vip.selected" >
                             </span>
                             <span class="current-price"><span ng-bind="vip.currentprice"></span>元/<span ng-bind="vip.name"></span></span>
                             <span class="current-price-day">(<span ng-bind="vip.perdayprice"></span>元/天)</span>

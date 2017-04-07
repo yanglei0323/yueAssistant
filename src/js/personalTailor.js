@@ -26,7 +26,7 @@ index.controller('personalTailorCtrl',
 	};
 	// 取消
 	$scope.promptFalse = function (){
-		$('.prompt-fixed').fadeOut();
+		$('.prompt-fixed').fadeOut(10);
 	};
 	// 去付款
 	$scope.promptTrue = function (){

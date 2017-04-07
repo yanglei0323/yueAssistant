@@ -61,7 +61,7 @@ index.controller('editInformationCtrl',
 	};
 	// 未填写信息时继续填写
 	$scope.promptTrue = function (){
-		$('.prompt-fixed').fadeOut(500);
+		$('.prompt-fixed').fadeOut(10);
 	};
 	// 保存信息
 	$scope.saveInformation = function (){
@@ -120,7 +120,7 @@ index.controller('editInformationCtrl',
 		level.selected = !level.selected;
 		$scope.worklevelid = level.id;
 		$scope.worklevel=level.name;
-		$('.fixed-content').fadeOut(500);
+		$('.fixed-content').fadeOut(10);
 	};
 	var data={
 		'url':window.location.href 

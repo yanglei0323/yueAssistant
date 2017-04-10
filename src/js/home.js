@@ -37,9 +37,38 @@ index.controller('homeCtrl',
 	$scope.vipCenter = function (){
 		$location.path('vipCenter');
 	};
-	//早晚安跳转
-	$scope.morningNight = function (){
-		$location.path('morningNight');
+	//模板跳转
+	$scope.showTemplate = function (num){
+		switch (num) {
+			case 1:
+				// 早晚安
+				$location.path('morningNight');
+				break;
+			case 2:
+				// 客照展示
+				$location.path('morningNight');
+				break;
+			case 3:
+				// 通知海报
+				$location.path('morningNight');
+				break;
+			case 4:
+				// 个人推广
+				$location.path('morningNight');
+				break;
+			case 5:
+				// 节日问候
+				$location.path('morningNight');
+				break;
+			case 6:
+				// 段子笑话
+				$location.path('joke');
+				break;
+			case 7:
+				// 生活日常
+				$location.path('morningNight');
+				break;
+		}
 	};
 	//个人主页跳转
 	$scope.goHomePage = function (){

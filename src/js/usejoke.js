@@ -4,6 +4,7 @@ index.controller('usejokeCtrl',
 	var user=JSON.parse(sessionStorage.getItem('user'));
 	$scope.user=user;
 	$scope.btnText = '立即使用';
+	$scope.loading=false;
 	console.log($scope.user);
 	// 类型type
 	var num = $routeParams.num;
@@ -28,12 +29,15 @@ index.controller('usejokeCtrl',
 	};
 	// 切换图片
 	$scope.changeImg =function (){
+		$scope.loading=true;
 		if($scope.page >=10){
 			$scope.page=1;
 			$scope.showImg='../../assets/images/joke/type'+num+'/img_'+$scope.page+'.png';
+			$scope.loading=false;
 		}else{
 			$scope.page+=1;
 			$scope.showImg='../../assets/images/joke/type'+num+'/img_'+$scope.page+'.png';
+			$scope.loading=false;
 		}
 	};
 }]);

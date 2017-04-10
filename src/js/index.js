@@ -135,12 +135,12 @@ index.config(['$routeProvider','$locationProvider', function ($routeProvider,$lo
         });
     }
 	
-	if (navigator.geolocation) {
-    	navigator.geolocation.getCurrentPosition(showPosition);
-    }
-    else {
-    	alert('当前浏览器不支持navigator.geolacation');
-    }
+	// if (navigator.geolocation) {
+ //    	navigator.geolocation.getCurrentPosition(showPosition);
+ //    }
+ //    else {
+ //    	alert('当前浏览器不支持navigator.geolacation');
+ //    }
 })();
 
 function showPosition(position) {

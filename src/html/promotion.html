@@ -1,9 +1,9 @@
 <div class="parent-container bg-color-ececec">
     <div id="morningNight-container">
         <div class="myTailor-title">
-            <span class="item" ng-click="activeTab=1" ng-class="{'active': activeTab == 1}">主页风格</span>
-            <span class="item" ng-click="activeTab=2" ng-class="{'active': activeTab == 2}">个性名片</span>
-            <span class="item" ng-click="activeTab=3" ng-class="{'active': activeTab == 3}">朋友圈</span>
+            <span class="item" ng-click="changeTab(1)" ng-class="{'active': activeTab == 1}">主页风格</span>
+            <span class="item" ng-click="changeTab(2)" ng-class="{'active': activeTab == 2}">个性名片</span>
+            <span class="item" ng-click="changeTab(3)" ng-class="{'active': activeTab == 3}">朋友圈</span>
         </div>
         <div class="myTailor-info-content" ng-if="activeTab == 1" ng-click="add()">
             <span class="case-item" ng-click="changeHomePage(1)">
@@ -41,10 +41,21 @@
         </div>
 
         <div class="myTailor-info-content" ng-if="activeTab == 3">
-            <span class="case-item">
-                <span class="case-type"><img src="../../assets/images/personalTailor_1.png" alt=""></span>
+            <span class="case-item" ng-click="useTemplate(1)">
+                <span class="case-type"><img src="../../assets/images/promotion/type1/img_1.png" alt=""></span>
                 <span class="case-title">简约话语</span>
             </span>
+            <span class="case-item" ng-click="useTemplate(2)">
+                <span class="case-type"><img src="../../assets/images/promotion/type2/img_1.png" alt=""></span>
+                <span class="case-title">匠人精神</span>
+            </span>
+            <span class="case-item" ng-click="useTemplate(3)">
+                <span class="case-type"><img src="../../assets/images/promotion/type3/img_1.png" alt=""></span>
+                <span class="case-title">清新文艺</span>
+            </span>
+        </div>
+        <div class="loading-content" ng-if="loading">
+            <img src="../../assets/images/loading.gif" alt="">
         </div>
     </div>
 </div>

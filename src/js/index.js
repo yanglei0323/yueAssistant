@@ -76,6 +76,10 @@ index.config(['$routeProvider','$locationProvider', function ($routeProvider,$lo
 			templateUrl: '../html/usejoke.html',
 			controller: 'usejokeCtrl'
 		})
+		.when('/wechatCircle/:num', {
+			templateUrl: '../html/wechatCircle.html',
+			controller: 'wechatCircleCtrl'
+		})
 		.when('/promotion', {
 			templateUrl: '../html/promotion.html',
 			controller: 'promotionCtrl'

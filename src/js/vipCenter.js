@@ -77,7 +77,7 @@ index.controller('vipCenterCtrl',
 						               $location.path('/');
 						           }
 						           else {
-						               alert('支付失败' + res.err_msg);
+						               alert('支付失败,请稍后再试！');
 						           }
 						       }
 						   );

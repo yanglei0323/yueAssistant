@@ -31,7 +31,17 @@
             <div class="line-title-text"><span>个人标签</span></div>
             <div class="line-title-line"></div>
         </div>
-        <div class="point-label">
+        <div class="point-label" ng-if="user.displaytype == 1">
+            <span class="item" ng-repeat="label in pointLabel">
+                <span ng-bind="label"></span>
+            </span>
+        </div>
+        <div class="point-label1" ng-if="user.displaytype == 2">
+            <span class="item" ng-repeat="label in pointLabel">
+                <span ng-bind="label"></span>
+            </span>
+        </div>
+        <div class="point-label2" ng-if="user.displaytype == 3">
             <span class="item" ng-repeat="label in pointLabel">
                 <span ng-bind="label"></span>
             </span>
@@ -60,7 +70,7 @@
         <div class="dashed-line"></div>
         <div class="nav-item margin-top-30">
             <div class="left-content">
-                <img src="../../assets/images/home_page_time.png" alt="" class="home-page-price">
+                <img src="../../assets/images/home_page_time.png" alt="" class="home-page-price home-page-time">
                 <span class="item-title">服务时间</span>
             </div>
         </div>
@@ -78,7 +88,23 @@
             <span>周六</span>
             <span>周日</span>
         </div>
-        <div class="work-state-content">
+        <div class="work-state-content" ng-if="user.displaytype == 1">
+            <div class="work-state-item" ng-repeat="work in workTime track by $index" ng-class="{'active-work':work == 0}">
+                <span ng-if="work == 1">上</span>
+                <span ng-if="work == 1">班</span>
+                <span ng-if="work == 0">休</span>
+                <span ng-if="work == 0">息</span>
+            </div>
+        </div>
+        <div class="work-state-content1" ng-if="user.displaytype == 2">
+            <div class="work-state-item" ng-repeat="work in workTime track by $index" ng-class="{'active-work':work == 0}">
+                <span ng-if="work == 1">上</span>
+                <span ng-if="work == 1">班</span>
+                <span ng-if="work == 0">休</span>
+                <span ng-if="work == 0">息</span>
+            </div>
+        </div>
+        <div class="work-state-content2" ng-if="user.displaytype == 3">
             <div class="work-state-item" ng-repeat="work in workTime track by $index" ng-class="{'active-work':work == 0}">
                 <span ng-if="work == 1">上</span>
                 <span ng-if="work == 1">班</span>

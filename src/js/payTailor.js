@@ -35,7 +35,7 @@ index.controller('payTailorCtrl',
 				               $location.path('personalTailor');
 				           }
 				           else {
-				               alert('支付失败' + res.err_msg);
+				               alert('支付失败，请稍后再试！');
 				           }
 				       }
 				   );

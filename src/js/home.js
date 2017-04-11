@@ -1,7 +1,6 @@
 index.controller('homeCtrl',
 	['$scope', '$http', '$window', '$location', '$rootScope',
 	function ($scope, $http, $window, $location, $rootScope) {
-
 	// 获取用户信息并存储
 	$http.post('/user/mine.json', postCfg)
 	.then(function (resp) {
@@ -54,7 +53,7 @@ index.controller('homeCtrl',
 				break;
 			case 4:
 				// 个人推广
-				$location.path('morningNight');
+				$location.path('promotion');
 				break;
 			case 5:
 				// 节日问候

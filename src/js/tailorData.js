@@ -2,7 +2,7 @@ index.controller('tailorDataCtrl',
 	['$scope', '$http', '$window', '$location', '$rootScope',
 	function ($scope, $http, $window, $location, $rootScope) {
 	var wxdata={
-		'url':window.location.href 
+		'url':$window.location.href.split('#')[0]  
 	};
 	$http.post('/user/unl/wzinfo.json',wxdata, postCfg)
 	.then(function (resp) {

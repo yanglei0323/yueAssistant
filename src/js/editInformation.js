@@ -123,7 +123,7 @@ index.controller('editInformationCtrl',
 		$('.fixed-content').fadeOut(10);
 	};
 	var data={
-		'url':window.location.href 
+		'url':$window.location.href.split('#')[0] 
 	};
 	$http.post('/user/unl/wzinfo.json',data, postCfg)
 	.then(function (resp) {

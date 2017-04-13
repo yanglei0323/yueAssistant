@@ -1,6 +1,34 @@
 index.controller('chooseQrcodeCtrl',
 	['$scope', '$http', '$window', '$location', '$rootScope',
 	function ($scope, $http, $window, $location, $rootScope) {
+  var data={
+    'url':$window.location.href.split('#')[0]  
+  };
+  $http.post('/user/unl/wzinfo.json',data, postCfg)
+  .then(function (resp) {
+    if (1 === resp.data.code) {
+      wx.config({
+          debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+          appId: resp.data.data.appid, // 必填，公众号的唯一标识
+          timestamp: resp.data.data.timestamp, // 必填，生成签名的时间戳
+          nonceStr: resp.data.data.noncestr, // 必填，生成签名的随机串
+          signature: resp.data.data.signature,// 必填，签名，见附录1
+          jsApiList: [
+            'chooseImage',
+            'uploadImage'
+          ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+      });
+      // wx.checkJsApi({
+      //     jsApiList: ['chooseImage'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
+      //     success: function(res) {
+      //         // 以键值对的形式返回，可用的api值true，不可用为false
+      //         // 如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
+      //     }
+      // });
+    }
+  }, function (resp) {
+        // alert('数据请求失败，请稍后再试！');
+  });
 	var user=JSON.parse(sessionStorage.getItem('user'));
 	if(user.qrcode === ''){
 		user.qrcode ='../../assets/images/edit-headimg.png';
@@ -8,27 +36,7 @@ index.controller('chooseQrcodeCtrl',
 		user.qrcode = picBasePath + user.qrcode;
 	}
 	$scope.user=user;
-	var data={
-		'url':window.location.href 
-	};
-	$http.post('/user/unl/wzinfo.json',data, postCfg)
-	.then(function (resp) {
-		if (1 === resp.data.code) {
-			wx.config({
-			    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-			    appId: resp.data.data.appid, // 必填，公众号的唯一标识
-			    timestamp: resp.data.data.timestamp, // 必填，生成签名的时间戳
-			    nonceStr: resp.data.data.noncestr, // 必填，生成签名的随机串
-			    signature: resp.data.data.signature,// 必填，签名，见附录1
-			    jsApiList: [
-			    	'chooseImage',
-				    'uploadImage'
-			    ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
-			});
-		}
-	}, function (resp) {
-        // alert('数据请求失败，请稍后再试！');
-	});
+	
 	// 点击上传
     $scope.addPhoto= function () {
         wx.chooseImage({

@@ -19,5 +19,8 @@ index.controller('morningNightCtrl',
     // 早安模板跳转
     $scope.useMornTemplate = function (num){
     	$location.path('useMorn/'+num);
+    };// 早安模板跳转
+    $scope.useNightTemplate = function (num){
+        $location.path('useNight/'+num);
     };
 }]);

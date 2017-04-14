@@ -10,7 +10,7 @@
         <div class="usejoke-img-content" ng-if="!showcanvas">
             <img ng-src="{{canvasImg}}" alt="" class="templateImg">
         </div>
-        <div class="iscompelete" ng-if="!user.iscomplete">
+        <div class="iscompelete" ng-show="!user.iscomplete">
             <span>个人信息处于未完善状态，部分模板生成会导致信息缺失，</span>
             <span>请先去<span class="userinfo" ng-click="editInformation()">我的</span>完善信息</span>
             <img src="../../assets/images/close.png" alt="" class="closeImg" ng-click="closeText()">

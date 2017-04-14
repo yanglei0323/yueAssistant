@@ -72,6 +72,10 @@ index.config(['$routeProvider','$locationProvider', function ($routeProvider,$lo
 			templateUrl: '../html/useMorn.html',
 			controller: 'useMornCtrl'
 		})
+		.when('/useNight/:num', {
+			templateUrl: '../html/useNight.html',
+			controller: 'useNightCtrl'
+		})
 		.when('/joke', {
 			templateUrl: '../html/joke.html',
 			controller: 'jokeshowCtrl'

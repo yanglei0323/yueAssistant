@@ -65,7 +65,7 @@ index.controller('homeCtrl',
 				break;
 			case 7:
 				// 生活日常
-				$location.path('morningNight');
+				$location.path('life');
 				break;
 		}
 	};

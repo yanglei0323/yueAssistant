@@ -108,6 +108,10 @@ index.config(['$routeProvider','$locationProvider', function ($routeProvider,$lo
 			templateUrl: '../html/homePage.html',
 			controller: 'homePageCtrl'
 		})
+		.when('/life', {
+			templateUrl: '../html/life.html',
+			controller: 'lifeCtrl'
+		})
 		.otherwise({
 			redirectTo: '/'
 		});

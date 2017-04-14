@@ -57,7 +57,7 @@ index.controller('homeCtrl',
 				break;
 			case 5:
 				// 节日问候
-				$location.path('morningNight');
+				$location.path('holiday');
 				break;
 			case 6:
 				// 段子笑话

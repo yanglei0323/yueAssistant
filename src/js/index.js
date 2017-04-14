@@ -84,6 +84,18 @@ index.config(['$routeProvider','$locationProvider', function ($routeProvider,$lo
 			templateUrl: '../html/usejoke.html',
 			controller: 'usejokeCtrl'
 		})
+		.when('/holiday', {
+			templateUrl: '../html/holiday.html',
+			controller: 'holidayCtrl'
+		})
+		.when('/useHoliday/:num', {
+			templateUrl: '../html/useHoliday.html',
+			controller: 'useHolidayCtrl'
+		})
+		.when('/useGreet/:num', {
+			templateUrl: '../html/useGreet.html',
+			controller: 'useGreetCtrl'
+		})
 		.when('/wechatCircle/:num', {
 			templateUrl: '../html/wechatCircle.html',
 			controller: 'wechatCircleCtrl'

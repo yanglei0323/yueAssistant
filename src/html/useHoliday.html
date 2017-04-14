@@ -1,0 +1,39 @@
+<div class="parent-container bg-color-fff">
+    <div id="usejoke-container" ng-click="chengeText()">
+        <!-- <div class="usejoke-img-content">
+            <img ng-src="{{showImg}}" alt="" class="templateImg">
+        </div> -->
+        <div class="hideImg">
+            <img id="starImg" ng-src="{{showImg}}" />
+        </div>
+        <canvas id="main" ng-show="showcanvas"></canvas>
+        <div class="usejoke-img-content" ng-if="!showcanvas">
+            <img ng-src="{{canvasImg}}" alt="" class="templateImg">
+        </div>
+        <div class="iscompelete" ng-if="!user.iscomplete">
+            <span>个人信息处于未完善状态，部分模板生成会导致信息缺失，</span>
+            <span>请先去<span class="userinfo" ng-click="editInformation($event)">我的</span>完善信息</span>
+            <img src="../../assets/images/close.png" alt="" class="closeImg" ng-click="closeText($event)">
+        </div>
+        <div class="changeText">
+            <img src="../../assets/images/poster-edit-icon.png" alt="" ng-click="changeImg($event)">
+        </div>
+        <div class="bottom-btn">
+            <div class="btn-relative">
+                <img src="../../assets/images/left_row.png" alt="" class="left-back" ng-click="goBack($event)">
+                <span ng-click="useTemplatePage($event)" ng-bind="btnText"></span>
+            </div>
+        </div>
+        <div class="loading-content" ng-if="loading">
+            <img src="../../assets/images/loading.gif" alt="">
+        </div>
+        <div class="name-input-fixed">
+            <div class="name-input-content">
+                <span>请输入昵称(最多可添加三个字)</span>
+                <span><input type="text" placeholder="用于主页和生成海报" ng-model="name"></span>
+                <span class="name-input-btn" ng-click="updateText()">确 认</span>
+            </div>
+        </div>
+        
+    </div>
+</div>

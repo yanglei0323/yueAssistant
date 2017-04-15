@@ -25,7 +25,7 @@ index.controller('useGreetCtrl',
 	$scope.showImg='../../assets/images/greet/type'+num+'/img_'+$scope.page+'.png';
 	for(var c=1;c<3;c++){
 		var preImg='../../assets/images/greet/type'+num+'/img_'+c+'.png';
-		$('#starImg').append("<img src="+preImg+">");
+		$('.hideImg').append("<img src="+preImg+">");
 	}
 	// 完善信息页面跳转
 	$scope.editInformation = function (e){

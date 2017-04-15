@@ -23,7 +23,7 @@ index.controller('useMornCtrl',
 	$scope.showImg='../../assets/images/morning/type'+num+'/img_'+$scope.page+'.png';
 	for(var c=1;c<6;c++){
 		var preImg='../../assets/images/goodnight/type'+num+'/img_'+c+'.png';
-		$('#starImg').append("<img src="+preImg+">");
+		$('.hideImg').append("<img src="+preImg+">");
 	}
 	// 完善信息页面跳转
 	$scope.editInformation = function (){

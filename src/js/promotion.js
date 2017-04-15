@@ -1,6 +1,8 @@
 index.controller('promotionCtrl',
 	['$scope', '$http', '$window', '$location', '$rootScope',
 	function ($scope, $http, $window, $location, $rootScope) {
+    var user=JSON.parse(sessionStorage.getItem('user'));
+    $scope.user=user;
     $scope.activeTab=1;
     if($rootScope.activeTab){
         $scope.activeTab=$rootScope.activeTab;
@@ -83,5 +85,9 @@ index.controller('promotionCtrl',
     //模板跳转
     $scope.useTemplate = function (num){
         $location.path('wechatCircle/'+num);
+    };
+    //个性名片模板跳转
+    $scope.useCard = function (num){
+        window.location.href='../template/card/index.html?num='+num+"&uuid="+$scope.user.uuid;
     };
 }]);

@@ -1,0 +1,33 @@
+<div class="parent-container bg-color-fff">
+    <div id="usejoke-container">
+        <!-- <div class="usejoke-img-content">
+            <img ng-src="{{showImg}}" alt="" class="templateImg">
+        </div> -->
+        <div class="hideImg">
+            <img id="starImg" ng-src="{{showImg}}" />
+            <img ng-src="{{updateImg}}" class="userAvatar" style="width:100%;height:auto;">
+        </div>
+        <canvas id="main" ng-show="showcanvas"></canvas>
+        <div class="usejoke-img-content" ng-if="!showcanvas">
+            <img ng-src="{{canvasImg}}" alt="" class="templateImg">
+        </div>
+        <div class="iscompelete" ng-show="!user.iscomplete">
+            <span>个人信息处于未完善状态，部分模板生成会导致信息缺失，</span>
+            <span>请先去<span class="userinfo" ng-click="editInformation()">我的</span>完善信息</span>
+            <img src="../../assets/images/close.png" alt="" class="closeImg" ng-click="closeText()">
+        </div>
+        <div class="changeText">
+            <img src="../../assets/images/poster-edit-icon.png" alt="">
+            <input class="upload" name="upload" type="file" accept="image/*" onfocus="this.blur()"/>
+        </div>
+        <div class="bottom-btn">
+            <div class="btn-relative">
+                <img src="../../assets/images/left_row.png" alt="" class="left-back" ng-click="goBack()">
+                <span ng-click="useTemplatePage()" ng-bind="btnText"></span>
+            </div>
+        </div>
+        <div class="loading-content" ng-if="loading">
+            <img src="../../assets/images/loading.gif" alt="">
+        </div>
+    </div>
+</div>

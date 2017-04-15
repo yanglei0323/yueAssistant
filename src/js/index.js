@@ -108,6 +108,10 @@ index.config(['$routeProvider','$locationProvider', function ($routeProvider,$lo
 			templateUrl: '../html/promotion.html',
 			controller: 'promotionCtrl'
 		})
+		.when('/guest', {
+			templateUrl: '../html/guest.html',
+			controller: 'guestCtrl'
+		})
 		.when('/homePage/:uuid', {
 			templateUrl: '../html/homePage.html',
 			controller: 'homePageCtrl'

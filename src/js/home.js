@@ -45,7 +45,7 @@ index.controller('homeCtrl',
 				break;
 			case 2:
 				// 客照展示
-				$location.path('morningNight');
+				$location.path('guest');
 				break;
 			case 3:
 				// 通知海报

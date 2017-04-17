@@ -88,7 +88,6 @@ index.controller('worksCtrl',
 	};
 	// 保存操作
 	$scope.saveWorkImg = function (){
-		alert('保存成功！');
 		$timeout(function () {
             $window.history.back();
         });
@@ -156,7 +155,7 @@ index.controller('worksCtrl',
                 $http.post('/user/uploadworks.json', data1,postCfg)
                 .then(function (resp) {
 				if (1 === resp.data.code) {
-                    var confirm = alert('作品上传成功!');
+                    // var confirm = alert('作品上传成功!');
 	                getWorkList();
 				}
 			}, function (resp) {

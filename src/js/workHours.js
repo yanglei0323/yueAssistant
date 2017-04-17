@@ -83,7 +83,7 @@ index.controller('workHoursCtrl',
 				$location.path('fast_login');
 			}
 			else if (1 === resp.data.code) {
-				alert('保存信息成功！');
+				// alert('保存信息成功！');
 				$timeout(function () {
                     $window.history.back();
                 });

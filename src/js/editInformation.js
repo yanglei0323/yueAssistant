@@ -97,7 +97,6 @@ index.controller('editInformationCtrl',
 			}
 			else if (1 === resp.data.code) {
 				$scope.isLogin = true;
-				alert('保存信息成功！');
 				$location.path('/');
 			}
 		}, function (resp) {
@@ -129,7 +128,7 @@ index.controller('editInformationCtrl',
 	.then(function (resp) {
 		if (1 === resp.data.code) {
 			wx.config({
-			    debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+			    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
 			    appId: resp.data.data.appid, // 必填，公众号的唯一标识
 			    timestamp: resp.data.data.timestamp, // 必填，生成签名的时间戳
 			    nonceStr: resp.data.data.noncestr, // 必填，生成签名的随机串

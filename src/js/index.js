@@ -120,6 +120,22 @@ index.config(['$routeProvider','$locationProvider', function ($routeProvider,$lo
 			templateUrl: '../html/life.html',
 			controller: 'lifeCtrl'
 		})
+		.when('/notice', {
+			templateUrl: '../html/notice.html',
+			controller: 'noticeCtrl'
+		})
+		.when('/useNotice/:num', {
+			templateUrl: '../html/useNotice.html',
+			controller: 'useNoticeCtrl'
+		})
+		.when('/useActive/:num', {
+			templateUrl: '../html/useActive.html',
+			controller: 'useActiveCtrl'
+		})
+		.when('/paySuccess', {
+			templateUrl: '../html/paySuccess.html',
+			controller: 'paySuccessCtrl'
+		})
 		.otherwise({
 			redirectTo: '/'
 		});

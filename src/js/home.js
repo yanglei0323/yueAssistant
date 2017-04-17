@@ -49,7 +49,7 @@ index.controller('homeCtrl',
 				break;
 			case 3:
 				// 通知海报
-				$location.path('morningNight');
+				$location.path('notice');
 				break;
 			case 4:
 				// 个人推广

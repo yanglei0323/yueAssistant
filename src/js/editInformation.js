@@ -105,7 +105,8 @@ index.controller('editInformationCtrl',
 	};
 	// 二维码上传页面跳转
 	$scope.chooseQrcode = function (){
-		$location.path('chooseQrcode');
+		// $location.path('chooseQrcode');
+		window.location.href = '/yueAssistant/build/html/chooseQrcode';
 	};
 	// 显示店内等级标签区域
 	$scope.showLevel = function (){

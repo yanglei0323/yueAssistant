@@ -5,7 +5,8 @@ index.controller('personalCenterCtrl',
 	$scope.user=user;
 	// 编辑个人信息跳转
 	$scope.editInformation = function (){
-		$location.path('editInformation');
+		// $location.path('editInformation');
+		window.location.href = '/yueAssistant/build/html/editInformation';
 	};
 	// 私人订制跳转
 	$scope.personalTailor = function (){
@@ -17,7 +18,8 @@ index.controller('personalCenterCtrl',
 	};
 	// 我的作品跳转
 	$scope.goWorks = function (){
-		$location.path('works');
+		// $location.path('works');
+		window.location.href = '/yueAssistant/build/html/works';
 	};
 	// 工作时间跳转
 	$scope.goWorkHours = function (){

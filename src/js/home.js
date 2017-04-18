@@ -75,7 +75,9 @@ index.controller('homeCtrl',
 			$('.prompt-fixed').show();
 			return;
 		}
-		$location.path('homePage/'+$scope.user.uuid);
+		// $location.path('homePage/'+$scope.user.uuid);
+
+		window.location.href = '/yueAssistant/build/html/homePage/'+$scope.user.uuid;
 	};
 	// 未填写信息时退出
 	$scope.promptFalse = function (){

@@ -116,6 +116,10 @@ index.config(['$routeProvider','$locationProvider', function ($routeProvider,$lo
 			templateUrl: '../html/homePage.html',
 			controller: 'homePageCtrl'
 		})
+		.when('/changeHomePage/:num', {
+			templateUrl: '../html/changeHomePage.html',
+			controller: 'changeHomePageCtrl'
+		})
 		.when('/life', {
 			templateUrl: '../html/life.html',
 			controller: 'lifeCtrl'

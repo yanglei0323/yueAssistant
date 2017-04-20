@@ -3,7 +3,7 @@ index.controller('promotionCtrl',
 	function ($scope, $http, $window, $location, $rootScope) {
     var user=JSON.parse(sessionStorage.getItem('user'));
     $scope.user=user;
-    $scope.activeTab=1;
+    $scope.activeTab=2;
     if($rootScope.activeTab){
         $scope.activeTab=$rootScope.activeTab;
     }

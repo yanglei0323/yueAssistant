@@ -152,14 +152,18 @@ index.controller('worksCtrl',
                 var data1 = {
                     worksmediaid: $scope.serverId
                 };
+                // alert($scope.serverId);
                 $http.post('/user/uploadworks.json', data1,postCfg)
                 .then(function (resp) {
 				if (1 === resp.data.code) {
                     // var confirm = alert('作品上传成功!');
+                    // alert('上传成功');
 	                getWorkList();
+				}else{
+					// alert(resp);
 				}
 			}, function (resp) {
-		        // alert('数据请求失败，请稍后再试！');
+		        // alert(resp);
 			});
           },
           fail: function (res) {

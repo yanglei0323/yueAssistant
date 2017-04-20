@@ -130,5 +130,4 @@ index.controller('homePageCtrl',
 	}, function (resp) {
         // alert('数据请求失败，请稍后再试！');
 	});
-    
 }]);

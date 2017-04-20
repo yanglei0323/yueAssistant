@@ -30,7 +30,7 @@ index.controller('homeCtrl',
 	};
 	// 登录跳转
 	$scope.setIn = function (){
-		$location.path('fast_login');
+		// $location.path('fast_login');
 	};
 	//VIP会员跳转
 	$scope.vipCenter = function (){

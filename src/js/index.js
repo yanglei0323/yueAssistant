@@ -167,7 +167,7 @@ index.config(['$routeProvider','$locationProvider', function ($routeProvider,$lo
             	// alert('授权成功');
                 resp = JSON.parse(resp);
                 if (resp.errcode) {
-                  alert(resp.errmsg);
+                  // alert(resp.errmsg);
                 }
                 else {
                   // 获取授权信息成功
@@ -188,11 +188,11 @@ index.config(['$routeProvider','$locationProvider', function ($routeProvider,$lo
 							}else if(2 === resp.code){
 								window.location.href = 'fast_login';
 							}else if(0 === resp.code){
-								alert(resp.reason);
+								// alert(resp.reason);
 							}
 			            },
 			            error: function (resp) {
-			                alert(resp);
+			                // alert(resp);
 			            }
 			        });
                 }

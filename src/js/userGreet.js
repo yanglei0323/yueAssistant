@@ -6,6 +6,7 @@ index.controller('useGreetCtrl',
 	$scope.btnText = '一键生成海报';
 	$scope.loading=false;
 	$scope.showcanvas=true;
+	$scope.showmodel=false;
 	$scope.canvasImg="";
 	$scope.title = "点击添加标题";
 	$scope.desc = "点击添加海报描述";
@@ -36,6 +37,7 @@ index.controller('useGreetCtrl',
 	$scope.useTemplatePage = function (e){
 		e.stopPropagation();
 		saveImageInfo();
+		$scope.showmodel=true;
 		$scope.btnText = '长按保存至手机，再发到朋友圈炫耀';
 		// saveImageInfo();
 	};
@@ -46,6 +48,9 @@ index.controller('useGreetCtrl',
 	};
 	// 点击添加文字
 	$scope.chengeText = function (){
+		if($scope.showmodel){
+			return;
+		}
 		if(num == 1 && $scope.page == 1){
         	$(".name-input-fixed-1").show();
         }
@@ -72,6 +77,7 @@ index.controller('useGreetCtrl',
 	$scope.changeImg =function (e){
 		e.stopPropagation();
 		$scope.loading=true;
+		$scope.showmodel = false;
 		if($scope.page >=2){
 			$scope.page=1;
 			$scope.showImg='../../assets/images/greet/type'+num+'/img_'+$scope.page+'.png';
@@ -102,39 +108,76 @@ index.controller('useGreetCtrl',
         starImg.onload=function(){
             //先把图片绘制在这里
             mainCtx.drawImage(starImg,0,0,canvasWidth,canvasHeight);
-            if(num == 1 && $scope.page == 1){
-            	//读取用户的文本
-	            mainCtx.font = "normal bold 0.96rem myFirstFont";
-	            //设置用户文本填充颜色
-	            mainCtx.fillStyle = "#fff";
-	            //从坐标点(50,50)开始绘制文字
-	            var text1X=Math.floor(clientWidth*0.066);
-	            var text1Xx=Math.floor(clientWidth*0.1466);
-	            var text1Y=Math.floor(canvasHeight*0.145);
-	            var text1Yy=Math.floor(canvasHeight*0.349);
-	            mainCtx.fillText($scope.title,text1X,text1Y);
+            if (navigator.userAgent.match(/iphone/i)) {
+            	if(num == 1 && $scope.page == 1){
+	            	//读取用户的文本
+		            mainCtx.font = "normal bold 72px myFirstFont";
+		            //设置用户文本填充颜色
+		            mainCtx.fillStyle = "#fff";
+		            //从坐标点(50,50)开始绘制文字
+		            var text11X=Math.floor(clientWidth*0.066);
+		            var text11Xx=Math.floor(clientWidth*0.1466);
+		            var text11Y=Math.floor(canvasHeight*0.145);
+		            var text11Yy=Math.floor(canvasHeight*0.349);
+		            mainCtx.fillText($scope.title,text11X,text11Y);
 
-	            //读取用户的文本
-	            mainCtx.font = "normal bold 0.4rem myFirstFont";
-	            //设置用户文本填充颜色
-	            mainCtx.fillStyle = "#0f0f0b";
-	            mainCtx.fillText($scope.desc,text1Xx,text1Yy);
-            }else if(num == 1 && $scope.page == 2){
-            	//读取用户的文本
-	            mainCtx.font = "normal bold 0.4rem myFirstFont";
-	            //设置用户文本填充颜色
-	            mainCtx.fillStyle = "#fff";
-	            //从坐标点(50,50)开始绘制文字
-	            var text2X=Math.floor(clientWidth*0.586);
-	            var text2Y=Math.floor(canvasHeight*0.731);
-	            var text2Yy=Math.floor(canvasHeight*0.6848);
-	            var text2Yyy=Math.floor(canvasHeight*0.638);
-	            mainCtx.fillText($scope.desc3,text2X,text2Y);
+		            //读取用户的文本
+		            mainCtx.font = "normal bold 30px myFirstFont";
+		            //设置用户文本填充颜色
+		            mainCtx.fillStyle = "#0f0f0b";
+		            mainCtx.fillText($scope.desc,text11Xx,text11Yy);
+	            }else if(num == 1 && $scope.page == 2){
+	            	//读取用户的文本
+		            mainCtx.font = "normal bold 30px myFirstFont";
+		            //设置用户文本填充颜色
+		            mainCtx.fillStyle = "#fff";
+		            //从坐标点(50,50)开始绘制文字
+		            var text22X=Math.floor(clientWidth*0.586);
+		            var text22Y=Math.floor(canvasHeight*0.731);
+		            var text22Yy=Math.floor(canvasHeight*0.6848);
+		            var text22Yyy=Math.floor(canvasHeight*0.638);
+		            mainCtx.fillText($scope.desc3,text22X,text22Y);
 
-	            
-	            mainCtx.fillText($scope.desc2,text2X,text2Yy);
-	            mainCtx.fillText($scope.desc1,text2X,text2Yyy);
+		            
+		            mainCtx.fillText($scope.desc2,text22X,text22Yy);
+		            mainCtx.fillText($scope.desc1,text22X,text22Yyy);
+	            }
+            }else{
+	            if(num == 1 && $scope.page == 1){
+	            	//读取用户的文本
+		            mainCtx.font = "normal bold 0.96rem myFirstFont";
+		            //设置用户文本填充颜色
+		            mainCtx.fillStyle = "#fff";
+		            //从坐标点(50,50)开始绘制文字
+		            var text1X=Math.floor(clientWidth*0.066);
+		            var text1Xx=Math.floor(clientWidth*0.1466);
+		            var text1Y=Math.floor(canvasHeight*0.145);
+		            var text1Yy=Math.floor(canvasHeight*0.349);
+		            mainCtx.fillText($scope.title,text1X,text1Y);
+
+		            //读取用户的文本
+		            mainCtx.font = "normal bold 0.4rem myFirstFont";
+		            //设置用户文本填充颜色
+		            mainCtx.fillStyle = "#0f0f0b";
+		            mainCtx.fillText($scope.desc,text1Xx,text1Yy);
+	            }else if(num == 1 && $scope.page == 2){
+	            	//读取用户的文本
+		            mainCtx.font = "normal bold 0.4rem myFirstFont";
+		            //设置用户文本填充颜色
+		            mainCtx.fillStyle = "#fff";
+		            //从坐标点(50,50)开始绘制文字
+		            var text2X=Math.floor(clientWidth*0.586);
+		            var text2Y=Math.floor(canvasHeight*0.731);
+		            var text2Yy=Math.floor(canvasHeight*0.6848);
+		            var text2Yyy=Math.floor(canvasHeight*0.638);
+		            mainCtx.fillText($scope.desc3,text2X,text2Y);
+
+		            
+		            mainCtx.fillText($scope.desc2,text2X,text2Yy);
+		            mainCtx.fillText($scope.desc1,text2X,text2Yyy);
+	            }
             }
+            
             
 
         };

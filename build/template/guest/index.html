@@ -39,7 +39,7 @@
         </div>
         <div class="ui-justify">
             <button type="button" id="btnRotate" class="btn-middle" style="display:none">旋转</button>
-            <button type="button" id="btnCancel" class="btn-middle" data-track="取消">返回上一步</button>
+            <button type="button" id="btnCancel" class="btn-middle" data-track="取消">修改图片</button>
             <button type="button" id="btnConfirm" class="btn-middle" data-track="确认">一键生成海报</button>
         </div>
     </section>
@@ -80,13 +80,13 @@
             var imgNum = getUrlParam('num');
             $('.father-img').attr('src','../../../assets/images/guest/type'+imgNum+'.png');
             $('.word').attr("src",'../../../assets/images/promotion/type4/img_'+imgNum+'.png');
-            console.log( $('#word').attr("src"));
-            var clientWidth = document.documentElement.clientWidth;
-            var canvasWidth = Math.floor(clientWidth);
-            var canvasHeight = Math.floor(clientWidth*1.83);
-            $('#frame').attr('width',canvasWidth+'px');
-            $('#frame').attr('height',canvasHeight+'px');
-            console.log($('#frame').attr('width'));
+            // console.log( $('#word').attr("src"));
+            // var clientWidth = document.documentElement.clientWidth;
+            // var canvasWidth = Math.floor(clientWidth);
+            // var canvasHeight = Math.floor(clientWidth*1.83);
+            // $('#frame').attr('width',canvasWidth+'px');
+            // $('#frame').attr('height',canvasHeight+'px');
+            // console.log($('#frame').attr('width'));
              // 获取url参数
             function getUrlParam(name){  
                 //构造一个含有目标参数的正则表达式对象  

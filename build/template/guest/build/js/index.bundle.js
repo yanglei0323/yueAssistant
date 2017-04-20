@@ -304,66 +304,128 @@
 	    ctx.fillRect(0,0,canvas.width,canvas.height);
 	    poster.drawImage(ctx, rotates[direction].image, poster.intersect($frame, $frameImg));
 	    poster.drawImage(ctx, $word, poster.intersect($frame, $word));
+	    if (navigator.userAgent.match(/iphone/i)) {
+        	if(imgNum == 1){
+		    	//读取用户的文本
+	            ctx.font = "normal bold 38px arial";
+	            //设置用户文本填充颜色
+	            ctx.fillStyle = "#000";
+	            ctx.textAlign='center';
+	            //从坐标点(50,50)开始绘制文字
+	            var text1X=Math.floor(clientWidth*0.5);
+	            var text1Y=Math.floor(canvasHeight*0.7789);
+	            ctx.fillText(user.name,text1X,text1Y);
+		    }else if(imgNum == 2){
+		    	//读取用户的文本
+	            ctx.font = "normal bold 38px arial";
+	            //设置用户文本填充颜色
+	            ctx.fillStyle = "#fff";
+	            //从坐标点(50,50)开始绘制文字
+	            var text1X=Math.floor(clientWidth*0.1013);
+	            var text1Y=Math.floor(canvasHeight*0.8762);
+	            ctx.fillText(user.name,text1X,text1Y);
 
-	    if(imgNum == 1){
-	    	//读取用户的文本
-            ctx.font = "normal bold 0.506667rem arial";
-            //设置用户文本填充颜色
-            ctx.fillStyle = "#000";
-            ctx.textAlign='center';
-            //从坐标点(50,50)开始绘制文字
-            var text1X=Math.floor(clientWidth*0.5);
-            var text1Y=Math.floor(canvasHeight*0.7789);
-            ctx.fillText(user.name,text1X,text1Y);
-	    }else if(imgNum == 2){
-	    	//读取用户的文本
-            ctx.font = "normal bold 0.506667rem arial";
-            //设置用户文本填充颜色
-            ctx.fillStyle = "#fff";
-            //从坐标点(50,50)开始绘制文字
-            var text1X=Math.floor(clientWidth*0.1013);
-            var text1Y=Math.floor(canvasHeight*0.8762);
-            ctx.fillText(user.name,text1X,text1Y);
+		    }else if(imgNum == 3){
+		    	//读取用户的文本
+	            ctx.font = "normal bold 38px arial";
+	            //设置用户文本填充颜色
+	            ctx.fillStyle = "#000";
+	            //从坐标点(50,50)开始绘制文字
+	            var text1X=Math.floor(clientWidth*0.054);
+	            var text1Y=Math.floor(canvasHeight*0.3346);
+	            ctx.fillText(user.name,text1X,text1Y);
 
-	    }else if(imgNum == 3){
-	    	//读取用户的文本
-            ctx.font = "normal bold 0.506667rem arial";
-            //设置用户文本填充颜色
-            ctx.fillStyle = "#000";
-            //从坐标点(50,50)开始绘制文字
-            var text1X=Math.floor(clientWidth*0.054);
-            var text1Y=Math.floor(canvasHeight*0.3346);
-            ctx.fillText(user.name,text1X,text1Y);
+		    }else if(imgNum == 4){
+		    	//读取用户的文本
+	            ctx.font = "normal bold 38px arial";
+	            //设置用户文本填充颜色
+	            ctx.fillStyle = "#ca0808";
+	            //从坐标点(50,50)开始绘制文字
+	            var text1X=Math.floor(clientWidth*0.1133);
+	            var text1Y=Math.floor(canvasHeight*0.8394);
+	            ctx.fillText(user.name+"STYLIST",text1X,text1Y);
 
-	    }else if(imgNum == 4){
-	    	//读取用户的文本
-            ctx.font = "normal bold 0.506667rem arial";
-            //设置用户文本填充颜色
-            ctx.fillStyle = "#ca0808";
-            //从坐标点(50,50)开始绘制文字
-            var text1X=Math.floor(clientWidth*0.1133);
-            var text1Y=Math.floor(canvasHeight*0.8394);
-            ctx.fillText(user.name+"STYLIST",text1X,text1Y);
+		    }else if(imgNum == 5){
+		    	//读取用户的文本
+	            ctx.font = "normal bold 38px arial";
+	            //设置用户文本填充颜色
+	            ctx.fillStyle = "#000";
+	            //从坐标点(50,50)开始绘制文字
+	            var text1X=Math.floor(clientWidth*0.056);
+	            var text1Y=Math.floor(canvasHeight*0.2236);
+	            ctx.fillText(user.name,text1X,text1Y);
+		    }else if(imgNum == 6){
+		    	//读取用户的文本
+	            ctx.font = "normal bold 38px arial";
+	            //设置用户文本填充颜色
+	            ctx.fillStyle = "#000";
+	            //从坐标点(50,50)开始绘制文字
+	            var text1X=Math.floor(clientWidth*0.3946);
+	            var text1Y=Math.floor(canvasHeight*0.1465);
+	            ctx.fillText(user.name,text1X,text1Y);
+		    }
+    	}else{
+    		if(imgNum == 1){
+		    	//读取用户的文本
+	            ctx.font = "normal bold 0.506667rem arial";
+	            //设置用户文本填充颜色
+	            ctx.fillStyle = "#000";
+	            ctx.textAlign='center';
+	            //从坐标点(50,50)开始绘制文字
+	            var text1X=Math.floor(clientWidth*0.5);
+	            var text1Y=Math.floor(canvasHeight*0.7789);
+	            ctx.fillText(user.name,text1X,text1Y);
+		    }else if(imgNum == 2){
+		    	//读取用户的文本
+	            ctx.font = "normal bold 0.506667rem arial";
+	            //设置用户文本填充颜色
+	            ctx.fillStyle = "#fff";
+	            //从坐标点(50,50)开始绘制文字
+	            var text1X=Math.floor(clientWidth*0.1013);
+	            var text1Y=Math.floor(canvasHeight*0.8762);
+	            ctx.fillText(user.name,text1X,text1Y);
 
-	    }else if(imgNum == 5){
-	    	//读取用户的文本
-            ctx.font = "normal bold 0.506667rem arial";
-            //设置用户文本填充颜色
-            ctx.fillStyle = "#000";
-            //从坐标点(50,50)开始绘制文字
-            var text1X=Math.floor(clientWidth*0.056);
-            var text1Y=Math.floor(canvasHeight*0.2236);
-            ctx.fillText(user.name,text1X,text1Y);
-	    }else if(imgNum == 6){
-	    	//读取用户的文本
-            ctx.font = "normal bold 0.506667rem arial";
-            //设置用户文本填充颜色
-            ctx.fillStyle = "#000";
-            //从坐标点(50,50)开始绘制文字
-            var text1X=Math.floor(clientWidth*0.3946);
-            var text1Y=Math.floor(canvasHeight*0.1465);
-            ctx.fillText(user.name,text1X,text1Y);
-	    }
+		    }else if(imgNum == 3){
+		    	//读取用户的文本
+	            ctx.font = "normal bold 0.506667rem arial";
+	            //设置用户文本填充颜色
+	            ctx.fillStyle = "#000";
+	            //从坐标点(50,50)开始绘制文字
+	            var text1X=Math.floor(clientWidth*0.054);
+	            var text1Y=Math.floor(canvasHeight*0.3346);
+	            ctx.fillText(user.name,text1X,text1Y);
+
+		    }else if(imgNum == 4){
+		    	//读取用户的文本
+	            ctx.font = "normal bold 0.506667rem arial";
+	            //设置用户文本填充颜色
+	            ctx.fillStyle = "#ca0808";
+	            //从坐标点(50,50)开始绘制文字
+	            var text1X=Math.floor(clientWidth*0.1133);
+	            var text1Y=Math.floor(canvasHeight*0.8394);
+	            ctx.fillText(user.name+"STYLIST",text1X,text1Y);
+
+		    }else if(imgNum == 5){
+		    	//读取用户的文本
+	            ctx.font = "normal bold 0.506667rem arial";
+	            //设置用户文本填充颜色
+	            ctx.fillStyle = "#000";
+	            //从坐标点(50,50)开始绘制文字
+	            var text1X=Math.floor(clientWidth*0.056);
+	            var text1Y=Math.floor(canvasHeight*0.2236);
+	            ctx.fillText(user.name,text1X,text1Y);
+		    }else if(imgNum == 6){
+		    	//读取用户的文本
+	            ctx.font = "normal bold 0.506667rem arial";
+	            //设置用户文本填充颜色
+	            ctx.fillStyle = "#000";
+	            //从坐标点(50,50)开始绘制文字
+	            var text1X=Math.floor(clientWidth*0.3946);
+	            var text1Y=Math.floor(canvasHeight*0.1465);
+	            ctx.fillText(user.name,text1X,text1Y);
+		    }
+    	}
+	    
 	    var base64 = canvas.toDataURL('image/jpeg');
 	    $compose[0].onload = function() {
 	        next($second);
@@ -421,8 +483,13 @@
 	        var pr = this.pixelRatio(canvas.getContext('2d'));
 
 	        //hidpi-canvas将canvas的width和height属性放大pr倍
-	        canvas.width = width / pr;//恢复为原先的大小
-	        canvas.height = height / pr;
+	        if (navigator.userAgent.match(/iphone/i)) {
+	        	canvas.width = width ;//恢复为原先的大小
+	        	canvas.height = height ;
+        	}else{
+        		canvas.width = width / pr;//恢复为原先的大小
+	        	canvas.height = height / pr;
+        	}
 
 	        var ctx = canvas.getContext('2d');
 	        ctx.fillStyle = '#FFF';//绘制背景色
@@ -450,10 +517,16 @@
 	            offset.frame[key] = Math.floor(offset.frame[key]);
 	        }
 
-	        ctx.drawImage(image[0] || image,
+	        
+	        if (navigator.userAgent.match(/iphone/i)) {
+	        	ctx.drawImage(image[0] || image,
+	            offset.image.x, offset.image.y, offset.image.w, offset.image.h,
+	            offset.frame.x, offset.frame.y , offset.frame.w , offset.frame.h);
+        	}else{
+        		ctx.drawImage(image[0] || image,
 	            offset.image.x, offset.image.y, offset.image.w, offset.image.h,
 	            offset.frame.x * pr, offset.frame.y * pr, offset.frame.w * pr, offset.frame.h * pr);
-
+        	}
 	        ctx.restore();
 	    },
 	    /**

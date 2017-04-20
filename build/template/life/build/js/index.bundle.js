@@ -72,7 +72,7 @@
 	     */
 	    var imgNum = getUrlParam('num');
         $('#word').data("src",'../../../assets/images/life/img_'+imgNum+'.png');
-        console.log( $('#word').attr("src"));
+        // console.log( $('#word').attr("src"));
          // 获取url参数
         function getUrlParam(name){  
             //构造一个含有目标参数的正则表达式对象  
@@ -333,9 +333,13 @@
 	        var pr = this.pixelRatio(canvas.getContext('2d'));
 
 	        //hidpi-canvas将canvas的width和height属性放大pr倍
-	        canvas.width = width / pr;//恢复为原先的大小
-	        canvas.height = height / pr;
-
+	        if (navigator.userAgent.match(/iphone/i)) {
+	        	canvas.width = width ;//恢复为原先的大小
+	        	canvas.height = height ;
+        	}else{
+        		canvas.width = width / pr;//恢复为原先的大小
+	        	canvas.height = height / pr;
+        	}
 	        var ctx = canvas.getContext('2d');
 	        ctx.fillStyle = '#FFF';//绘制背景色
 	        ctx.fillRect(0,0,canvas.width,canvas.height);
@@ -361,10 +365,16 @@
 	        for(key in offset.frame) {
 	            offset.frame[key] = Math.floor(offset.frame[key]);
 	        }
-
-	        ctx.drawImage(image[0] || image,
+	        if (navigator.userAgent.match(/iphone/i)) {
+	        	ctx.drawImage(image[0] || image,
+	            offset.image.x, offset.image.y, offset.image.w, offset.image.h,
+	            offset.frame.x, offset.frame.y , offset.frame.w , offset.frame.h);
+        	}else{
+        		ctx.drawImage(image[0] || image,
 	            offset.image.x, offset.image.y, offset.image.w, offset.image.h,
 	            offset.frame.x * pr, offset.frame.y * pr, offset.frame.w * pr, offset.frame.h * pr);
+        	}
+	        
 
 	        ctx.restore();
 	    },

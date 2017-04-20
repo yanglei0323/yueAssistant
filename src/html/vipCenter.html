@@ -21,8 +21,8 @@
                             </span>
                             <span class="current-price"><span ng-bind="vip.currentprice"></span>元/<span ng-bind="vip.name"></span></span>
                             <span class="current-price-day">(<span ng-bind="vip.perdayprice"></span>元/天)</span>
-                            <span class="discount"><span ng-bind="vip.discount"></span>折</span>
-                            <span class="original-price">原价<span ng-bind="vip.originalprice"></span>元</span>
+                            <span class="discount" ng-if="vip.discount != 10.00"><span ng-bind="vip.discount"></span>折</span>
+                            <span class="original-price" ng-if="vip.discount != 10.00">原价<span ng-bind="vip.originalprice"></span>元</span>
                         </div>
                     </div>
                     <div class="pay-vip-btn" ng-click="buyVip()">

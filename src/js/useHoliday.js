@@ -6,6 +6,7 @@ index.controller('useHolidayCtrl',
 	$scope.btnText = '一键生成海报';
 	$scope.loading=false;
 	$scope.showcanvas=true;
+	$scope.showmodel=false;
 	$scope.canvasImg="";
 	$scope.name = "请添加";
 	var clientWidth = document.documentElement.clientWidth;
@@ -35,6 +36,7 @@ index.controller('useHolidayCtrl',
 	$scope.useTemplatePage = function (e){
 		e.stopPropagation();
 		saveImageInfo();
+		$scope.showmodel=true;
 		$scope.btnText = '长按保存至手机，再发到朋友圈炫耀';
 		// saveImageInfo();
 	};
@@ -45,6 +47,9 @@ index.controller('useHolidayCtrl',
 	};
 	// 点击添加文字
 	$scope.chengeText = function (){
+		if($scope.showmodel){
+			return;
+		}
 		if(num == 1 && $scope.page == 2){
         	$(".name-input-fixed").show();
         }
@@ -65,6 +70,7 @@ index.controller('useHolidayCtrl',
 	// 切换图片
 	$scope.changeImg =function (e){
 		e.stopPropagation();
+		$scope.showmodel = false;
 		$scope.loading=true;
 		if($scope.page >=2){
 			$scope.page=1;
@@ -96,15 +102,28 @@ index.controller('useHolidayCtrl',
         starImg.onload=function(){
             //先把图片绘制在这里
             mainCtx.drawImage(starImg,0,0,canvasWidth,canvasHeight);
-            if(num == 1 && $scope.page == 2){
-            	//读取用户的文本
-	            mainCtx.font = "normal bold 0.533333rem myFirstFont";
-	            //设置用户文本填充颜色
-	            mainCtx.fillStyle = "#fff";
-	            //从坐标点(50,50)开始绘制文字
-	            var text1X=Math.floor(clientWidth*0.153);
-	            var text1Y=Math.floor(canvasHeight*0.335);
-	            mainCtx.fillText($scope.name+"祝您",text1X,text1Y);
+            if (navigator.userAgent.match(/iphone/i)) {
+            	if(num == 1 && $scope.page == 2){
+	            	//读取用户的文本
+		            mainCtx.font = "normal bold 40px myFirstFont";
+		            //设置用户文本填充颜色
+		            mainCtx.fillStyle = "#fff";
+		            //从坐标点(50,50)开始绘制文字
+		            var text11X=Math.floor(clientWidth*0.153);
+		            var text11Y=Math.floor(canvasHeight*0.335);
+		            mainCtx.fillText($scope.name+"祝您",text11X,text11Y);
+	            }
+            }else{
+	            if(num == 1 && $scope.page == 2){
+	            	//读取用户的文本
+		            mainCtx.font = "normal bold 0.533333rem myFirstFont";
+		            //设置用户文本填充颜色
+		            mainCtx.fillStyle = "#fff";
+		            //从坐标点(50,50)开始绘制文字
+		            var text1X=Math.floor(clientWidth*0.153);
+		            var text1Y=Math.floor(canvasHeight*0.335);
+		            mainCtx.fillText($scope.name+"祝您",text1X,text1Y);
+	            }
             }
             
 

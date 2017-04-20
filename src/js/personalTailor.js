@@ -14,7 +14,8 @@ index.controller('personalTailorCtrl',
 	});
 	// 定制信息填写
 	$scope.tailorData = function (){
-		$location.path('tailorData');
+		// $location.path('tailorData');
+		window.location.href='tailorData';
 	};
 	// 我的文章跳转
 	$scope.toMyTailor = function (){

@@ -35,7 +35,7 @@ index.controller('vipCenterCtrl',
 		$('.up-muenu').show();
 	};
 	$scope.hideMenu = function (){
-		$('.up-muenu').fadeOut(10);
+		$('.up-muenu').hide();
 	};
 
 	// 确认购买
@@ -84,7 +84,7 @@ index.controller('vipCenterCtrl',
 						}
 					}
 					else if (0 === resp.code) {
-						alert(resp.reason);
+						// alert(resp.reason);
 					}
 				})
 				.error(function (resp) {
@@ -92,7 +92,7 @@ index.controller('vipCenterCtrl',
 				});
 			}
 			else if (0 === resp.code) {
-				alert(resp.reason);
+				// alert(resp.reason);
 			}
 		})
 		.error(function (Resp) {

@@ -1186,6 +1186,18 @@ button,
   -webkit-animation: rotate360 3s linear infinite;
           animation: rotate360 3s linear infinite;
 }
+.leftRow{
+  padding:0.2rem 0.413333rem;
+  overflow:hidden;
+  position:fixed;
+  left:0;
+  bottom:0;
+  z-index:666;
+}
+.leftRow img{
+  width:0.226667rem;
+  height:auto;
+}
 
 @-webkit-keyframes rotate360 {
   from {

@@ -32,6 +32,7 @@ index.controller('tailorDataCtrl',
 	$scope.workList=[];    //工作照列表
 	$scope.artList=[];     //艺术照列表
 	$scope.goodsList=[];   //作品照列表
+  $scope.upImg = 0;
 	// 点击上传生活照
     $scope.addLifePhoto= function () {
     	if($scope.lifemediaid.length >= 3){
@@ -39,7 +40,7 @@ index.controller('tailorDataCtrl',
             return false;
     	}
         wx.chooseImage({
-          count: 1, // 默认9
+          count: 3, // 默认9
           sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
           sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
           success: function (res) {
@@ -51,6 +52,7 @@ index.controller('tailorDataCtrl',
               }else{
               		// $scope.user.qrcode=$scope.lifemediaid[0];
               }
+              $scope.upImg= 0;
               uploadlife();
           }
       });
@@ -59,16 +61,20 @@ index.controller('tailorDataCtrl',
     // 上传图片
     function uploadlife(){
     	wx.uploadImage({
-          localId: $scope.lifelocalid[0],
+          localId: $scope.lifelocalid[$scope.upImg],
           isShowProgressTips: 1, // 默认为1，显示进度提示
           success: function (res) {
-          		$scope.lifeList.push($scope.lifelocalid[0]);
+          		$scope.lifeList.push($scope.lifelocalid[$scope.upImg]);
               // 暂时未找到无法显示图片的原因，使用这行代码替代方法
-              $('.update-img-life').prepend("<img src="+$scope.lifelocalid[0]+" style='width:1.76rem;height:1.76rem;margin-right:0.266667rem;border-radius:0.066667rem;' />");
+              $('.update-img-life').prepend("<img src="+$scope.lifelocalid[$scope.upImg]+" style='width:1.76rem;height:1.76rem;margin-right:0.266667rem;border-radius:0.066667rem;' />");
               $scope.lifemediaid.push(res.serverId);
+              if($scope.upImg < $scope.lifelocalid.length){
+                  $scope.upImg +=1;
+                  uploadlife();
+              }
           },
           fail: function (res) {
-              alert('上传失败！');
+              // alert('上传失败！');
           }
       });
     }
@@ -80,7 +86,7 @@ index.controller('tailorDataCtrl',
             return false;
     	}
         wx.chooseImage({
-          count: 1, // 默认9
+          count: 3, // 默认9
           sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
           sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
           success: function (res) {
@@ -92,6 +98,7 @@ index.controller('tailorDataCtrl',
               }else{
               		// $scope.user.qrcode=$scope.lifemediaid[0];
               }
+              $scope.upImg=0;
               uploadwork();
           }
       });
@@ -100,15 +107,19 @@ index.controller('tailorDataCtrl',
     // 上传图片
     function uploadwork(){
     	wx.uploadImage({
-          localId: $scope.worklocalid[0],
+          localId: $scope.worklocalid[$scope.upImg],
           isShowProgressTips: 1, // 默认为1，显示进度提示
           success: function (res) {
-          		$scope.workList.push($scope.worklocalid[0]);
-              $('.update-img-work').prepend("<img src="+$scope.worklocalid[0]+" style='width:1.76rem;height:1.76rem;margin-right:0.266667rem;border-radius:0.066667rem;' />");
+          		$scope.workList.push($scope.worklocalid[$scope.upImg]);
+              $('.update-img-work').prepend("<img src="+$scope.worklocalid[$scope.upImg]+" style='width:1.76rem;height:1.76rem;margin-right:0.266667rem;border-radius:0.066667rem;' />");
                 $scope.workmediaid.push(res.serverId);
+                if($scope.upImg < $scope.worklocalid.length){
+                    $scope.upImg +=1;
+                    uploadwork();
+                }
           },
           fail: function (res) {
-              alert('上传失败！');
+              // alert('上传失败！');
           }
       });
     }
@@ -121,7 +132,7 @@ index.controller('tailorDataCtrl',
             return false;
     	}
         wx.chooseImage({
-          count: 1, // 默认9
+          count: 3, // 默认9
           sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
           sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
           success: function (res) {
@@ -133,6 +144,7 @@ index.controller('tailorDataCtrl',
               }else{
               		// $scope.user.qrcode=$scope.lifemediaid[0];
               }
+              $scope.upImg=0;
               uploadart();
           }
       });
@@ -141,15 +153,19 @@ index.controller('tailorDataCtrl',
     // 上传图片
     function uploadart(){
     	wx.uploadImage({
-          localId: $scope.artlocalid[0],
+          localId: $scope.artlocalid[$scope.upImg],
           isShowProgressTips: 1, // 默认为1，显示进度提示
           success: function (res) {
-          		$scope.artList.push($scope.artlocalid[0]);
-              $('.update-img-art').prepend("<img src="+$scope.artlocalid[0]+" style='width:1.76rem;height:1.76rem;margin-right:0.266667rem;border-radius:0.066667rem;' />");
+          		$scope.artList.push($scope.artlocalid[$scope.upImg]);
+              $('.update-img-art').prepend("<img src="+$scope.artlocalid[$scope.upImg]+" style='width:1.76rem;height:1.76rem;margin-right:0.266667rem;border-radius:0.066667rem;' />");
                 $scope.artmediaid.push(res.serverId);
+                if($scope.upImg < $scope.artlocalid.length){
+                    $scope.upImg +=1;
+                    uploadart();
+                }
           },
           fail: function (res) {
-              alert('上传失败！');
+              // alert('上传失败！');
           }
       });
     }
@@ -162,7 +178,7 @@ index.controller('tailorDataCtrl',
             return false;
     	}
         wx.chooseImage({
-          count: 1, // 默认9
+          count: 3, // 默认9
           sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
           sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
           success: function (res) {
@@ -174,6 +190,7 @@ index.controller('tailorDataCtrl',
               }else{
               		// $scope.user.qrcode=$scope.lifemediaid[0];
               }
+              $scope.upImg = 0;
               uploadgoods();
           }
       });
@@ -182,15 +199,19 @@ index.controller('tailorDataCtrl',
     // 上传图片
     function uploadgoods(){
     	wx.uploadImage({
-          localId: $scope.goodslocalid[0],
+          localId: $scope.goodslocalid[$scope.upImg],
           isShowProgressTips: 1, // 默认为1，显示进度提示
           success: function (res) {
-          		$scope.goodsList.push($scope.goodslocalid[0]);
-              $('.update-img-goods').prepend("<img src="+$scope.goodslocalid[0]+" style='width:1.76rem;height:1.76rem;margin-right:0.266667rem;border-radius:0.066667rem;' />");
+          		$scope.goodsList.push($scope.goodslocalid[$scope.upImg]);
+              $('.update-img-goods').prepend("<img src="+$scope.goodslocalid[$scope.upImg]+" style='width:1.76rem;height:1.76rem;margin-right:0.266667rem;border-radius:0.066667rem;' />");
               $scope.goodsmediaid.push(res.serverId);
+              if($scope.upImg < $scope.goodslocalid.length){
+                  $scope.upImg+=1;
+                  uploadgoods();
+              }
           },
           fail: function (res) {
-              alert('上传失败！');
+              // alert('上传失败！');
           }
       });
     }

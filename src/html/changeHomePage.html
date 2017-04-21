@@ -146,7 +146,9 @@
         </div>
         <div class="qrcode-item margin-top-20">
             <div class="left-content">
-                <img ng-src="{{user.qrcode}}" alt="" class="home-page-qrcode">
+                <span class="home-page-qrcode">
+                    <img ng-src="{{user.qrcode}}" alt="">
+                </span>
                 <span class="item-text">
                     <span class="font-size-28">预约电话</span>
                     <span ng-bind="user.telephone" class="margin-top-20"></span>
@@ -165,7 +167,9 @@
                     <div class="prompt-title">
                         <div class="qrcode-item">
                             <div class="left-content">
-                                <img ng-src="{{user.qrcode}}" alt="" class="home-page-qrcode">
+                            <span class="home-page-qrcode">
+                                <img ng-src="{{user.qrcode}}" alt="">
+                            </span>
                                 <span class="item-text">
                                     <span class="font-size-28">电话预约</span>
                                     <span ng-bind="user.telephone" class="margin-top-10"></span>

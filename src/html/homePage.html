@@ -146,7 +146,9 @@
         </div>
         <div class="qrcode-item margin-top-20">
             <div class="left-content">
-                <img ng-src="{{user.qrcode}}" alt="" class="home-page-qrcode">
+                <span class="home-page-qrcode" ng-click="showQrImg()">
+                    <img ng-src="{{user.qrcode}}" alt="">
+                </span>
                 <span class="item-text">
                     <span class="font-size-28">预约电话</span>
                     <span ng-bind="user.telephone" class="margin-top-20"></span>
@@ -156,7 +158,7 @@
         </div>
         <div class="nav-item">
             <div class="left-content">
-                <span class="item-text qr-text">扫码加我好友</span>
+                <span class="item-text qr-text">点击查看二维码</span>
             </div>
         </div>
         <div class="prompt-fixed">
@@ -165,7 +167,9 @@
                     <div class="prompt-title">
                         <div class="qrcode-item">
                             <div class="left-content">
-                                <img ng-src="{{user.qrcode}}" alt="" class="home-page-qrcode">
+                                <span class="home-page-qrcode" ng-click="showQrImg()">
+                                    <img ng-src="{{user.qrcode}}" alt="">
+                                </span>
                                 <span class="item-text">
                                     <span class="font-size-28">电话预约</span>
                                     <span ng-bind="user.telephone" class="margin-top-10"></span>
@@ -173,12 +177,17 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="qr-ts-text">长按二维码微信预约</div>
+                        <div class="qr-ts-text">点击查看二维码</div>
                     </div>
                     <div class="prompt-bottom">
                         <span class="item prompt-false" ng-click="promptFalse()">知道了</span>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="qrcode-fixed-content" ng-click="hideQrImg()">
+            <div class="qrcode-fixed-div">
+                <img ng-src="{{user.qrcode}}" alt="" ng-click="stopPro($event)">
             </div>
         </div>
     </div>

@@ -282,6 +282,11 @@
 				width:2.666667rem;
 				height:2.666667rem;
 				border:0.013333rem solid #666;
+				overflow:hidden;
+				img{
+					width:100%;
+					height:auto;
+				}
 			}
 			.item-text{
 				margin-left:0.8rem;
@@ -414,6 +419,11 @@
 								width:2.666667rem;
 								height:2.666667rem;
 								border:0.013333rem solid #666;
+								overflow:hidden;
+								img{
+									width:100%;
+									height:auto;
+								}
 							}
 							.item-text{
 								margin-left:1.333333rem;
@@ -463,6 +473,26 @@
 						color:#666;
 					}
 				}
+			}
+		}
+	}
+	.qrcode-fixed-content{
+		width:100%;
+		height:100vh;
+		background:rgba(0,0,0,0.33);
+		position:fixed;
+		left:0;
+		top:0;
+		display:none;
+		z-index:88888;
+		.qrcode-fixed-div{
+			width:100%;
+			height:100vh;
+			.flex;
+			img{
+				width:100%;
+				height:auto;
+				margin:auto auto;
 			}
 		}
 	}

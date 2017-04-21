@@ -57,6 +57,7 @@
                 <h2>重新上传照片</h2>
             </button>
             <button type="button" class="btn-large">
+            <span class="leftRow"><img src="img/left_row.png" alt=""></span>
                 <h2>长按保存至手机，再发到朋友圈炫耀</h2>
             </button>
         </div>
@@ -97,6 +98,11 @@
                 if (r !== null) return unescape(r[2]);  
                 return null;  
             }
+            
+            $('.leftRow').on('click',function(){
+                // window.location.href = '../../html/guest';
+                window.history.back();
+            });
         });
         
     </script>

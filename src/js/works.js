@@ -2,6 +2,7 @@ index.controller('worksCtrl',
 	['$scope', '$http', '$window', '$location', '$rootScope','$timeout',
 	function ($scope, $http, $window, $location, $rootScope,$timeout) {
 	$scope.deleteImg = false;
+	$scope.upImg= 0;
 	// 获取用户作品
 	function getWorkList (){
 		$http.post('/user/workslist.json', postCfg)
@@ -32,6 +33,10 @@ index.controller('worksCtrl',
 	
 	// 删除主页作品
 	$scope.deleteRecommendworks=function(item){
+		if(item.recommend == 1){
+			alert("该作品已在主页展示,请先移除主页作品后再删除照片!");
+			return;
+		}
 		var data={
 			'add':[],
 			'rm':[item.id]
@@ -117,7 +122,7 @@ index.controller('worksCtrl',
 	});
 	$scope.updateWorkImg = function (){
 		wx.chooseImage({
-          count: 1, // 默认9
+          count: 6, // 默认9
           sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
           sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
           success: function (res) {
@@ -133,6 +138,7 @@ index.controller('worksCtrl',
               //     $scope.localId = [];
               //     return false;
               // }
+              $scope.upImg= 0;
               upload();
           }
       });
@@ -144,7 +150,7 @@ index.controller('worksCtrl',
 	        return false;
 	    }
     	wx.uploadImage({
-          localId: $scope.localId[0],
+          localId: $scope.localId[$scope.upImg],
           isShowProgressTips: 1, // 默认为1，显示进度提示
           success: function (res) {
                 $scope.serverId = [];
@@ -159,6 +165,10 @@ index.controller('worksCtrl',
                     // var confirm = alert('作品上传成功!');
                     // alert('上传成功');
 	                getWorkList();
+	                if($scope.upImg < $scope.localId.length){
+	                	$scope.upImg +=1;
+	                	upload();
+	                }
 				}else{
 					// alert(resp);
 				}
@@ -167,7 +177,7 @@ index.controller('worksCtrl',
 			});
           },
           fail: function (res) {
-              alert('上传失败！');
+              // alert('上传失败！');
           }
       });
     }

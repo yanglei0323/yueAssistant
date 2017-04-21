@@ -13,9 +13,9 @@ index.controller('useMornCtrl',
 	$("#main").attr('width',canvasWidth+'px');
 	$("#main").attr('height',canvasHeight+'px');
 	console.log($scope.user);
-	// if($scope.user.name.length >= 3){
-	// 	$scope.user.name=$scope.user.name[0]+$scope.user.name[1];
-	// }
+	if($scope.user.name.length >= 3){
+		$scope.user.name=$scope.user.name[0]+$scope.user.name[1]+$scope.user.name[2];
+	}
 	// 类型type
 	var num = $routeParams.num;
 	// 第几张图片
@@ -149,8 +149,9 @@ index.controller('useMornCtrl',
 		            mainCtx.font = "normal bold 36px myFirstFont";
 		            //设置用户文本填充颜色
 		            mainCtx.fillStyle = "black";
+		            mainCtx.textAlign="right";
 		            //从坐标点(50,50)开始绘制文字
-		            var text11X=Math.floor(clientWidth*0.544);
+		            var text11X=Math.floor(clientWidth*0.744);
 		            var text11Y=Math.floor(canvasHeight*0.95);
 		            mainCtx.fillText("BY"+$scope.user.name,text11X,text11Y);
 	            }else if(num == 2){

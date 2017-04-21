@@ -1128,6 +1128,18 @@ button,
   width: 100%;
   height: 1.066667rem;
 }
+.leftRow{
+  padding:0.2rem 0.413333rem;
+  overflow:hidden;
+  position:fixed;
+  left:0;
+  bottom:0;
+  z-index:666;
+}
+.leftRow img{
+  width:0.226667rem;
+  height:auto;
+}
 
 [data-dpr="1"] .btn-large h1 {
   font-size: 13px;

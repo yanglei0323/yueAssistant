@@ -1,11 +1,5 @@
 <div class="parent-container bg-color-fff">
     <div id="personalTailor-container">
-        <div class="myArticle-btn" ng-if="customizeInfo.status != 0">
-            <div class="myArticle-btn-container" ng-click="toMyTailor()">
-                <span>我的文章</span>
-                <img src="../../assets/images/personal_right.png" class="arrow-icon margin-right-0 fr">
-            </div>
-        </div>
         <img src="../../assets/images/personalTailor_1.png" alt="" class="tailor-img">
         <div class="tailor-info">
             <span>私人定制介绍，包装艺人，写一篇专属文章合作媒体进行特别报道</span>
@@ -40,6 +34,13 @@
                         <span class="item prompt-true" ng-click="promptTrue()">去支付</span>
                     </div>
                 </div>
+            </div>
+        </div>
+        
+        <div class="myArticle-btn" ng-if="customizeInfo.status != 0">
+            <div class="myArticle-btn-container" ng-click="toMyTailor()">
+                <span>我的文章</span>
+                <img src="../../assets/images/personal_right.png" class="arrow-icon margin-right-0 fr">
             </div>
         </div>
     </div>

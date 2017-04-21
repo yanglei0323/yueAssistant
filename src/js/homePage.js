@@ -120,6 +120,15 @@ index.controller('homePageCtrl',
     $scope.promptFalse = function (){
     	$('.prompt-fixed').fadeOut(10);
     };
+    $scope.showQrImg = function (){
+    	$('.qrcode-fixed-content').show();
+    };
+    $scope.hideQrImg = function (){
+    	$('.qrcode-fixed-content').fadeOut(50);
+    };
+    $scope.stopPro = function(e){
+    	e.stopPropagation();
+    };
     // 获取分享信息
 	$http.post('/user/mypage/share.json', postCfg)
 	.then(function (resp) {

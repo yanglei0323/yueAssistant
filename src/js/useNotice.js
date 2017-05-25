@@ -30,14 +30,15 @@ index.controller('useNoticeCtrl',
 	$("#main").attr('height',canvasHeight+'px');
 	console.log($scope.user);
 	// 类型type
+	var type = $routeParams.type;
 	var num = $routeParams.num;
 	// 第几张图片
 	$scope.page=1;
-	$scope.showImg='../../assets/images/notice/type'+num+'/img_'+$scope.page+'.png';
-	for(var c=1;c<3;c++){
-		var preImg='../../assets/images/notice/type'+num+'/img_'+c+'.png';
-		$('.hideImg').append("<img src="+preImg+">");
-	}
+	$scope.showImg='../../assets/images/notice/type'+type+'/img_'+num+'.png';
+	// for(var c=1;c<3;c++){
+	// 	var preImg='../../assets/images/notice/type'+num+'/img_'+c+'.png';
+	// 	$('.hideImg').append("<img src="+preImg+">");
+	// }
 	// 完善信息页面跳转
 	$scope.editInformation = function (e){
 		e.stopPropagation();
@@ -61,46 +62,46 @@ index.controller('useNoticeCtrl',
 		if($scope.showmodel){
 			return;
 		}
-		if(num == 1){
+		if(type == 1){
         	$(".name-input-fixed").show();
-        }else if(num == 2 && $scope.page==1){
+        }else if(type == 2 && num==1){
         	$(".name-input-fixed-1").show();
-        }else if(num == 2 && $scope.page==2){
+        }else if(type == 2 && num==2){
         	$(".name-input-fixed-2").show();
-        }else if(num == 3 && $scope.page==1){
+        }else if(type == 3 && num==1){
         	$(".name-input-fixed-3").show();
-        }else if(num == 3 && $scope.page==2){
+        }else if(type == 3 && num==2){
         	$(".name-input-fixed-4").show();
-        }else if(num == 4 && $scope.page==1){
+        }else if(type == 4 && num==1){
         	$(".name-input-fixed-5").show();
-        }else if(num == 4 && $scope.page==2){
+        }else if(type == 4 && num==2){
         	$(".name-input-fixed-6").show();
-        }else if(num == 5 && $scope.page==1){
+        }else if(type == 5 && num==1){
         	$(".name-input-fixed-7").show();
-        }else if(num == 5 && $scope.page==2){
+        }else if(type == 5 && num==2){
         	$(".name-input-fixed-8").show();
         }
 	};
 	// 完成添加文字
 	$scope.updateText = function (){
 		hechen();
-		if(num == 1){
+		if(type == 1){
 			$(".name-input-fixed").fadeOut(50);
-        }else if(num == 2 && $scope.page==1){
+        }else if(type == 2 && num==1){
         	$(".name-input-fixed-1").fadeOut(50);
-        }else if(num == 2 && $scope.page==2){
+        }else if(type == 2 && num==2){
         	$(".name-input-fixed-2").fadeOut(50);
-        }else if(num == 3 && $scope.page==1){
+        }else if(type == 3 && num==1){
         	$(".name-input-fixed-3").fadeOut(50);
-        }else if(num == 3 && $scope.page==2){
+        }else if(type == 3 && num==2){
         	$(".name-input-fixed-4").fadeOut(50);
-        }else if(num == 4 && $scope.page==1){
+        }else if(type == 4 && num==1){
         	$(".name-input-fixed-5").fadeOut(50);
-        }else if(num == 4 && $scope.page==2){
+        }else if(type == 4 && num==2){
         	$(".name-input-fixed-6").fadeOut(50);
-        }else if(num == 5 && $scope.page==1){
+        }else if(type == 5 && num==1){
         	$(".name-input-fixed-7").fadeOut(50);
-        }else if(num == 5 && $scope.page==2){
+        }else if(type == 5 && num==2){
         	$(".name-input-fixed-8").fadeOut(50);
         }
 	};
@@ -212,7 +213,7 @@ index.controller('useNoticeCtrl',
             //先把图片绘制在这里
             mainCtx.drawImage(starImg,0,0,canvasWidth,canvasHeight);
             if (navigator.userAgent.match(/iphone/i)) {
-            	if(num == 1){
+            	if(type == 1){
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 36px myFirstFont";
 		            //设置用户文本填充颜色
@@ -226,7 +227,7 @@ index.controller('useNoticeCtrl',
 		            mainCtx.font = "normal bold 24px myFirstFont";
 		            mainCtx.fillText(mm+'.'+week,text11X,text11Yy);
 		            mainCtx.fillText(date,text11X,text11Yyy);
-	            }else if(num == 2 && $scope.page==1){
+	            }else if(type == 2 && num==1){
 		        	//读取用户的文本
 		            mainCtx.font = "normal bold 36px myFirstFont";
 		            //设置用户文本填充颜色
@@ -244,7 +245,7 @@ index.controller('useNoticeCtrl',
 		            mainCtx.font = "normal bold 24px myFirstFont";
 		            mainCtx.fillText(mm+'.'+week,text22Xx,text22Yyy);
 		            mainCtx.fillText(date,text22Xx,text22Yyyy);
-		        }else if(num == 2 && $scope.page==2){
+		        }else if(type == 2 && num==2){
 		        	//读取用户的文本
 		            mainCtx.font = "normal bold 30px myFirstFont";
 		            //设置用户文本填充颜色
@@ -265,7 +266,7 @@ index.controller('useNoticeCtrl',
 		            mainCtx.fillStyle = "#333";
 		            mainCtx.fillText(mm+'.'+week,text33Xx,text33Yyy);
 		            mainCtx.fillText(date,text33Xx,text33Yyyy);
-		        }else if(num == 3 && $scope.page==1){
+		        }else if(type == 3 && num==1){
 		        	//读取用户的文本
 		            mainCtx.font = "normal bold 100px myFirstFont";
 		            //设置用户文本填充颜色
@@ -287,7 +288,7 @@ index.controller('useNoticeCtrl',
 		            mainCtx.font = "normal bold 24px myFirstFont";
 		            mainCtx.fillText(mm+'.'+week,text44Xxx,text44Yyy);
 		            mainCtx.fillText(date,text44Xxx,text44Yyyy);
-		        }else if(num == 3 && $scope.page==2){
+		        }else if(type == 3 && num==2){
 		        	//读取用户的文本
 		            mainCtx.font = "normal bold 48px myFirstFont";
 		            //设置用户文本填充颜色
@@ -308,7 +309,7 @@ index.controller('useNoticeCtrl',
 		            mainCtx.font = "normal bold 24px myFirstFont";
 		            mainCtx.fillText(mm+'.'+week,text55Xxx,text55Yyy);
 		            mainCtx.fillText(date,text55Xxx,text55Yyyy);
-		        }else if(num == 4 && $scope.page==1){
+		        }else if(type == 4 && num==1){
 		        	//读取用户的文本
 		            mainCtx.font = "normal bold 48px myFirstFont";
 		            //设置用户文本填充颜色
@@ -317,7 +318,7 @@ index.controller('useNoticeCtrl',
 		            var text66X=Math.floor(clientWidth*0.347);
 		            var text66Y=Math.floor(canvasHeight*0.58);
 		            mainCtx.fillText($scope.discount,text66X,text66Y);
-		        }else if(num == 4 && $scope.page==2){
+		        }else if(type == 4 && num==2){
 		        	//读取用户的文本
 		            mainCtx.font = "normal bold 100px myFirstFont";
 		            //设置用户文本填充颜色
@@ -333,7 +334,7 @@ index.controller('useNoticeCtrl',
 		            mainCtx.fillStyle = "#333";
 		            mainCtx.fillText($scope.starttime2,text77Xx,text77Yy);
 		            mainCtx.fillText($scope.endtime2,text77Xxx,text77Yy);
-		        }else if(num == 5 && $scope.page==1){
+		        }else if(type == 5 && num==1){
 		        	//读取用户的文本
 		            mainCtx.font = "normal bold 100px myFirstFont";
 		            //设置用户文本填充颜色
@@ -360,7 +361,7 @@ index.controller('useNoticeCtrl',
 		            mainCtx.font = "normal bold 24px myFirstFont";
 		            mainCtx.fillText(mm+'.'+week,text88Xxxx,text88Yyyy1);
 		            mainCtx.fillText(date,text88Xxxx,text88Yyyy2);
-		        }else if(num == 5 && $scope.page==2){
+		        }else if(type == 5 && num==2){
 		        	//读取用户的文本
 		            mainCtx.font = "normal bold 30px myFirstFont";
 		            //设置用户文本填充颜色
@@ -385,7 +386,7 @@ index.controller('useNoticeCtrl',
 		            mainCtx.fillText(date,text99Xxx,text99Yyy2);
 		        }
             }else{
-            	if(num == 1){
+            	if(type == 1){
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 0.48rem myFirstFont";
 		            //设置用户文本填充颜色
@@ -399,7 +400,7 @@ index.controller('useNoticeCtrl',
 		            mainCtx.font = "normal bold 0.32rem myFirstFont";
 		            mainCtx.fillText(mm+'.'+week,text1X,text1Yy);
 		            mainCtx.fillText(date,text1X,text1Yyy);
-	            }else if(num == 2 && $scope.page==1){
+	            }else if(type == 2 && num==1){
 		        	//读取用户的文本
 		            mainCtx.font = "normal bold 0.48rem myFirstFont";
 		            //设置用户文本填充颜色
@@ -417,7 +418,7 @@ index.controller('useNoticeCtrl',
 		            mainCtx.font = "normal bold 0.32rem myFirstFont";
 		            mainCtx.fillText(mm+'.'+week,text2Xx,text2Yyy);
 		            mainCtx.fillText(date,text2Xx,text2Yyyy);
-		        }else if(num == 2 && $scope.page==2){
+		        }else if(type == 2 && num==2){
 		        	//读取用户的文本
 		            mainCtx.font = "normal bold 0.4rem myFirstFont";
 		            //设置用户文本填充颜色
@@ -438,7 +439,7 @@ index.controller('useNoticeCtrl',
 		            mainCtx.fillStyle = "#333";
 		            mainCtx.fillText(mm+'.'+week,text3Xx,text3Yyy);
 		            mainCtx.fillText(date,text3Xx,text3Yyyy);
-		        }else if(num == 3 && $scope.page==1){
+		        }else if(type == 3 && num==1){
 		        	//读取用户的文本
 		            mainCtx.font = "normal bold 1.133333rem myFirstFont";
 		            //设置用户文本填充颜色
@@ -460,7 +461,7 @@ index.controller('useNoticeCtrl',
 		            mainCtx.font = "normal bold 0.32rem myFirstFont";
 		            mainCtx.fillText(mm+'.'+week,text4Xxx,text4Yyy);
 		            mainCtx.fillText(date,text4Xxx,text4Yyyy);
-		        }else if(num == 3 && $scope.page==2){
+		        }else if(type == 3 && num==2){
 		        	//读取用户的文本
 		            mainCtx.font = "normal bold 0.64rem myFirstFont";
 		            //设置用户文本填充颜色
@@ -481,7 +482,7 @@ index.controller('useNoticeCtrl',
 		            mainCtx.font = "normal bold 0.32rem myFirstFont";
 		            mainCtx.fillText(mm+'.'+week,text5Xxx,text5Yyy);
 		            mainCtx.fillText(date,text5Xxx,text5Yyyy);
-		        }else if(num == 4 && $scope.page==1){
+		        }else if(type == 4 && num==1){
 		        	//读取用户的文本
 		            mainCtx.font = "normal bold 0.64rem myFirstFont";
 		            //设置用户文本填充颜色
@@ -490,7 +491,7 @@ index.controller('useNoticeCtrl',
 		            var text6X=Math.floor(clientWidth*0.347);
 		            var text6Y=Math.floor(canvasHeight*0.58);
 		            mainCtx.fillText($scope.discount,text6X,text6Y);
-		        }else if(num == 4 && $scope.page==2){
+		        }else if(type == 4 && num==2){
 		        	//读取用户的文本
 		            mainCtx.font = "normal bold 1.333333rem myFirstFont";
 		            //设置用户文本填充颜色
@@ -506,7 +507,7 @@ index.controller('useNoticeCtrl',
 		            mainCtx.fillStyle = "#333";
 		            mainCtx.fillText($scope.starttime2,text7Xx,text7Yy);
 		            mainCtx.fillText($scope.endtime2,text7Xxx,text7Yy);
-		        }else if(num == 5 && $scope.page==1){
+		        }else if(type == 5 && num==1){
 		        	//读取用户的文本
 		            mainCtx.font = "normal bold 1.333333rem myFirstFont";
 		            //设置用户文本填充颜色
@@ -533,7 +534,7 @@ index.controller('useNoticeCtrl',
 		            mainCtx.font = "normal bold 0.32rem myFirstFont";
 		            mainCtx.fillText(mm+'.'+week,text8Xxxx,text8Yyyy1);
 		            mainCtx.fillText(date,text8Xxxx,text8Yyyy2);
-		        }else if(num == 5 && $scope.page==2){
+		        }else if(type == 5 && num==2){
 		        	//读取用户的文本
 		            mainCtx.font = "normal bold 0.48rem myFirstFont";
 		            //设置用户文本填充颜色

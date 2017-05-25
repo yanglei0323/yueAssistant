@@ -18,7 +18,7 @@ index.controller('noticeCtrl',
     };
     // 工作状态模板跳转
     $scope.useMornTemplate = function (num){
-    	$location.path('useNotice/'+num);
+    	$location.path('noticeList/'+num);
     };// 活动通知模板跳转
     $scope.useNightTemplate = function (num){
         $location.path('useActive/'+num);

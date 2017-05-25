@@ -80,6 +80,10 @@ index.config(['$routeProvider','$locationProvider', function ($routeProvider,$lo
 			templateUrl: '../html/nightList.html',
 			controller: 'nightListCtrl'
 		})
+		.when('/noticeList/:num', {
+			templateUrl: '../html/noticeList.html',
+			controller: 'noticeListCtrl'
+		})
 		.when('/useNight/:type/:num', {
 			templateUrl: '../html/useNight.html',
 			controller: 'useNightCtrl'
@@ -136,7 +140,7 @@ index.config(['$routeProvider','$locationProvider', function ($routeProvider,$lo
 			templateUrl: '../html/notice.html',
 			controller: 'noticeCtrl'
 		})
-		.when('/useNotice/:num', {
+		.when('/useNotice/:type/:num', {
 			templateUrl: '../html/useNotice.html',
 			controller: 'useNoticeCtrl'
 		})

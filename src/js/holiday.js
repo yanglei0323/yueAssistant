@@ -21,6 +21,6 @@ index.controller('holidayCtrl',
     	$location.path('holidayList/'+num);
     };// 早安模板跳转
     $scope.useNightTemplate = function (num){
-        $location.path('useGreet/'+num);
+        $location.path('greetList/'+num);
     };
 }]);

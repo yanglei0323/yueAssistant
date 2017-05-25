@@ -20,14 +20,15 @@ index.controller('useGreetCtrl',
 	$("#main").attr('height',canvasHeight+'px');
 	console.log($scope.user);
 	// 类型type
+	var type = $routeParams.type;
 	var num = $routeParams.num;
 	// 第几张图片
 	$scope.page=1;
-	$scope.showImg='../../assets/images/greet/type'+num+'/img_'+$scope.page+'.png';
-	for(var c=1;c<3;c++){
-		var preImg='../../assets/images/greet/type'+num+'/img_'+c+'.png';
-		$('.hideImg').append("<img src="+preImg+">");
-	}
+	$scope.showImg='../../assets/images/greet/type'+type+'/img_'+num+'.png';
+	// for(var c=1;c<3;c++){
+	// 	var preImg='../../assets/images/greet/type'+num+'/img_'+c+'.png';
+	// 	$('.hideImg').append("<img src="+preImg+">");
+	// }
 	// 完善信息页面跳转
 	$scope.editInformation = function (e){
 		e.stopPropagation();
@@ -51,20 +52,20 @@ index.controller('useGreetCtrl',
 		if($scope.showmodel){
 			return;
 		}
-		if(num == 1 && $scope.page == 1){
+		if(type == 1 && num == 1){
         	$(".name-input-fixed-1").show();
         }
-        else if(num == 1 && $scope.page == 2){
+        else if(type == 1 && num == 2){
         	$(".name-input-fixed-2").show();
         }
 	};
 	// 完成添加文字
 	$scope.updateText = function (){
 		hechen();
-		if(num == 1 && $scope.page == 1){
+		if(type == 1 && num == 1){
         	$(".name-input-fixed-1").fadeOut(50);
         }
-        else if(num == 1 && $scope.page == 2){
+        else if(type == 1 && num == 2){
         	$(".name-input-fixed-2").fadeOut(50);
         }
 	};
@@ -74,21 +75,21 @@ index.controller('useGreetCtrl',
 		$scope.user.iscomplete = true;
 	};
 	// 切换图片
-	$scope.changeImg =function (e){
-		e.stopPropagation();
-		$scope.loading=true;
-		$scope.showmodel = false;
-		if($scope.page >=2){
-			$scope.page=1;
-			$scope.showImg='../../assets/images/greet/type'+num+'/img_'+$scope.page+'.png';
-			$scope.loading=false;
-		}else{
-			$scope.page+=1;
-			$scope.showImg='../../assets/images/greet/type'+num+'/img_'+$scope.page+'.png';
-			$scope.loading=false;
-		}
-		hechen();
-	};
+	// $scope.changeImg =function (e){
+	// 	e.stopPropagation();
+	// 	$scope.loading=true;
+	// 	$scope.showmodel = false;
+	// 	if($scope.page >=2){
+	// 		$scope.page=1;
+	// 		$scope.showImg='../../assets/images/greet/type'+num+'/img_'+$scope.page+'.png';
+	// 		$scope.loading=false;
+	// 	}else{
+	// 		$scope.page+=1;
+	// 		$scope.showImg='../../assets/images/greet/type'+num+'/img_'+$scope.page+'.png';
+	// 		$scope.loading=false;
+	// 	}
+	// 	hechen();
+	// };
 
 	$(function(){
         hechen();
@@ -109,7 +110,7 @@ index.controller('useGreetCtrl',
             //先把图片绘制在这里
             mainCtx.drawImage(starImg,0,0,canvasWidth,canvasHeight);
             if (navigator.userAgent.match(/iphone/i)) {
-            	if(num == 1 && $scope.page == 1){
+            	if(type == 1 && num == 1){
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 72px myFirstFont";
 		            //设置用户文本填充颜色
@@ -126,7 +127,7 @@ index.controller('useGreetCtrl',
 		            //设置用户文本填充颜色
 		            mainCtx.fillStyle = "#0f0f0b";
 		            mainCtx.fillText($scope.desc,text11Xx,text11Yy);
-	            }else if(num == 1 && $scope.page == 2){
+	            }else if(type == 1 && num == 2){
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 30px myFirstFont";
 		            //设置用户文本填充颜色
@@ -143,7 +144,7 @@ index.controller('useGreetCtrl',
 		            mainCtx.fillText($scope.desc1,text22X,text22Yyy);
 	            }
             }else{
-	            if(num == 1 && $scope.page == 1){
+	            if(type == 1 && num == 1){
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 0.96rem myFirstFont";
 		            //设置用户文本填充颜色
@@ -160,7 +161,7 @@ index.controller('useGreetCtrl',
 		            //设置用户文本填充颜色
 		            mainCtx.fillStyle = "#0f0f0b";
 		            mainCtx.fillText($scope.desc,text1Xx,text1Yy);
-	            }else if(num == 1 && $scope.page == 2){
+	            }else if(type == 1 && num == 2){
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 0.4rem myFirstFont";
 		            //设置用户文本填充颜色

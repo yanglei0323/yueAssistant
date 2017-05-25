@@ -112,11 +112,15 @@ index.config(['$routeProvider','$locationProvider', function ($routeProvider,$lo
 			templateUrl: '../html/holidayList.html',
 			controller: 'holidayListCtrl'
 		})
+		.when('/greetList/:num', {
+			templateUrl: '../html/greetList.html',
+			controller: 'greetListCtrl'
+		})
 		.when('/useHoliday/:type/:num', {
 			templateUrl: '../html/useHoliday.html',
 			controller: 'useHolidayCtrl'
 		})
-		.when('/useGreet/:num', {
+		.when('/useGreet/:type/:num', {
 			templateUrl: '../html/useGreet.html',
 			controller: 'useGreetCtrl'
 		})

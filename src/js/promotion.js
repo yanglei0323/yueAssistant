@@ -87,7 +87,7 @@ index.controller('promotionCtrl',
     //模板跳转
     $scope.useTemplate = function (num){
         $rootScope.activeTab=3;
-        $location.path('wechatCircle/'+num);
+        $location.path('promList/'+num);
     };
     //个性名片模板跳转
     $scope.useCard = function (num){

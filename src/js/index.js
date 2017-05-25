@@ -76,6 +76,10 @@ index.config(['$routeProvider','$locationProvider', function ($routeProvider,$lo
 			templateUrl: '../html/monList.html',
 			controller: 'monListCtrl'
 		})
+		.when('/promList/:num', {
+			templateUrl: '../html/promList.html',
+			controller: 'promListCtrl'
+		})
 		.when('/nightList/:num', {
 			templateUrl: '../html/nightList.html',
 			controller: 'nightListCtrl'
@@ -112,7 +116,7 @@ index.config(['$routeProvider','$locationProvider', function ($routeProvider,$lo
 			templateUrl: '../html/useGreet.html',
 			controller: 'useGreetCtrl'
 		})
-		.when('/wechatCircle/:num', {
+		.when('/wechatCircle/:type/:num', {
 			templateUrl: '../html/wechatCircle.html',
 			controller: 'wechatCircleCtrl'
 		})

@@ -17,14 +17,15 @@ index.controller('useNightCtrl',
 	// 	$scope.user.name=$scope.user.name[0]+$scope.user.name[1];
 	// }
 	// 类型type
+	var type = $routeParams.type;
 	var num = $routeParams.num;
 	// 第几张图片
 	$scope.page=1;
-	$scope.showImg='../../assets/images/goodnight/type'+num+'/img_'+$scope.page+'.png';
-	for(var c=1;c<6;c++){
-		var preImg='../../assets/images/goodnight/type'+num+'/img_'+c+'.png';
-		$('.hideImg').append("<img src="+preImg+">");
-	}
+	$scope.showImg='../../assets/images/goodnight/type'+type+'/img_'+num+'.png';
+	// for(var c=1;c<6;c++){
+	// 	var preImg='../../assets/images/goodnight/type'+num+'/img_'+c+'.png';
+	// 	$('.hideImg').append("<img src="+preImg+">");
+	// }
 	// 完善信息页面跳转
 	$scope.editInformation = function (){
 		$location.path('editInformation');
@@ -44,19 +45,19 @@ index.controller('useNightCtrl',
 		$scope.user.iscomplete = true;
 	};
 	// 切换图片
-	$scope.changeImg =function (){
-		$scope.loading=true;
-		if($scope.page >=5){
-			$scope.page=1;
-			$scope.showImg='../../assets/images/goodnight/type'+num+'/img_'+$scope.page+'.png';
-			$scope.loading=false;
-		}else{
-			$scope.page+=1;
-			$scope.showImg='../../assets/images/goodnight/type'+num+'/img_'+$scope.page+'.png';
-			$scope.loading=false;
-		}
-		hechen();
-	};
+	// $scope.changeImg =function (){
+	// 	$scope.loading=true;
+	// 	if($scope.page >=5){
+	// 		$scope.page=1;
+	// 		$scope.showImg='../../assets/images/goodnight/type'+num+'/img_'+$scope.page+'.png';
+	// 		$scope.loading=false;
+	// 	}else{
+	// 		$scope.page+=1;
+	// 		$scope.showImg='../../assets/images/goodnight/type'+num+'/img_'+$scope.page+'.png';
+	// 		$scope.loading=false;
+	// 	}
+	// 	hechen();
+	// };
 
 	$(function(){
         hechen();
@@ -144,7 +145,7 @@ index.controller('useNightCtrl',
             //先把图片绘制在这里
             mainCtx.drawImage(starImg,0,0,canvasWidth,canvasHeight);
             if (navigator.userAgent.match(/iphone/i)) {
-            	if(num == 1){
+            	if(type == 1){
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 24px myFirstFont";
 		            //设置用户文本填充颜色
@@ -159,7 +160,7 @@ index.controller('useNightCtrl',
 		            // mainCtx.font = "small-caps bold 0.24rem STXinwei";
 		            mainCtx.fillText(mm+'.'+week,text11X,text11Yy);
 		            mainCtx.fillText(date,text11X,text11Yyy);
-	            }else if(num == 2){
+	            }else if(type == 2){
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 24px myFirstFont";
 		            //设置用户文本填充颜色
@@ -177,7 +178,7 @@ index.controller('useNightCtrl',
 		            //设置时间填充颜色
 		            // mainCtx.font = "small-caps bold 0.24rem STXinwei";
 		            mainCtx.fillText(date,text22X,text22Yyy);
-	            }else if(num == 3){
+	            }else if(type == 3){
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 24px myFirstFont";
 		            //设置用户文本填充颜色
@@ -194,7 +195,7 @@ index.controller('useNightCtrl',
 		            for(var v=0;v<$scope.user.name.length;v++){
 		            	mainCtx.fillText($scope.user.name[v],text33Xx,text33Yyy+Math.floor(canvasHeight*0.0437)*v);
 		            }
-	            }else if(num == 4){
+	            }else if(type == 4){
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 100px myFirstFont";
 		            //设置用户文本填充颜色
@@ -214,7 +215,7 @@ index.controller('useNightCtrl',
 		            for(var z=0;z<$scope.user.name.length;z++){
 		            	mainCtx.fillText($scope.user.name[z],text44Xx,text44Yyyy+Math.floor(canvasHeight*0.0437)*z);
 		            }
-	            }else if(num == 5){
+	            }else if(type == 5){
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 24px myFirstFont";
 		            //设置用户文本填充颜色
@@ -232,7 +233,7 @@ index.controller('useNightCtrl',
 		            	mainCtx.fillText($scope.user.name[b],text55Xx,text55Yyy+Math.floor(canvasHeight*0.0437)*b);
 		            }
 		            //设置时间填充颜色
-	            }else if(num == 6){
+	            }else if(type == 6){
 	            	//读取用户的文本
 	            	mainCtx.font = "normal bold 124px myFirstFont";
 		            //设置用户文本填充颜色
@@ -251,7 +252,7 @@ index.controller('useNightCtrl',
 		            for(var s=0;s<$scope.user.name.length;s++){
 		            	mainCtx.fillText($scope.user.name[s],text66Xx,text66Yyyy+Math.floor(canvasHeight*0.0437)*s);
 		            }
-	            }else if(num == 7){
+	            }else if(type == 7){
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 24px myFirstFont";
 		            //设置用户文本填充颜色
@@ -263,7 +264,7 @@ index.controller('useNightCtrl',
 		            mainCtx.fillText(mm+'.'+week,text77X,text77Y);
 		            //设置时间填充颜色
 		            mainCtx.fillText(date,text77X,text77Yy);
-	            }else if(num == 8){
+	            }else if(type == 8){
 	            	//读取用户的文本
 	            	mainCtx.font = "normal bold 124px myFirstFont";
 		            //设置用户文本填充颜色
@@ -282,7 +283,7 @@ index.controller('useNightCtrl',
 		            mainCtx.fillText("BY"+$scope.user.name,text88X,text88Yyyy);
 	            }
             }else{
-            	if(num == 1){
+            	if(type == 1){
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 0.32rem myFirstFont";
 		            //设置用户文本填充颜色
@@ -297,7 +298,7 @@ index.controller('useNightCtrl',
 		            // mainCtx.font = "small-caps bold 0.24rem STXinwei";
 		            mainCtx.fillText(mm+'.'+week,text1X,text1Yy);
 		            mainCtx.fillText(date,text1X,text1Yyy);
-	            }else if(num == 2){
+	            }else if(type == 2){
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 0.4rem myFirstFont";
 		            //设置用户文本填充颜色
@@ -315,7 +316,7 @@ index.controller('useNightCtrl',
 		            //设置时间填充颜色
 		            // mainCtx.font = "small-caps bold 0.24rem STXinwei";
 		            mainCtx.fillText(date,text2X,text2Yyy);
-	            }else if(num == 3){
+	            }else if(type == 3){
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 0.42rem myFirstFont";
 		            //设置用户文本填充颜色
@@ -332,7 +333,7 @@ index.controller('useNightCtrl',
 		            for(var vv=0;vv<$scope.user.name.length;vv++){
 		            	mainCtx.fillText($scope.user.name[vv],text3Xx,text3Yyy+Math.floor(canvasHeight*0.0437)*vv);
 		            }
-	            }else if(num == 4){
+	            }else if(type == 4){
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 1.333333rem myFirstFont";
 		            //设置用户文本填充颜色
@@ -352,7 +353,7 @@ index.controller('useNightCtrl',
 		            for(var zz=0;zz<$scope.user.name.length;zz++){
 		            	mainCtx.fillText($scope.user.name[zz],text4Xx,text4Yyyy+Math.floor(canvasHeight*0.0437)*zz);
 		            }
-	            }else if(num == 5){
+	            }else if(type == 5){
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 0.453333rem myFirstFont";
 		            //设置用户文本填充颜色
@@ -370,7 +371,7 @@ index.controller('useNightCtrl',
 		            	mainCtx.fillText($scope.user.name[bb],text5Xx,text5Yyy+Math.floor(canvasHeight*0.0437)*bb);
 		            }
 		            //设置时间填充颜色
-	            }else if(num == 6){
+	            }else if(type == 6){
 	            	//读取用户的文本
 	            	mainCtx.font = "normal bold 1.653333rem myFirstFont";
 		            //设置用户文本填充颜色
@@ -389,7 +390,7 @@ index.controller('useNightCtrl',
 		            for(var ss=0;ss<$scope.user.name.length;ss++){
 		            	mainCtx.fillText($scope.user.name[ss],text6Xx,text6Yyyy+Math.floor(canvasHeight*0.0437)*ss);
 		            }
-	            }else if(num == 7){
+	            }else if(type == 7){
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 0.42rem myFirstFont";
 		            //设置用户文本填充颜色
@@ -401,7 +402,7 @@ index.controller('useNightCtrl',
 		            mainCtx.fillText(mm+'.'+week,text7X,text7Y);
 		            //设置时间填充颜色
 		            mainCtx.fillText(date,text7X,text7Yy);
-	            }else if(num == 8){
+	            }else if(type == 8){
 	            	//读取用户的文本
 	            	mainCtx.font = "normal bold 1.653333rem myFirstFont";
 		            //设置用户文本填充颜色

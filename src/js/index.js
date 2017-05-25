@@ -68,11 +68,19 @@ index.config(['$routeProvider','$locationProvider', function ($routeProvider,$lo
 			templateUrl: '../html/morningNight.html',
 			controller: 'morningNightCtrl'
 		})
-		.when('/useMorn/:num', {
+		.when('/useMorn/:type/:num', {
 			templateUrl: '../html/useMorn.html',
 			controller: 'useMornCtrl'
 		})
-		.when('/useNight/:num', {
+		.when('/monList/:num', {
+			templateUrl: '../html/monList.html',
+			controller: 'monListCtrl'
+		})
+		.when('/nightList/:num', {
+			templateUrl: '../html/nightList.html',
+			controller: 'nightListCtrl'
+		})
+		.when('/useNight/:type/:num', {
 			templateUrl: '../html/useNight.html',
 			controller: 'useNightCtrl'
 		})

@@ -7,10 +7,11 @@ index.controller('usejokeCtrl',
 	$scope.loading=false;
 	console.log($scope.user);
 	// 类型type
+	var type = $routeParams.type;
 	var num = $routeParams.num;
 	// 第几张图片
 	$scope.page=1;
-	$scope.showImg='../../assets/images/joke/type'+num+'/img_'+$scope.page+'.png';
+	$scope.showImg='../../assets/images/joke/type'+type+'/img_'+num+'.png';
 	// 完善信息页面跳转
 	$scope.editInformation = function (){
 		$location.path('editInformation');
@@ -28,16 +29,16 @@ index.controller('usejokeCtrl',
 		$scope.user.iscomplete = true;
 	};
 	// 切换图片
-	$scope.changeImg =function (){
-		$scope.loading=true;
-		if($scope.page >=10){
-			$scope.page=1;
-			$scope.showImg='../../assets/images/joke/type'+num+'/img_'+$scope.page+'.png';
-			$scope.loading=false;
-		}else{
-			$scope.page+=1;
-			$scope.showImg='../../assets/images/joke/type'+num+'/img_'+$scope.page+'.png';
-			$scope.loading=false;
-		}
-	};
+	// $scope.changeImg =function (){
+	// 	$scope.loading=true;
+	// 	if($scope.page >=10){
+	// 		$scope.page=1;
+	// 		$scope.showImg='../../assets/images/joke/type'+num+'/img_'+$scope.page+'.png';
+	// 		$scope.loading=false;
+	// 	}else{
+	// 		$scope.page+=1;
+	// 		$scope.showImg='../../assets/images/joke/type'+num+'/img_'+$scope.page+'.png';
+	// 		$scope.loading=false;
+	// 	}
+	// };
 }]);

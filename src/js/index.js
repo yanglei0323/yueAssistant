@@ -100,7 +100,11 @@ index.config(['$routeProvider','$locationProvider', function ($routeProvider,$lo
 			templateUrl: '../html/joke.html',
 			controller: 'jokeshowCtrl'
 		})
-		.when('/usejoke/:num', {
+		.when('/jokeList/:num', {
+			templateUrl: '../html/jokeList.html',
+			controller: 'jokeListCtrl'
+		})
+		.when('/usejoke/:type/:num', {
 			templateUrl: '../html/usejoke.html',
 			controller: 'usejokeCtrl'
 		})

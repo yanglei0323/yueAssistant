@@ -3,7 +3,7 @@ index.controller('jokeshowCtrl',
 	function ($scope, $http, $window, $location, $rootScope) {
 	//模板跳转
 	$scope.useTemplate = function (num){
-		$location.path('usejoke/'+num);
+		$location.path('jokeList/'+num);
 	};
 	
 }]);

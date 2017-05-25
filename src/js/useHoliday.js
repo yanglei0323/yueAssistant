@@ -19,14 +19,15 @@ index.controller('useHolidayCtrl',
 		$scope.name=$scope.name[0]+$scope.name[1]+$scope.name[2];
 	}
 	// 类型type
+	var type = $routeParams.type;
 	var num = $routeParams.num;
 	// 第几张图片
 	$scope.page=1;
-	$scope.showImg='../../assets/images/holiday/type'+num+'/img_'+$scope.page+'.png';
-	for(var c=1;c<3;c++){
-		var preImg='../../assets/images/holiday/type'+num+'/img_'+c+'.png';
-		$('.hideImg').append("<img src="+preImg+">");
-	}
+	$scope.showImg='../../assets/images/holiday/type'+type+'/img_'+num+'.png';
+	// for(var c=1;c<3;c++){
+	// 	var preImg='../../assets/images/holiday/type'+num+'/img_'+c+'.png';
+	// 	$('.hideImg').append("<img src="+preImg+">");
+	// }
 	// 完善信息页面跳转
 	$scope.editInformation = function (e){
 		e.stopPropagation();
@@ -50,7 +51,7 @@ index.controller('useHolidayCtrl',
 		if($scope.showmodel){
 			return;
 		}
-		if(num == 1 && $scope.page == 2){
+		if(type == 1 && num == 2){
         	$(".name-input-fixed").show();
         }
 	};
@@ -68,21 +69,21 @@ index.controller('useHolidayCtrl',
 		$scope.user.iscomplete = true;
 	};
 	// 切换图片
-	$scope.changeImg =function (e){
-		e.stopPropagation();
-		$scope.showmodel = false;
-		$scope.loading=true;
-		if($scope.page >=2){
-			$scope.page=1;
-			$scope.showImg='../../assets/images/holiday/type'+num+'/img_'+$scope.page+'.png';
-			$scope.loading=false;
-		}else{
-			$scope.page+=1;
-			$scope.showImg='../../assets/images/holiday/type'+num+'/img_'+$scope.page+'.png';
-			$scope.loading=false;
-		}
-		hechen();
-	};
+	// $scope.changeImg =function (e){
+	// 	e.stopPropagation();
+	// 	$scope.showmodel = false;
+	// 	$scope.loading=true;
+	// 	if($scope.page >=2){
+	// 		$scope.page=1;
+	// 		$scope.showImg='../../assets/images/holiday/type'+num+'/img_'+$scope.page+'.png';
+	// 		$scope.loading=false;
+	// 	}else{
+	// 		$scope.page+=1;
+	// 		$scope.showImg='../../assets/images/holiday/type'+num+'/img_'+$scope.page+'.png';
+	// 		$scope.loading=false;
+	// 	}
+	// 	hechen();
+	// };
 
 	$(function(){
         hechen();
@@ -103,7 +104,7 @@ index.controller('useHolidayCtrl',
             //先把图片绘制在这里
             mainCtx.drawImage(starImg,0,0,canvasWidth,canvasHeight);
             if (navigator.userAgent.match(/iphone/i)) {
-            	if(num == 1 && $scope.page == 2){
+            	if(type == 1 && num == 2){
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 40px myFirstFont";
 		            //设置用户文本填充颜色
@@ -114,7 +115,7 @@ index.controller('useHolidayCtrl',
 		            mainCtx.fillText($scope.name+"祝您",text11X,text11Y);
 	            }
             }else{
-	            if(num == 1 && $scope.page == 2){
+	            if(type == 1 && num == 2){
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 0.533333rem myFirstFont";
 		            //设置用户文本填充颜色

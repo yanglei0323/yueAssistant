@@ -1,6 +1,7 @@
 index.controller('promotionCtrl',
 	['$scope', '$http', '$window', '$location', '$rootScope',
 	function ($scope, $http, $window, $location, $rootScope) {
+    document.title='个人推广';
     var user=JSON.parse(sessionStorage.getItem('user'));
     $scope.user=user;
     $scope.activeTab=2;

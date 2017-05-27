@@ -1,6 +1,7 @@
 index.controller('homeCtrl',
 	['$scope', '$http', '$window', '$location', '$rootScope',
 	function ($scope, $http, $window, $location, $rootScope) {
+	document.title='小悦助手';
 	// 获取用户信息并存储
 	$http.post('/user/mine.json', postCfg)
 	.then(function (resp) {

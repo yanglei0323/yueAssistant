@@ -32,7 +32,7 @@
             <div class="nav-item margin-top-10">
                 <div class="left-content">
                     <span class="item-name">姓名<span class="Identification">&nbsp;*</span></span>
-                    <span class="bz-message"><input type="text" placeholder="用于主页和生成海报" ng-model="name"></span>
+                    <span class="bz-message"><input type="text" placeholder="用于主页和生成海报" ng-model="name" class="long"></span>
                 </div>
             </div>
         </a>
@@ -64,7 +64,7 @@
             <div class="nav-item">
                 <div class="left-content">
                     <span class="item-name">店面地址<span class="Identification">&nbsp;*</span></span>
-                    <span class="bz-message"><input type="text" placeholder="请输入内容" ng-model="storeplace"></span>
+                    <span class="bz-message"><input type="text" placeholder="请输入内容" ng-model="storeplace" class="long"></span>
                 </div>
             </div>
         </a>
@@ -118,8 +118,8 @@
                 <div class="level-div">
                     <div class="nav-item" ng-repeat="item in levelList">
                         <div class="left-content" ng-click="selectLevel(item)">
-                            <span ng-if="!item.selected"><img src="../../assets/images/vip_select.png" class="level-select-icon"></span>
-                            <span ng-if="item.selected"><img src="../../assets/images/selected.png" class="level-select-icon"></span>
+                            <img src="../../assets/images/vip_select.png" class="level-select-icon" ng-if="!item.selected">
+                            <img src="../../assets/images/selected.png" class="level-select-icon" ng-if="item.selected">
                             <span class="level-name" ng-bind="item.name"></span>
                         </div>
                     </div>

@@ -1,6 +1,7 @@
 index.controller('holidayCtrl',
 	['$scope', '$http', '$window', '$location', '$rootScope',
 	function ($scope, $http, $window, $location, $rootScope) {
+    document.title='节日问候';
 	$scope.activeTab=1;
 	if($rootScope.activeTabMorn){
         $scope.activeTab=$rootScope.activeTabMorn;

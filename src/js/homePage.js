@@ -1,6 +1,7 @@
 index.controller('homePageCtrl',
 	['$scope', '$http', '$window', '$location', '$rootScope','$routeParams',
 	function ($scope, $http, $window, $location, $rootScope,$routeParams) {
+	document.title='主页形象';
 	var uuid = $routeParams.uuid;
 	$scope.workTime = [];
 	

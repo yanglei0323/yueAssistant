@@ -1,6 +1,7 @@
 index.controller('guestCtrl',
 	['$scope', '$http', '$window', '$location', '$rootScope',
 	function ($scope, $http, $window, $location, $rootScope) {
+    document.title='客照展示';
     var user=JSON.parse(sessionStorage.getItem('user'));
     $scope.user=user;
     $scope.activeTab=1;

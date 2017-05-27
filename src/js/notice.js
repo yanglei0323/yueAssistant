@@ -1,6 +1,7 @@
 index.controller('noticeCtrl',
 	['$scope', '$http', '$window', '$location', '$rootScope',
 	function ($scope, $http, $window, $location, $rootScope) {
+    document.title='通知海报';
 	$scope.activeTab=1;
 	if($rootScope.activeTabMorn){
         $scope.activeTab=$rootScope.activeTabMorn;

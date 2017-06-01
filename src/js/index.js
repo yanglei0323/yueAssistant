@@ -181,8 +181,8 @@ index.config(['$routeProvider','$locationProvider', function ($routeProvider,$lo
     if (code) {
         // 通过code获取access_token等信息
         var data = {
-            appid: 'wxef3e1498e754b61d',
-            secret: '5e21b13a8d5e9b071b9bef2ad65e1883',
+            appid: 'wx45618195d7038b9d',
+            secret: '7156c0de543979bbb701006487a4e04a',
             code: code,
             grant_type: 'authorization_code'
         };

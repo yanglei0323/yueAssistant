@@ -72,6 +72,12 @@
 	     */
 	    var imgNum = getUrlParam('num');
         $('#word').data("src",'../../../assets/images/life/img_'+imgNum+'.png');
+        startLoading();
+        var wordimg  = new Image();
+        wordimg.src = '../../../assets/images/life/img_'+imgNum+'.png';
+        wordimg.onload = function (){
+        	endLoading();
+        }
         // console.log( $('#word').attr("src"));
          // 获取url参数
         function getUrlParam(name){  
@@ -96,6 +102,7 @@
 	    /**
 	     * 普通终端上传图片
 	     */
+	    Orientation = '';
 	    $upload.on('change', function() {
 	        var file = $(this)[0].files[0];
 	        if(!file) {//undefined
@@ -105,19 +112,38 @@
 	            return;
 	        }
 	        var file = $(this)[0].files[0];
+	        EXIF.getData(file, function() {  
+	           // alert(EXIF.pretty(this));  
+	            EXIF.getAllTags(this);   
+	            //alert(EXIF.getTag(this, 'Orientation'));   
+	            Orientation = EXIF.getTag(this, 'Orientation');  
+	            //return; 
+	        }); 
 	        var reader = new FileReader();
 	        reader.readAsDataURL(file);// 将文件以Data URL形式进行读入页面
 	        reader.onload = function() {
 	            var base64 = this.result;
 	            //模拟form上传
 	            //form(base64);
-
 	            var img  = new Image();
 	            img.onload = function() {
-	                var src = poster.filterImage(img, this.width, this.height);//将图片进行压缩，减少页面大小
+	            	if (navigator.userAgent.match(/iphone/i)) {
+		            	if(Orientation == 6){
+		            		var src = poster.filterImage(img, this.height,this.width ,90);//将图片进行压缩，减少页面大小
+			        		$frameImg.data('width', this.height);//实际宽度
+		                	$frameImg.data('height', this.width);//实际高度
+		            	}else{
+		                	var src = poster.filterImage(img, this.width, this.height);//将图片进行压缩，减少页面大小
+			        		$frameImg.data('width', this.width);//实际宽度
+		                	$frameImg.data('height', this.height);//实际高度
+		            	}
+		        	}else{
+		        		var src = poster.filterImage(img, this.width, this.height);//将图片进行压缩，减少页面大小
+		        		$frameImg.data('width', this.width);//实际宽度
+	                	$frameImg.data('height', this.height);//实际高度
+		        	}
 	                //var src = base64;
-	                $frameImg.data('width', this.width);//实际宽度
-	                $frameImg.data('height', this.height);//实际高度
+	                
 
 	                var realImg = new Image();
 	                realImg.onload = function() {
@@ -126,7 +152,15 @@
 	                    endLoading();
 	                };
 	                realImg.src = src;
-	                rotates[0] = {src:src, width:this.width, height:this.height, image:realImg};//用于旋转的缓存
+	                if (navigator.userAgent.match(/iphone/i)) {
+		            	if(Orientation == 6){
+	                		rotates[0] = {src:src, width:this.height, height:this.width, image:realImg};//用于旋转的缓存
+		            	}else{
+		                	rotates[0] = {src:src, width:this.width, height:this.height, image:realImg};//用于旋转的缓存
+		            	}
+		        	}else{
+		        		rotates[0] = {src:src, width:this.width, height:this.height, image:realImg};//用于旋转的缓存
+		        	}
 	            };
 	            img.src = base64;
 	        };

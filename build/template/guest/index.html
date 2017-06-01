@@ -75,12 +75,13 @@
     <!--弹出框 End-->
     <script src="build/js/touch.js"></script>
     <script src="build/js/hidpi-canvas.js"></script>
+    <script src="build/js/exif.js"></script>
     <script src="build/js/index.bundle.js"></script>
     <script>
         $(function(){
             var imgNum = getUrlParam('num');
             $('.father-img').attr('src','../../../assets/images/guest/type'+imgNum+'.png');
-            $('.word').attr("src",'../../../assets/images/promotion/type4/img_'+imgNum+'.png');
+            $('.word').attr("src",'../../../assets/images/guest/type4/img_'+imgNum+'.png');
             // console.log( $('#word').attr("src"));
             // var clientWidth = document.documentElement.clientWidth;
             // var canvasWidth = Math.floor(clientWidth);

@@ -33,10 +33,6 @@ index.controller('worksCtrl',
 	
 	// 删除主页作品
 	$scope.deleteRecommendworks=function(item){
-		if(item.recommend == 1){
-			alert("该作品已在主页展示,请先移除主页作品后再删除照片!");
-			return;
-		}
 		var data={
 			'add':[],
 			'rm':[item.id]
@@ -72,6 +68,10 @@ index.controller('worksCtrl',
 	};// 删除全部作品
 	$scope.deleteAllworks=function(e,item){
 		e.stopPropagation();
+		if(item.recommend == 1){
+			alert("该作品已在主页展示,请先移除主页作品后再删除照片!");
+			return;
+		}
 		var data={
 			'worksid':[item.id]
 		};

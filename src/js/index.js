@@ -181,7 +181,7 @@ index.config(['$routeProvider','$locationProvider', function ($routeProvider,$lo
     if (code) {
         // 通过code获取access_token等信息
         var data = {
-            appid: 'wx45618195d7038b9d',
+            appid: 'wx45618195d7038b9d',                    //小悦科技公众号配置信息
             secret: '7156c0de543979bbb701006487a4e04a',
             code: code,
             grant_type: 'authorization_code'
@@ -195,7 +195,7 @@ index.config(['$routeProvider','$locationProvider', function ($routeProvider,$lo
             	// alert('授权成功');
                 resp = JSON.parse(resp);
                 if (resp.errcode) {
-                  // alert(resp.errmsg);
+                  alert(resp.errmsg);
                 }
                 else {
                   // 获取授权信息成功

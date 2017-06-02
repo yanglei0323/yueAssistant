@@ -37,56 +37,28 @@ index.controller('fastLoginCtrl', ['$scope', '$http', '$window', '$location', '$
     	});
     };
     // 确认登录
-    $scope.confirmLogin = function () {
-        if (-1 === checkParams()) {
-            return;
-        }
-    	var data = {
-    		telephone: $scope.phone,
-    		check: $scope.code,
-            type:1
-    	};
-    	$http.post('/user/unl/loginbytel.json', data, postCfg)
-    	.then(function (resp) {
-            if (1 === resp.data.code) {
-                // console.log(resp);
-                // 登录成功，将登录用户信息写到sessionStorage
-                var user = resp.data.data;
-                sessionStorage.setItem('user', JSON.stringify(user));
-                console.log(user);
-                // if (user.nickname === '') {
-                //     // 昵称为空，跳转到完善信息页面
-                //     $location.path('complete_info').search({type: 'modify'}).replace();
-                //     return;
-                // }
-                $timeout(function () {
-                    $window.history.back();
-                });
-            }
-            else if (0 === resp.data.code) {
-                $scope.modalText=resp.data.reason;
-                $('.prompt-container').show().fadeOut(2000);
-            }
-    	}, function (resp) {
-            // alert('数据请求失败，请稍后再试！');
-    	});
-    };
-
-    // 绑定手机
     // $scope.confirmLogin = function () {
     //     if (-1 === checkParams()) {
     //         return;
     //     }
-    //     var data = {
-    //         telephone: $scope.phone,
-    //         check: $scope.code,
-    //         uuid:$scope.uuid
-    //     };
-    //     $http.post('/user/unl/bindtelephone.json', data, postCfg)
-    //     .then(function (resp) {
+    // 	var data = {
+    // 		telephone: $scope.phone,
+    // 		check: $scope.code,
+    //         type:1
+    // 	};
+    // 	$http.post('/user/unl/loginbytel.json', data, postCfg)
+    // 	.then(function (resp) {
     //         if (1 === resp.data.code) {
+    //             // console.log(resp);
+    //             // 登录成功，将登录用户信息写到sessionStorage
     //             var user = resp.data.data;
     //             sessionStorage.setItem('user', JSON.stringify(user));
+    //             console.log(user);
+    //             // if (user.nickname === '') {
+    //             //     // 昵称为空，跳转到完善信息页面
+    //             //     $location.path('complete_info').search({type: 'modify'}).replace();
+    //             //     return;
+    //             // }
     //             $timeout(function () {
     //                 $window.history.back();
     //             });
@@ -94,14 +66,42 @@ index.controller('fastLoginCtrl', ['$scope', '$http', '$window', '$location', '$
     //         else if (0 === resp.data.code) {
     //             $scope.modalText=resp.data.reason;
     //             $('.prompt-container').show().fadeOut(2000);
-    //         }else {
-    //             $scope.modalText=resp.data.reason;
-    //             $('.prompt-container').show().fadeOut(2000);
     //         }
-    //     }, function (resp) {
-    //         alert(resp.reason);
-    //     });
+    // 	}, function (resp) {
+    //         // alert('数据请求失败，请稍后再试！');
+    // 	});
     // };
+
+    // 绑定手机
+    $scope.confirmLogin = function () {
+        if (-1 === checkParams()) {
+            return;
+        }
+        var data = {
+            telephone: $scope.phone,
+            check: $scope.code,
+            uuid:$scope.uuid
+        };
+        $http.post('/user/unl/bindtelephone.json', data, postCfg)
+        .then(function (resp) {
+            if (1 === resp.data.code) {
+                var user = resp.data.data;
+                sessionStorage.setItem('user', JSON.stringify(user));
+                $timeout(function () {
+                    $window.history.back();
+                });
+            }
+            else if (0 === resp.data.code) {
+                $scope.modalText=resp.data.reason;
+                $('.prompt-container').show().fadeOut(2000);
+            }else {
+                $scope.modalText=resp.data.reason;
+                $('.prompt-container').show().fadeOut(2000);
+            }
+        }, function (resp) {
+            alert(resp.reason);
+        });
+    };
 
     function checkParams() {
         if (!phoneRe.test($scope.phone)) {

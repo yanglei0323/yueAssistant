@@ -9,7 +9,7 @@ index.controller('homeCtrl',
 		if (-1 === resp.data.code) {
 			// 用户未登录
 			$scope.isLogin = false;
-			$location.path('fast_login');
+			// $location.path('fast_login');
 		}
 		else if (1 === resp.data.code) {
 			$scope.isLogin = true;

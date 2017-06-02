@@ -1,5 +1,5 @@
 <div class="parent-container bg-color-fff">
-    <div id="usejoke-container" ng-click="chengeText()">
+    <div id="usejoke-container">
         <!-- <div class="usejoke-img-content">
             <img ng-src="{{showImg}}" alt="" class="templateImg">
         </div> -->
@@ -19,7 +19,11 @@
             <img src="../../assets/images/poster-edit-icon.png" alt="" ng-click="changeImg($event)">
         </div> -->
         <div class="bottom-btn">
-            <div class="btn-relative">
+            <div class="btn-relative" ng-if="fastuse">
+                <img src="../../assets/images/left_row.png" alt="" class="left-back" ng-click="goBack($event)">
+                <span ng-click="chengeText()">立即使用</span>
+            </div>
+            <div class="btn-relative" ng-if="!fastuse">
                 <img src="../../assets/images/left_row.png" alt="" class="left-back" ng-click="goBack($event)">
                 <span ng-click="useTemplatePage($event)" ng-bind="btnText"></span>
             </div>

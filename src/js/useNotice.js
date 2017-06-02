@@ -2,6 +2,7 @@ index.controller('useNoticeCtrl',
 	['$scope', '$http', '$window', '$location', '$rootScope','$routeParams',
 	function ($scope, $http, $window, $location, $rootScope,$routeParams) {
 	var user=JSON.parse(sessionStorage.getItem('user'));
+	$scope.fastuse=true;
 	$scope.user=user;
 	$scope.btnText = '一键生成海报';
 	$scope.loading=false;
@@ -59,6 +60,7 @@ index.controller('useNoticeCtrl',
 	};
 	// 点击添加文字
 	$scope.chengeText = function (){
+		$scope.fastuse=true;
 		if($scope.showmodel){
 			return;
 		}
@@ -104,6 +106,7 @@ index.controller('useNoticeCtrl',
         }else if(type == 5 && num==2){
         	$(".name-input-fixed-8").fadeOut(50);
         }
+        $scope.fastuse=false;
 	};
 	// 关闭弹窗
 	$scope.closeText = function (e){

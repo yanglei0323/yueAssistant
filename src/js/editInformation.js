@@ -74,6 +74,20 @@ index.controller('editInformationCtrl',
 			$('.prompt-fixed').show();
 			return;
 		}
+		function stripscript(s) 
+		{ 
+		var pattern = new RegExp("[`%~!@#$^&*()=|{}':;',\\[\\].<>/?~！@#￥……&*（）——|{}【】‘；：”“'。，、？]"); 
+		var rs = ""; 
+		for (var i = 0; i < s.length; i++) { 
+		rs = rs+s.substr(i, 1).replace(pattern, ''); 
+		} 
+		return rs; 
+		}
+		var relname=stripscript($scope.name);
+		if($scope.name != relname){
+			alert('姓名不支持特殊符号，请重新输入！');
+			return;
+		}
 		var data={
 			'name':$scope.name,
 			'worktime':$scope.worktime,

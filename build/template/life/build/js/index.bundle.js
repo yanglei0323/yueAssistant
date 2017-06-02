@@ -465,9 +465,9 @@
 
 	        imgOffset = $img.offset();//图片的偏移对象
 	        frmOffset = $frame.offset();//画框的偏移对象
-	        left = imgOffset.left - frmOffset.left - 3;//图片到边框左边的距离 去除1px的边框
+	        left = imgOffset.left - frmOffset.left ;//图片到边框左边的距离 去除1px的边框
 	        right = left + imgOffset.width;//画框模型是border-box，所以图片宽度需要减去边框的宽度 就是574
-	        top = imgOffset.top - frmOffset.top - 3;//图片到边框上边的距离
+	        top = imgOffset.top - frmOffset.top ;//图片到边框上边的距离
 	        bottom = top + imgOffset.height;
 
 	        //图片在画框内
@@ -501,7 +501,7 @@
 	            imageHeight = $img.data('height');
 	        }
 	        return {
-	            frame: {x: frmX, y: frmY, w: (imgW + 6), h: (imgH + 6)},//此处画框是574，而画布是580
+	            frame: {x: frmX, y: frmY, w: imgW, h: imgH},//此处画框是574，而画布是580
 	            image: {x: imgX * ratio, y: imgY * ratio, w: imgW * ratio, h: imageHeight}
 	        };
 	    }

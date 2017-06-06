@@ -329,7 +329,7 @@
 	    var canvas = document.createElement('canvas');
 	    var clientWidth = document.documentElement.clientWidth;
         var canvasWidth = Math.floor(clientWidth);
-        var canvasHeight = Math.floor(clientWidth*1.83);
+        var canvasHeight = Math.floor(clientWidth*(1334/750));
 	    canvas.width = clientWidth;//CSS中定义了画布是580
 	    canvas.height = canvasHeight;
 
@@ -347,14 +347,14 @@
 	            ctx.textAlign='center';
 	            //从坐标点(50,50)开始绘制文字
 	            var text1X=Math.floor(clientWidth*0.5);
-	            var text1Y=Math.floor(canvasHeight*0.591);
-	            var text1Yy=Math.floor(canvasHeight*0.631);
-	            var text1Y1=Math.floor(canvasHeight*0.661);
-	            var text1Y2=Math.floor(canvasHeight*0.701);
-	            var text1Y3=Math.floor(canvasHeight*0.749);
-	            var text1Y4=Math.floor(canvasHeight*0.789);
-	            var text1Y5=Math.floor(canvasHeight*0.829);
-	            var text1Y6=Math.floor(canvasHeight*0.869);
+	            var text1Y=Math.floor(canvasHeight*0.611);
+	            var text1Yy=Math.floor(canvasHeight*0.651);
+	            var text1Y1=Math.floor(canvasHeight*0.681);
+	            var text1Y2=Math.floor(canvasHeight*0.721);
+	            var text1Y3=Math.floor(canvasHeight*0.769);
+	            var text1Y4=Math.floor(canvasHeight*0.809);
+	            var text1Y5=Math.floor(canvasHeight*0.849);
+	            var text1Y6=Math.floor(canvasHeight*0.889);
 	            ctx.fillText(user.name,text1X,text1Y);
 	            ctx.font = "normal bold 28px arial";
 	            ctx.fillText(user.storename,text1X,text1Yy);
@@ -382,15 +382,15 @@
 	            var text2Xx=Math.floor(clientWidth*0.0933);
 	            var text2Xxx=Math.floor(clientWidth*0.416);
 	            var text2Xxxx=Math.floor(clientWidth*0.1433);
-	            var text2Y=Math.floor(canvasHeight*0.1367);
-	            var text2Yy=Math.floor(canvasHeight*0.4897);
-	            var text2Y1=Math.floor(canvasHeight*0.4797);
-	            var text2Y2=Math.floor(canvasHeight*0.592);
+	            var text2Y=Math.floor(canvasHeight*0.1567);
+	            var text2Yy=Math.floor(canvasHeight*0.5097);
+	            var text2Y1=Math.floor(canvasHeight*0.4997);
+	            var text2Y2=Math.floor(canvasHeight*0.612);
 
-	            var text2Y3=Math.floor(canvasHeight*0.639);
-	            var text2Y4=Math.floor(canvasHeight*0.679);
-	            var text2Y5=Math.floor(canvasHeight*0.719);
-	            var text2Y6=Math.floor(canvasHeight*0.759);
+	            var text2Y3=Math.floor(canvasHeight*0.659);
+	            var text2Y4=Math.floor(canvasHeight*0.699);
+	            var text2Y5=Math.floor(canvasHeight*0.739);
+	            var text2Y6=Math.floor(canvasHeight*0.779);
 	            for(var l=0;l<user.storename.length;l++){
 	            	var textH=Math.floor(canvasHeight*(0.1367+0.03*l));
 	            	ctx.fillText(user.storename[l],text2X,textH);
@@ -426,15 +426,15 @@
 	            var text3Xx=Math.floor(clientWidth*0.1033);
 	            var text3Xxx=Math.floor(clientWidth*0.466);
 	            var text3Xxxx=Math.floor(clientWidth*0.1433);
-	            var text3Y=Math.floor(canvasHeight*0.097);
-	            var text3Yy=Math.floor(canvasHeight*0.6697);
-	            var text3Y1=Math.floor(canvasHeight*0.6997);
-	            var text3Y2=Math.floor(canvasHeight*0.732);
+	            var text3Y=Math.floor(canvasHeight*0.117);
+	            var text3Yy=Math.floor(canvasHeight*0.6897);
+	            var text3Y1=Math.floor(canvasHeight*0.7197);
+	            var text3Y2=Math.floor(canvasHeight*0.752);
 
-	            var text3Y3=Math.floor(canvasHeight*0.789);
-	            var text3Y4=Math.floor(canvasHeight*0.829);
-	            var text3Y5=Math.floor(canvasHeight*0.869);
-	            var text3Y6=Math.floor(canvasHeight*0.909);
+	            var text3Y3=Math.floor(canvasHeight*0.809);
+	            var text3Y4=Math.floor(canvasHeight*0.849);
+	            var text3Y5=Math.floor(canvasHeight*0.889);
+	            var text3Y6=Math.floor(canvasHeight*0.929);
 	            for(var l=0;l<user.storename.length;l++){
 	            	var textH=Math.floor(canvasHeight*(0.0933+0.03*l));
 	            	ctx.fillText(user.storename[l],text3X,textH);
@@ -472,15 +472,15 @@
 	            var text3Xx=Math.floor(clientWidth*0.1033);
 	            var text3Xxx=Math.floor(clientWidth*0.466);
 	            var text3Xxxx=Math.floor(clientWidth*0.1433);
-	            var text3Y=Math.floor(canvasHeight*0.097);
-	            var text3Yy=Math.floor(canvasHeight*0.6697);
-	            var text3Y1=Math.floor(canvasHeight*0.6997);
-	            var text3Y2=Math.floor(canvasHeight*0.732);
+	            var text3Y=Math.floor(canvasHeight*0.117);
+	            var text3Yy=Math.floor(canvasHeight*0.6897);
+	            var text3Y1=Math.floor(canvasHeight*0.7197);
+	            var text3Y2=Math.floor(canvasHeight*0.752);
 
-	            var text3Y3=Math.floor(canvasHeight*0.789);
-	            var text3Y4=Math.floor(canvasHeight*0.829);
-	            var text3Y5=Math.floor(canvasHeight*0.869);
-	            var text3Y6=Math.floor(canvasHeight*0.909);
+	            var text3Y3=Math.floor(canvasHeight*0.809);
+	            var text3Y4=Math.floor(canvasHeight*0.849);
+	            var text3Y5=Math.floor(canvasHeight*0.889);
+	            var text3Y6=Math.floor(canvasHeight*0.929);
 	            for(var l=0;l<user.storename.length;l++){
 	            	var textH=Math.floor(canvasHeight*(0.0933+0.03*l));
 	            	ctx.fillText(user.storename[l],text3X,textH);
@@ -516,14 +516,14 @@
 	            //从坐标点(50,50)开始绘制文字
 	            var text1X=Math.floor(clientWidth*0.5);
 	            var text1Xx=Math.floor(clientWidth*0.093);
-	            var text1Y=Math.floor(canvasHeight*0.576);
-	            var text1Yy=Math.floor(canvasHeight*0.626);
-	            var text1Y1=Math.floor(canvasHeight*0.656);
-	            var text1Y2=Math.floor(canvasHeight*0.691);
-	            var text1Y3=Math.floor(canvasHeight*0.821);
-	            var text1Y4=Math.floor(canvasHeight*0.861);
-	            var text1Y5=Math.floor(canvasHeight*0.901);
-	            var text1Y6=Math.floor(canvasHeight*0.941);
+	            var text1Y=Math.floor(canvasHeight*0.596);
+	            var text1Yy=Math.floor(canvasHeight*0.646);
+	            var text1Y1=Math.floor(canvasHeight*0.676);
+	            var text1Y2=Math.floor(canvasHeight*0.711);
+	            var text1Y3=Math.floor(canvasHeight*0.841);
+	            var text1Y4=Math.floor(canvasHeight*0.881);
+	            var text1Y5=Math.floor(canvasHeight*0.921);
+	            var text1Y6=Math.floor(canvasHeight*0.961);
 	            ctx.fillText(user.name,text1X,text1Y);
 	            ctx.fillStyle = "#000";
 	            ctx.font = "normal bold 28px arial";
@@ -551,14 +551,14 @@
 	            ctx.textAlign='center';
 	            //从坐标点(50,50)开始绘制文字
 	            var text1X=Math.floor(clientWidth*0.5);
-	            var text1Y=Math.floor(canvasHeight*0.591);
-	            var text1Yy=Math.floor(canvasHeight*0.631);
-	            var text1Y1=Math.floor(canvasHeight*0.661);
-	            var text1Y2=Math.floor(canvasHeight*0.701);
-	            var text1Y3=Math.floor(canvasHeight*0.749);
-	            var text1Y4=Math.floor(canvasHeight*0.789);
-	            var text1Y5=Math.floor(canvasHeight*0.829);
-	            var text1Y6=Math.floor(canvasHeight*0.869);
+	            var text1Y=Math.floor(canvasHeight*0.611);
+	            var text1Yy=Math.floor(canvasHeight*0.651);
+	            var text1Y1=Math.floor(canvasHeight*0.681);
+	            var text1Y2=Math.floor(canvasHeight*0.721);
+	            var text1Y3=Math.floor(canvasHeight*0.769);
+	            var text1Y4=Math.floor(canvasHeight*0.809);
+	            var text1Y5=Math.floor(canvasHeight*0.849);
+	            var text1Y6=Math.floor(canvasHeight*0.889);
 	            ctx.fillText(user.name,text1X,text1Y);
 	            ctx.font = "normal bold 0.373333rem arial";
 	            ctx.fillText(user.storename,text1X,text1Yy);
@@ -586,15 +586,15 @@
 	            var text2Xx=Math.floor(clientWidth*0.0933);
 	            var text2Xxx=Math.floor(clientWidth*0.416);
 	            var text2Xxxx=Math.floor(clientWidth*0.1433);
-	            var text2Y=Math.floor(canvasHeight*0.1367);
-	            var text2Yy=Math.floor(canvasHeight*0.4897);
-	            var text2Y1=Math.floor(canvasHeight*0.4797);
-	            var text2Y2=Math.floor(canvasHeight*0.592);
+	            var text2Y=Math.floor(canvasHeight*0.1567);
+	            var text2Yy=Math.floor(canvasHeight*0.5097);
+	            var text2Y1=Math.floor(canvasHeight*0.4997);
+	            var text2Y2=Math.floor(canvasHeight*0.612);
 
-	            var text2Y3=Math.floor(canvasHeight*0.639);
-	            var text2Y4=Math.floor(canvasHeight*0.679);
-	            var text2Y5=Math.floor(canvasHeight*0.719);
-	            var text2Y6=Math.floor(canvasHeight*0.759);
+	            var text2Y3=Math.floor(canvasHeight*0.659);
+	            var text2Y4=Math.floor(canvasHeight*0.699);
+	            var text2Y5=Math.floor(canvasHeight*0.739);
+	            var text2Y6=Math.floor(canvasHeight*0.779);
 	            for(var l=0;l<user.storename.length;l++){
 	            	var textH=Math.floor(canvasHeight*(0.1367+0.03*l));
 	            	ctx.fillText(user.storename[l],text2X,textH);
@@ -630,15 +630,15 @@
 	            var text3Xx=Math.floor(clientWidth*0.1033);
 	            var text3Xxx=Math.floor(clientWidth*0.466);
 	            var text3Xxxx=Math.floor(clientWidth*0.1433);
-	            var text3Y=Math.floor(canvasHeight*0.097);
-	            var text3Yy=Math.floor(canvasHeight*0.6697);
-	            var text3Y1=Math.floor(canvasHeight*0.6997);
-	            var text3Y2=Math.floor(canvasHeight*0.732);
+	            var text3Y=Math.floor(canvasHeight*0.117);
+	            var text3Yy=Math.floor(canvasHeight*0.6897);
+	            var text3Y1=Math.floor(canvasHeight*0.7197);
+	            var text3Y2=Math.floor(canvasHeight*0.752);
 
-	            var text3Y3=Math.floor(canvasHeight*0.789);
-	            var text3Y4=Math.floor(canvasHeight*0.829);
-	            var text3Y5=Math.floor(canvasHeight*0.869);
-	            var text3Y6=Math.floor(canvasHeight*0.909);
+	            var text3Y3=Math.floor(canvasHeight*0.809);
+	            var text3Y4=Math.floor(canvasHeight*0.849);
+	            var text3Y5=Math.floor(canvasHeight*0.889);
+	            var text3Y6=Math.floor(canvasHeight*0.929);
 	            for(var l=0;l<user.storename.length;l++){
 	            	var textH=Math.floor(canvasHeight*(0.0933+0.03*l));
 	            	ctx.fillText(user.storename[l],text3X,textH);
@@ -676,15 +676,15 @@
 	            var text3Xx=Math.floor(clientWidth*0.1033);
 	            var text3Xxx=Math.floor(clientWidth*0.466);
 	            var text3Xxxx=Math.floor(clientWidth*0.1433);
-	            var text3Y=Math.floor(canvasHeight*0.097);
-	            var text3Yy=Math.floor(canvasHeight*0.6697);
-	            var text3Y1=Math.floor(canvasHeight*0.6997);
-	            var text3Y2=Math.floor(canvasHeight*0.732);
+	            var text3Y=Math.floor(canvasHeight*0.117);
+	            var text3Yy=Math.floor(canvasHeight*0.6897);
+	            var text3Y1=Math.floor(canvasHeight*0.7197);
+	            var text3Y2=Math.floor(canvasHeight*0.752);
 
-	            var text3Y3=Math.floor(canvasHeight*0.789);
-	            var text3Y4=Math.floor(canvasHeight*0.829);
-	            var text3Y5=Math.floor(canvasHeight*0.869);
-	            var text3Y6=Math.floor(canvasHeight*0.909);
+	            var text3Y3=Math.floor(canvasHeight*0.809);
+	            var text3Y4=Math.floor(canvasHeight*0.849);
+	            var text3Y5=Math.floor(canvasHeight*0.889);
+	            var text3Y6=Math.floor(canvasHeight*0.929);
 	            for(var l=0;l<user.storename.length;l++){
 	            	var textH=Math.floor(canvasHeight*(0.0933+0.03*l));
 	            	ctx.fillText(user.storename[l],text3X,textH);
@@ -720,14 +720,14 @@
 	            //从坐标点(50,50)开始绘制文字
 	            var text1X=Math.floor(clientWidth*0.5);
 	            var text1Xx=Math.floor(clientWidth*0.093);
-	            var text1Y=Math.floor(canvasHeight*0.576);
-	            var text1Yy=Math.floor(canvasHeight*0.626);
-	            var text1Y1=Math.floor(canvasHeight*0.656);
-	            var text1Y2=Math.floor(canvasHeight*0.691);
-	            var text1Y3=Math.floor(canvasHeight*0.821);
-	            var text1Y4=Math.floor(canvasHeight*0.861);
-	            var text1Y5=Math.floor(canvasHeight*0.901);
-	            var text1Y6=Math.floor(canvasHeight*0.941);
+	            var text1Y=Math.floor(canvasHeight*0.596);
+	            var text1Yy=Math.floor(canvasHeight*0.646);
+	            var text1Y1=Math.floor(canvasHeight*0.676);
+	            var text1Y2=Math.floor(canvasHeight*0.711);
+	            var text1Y3=Math.floor(canvasHeight*0.841);
+	            var text1Y4=Math.floor(canvasHeight*0.881);
+	            var text1Y5=Math.floor(canvasHeight*0.921);
+	            var text1Y6=Math.floor(canvasHeight*0.961);
 	            ctx.fillText(user.name,text1X,text1Y);
 	            ctx.fillStyle = "#000";
 	            ctx.font = "normal bold 0.373333rem arial";

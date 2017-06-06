@@ -299,7 +299,7 @@
 	    var canvas = document.createElement('canvas');
 	    var clientWidth = document.documentElement.clientWidth;
         var canvasWidth = Math.floor(clientWidth);
-        var canvasHeight = Math.floor(clientWidth*1.83);
+        var canvasHeight = Math.floor(clientWidth*(1334/750));
 	    canvas.width = clientWidth;//CSS中定义了画布是580
 	    canvas.height = canvasHeight;
 

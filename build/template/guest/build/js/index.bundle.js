@@ -329,7 +329,7 @@
 	    var canvas = document.createElement('canvas');
 	    var clientWidth = document.documentElement.clientWidth;
         var canvasWidth = Math.floor(clientWidth);
-        var canvasHeight = Math.floor(clientWidth*1.83);
+        var canvasHeight = Math.floor(clientWidth*(1334/750));
 	    canvas.width = clientWidth;//CSS中定义了画布是580
 	    canvas.height = canvasHeight;
 
@@ -339,6 +339,14 @@
 	    poster.drawImage(ctx, rotates[direction].image, poster.intersect($frame, $frameImg));
 	    poster.drawImage(ctx, $word, poster.intersect($frame, $word));
 	    if (navigator.userAgent.match(/iphone/i)) {
+	    	// 添加二维码
+			// var pageqrcode = 'http://47.92.29.81:8891'+user.pageqrcode;
+		 //    var qrcodeImg = new Image();
+		 //    qrcodeImg.src = pageqrcode;
+		 //    qrcodeImg.onload=function(){
+		 //    	console.log(111);
+		 //    	ctx.drawImage(qrcodeImg,0,0,(7/30)*canvasWidth,(7/30)*canvasWidth);
+		 //    };
         	if(imgNum == 1){
 		    	//读取用户的文本
 	            ctx.font = "normal bold 38px arial";
@@ -347,7 +355,7 @@
 	            ctx.textAlign='center';
 	            //从坐标点(50,50)开始绘制文字
 	            var text1X=Math.floor(clientWidth*0.5);
-	            var text1Y=Math.floor(canvasHeight*0.7789);
+	            var text1Y=Math.floor(canvasHeight*0.7989);
 	            ctx.fillText(user.name,text1X,text1Y);
 		    }else if(imgNum == 2){
 		    	//读取用户的文本
@@ -356,7 +364,7 @@
 	            ctx.fillStyle = "#fff";
 	            //从坐标点(50,50)开始绘制文字
 	            var text1X=Math.floor(clientWidth*0.1013);
-	            var text1Y=Math.floor(canvasHeight*0.8762);
+	            var text1Y=Math.floor(canvasHeight*0.8962);
 	            ctx.fillText(user.name,text1X,text1Y);
 
 		    }else if(imgNum == 3){
@@ -366,7 +374,7 @@
 	            ctx.fillStyle = "#000";
 	            //从坐标点(50,50)开始绘制文字
 	            var text1X=Math.floor(clientWidth*0.054);
-	            var text1Y=Math.floor(canvasHeight*0.3346);
+	            var text1Y=Math.floor(canvasHeight*0.3546);
 	            ctx.fillText(user.name,text1X,text1Y);
 
 		    }else if(imgNum == 4){
@@ -376,7 +384,7 @@
 	            ctx.fillStyle = "#ca0808";
 	            //从坐标点(50,50)开始绘制文字
 	            var text1X=Math.floor(clientWidth*0.1133);
-	            var text1Y=Math.floor(canvasHeight*0.8394);
+	            var text1Y=Math.floor(canvasHeight*0.8594);
 	            ctx.fillText(user.name+"STYLIST",text1X,text1Y);
 
 		    }else if(imgNum == 5){
@@ -386,7 +394,7 @@
 	            ctx.fillStyle = "#000";
 	            //从坐标点(50,50)开始绘制文字
 	            var text1X=Math.floor(clientWidth*0.056);
-	            var text1Y=Math.floor(canvasHeight*0.2236);
+	            var text1Y=Math.floor(canvasHeight*0.2436);
 	            ctx.fillText(user.name,text1X,text1Y);
 		    }else if(imgNum == 6){
 		    	//读取用户的文本
@@ -395,7 +403,7 @@
 	            ctx.fillStyle = "#000";
 	            //从坐标点(50,50)开始绘制文字
 	            var text1X=Math.floor(clientWidth*0.3946);
-	            var text1Y=Math.floor(canvasHeight*0.1465);
+	            var text1Y=Math.floor(canvasHeight*0.1665);
 	            ctx.fillText(user.name,text1X,text1Y);
 		    }
     	}else{
@@ -407,7 +415,7 @@
 	            ctx.textAlign='center';
 	            //从坐标点(50,50)开始绘制文字
 	            var text1X=Math.floor(clientWidth*0.5);
-	            var text1Y=Math.floor(canvasHeight*0.7789);
+	            var text1Y=Math.floor(canvasHeight*0.7989);
 	            ctx.fillText(user.name,text1X,text1Y);
 		    }else if(imgNum == 2){
 		    	//读取用户的文本
@@ -416,7 +424,7 @@
 	            ctx.fillStyle = "#fff";
 	            //从坐标点(50,50)开始绘制文字
 	            var text1X=Math.floor(clientWidth*0.1013);
-	            var text1Y=Math.floor(canvasHeight*0.8762);
+	            var text1Y=Math.floor(canvasHeight*0.8962);
 	            ctx.fillText(user.name,text1X,text1Y);
 
 		    }else if(imgNum == 3){
@@ -426,7 +434,7 @@
 	            ctx.fillStyle = "#000";
 	            //从坐标点(50,50)开始绘制文字
 	            var text1X=Math.floor(clientWidth*0.054);
-	            var text1Y=Math.floor(canvasHeight*0.3346);
+	            var text1Y=Math.floor(canvasHeight*0.3546);
 	            ctx.fillText(user.name,text1X,text1Y);
 
 		    }else if(imgNum == 4){
@@ -436,7 +444,7 @@
 	            ctx.fillStyle = "#ca0808";
 	            //从坐标点(50,50)开始绘制文字
 	            var text1X=Math.floor(clientWidth*0.1133);
-	            var text1Y=Math.floor(canvasHeight*0.8394);
+	            var text1Y=Math.floor(canvasHeight*0.8594);
 	            ctx.fillText(user.name+"STYLIST",text1X,text1Y);
 
 		    }else if(imgNum == 5){
@@ -446,7 +454,7 @@
 	            ctx.fillStyle = "#000";
 	            //从坐标点(50,50)开始绘制文字
 	            var text1X=Math.floor(clientWidth*0.056);
-	            var text1Y=Math.floor(canvasHeight*0.2236);
+	            var text1Y=Math.floor(canvasHeight*0.2436);
 	            ctx.fillText(user.name,text1X,text1Y);
 		    }else if(imgNum == 6){
 		    	//读取用户的文本
@@ -455,7 +463,7 @@
 	            ctx.fillStyle = "#000";
 	            //从坐标点(50,50)开始绘制文字
 	            var text1X=Math.floor(clientWidth*0.3946);
-	            var text1Y=Math.floor(canvasHeight*0.1465);
+	            var text1Y=Math.floor(canvasHeight*0.1665);
 	            ctx.fillText(user.name,text1X,text1Y);
 		    }
     	}

@@ -145,6 +145,13 @@ index.controller('useMornCtrl',
         starImg.onload=function(){
             //先把图片绘制在这里
             mainCtx.drawImage(starImg,0,0,canvasWidth,canvasHeight);
+            // 添加二维码
+			// var pageqrcode = picBasePath + $scope.user.pageqrcode;
+   //          var qrcodeImg = new Image();
+   //          qrcodeImg.src = pageqrcode;
+   //          qrcodeImg.onload=function(){
+   //          	mainCtx.drawImage(qrcodeImg,(23/30)*canvasWidth,(47/54)*canvasHeight,(7/30)*canvasWidth,(7/30)*canvasWidth);
+   //          };
             if (navigator.userAgent.match(/iphone/i)) {
             	if(type == 1){
 	            	//读取用户的文本

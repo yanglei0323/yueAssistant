@@ -39,61 +39,37 @@ index.controller('homeCtrl',
 	};
 	//模板跳转
 	$scope.showTemplate = function (num){
+		if($scope.user.iscomplete === false){
+			$('.prompt-fixed').show();
+			return;
+		}
 		switch (num) {
 			case 1:
 				// 早晚安
-				if($scope.user.iscomplete === false){
-					$('.prompt-fixed').show();
-					return;
-				}
 				$location.path('morningNight');
 				break;
 			case 2:
 				// 客照展示
-				if($scope.user.iscomplete === false){
-					$('.prompt-fixed').show();
-					return;
-				}
 				$location.path('guest');
 				break;
 			case 3:
 				// 通知海报
-				if($scope.user.iscomplete === false){
-					$('.prompt-fixed').show();
-					return;
-				}
 				$location.path('notice');
 				break;
 			case 4:
 				// 个人推广
-				if($scope.user.iscomplete === false){
-					$('.prompt-fixed').show();
-					return;
-				}
 				$location.path('promotion');
 				break;
 			case 5:
 				// 节日问候
-				if($scope.user.iscomplete === false){
-					$('.prompt-fixed').show();
-					return;
-				}
 				$location.path('holiday');
 				break;
 			case 6:
 				// 段子笑话
-				if($scope.user.iscomplete === false){
-					$('.prompt-fixed').show();
-					return;
-				}
 				$location.path('joke');
 				break;
 			case 7:
 				// 生活日常
-				if($scope.user.iscomplete === false){
-					$('.prompt-fixed').show();
-					return;
-				}
 				$location.path('life');
 				break;
 		}

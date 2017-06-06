@@ -99,7 +99,7 @@ index.controller('fastLoginCtrl', ['$scope', '$http', '$window', '$location', '$
                 $('.prompt-container').show().fadeOut(2000);
             }
         }, function (resp) {
-            alert(resp.reason);
+            alert(resp.data.reason);
         });
     };
 

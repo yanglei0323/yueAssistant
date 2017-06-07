@@ -4,7 +4,7 @@ index.controller('noticeListCtrl',
     var type = $routeParams.num;
     $scope.imgList = [];
     for(var k=1;k<3;k++){
-        $scope.imgList.push('../../assets/images/notice/type'+type+'/img_'+k+'.png');
+        $scope.imgList.push('../../assets/images/notice/sample/type'+type+'/img_'+k+'.png');
     }
     // console.log(type);
     // 早安模板跳转

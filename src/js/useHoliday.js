@@ -88,6 +88,16 @@ index.controller('useHolidayCtrl',
 	$(function(){
         hechen();
     });
+    // 生成个人主页二维码
+	var pageqrcode= $('.hideImg').qrcode({width: 200,height: 200,correctLevel:0,text:'http://syrapi.yueyishujia.com/yueAssistant/build/html/homePage/'+$scope.user.uuid}).hide();   
+	var qrcodecanvas=pageqrcode.find('canvas').get(0);  
+	 // 添加二维码
+	// var pageqrcode = picBasePath + $scope.user.pageqrcode;
+	var pageqrcodeimg = qrcodecanvas.toDataURL('image/jpg');
+    var qrcodeImg = new Image();
+    // qrcodeImg.crossOrigin = "Anonymous"; 
+    // qrcodeImg.setAttribute('crossOrigin', 'anonymous');
+    qrcodeImg.src = pageqrcodeimg;
 
     function hechen(){
     	$scope.btnText = '一键生成海报';
@@ -113,6 +123,14 @@ index.controller('useHolidayCtrl',
 		            var text11X=Math.floor(clientWidth*0.153);
 		            var text11Y=Math.floor(canvasHeight*0.335);
 		            mainCtx.fillText($scope.name+"祝您",text11X,text11Y);
+	            }else if(type == 3 && num == 1){
+		            mainCtx.drawImage(qrcodeImg,(573/750)*canvasWidth,(1137/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+	            }else if(type == 3 && num == 2){
+		            mainCtx.drawImage(qrcodeImg,(44/750)*canvasWidth,(1134/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+	            }else if(type == 5 && num == 1){
+		            mainCtx.drawImage(qrcodeImg,(36/750)*canvasWidth,(1138/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+	            }else if(type == 5 && num == 2){
+		            mainCtx.drawImage(qrcodeImg,(36/750)*canvasWidth,(1122/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
 	            }
             }else{
 	            if(type == 1 && num == 2){
@@ -124,6 +142,14 @@ index.controller('useHolidayCtrl',
 		            var text1X=Math.floor(clientWidth*0.153);
 		            var text1Y=Math.floor(canvasHeight*0.335);
 		            mainCtx.fillText($scope.name+"祝您",text1X,text1Y);
+	            }else if(type == 3 && num == 1){
+		            mainCtx.drawImage(qrcodeImg,(573/750)*canvasWidth,(1137/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+	            }else if(type == 3 && num == 2){
+		            mainCtx.drawImage(qrcodeImg,(44/750)*canvasWidth,(1134/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+	            }else if(type == 5 && num == 1){
+		            mainCtx.drawImage(qrcodeImg,(36/750)*canvasWidth,(1138/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+	            }else if(type == 5 && num == 2){
+		            mainCtx.drawImage(qrcodeImg,(36/750)*canvasWidth,(1122/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
 	            }
             }
             

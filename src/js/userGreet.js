@@ -94,6 +94,16 @@ index.controller('useGreetCtrl',
 	$(function(){
         hechen();
     });
+    // 生成个人主页二维码
+	var pageqrcode= $('.hideImg').qrcode({width: 200,height: 200,correctLevel:0,text:'http://syrapi.yueyishujia.com/yueAssistant/build/html/homePage/'+$scope.user.uuid}).hide();   
+	var qrcodecanvas=pageqrcode.find('canvas').get(0);  
+	 // 添加二维码
+	// var pageqrcode = picBasePath + $scope.user.pageqrcode;
+	var pageqrcodeimg = qrcodecanvas.toDataURL('image/jpg');
+    var qrcodeImg = new Image();
+    // qrcodeImg.crossOrigin = "Anonymous"; 
+    // qrcodeImg.setAttribute('crossOrigin', 'anonymous');
+    qrcodeImg.src = pageqrcodeimg;
 
     function hechen(){
     	$scope.btnText = '一键生成海报';
@@ -142,6 +152,10 @@ index.controller('useGreetCtrl',
 		            
 		            mainCtx.fillText($scope.desc2,text22X,text22Yy);
 		            mainCtx.fillText($scope.desc1,text22X,text22Yyy);
+	            }else if(type == 3 && num == 1){
+		            mainCtx.drawImage(qrcodeImg,(72/750)*canvasWidth,(1099/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+	            }else if(type == 3 && num == 2){
+		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth,(1099/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
 	            }
             }else{
 	            if(type == 1 && num == 1){
@@ -176,6 +190,10 @@ index.controller('useGreetCtrl',
 		            
 		            mainCtx.fillText($scope.desc2,text2X,text2Yy);
 		            mainCtx.fillText($scope.desc1,text2X,text2Yyy);
+	            }else if(type == 3 && num == 1){
+		            mainCtx.drawImage(qrcodeImg,(72/750)*canvasWidth,(1099/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+	            }else if(type == 3 && num == 2){
+		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth,(1099/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
 	            }
             }
             

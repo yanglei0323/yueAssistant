@@ -6,11 +6,11 @@ index.controller('holidayListCtrl',
     $scope.imgList = [];
     if(type == 6){
         for(var m=1;m<7;m++){
-            $scope.imgList.push('../../assets/images/holiday/type'+type+'/img_'+m+'.png');
+            $scope.imgList.push('../../assets/images/holiday/sample/type'+type+'/img_'+m+'.png');
         }
     }else{
         for(var k=1;k<3;k++){
-            $scope.imgList.push('../../assets/images/holiday/type'+type+'/img_'+k+'.png');
+            $scope.imgList.push('../../assets/images/holiday/sample/type'+type+'/img_'+k+'.png');
         } 
     }
     // console.log(type);

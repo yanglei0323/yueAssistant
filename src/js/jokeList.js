@@ -4,7 +4,7 @@ index.controller('jokeListCtrl',
     var type = $routeParams.num;
     $scope.imgList = [];
     for(var k=1;k<11;k++){
-        $scope.imgList.push('../../assets/images/joke/type'+type+'/img_'+k+'.png');
+        $scope.imgList.push('../../assets/images/joke/sample/type'+type+'/img_'+k+'.png');
     }
     // console.log(type);
     // 早安模板跳转

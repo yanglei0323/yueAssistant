@@ -59,7 +59,25 @@ index.controller('useMornCtrl',
 	// 	}
 	// 	hechen();
 	// };
+	var mainCtx = getCanvasContext('main');
+    mainCtx.width =canvasWidth;
+    mainCtx.height = canvasHeight;
+    // mainCtx.clearRect(0,0,1000,1000);
+    // console.log(mainCtx.width+'----'+canvasWidth);
 
+    // polyfill 提供了这个方法用来获取设备的 pixel ratio
+    var getPixelRatio = function(context) {
+        var backingStore = context.backingStorePixelRatio ||
+            context.webkitBackingStorePixelRatio ||
+            context.mozBackingStorePixelRatio ||
+            context.msBackingStorePixelRatio ||
+            context.oBackingStorePixelRatio ||
+            context.backingStorePixelRatio || 1;
+    
+        return (window.devicePixelRatio || 1) / backingStore;
+    };
+
+    var ratio = getPixelRatio(mainCtx);
 	$(function(){
         hechen();
     });
@@ -134,17 +152,17 @@ index.controller('useMornCtrl',
             week = "S A T U R D A Y";  
             break;  
         }
-        var mainCtx = getCanvasContext('main');
-        var maxWidth = mainCtx.width;
-        var maxHeight = mainCtx.height;
-        mainCtx.clearRect(0,0,1000,1000);
+        // var mainCtx = getCanvasContext('main');
+        // var maxWidth = mainCtx.width;
+        // var maxHeight = mainCtx.height;
+        // mainCtx.clearRect(0,0,1000,1000);
         //因为没法直接读取本地图片 所以做了这部操作
 
         var starImg = new Image();
         starImg.src=$scope.showImg;
         starImg.onload=function(){
             //先把图片绘制在这里
-            mainCtx.drawImage(starImg,0,0,canvasWidth,canvasHeight);
+            mainCtx.drawImage(starImg,0,0,canvasWidth*ratio,canvasHeight*ratio);
             // 添加二维码
 			// var pageqrcode = picBasePath + $scope.user.pageqrcode;
    //          var qrcodeImg = new Image();

@@ -129,7 +129,25 @@ index.controller('useNoticeCtrl',
 		}
 		hechen();
 	};
+	var mainCtx = getCanvasContext('main');
+    mainCtx.width =canvasWidth;
+    mainCtx.height = canvasHeight;
+    // mainCtx.clearRect(0,0,1000,1000);
+    // console.log(mainCtx.width+'----'+canvasWidth);
 
+    // polyfill 提供了这个方法用来获取设备的 pixel ratio
+    var getPixelRatio = function(context) {
+        var backingStore = context.backingStorePixelRatio ||
+            context.webkitBackingStorePixelRatio ||
+            context.mozBackingStorePixelRatio ||
+            context.msBackingStorePixelRatio ||
+            context.oBackingStorePixelRatio ||
+            context.backingStorePixelRatio || 1;
+    
+        return (window.devicePixelRatio || 1) / backingStore;
+    };
+
+    var ratio = getPixelRatio(mainCtx);
 	$(function(){
         hechen();
     });
@@ -213,17 +231,14 @@ index.controller('useNoticeCtrl',
             week = "Saturday";  
             break;  
         }
-        var mainCtx = getCanvasContext('main');
-        var maxWidth = mainCtx.width;
-        var maxHeight = mainCtx.height;
-        mainCtx.clearRect(0,0,1000,1000);
+        
         //因为没法直接读取本地图片 所以做了这部操作
 
         var starImg = new Image();
         starImg.src=$scope.showImg;
         starImg.onload=function(){
             //先把图片绘制在这里
-            mainCtx.drawImage(starImg,0,0,canvasWidth,canvasHeight);
+            mainCtx.drawImage(starImg,0,0,canvasWidth*ratio,canvasHeight*ratio);
             if (navigator.userAgent.match(/iphone/i)) {
             	if(type == 1){
 	            	//读取用户的文本
@@ -240,7 +255,7 @@ index.controller('useNoticeCtrl',
 		            mainCtx.fillText(mm+'.'+week,text11X,text11Yy);
 		            mainCtx.fillText(date,text11X,text11Yyy);
 	            }else if(type == 2 && num==1){
-		            mainCtx.drawImage(qrcodeImg,(8/75)*canvasWidth,(1106/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(8/75)*canvasWidth*ratio,(1106/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		        	//读取用户的文本
 		            mainCtx.font = "normal bold 36px myFirstFont";
 		            //设置用户文本填充颜色
@@ -260,7 +275,7 @@ index.controller('useNoticeCtrl',
 		            mainCtx.fillText(date,text22Xx,text22Yyyy);
 		        }else if(type == 2 && num==2){
 		        	// 添加二维码
-		            mainCtx.drawImage(qrcodeImg,(558/750)*canvasWidth,(1120/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(558/750)*canvasWidth*ratio,(1120/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		        	//读取用户的文本
 		            mainCtx.font = "normal bold 30px myFirstFont";
 		            //设置用户文本填充颜色
@@ -283,7 +298,7 @@ index.controller('useNoticeCtrl',
 		            mainCtx.fillText(date,text33Xx,text33Yyyy);
 		        }else if(type == 3 && num==1){
 		        	// 添加二维码
-		            mainCtx.drawImage(qrcodeImg,(555/750)*canvasWidth,(1119/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(555/750)*canvasWidth*ratio,(1119/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		        	//读取用户的文本
 		            mainCtx.font = "normal bold 100px myFirstFont";
 		            //设置用户文本填充颜色
@@ -307,7 +322,7 @@ index.controller('useNoticeCtrl',
 		            mainCtx.fillText(date,text44Xxx,text44Yyyy);
 		        }else if(type == 3 && num==2){
 		        	// 添加二维码
-		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth,(786/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(786/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		        	//读取用户的文本
 		            mainCtx.font = "normal bold 48px myFirstFont";
 		            //设置用户文本填充颜色
@@ -330,7 +345,7 @@ index.controller('useNoticeCtrl',
 		            mainCtx.fillText(date,text55Xxx,text55Yyyy);
 		        }else if(type == 4 && num==1){
 		        	// 添加二维码
-		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth,(1079/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1079/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		        	//读取用户的文本
 		            mainCtx.font = "normal bold 48px myFirstFont";
 		            //设置用户文本填充颜色
@@ -341,7 +356,7 @@ index.controller('useNoticeCtrl',
 		            mainCtx.fillText($scope.discount,text66X,text66Y);
 		        }else if(type == 4 && num==2){
 		        	// 添加二维码
-		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth,(1090/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1090/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		        	//读取用户的文本
 		            mainCtx.font = "normal bold 100px myFirstFont";
 		            //设置用户文本填充颜色
@@ -359,7 +374,7 @@ index.controller('useNoticeCtrl',
 		            mainCtx.fillText($scope.endtime2,text77Xxx,text77Yy);
 		        }else if(type == 5 && num==1){
 		        	// 添加二维码
-		            mainCtx.drawImage(qrcodeImg,(550/750)*canvasWidth,(1110/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(550/750)*canvasWidth*ratio,(1110/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		        	//读取用户的文本
 		            mainCtx.font = "normal bold 100px myFirstFont";
 		            //设置用户文本填充颜色
@@ -388,7 +403,7 @@ index.controller('useNoticeCtrl',
 		            mainCtx.fillText(date,text88Xxxx,text88Yyyy2);
 		        }else if(type == 5 && num==2){
 		        	// 添加二维码
-		            mainCtx.drawImage(qrcodeImg,(551/750)*canvasWidth,(1111/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(551/750)*canvasWidth*ratio,(1111/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		        	//读取用户的文本
 		            mainCtx.font = "normal bold 30px myFirstFont";
 		            //设置用户文本填充颜色
@@ -429,7 +444,7 @@ index.controller('useNoticeCtrl',
 		            mainCtx.fillText(date,text1X,text1Yyy);
 	            }else if(type == 2 && num==1){
 	            	// 添加二维码
-		            mainCtx.drawImage(qrcodeImg,(8/75)*canvasWidth,(1106/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(8/75)*canvasWidth*ratio,(1106/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		        	//读取用户的文本
 		            mainCtx.font = "normal bold 0.48rem myFirstFont";
 		            //设置用户文本填充颜色
@@ -449,7 +464,7 @@ index.controller('useNoticeCtrl',
 		            mainCtx.fillText(date,text2Xx,text2Yyyy);
 		        }else if(type == 2 && num==2){
 		        	// 添加二维码
-		            mainCtx.drawImage(qrcodeImg,(558/750)*canvasWidth,(1120/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(558/750)*canvasWidth*ratio,(1120/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		        	//读取用户的文本
 		            mainCtx.font = "normal bold 0.4rem myFirstFont";
 		            //设置用户文本填充颜色
@@ -472,7 +487,7 @@ index.controller('useNoticeCtrl',
 		            mainCtx.fillText(date,text3Xx,text3Yyyy);
 		        }else if(type == 3 && num==1){
 		        	// 添加二维码
-		            mainCtx.drawImage(qrcodeImg,(555/750)*canvasWidth,(1119/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(555/750)*canvasWidth*ratio,(1119/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		        	//读取用户的文本
 		            mainCtx.font = "normal bold 1.133333rem myFirstFont";
 		            //设置用户文本填充颜色
@@ -496,7 +511,7 @@ index.controller('useNoticeCtrl',
 		            mainCtx.fillText(date,text4Xxx,text4Yyyy);
 		        }else if(type == 3 && num==2){
 		        	// 添加二维码
-		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth,(786/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(786/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		        	//读取用户的文本
 		            mainCtx.font = "normal bold 0.64rem myFirstFont";
 		            //设置用户文本填充颜色
@@ -519,7 +534,7 @@ index.controller('useNoticeCtrl',
 		            mainCtx.fillText(date,text5Xxx,text5Yyyy);
 		        }else if(type == 4 && num==1){
 		        	// 添加二维码
-		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth,(1079/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1079/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		        	//读取用户的文本
 		            mainCtx.font = "normal bold 0.64rem myFirstFont";
 		            //设置用户文本填充颜色
@@ -530,7 +545,7 @@ index.controller('useNoticeCtrl',
 		            mainCtx.fillText($scope.discount,text6X,text6Y);
 		        }else if(type == 4 && num==2){
 		        	// 添加二维码
-		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth,(1090/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1090/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		        	//读取用户的文本
 		            mainCtx.font = "normal bold 1.333333rem myFirstFont";
 		            //设置用户文本填充颜色
@@ -548,7 +563,7 @@ index.controller('useNoticeCtrl',
 		            mainCtx.fillText($scope.endtime2,text7Xxx,text7Yy);
 		        }else if(type == 5 && num==1){
 		        	// 添加二维码
-		            mainCtx.drawImage(qrcodeImg,(550/750)*canvasWidth,(1110/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(550/750)*canvasWidth*ratio,(1110/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		        	//读取用户的文本
 		            mainCtx.font = "normal bold 1.333333rem myFirstFont";
 		            //设置用户文本填充颜色
@@ -577,7 +592,7 @@ index.controller('useNoticeCtrl',
 		            mainCtx.fillText(date,text8Xxxx,text8Yyyy2);
 		        }else if(type == 5 && num==2){
 		        	// 添加二维码
-		            mainCtx.drawImage(qrcodeImg,(551/750)*canvasWidth,(1111/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(551/750)*canvasWidth*ratio,(1111/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		        	//读取用户的文本
 		            mainCtx.font = "normal bold 0.48rem myFirstFont";
 		            //设置用户文本填充颜色

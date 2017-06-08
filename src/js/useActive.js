@@ -130,7 +130,25 @@ index.controller('useActiveCtrl',
 	// 	}
 	// 	hechen();
 	// };
+	var mainCtx = getCanvasContext('main');
+    mainCtx.width =canvasWidth;
+    mainCtx.height = canvasHeight;
+    // mainCtx.clearRect(0,0,1000,1000);
+    // console.log(mainCtx.width+'----'+canvasWidth);
 
+    // polyfill 提供了这个方法用来获取设备的 pixel ratio
+    var getPixelRatio = function(context) {
+        var backingStore = context.backingStorePixelRatio ||
+            context.webkitBackingStorePixelRatio ||
+            context.mozBackingStorePixelRatio ||
+            context.msBackingStorePixelRatio ||
+            context.oBackingStorePixelRatio ||
+            context.backingStorePixelRatio || 1;
+    
+        return (window.devicePixelRatio || 1) / backingStore;
+    };
+
+    var ratio = getPixelRatio(mainCtx);
 	$(function(){
         hechen();
     });
@@ -215,20 +233,20 @@ index.controller('useActiveCtrl',
             week = "Saturday";  
             break;  
         }
-        var mainCtx = getCanvasContext('main');
-        var maxWidth = mainCtx.width;
-        var maxHeight = mainCtx.height;
-        mainCtx.clearRect(0,0,1000,1000);
+        // var mainCtx = getCanvasContext('main');
+        // var maxWidth = mainCtx.width;
+        // var maxHeight = mainCtx.height;
+        // mainCtx.clearRect(0,0,1000,1000);
         //因为没法直接读取本地图片 所以做了这部操作
 
         var starImg = new Image();
         starImg.src=$scope.showImg;
         starImg.onload=function(){
             //先把图片绘制在这里
-            mainCtx.drawImage(starImg,0,0,canvasWidth,canvasHeight);
+            mainCtx.drawImage(starImg,0,0,canvasWidth*ratio,canvasHeight*ratio);
             if (navigator.userAgent.match(/iphone/i)) {
             	if(num == 1){
-		            mainCtx.drawImage(qrcodeImg,(36/750)*canvasWidth,(1142/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(36/750)*canvasWidth*ratio,(1142/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 60px myFirstFont";
 		            //设置用户文本填充颜色
@@ -250,7 +268,7 @@ index.controller('useActiveCtrl',
 		            mainCtx.fillText($scope.name,text11Xxx,text11Yy);
 
 	            }else if(num == 2){
-		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth,(1152/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1152/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 34px myFirstFont";
 		            //设置用户文本填充颜色
@@ -286,7 +304,7 @@ index.controller('useActiveCtrl',
 		            mainCtx.fillText(":",text22X2,text22Yyy);
 		            mainCtx.fillText(":",text22X5,text22Yyy);
 	            }else if(num == 3){
-		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth,(1114/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1114/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 48px myFirstFont";
 		            //设置用户文本填充颜色
@@ -316,7 +334,7 @@ index.controller('useActiveCtrl',
 		            mainCtx.fillText(":",text33X2,text33Yyy);
 		            mainCtx.fillText(":",text33X5,text33Yyy);
 	            }else if(num == 4){
-		            mainCtx.drawImage(qrcodeImg,(64/750)*canvasWidth,(1126/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(64/750)*canvasWidth*ratio,(1126/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 36px myFirstFont";
 		            //设置用户文本填充颜色
@@ -326,7 +344,7 @@ index.controller('useActiveCtrl',
 		            var text44Y=Math.floor(canvasHeight*0.922);
 		            mainCtx.fillText($scope.name,text44X,text44Y);
 	            }else if(num == 5){
-		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth,(1110/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1110/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 72px myFirstFont";
 		            //设置用户文本填充颜色
@@ -353,7 +371,7 @@ index.controller('useActiveCtrl',
 		            mainCtx.fillText($scope.permPrice,text55Xxx,text55Yyyy);
 
 	            }else if(num == 6){
-		            mainCtx.drawImage(qrcodeImg,(52/750)*canvasWidth,(1130/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(52/750)*canvasWidth*ratio,(1130/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 45px myFirstFont";
 		            //设置用户文本填充颜色
@@ -364,7 +382,7 @@ index.controller('useActiveCtrl',
 		            var text66Y=Math.floor(canvasHeight*0.244);
 		            mainCtx.fillText($scope.name,text66X,text66Y);
 	            }else if(num == 7){
-		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth,(1143/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1143/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 	            	var date1 = mydate.getDate()+'/'+(mydate.getMonth()+1)+'/'+mydate.getFullYear();
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 48px myFirstFont";
@@ -376,7 +394,7 @@ index.controller('useActiveCtrl',
 		            var text77Y=Math.floor(canvasHeight*0.6587);
 		            mainCtx.fillText(date1,text77X,text77Y);
 	            }else if(num == 8){
-		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth,(1136/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1136/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 300px myFirstFont";
 		            //设置用户文本填充颜色
@@ -387,7 +405,7 @@ index.controller('useActiveCtrl',
 		            var text88Y=Math.floor(canvasHeight*0.7261);
 		            mainCtx.fillText($scope.day,text88X,text88Y);
 	            }else if(num == 9){
-		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth,(1109/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1109/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 48px myFirstFont";
 		            //设置用户文本填充颜色
@@ -400,7 +418,7 @@ index.controller('useActiveCtrl',
 		            mainCtx.fillText($scope.colorPrice,text99X,text99Y);
 		            mainCtx.fillText($scope.permPrice,text99X,text99Yy);
 	            }else if(num == 10){
-		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth,(1148/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1148/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 48px myFirstFont";
 		            //设置用户文本填充颜色
@@ -422,7 +440,7 @@ index.controller('useActiveCtrl',
 	            }
             }else{
             	if(num == 1){
-		            mainCtx.drawImage(qrcodeImg,(36/750)*canvasWidth,(1142/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(36/750)*canvasWidth*ratio,(1142/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 0.8rem myFirstFont";
 		            //设置用户文本填充颜色
@@ -444,7 +462,7 @@ index.controller('useActiveCtrl',
 		            mainCtx.fillText($scope.name,text1Xxx,text1Yy);
 
 	            }else if(num == 2){
-		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth,(1152/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1152/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 0.453333rem myFirstFont";
 		            //设置用户文本填充颜色
@@ -480,7 +498,7 @@ index.controller('useActiveCtrl',
 		            mainCtx.fillText(":",text2X2,text2Yyy);
 		            mainCtx.fillText(":",text2X5,text2Yyy);
 	            }else if(num == 3){
-		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth,(1114/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1114/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 0.64rem myFirstFont";
 		            //设置用户文本填充颜色
@@ -510,7 +528,7 @@ index.controller('useActiveCtrl',
 		            mainCtx.fillText(":",text3X2,text3Yyy);
 		            mainCtx.fillText(":",text3X5,text3Yyy);
 	            }else if(num == 4){
-		            mainCtx.drawImage(qrcodeImg,(64/750)*canvasWidth,(1126/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(64/750)*canvasWidth*ratio,(1126/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 0.48rem myFirstFont";
 		            //设置用户文本填充颜色
@@ -520,7 +538,7 @@ index.controller('useActiveCtrl',
 		            var text4Y=Math.floor(canvasHeight*0.922);
 		            mainCtx.fillText($scope.name,text4X,text4Y);
 	            }else if(num == 5){
-		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth,(1110/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1110/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 0.96rem myFirstFont";
 		            //设置用户文本填充颜色
@@ -547,7 +565,7 @@ index.controller('useActiveCtrl',
 		            mainCtx.fillText($scope.permPrice,text5Xxx,text5Yyyy);
 
 	            }else if(num == 6){
-		            mainCtx.drawImage(qrcodeImg,(52/750)*canvasWidth,(1130/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(52/750)*canvasWidth*ratio,(1130/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 0.6rem myFirstFont";
 		            //设置用户文本填充颜色
@@ -558,7 +576,7 @@ index.controller('useActiveCtrl',
 		            var text6Y=Math.floor(canvasHeight*0.244);
 		            mainCtx.fillText($scope.name,text6X,text6Y);
 	            }else if(num == 7){
-		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth,(1143/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1143/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 	            	var date11 = mydate.getDate()+'/'+(mydate.getMonth()+1)+'/'+mydate.getFullYear();
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 0.6rem myFirstFont";
@@ -570,7 +588,7 @@ index.controller('useActiveCtrl',
 		            var text7Y=Math.floor(canvasHeight*0.6587);
 		            mainCtx.fillText(date11,text7X,text7Y);
 	            }else if(num == 8){
-		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth,(1136/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1136/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 4.0rem myFirstFont";
 		            //设置用户文本填充颜色
@@ -581,7 +599,7 @@ index.controller('useActiveCtrl',
 		            var text8Y=Math.floor(canvasHeight*0.7261);
 		            mainCtx.fillText($scope.day,text8X,text8Y);
 	            }else if(num == 9){
-		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth,(1109/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1109/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 0.64rem myFirstFont";
 		            //设置用户文本填充颜色
@@ -594,7 +612,7 @@ index.controller('useActiveCtrl',
 		            mainCtx.fillText($scope.colorPrice,text9X,text9Y);
 		            mainCtx.fillText($scope.permPrice,text9X,text9Yy);
 	            }else if(num == 10){
-		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth,(1148/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1148/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 	            	//读取用户的文本
 		            mainCtx.font = "normal bold 0.64rem myFirstFont";
 		            //设置用户文本填充颜色

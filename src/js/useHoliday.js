@@ -84,7 +84,25 @@ index.controller('useHolidayCtrl',
 	// 	}
 	// 	hechen();
 	// };
+	var mainCtx = getCanvasContext('main');
+    mainCtx.width =canvasWidth;
+    mainCtx.height = canvasHeight;
+    // mainCtx.clearRect(0,0,1000,1000);
+    // console.log(mainCtx.width+'----'+canvasWidth);
 
+    // polyfill 提供了这个方法用来获取设备的 pixel ratio
+    var getPixelRatio = function(context) {
+        var backingStore = context.backingStorePixelRatio ||
+            context.webkitBackingStorePixelRatio ||
+            context.mozBackingStorePixelRatio ||
+            context.msBackingStorePixelRatio ||
+            context.oBackingStorePixelRatio ||
+            context.backingStorePixelRatio || 1;
+    
+        return (window.devicePixelRatio || 1) / backingStore;
+    };
+
+    var ratio = getPixelRatio(mainCtx);
 	$(function(){
         hechen();
     });
@@ -102,17 +120,17 @@ index.controller('useHolidayCtrl',
     function hechen(){
     	$scope.btnText = '一键生成海报';
     	$scope.showcanvas=true;
-        var mainCtx = getCanvasContext('main');
-        var maxWidth = mainCtx.width;
-        var maxHeight = mainCtx.height;
-        mainCtx.clearRect(0,0,1000,1000);
+        // var mainCtx = getCanvasContext('main');
+        // var maxWidth = mainCtx.width;
+        // var maxHeight = mainCtx.height;
+        // mainCtx.clearRect(0,0,1000,1000);
         //因为没法直接读取本地图片 所以做了这部操作
 
         var starImg = new Image();
         starImg.src=$scope.showImg;
         starImg.onload=function(){
             //先把图片绘制在这里
-            mainCtx.drawImage(starImg,0,0,canvasWidth,canvasHeight);
+            mainCtx.drawImage(starImg,0,0,canvasWidth*ratio,canvasHeight*ratio);
             if (navigator.userAgent.match(/iphone/i)) {
             	if(type == 1 && num == 2){
 	            	//读取用户的文本
@@ -124,13 +142,13 @@ index.controller('useHolidayCtrl',
 		            var text11Y=Math.floor(canvasHeight*0.335);
 		            mainCtx.fillText($scope.name+"祝您",text11X,text11Y);
 	            }else if(type == 3 && num == 1){
-		            mainCtx.drawImage(qrcodeImg,(573/750)*canvasWidth,(1137/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(573/750)*canvasWidth*ratio,(1137/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 	            }else if(type == 3 && num == 2){
-		            mainCtx.drawImage(qrcodeImg,(44/750)*canvasWidth,(1134/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(44/750)*canvasWidth*ratio,(1134/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 	            }else if(type == 5 && num == 1){
-		            mainCtx.drawImage(qrcodeImg,(36/750)*canvasWidth,(1138/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(36/750)*canvasWidth*ratio,(1138/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 	            }else if(type == 5 && num == 2){
-		            mainCtx.drawImage(qrcodeImg,(36/750)*canvasWidth,(1122/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(36/750)*canvasWidth*ratio,(1122/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 	            }
             }else{
 	            if(type == 1 && num == 2){
@@ -143,13 +161,13 @@ index.controller('useHolidayCtrl',
 		            var text1Y=Math.floor(canvasHeight*0.335);
 		            mainCtx.fillText($scope.name+"祝您",text1X,text1Y);
 	            }else if(type == 3 && num == 1){
-		            mainCtx.drawImage(qrcodeImg,(573/750)*canvasWidth,(1137/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(573/750)*canvasWidth*ratio,(1137/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 	            }else if(type == 3 && num == 2){
-		            mainCtx.drawImage(qrcodeImg,(44/750)*canvasWidth,(1134/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(44/750)*canvasWidth*ratio,(1134/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 	            }else if(type == 5 && num == 1){
-		            mainCtx.drawImage(qrcodeImg,(36/750)*canvasWidth,(1138/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(36/750)*canvasWidth*ratio,(1138/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 	            }else if(type == 5 && num == 2){
-		            mainCtx.drawImage(qrcodeImg,(36/750)*canvasWidth,(1122/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		            mainCtx.drawImage(qrcodeImg,(36/750)*canvasWidth*ratio,(1122/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 	            }
             }
             

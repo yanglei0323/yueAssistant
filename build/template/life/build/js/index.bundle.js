@@ -373,11 +373,11 @@
 	    console.log(ratio);
 	    if (navigator.userAgent.match(/iphone/i)) {
         	if(imgNum <= 5 || imgNum == 7 || imgNum == 10){
-		    	ctx.drawImage(qrcodeImg,(306/750)*canvasWidth,(1093/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		    	ctx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1093/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		    }else if(imgNum == 6 || imgNum == 8 || imgNum == 9){
-		    	ctx.drawImage(qrcodeImg,(306/750)*canvasWidth,(1117/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		    	ctx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1117/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		    }else if(11 <= imgNum <= 15){
-		    	ctx.drawImage(qrcodeImg,(542/750)*canvasWidth,(1118/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		    	ctx.drawImage(qrcodeImg,(542/750)*canvasWidth*ratio,(1118/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		    }
     	}else{
     		if(imgNum <= 5 || imgNum == 7 || imgNum == 10){

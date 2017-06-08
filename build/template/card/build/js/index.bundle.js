@@ -326,6 +326,14 @@
             if (r !== null) return unescape(r[2]);  
             return null;  
         }
+        // 生成二维码
+		new QRCode(document.getElementById('music'), 'http://syrapi.yueyishujia.com/yueAssistant/build/html/homePage/'+user.uuid);
+		var qrcodecanvas=$music.find('canvas').get(0);  
+		 // 添加二维码
+		var pageqrcodeimg = qrcodecanvas.toDataURL('image/jpg');
+	    var qrcodeImg = new Image();
+	    qrcodeImg.src = pageqrcodeimg;
+	    // ---------------------------------------------------
 	    var canvas = document.createElement('canvas');
 	    var clientWidth = document.documentElement.clientWidth;
         var canvasWidth = Math.floor(clientWidth);
@@ -336,9 +344,26 @@
 	    var ctx = canvas.getContext('2d');
 	    ctx.fillStyle = '#FFF';//绘制背景色
 	    ctx.fillRect(0,0,canvas.width,canvas.height);
+	    // 获取dpr
+        // polyfill 提供了这个方法用来获取设备的 pixel ratio
+	    var getPixelRatio = function(context) {
+	        var backingStore = context.backingStorePixelRatio ||
+	            context.webkitBackingStorePixelRatio ||
+	            context.mozBackingStorePixelRatio ||
+	            context.msBackingStorePixelRatio ||
+	            context.oBackingStorePixelRatio ||
+	            context.backingStorePixelRatio || 1;
+	    
+	        return (window.devicePixelRatio || 1) / backingStore;
+	    };
+
+	    var ratio = getPixelRatio(ctx);
 	    poster.drawImage(ctx, rotates[direction].image, poster.intersect($frame, $frameImg));
 	    poster.drawImage(ctx, $word, poster.intersect($frame, $word));
 	    if (navigator.userAgent.match(/iphone/i)) {
+	    	if(4 <= imgNum <= 8){
+        		ctx.drawImage(qrcodeImg,(577/750)*canvasWidth*ratio,(1139/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
+	    	}
         	if(imgNum == 4){
 		    	//读取用户的文本
 	            ctx.font = "normal bold 30px arial";
@@ -543,6 +568,9 @@
 	            ctx.fillText("染发："+user.colorpricelow+"-"+user.colorpricehigh+"元",text1Xx,text1Y6);
 		    }
     	}else{
+	    	if(4 <= imgNum <= 8){
+        		ctx.drawImage(qrcodeImg,(577/750)*canvasWidth*ratio,(1139/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
+	    	}
     		if(imgNum == 4){
 		    	//读取用户的文本
 	            ctx.font = "normal bold 0.48rem arial";

@@ -315,7 +315,6 @@
             }
         });
 		var imgNum = getUrlParam('num');
-		console.log(imgNum);
          // 获取url参数
         function getUrlParam(name){  
             //构造一个含有目标参数的正则表达式对象  
@@ -326,6 +325,14 @@
             if (r !== null) return unescape(r[2]);  
             return null;  
         }
+        // 生成二维码
+		new QRCode(document.getElementById('music'), 'http://syrapi.yueyishujia.com/yueAssistant/build/html/homePage/'+user.uuid);
+		var qrcodecanvas=$music.find('canvas').get(0);  
+		 // 添加二维码
+		var pageqrcodeimg = qrcodecanvas.toDataURL('image/jpg');
+	    var qrcodeImg = new Image();
+	    qrcodeImg.src = pageqrcodeimg;
+	    // ---------------------------------------------------
 	    var canvas = document.createElement('canvas');
 	    var clientWidth = document.documentElement.clientWidth;
         var canvasWidth = Math.floor(clientWidth);
@@ -336,18 +343,25 @@
 	    var ctx = canvas.getContext('2d');
 	    ctx.fillStyle = '#FFF';//绘制背景色
 	    ctx.fillRect(0,0,canvas.width,canvas.height);
+	    // 获取dpr
+        // polyfill 提供了这个方法用来获取设备的 pixel ratio
+	    var getPixelRatio = function(context) {
+	        var backingStore = context.backingStorePixelRatio ||
+	            context.webkitBackingStorePixelRatio ||
+	            context.mozBackingStorePixelRatio ||
+	            context.msBackingStorePixelRatio ||
+	            context.oBackingStorePixelRatio ||
+	            context.backingStorePixelRatio || 1;
+	    
+	        return (window.devicePixelRatio || 1) / backingStore;
+	    };
+
+	    var ratio = getPixelRatio(ctx);
 	    poster.drawImage(ctx, rotates[direction].image, poster.intersect($frame, $frameImg));
 	    poster.drawImage(ctx, $word, poster.intersect($frame, $word));
 	    if (navigator.userAgent.match(/iphone/i)) {
-	    	// 添加二维码
-			// var pageqrcode = 'http://47.92.29.81:8891'+user.pageqrcode;
-		 //    var qrcodeImg = new Image();
-		 //    qrcodeImg.src = pageqrcode;
-		 //    qrcodeImg.onload=function(){
-		 //    	console.log(111);
-		 //    	ctx.drawImage(qrcodeImg,0,0,(7/30)*canvasWidth,(7/30)*canvasWidth);
-		 //    };
         	if(imgNum == 1){
+        		ctx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1154/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		    	//读取用户的文本
 	            ctx.font = "normal bold 38px arial";
 	            //设置用户文本填充颜色
@@ -358,6 +372,7 @@
 	            var text1Y=Math.floor(canvasHeight*0.7989);
 	            ctx.fillText(user.name,text1X,text1Y);
 		    }else if(imgNum == 2){
+		    	ctx.drawImage(qrcodeImg,(566/750)*canvasWidth*ratio,(1128/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		    	//读取用户的文本
 	            ctx.font = "normal bold 38px arial";
 	            //设置用户文本填充颜色
@@ -368,6 +383,7 @@
 	            ctx.fillText(user.name,text1X,text1Y);
 
 		    }else if(imgNum == 3){
+		    	ctx.drawImage(qrcodeImg,(576/750)*canvasWidth*ratio,(1159/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		    	//读取用户的文本
 	            ctx.font = "normal bold 38px arial";
 	            //设置用户文本填充颜色
@@ -378,6 +394,7 @@
 	            ctx.fillText(user.name,text1X,text1Y);
 
 		    }else if(imgNum == 4){
+		    	ctx.drawImage(qrcodeImg,(567/750)*canvasWidth*ratio,(1129/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		    	//读取用户的文本
 	            ctx.font = "normal bold 38px arial";
 	            //设置用户文本填充颜色
@@ -388,6 +405,7 @@
 	            ctx.fillText(user.name+"STYLIST",text1X,text1Y);
 
 		    }else if(imgNum == 5){
+		    	ctx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1154/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		    	//读取用户的文本
 	            ctx.font = "normal bold 38px arial";
 	            //设置用户文本填充颜色
@@ -397,6 +415,7 @@
 	            var text1Y=Math.floor(canvasHeight*0.2436);
 	            ctx.fillText(user.name,text1X,text1Y);
 		    }else if(imgNum == 6){
+		    	ctx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1133/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		    	//读取用户的文本
 	            ctx.font = "normal bold 38px arial";
 	            //设置用户文本填充颜色
@@ -408,6 +427,7 @@
 		    }
     	}else{
     		if(imgNum == 1){
+        		ctx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1154/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		    	//读取用户的文本
 	            ctx.font = "normal bold 0.506667rem arial";
 	            //设置用户文本填充颜色
@@ -418,6 +438,7 @@
 	            var text1Y=Math.floor(canvasHeight*0.7989);
 	            ctx.fillText(user.name,text1X,text1Y);
 		    }else if(imgNum == 2){
+		    	ctx.drawImage(qrcodeImg,(566/750)*canvasWidth*ratio,(1128/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		    	//读取用户的文本
 	            ctx.font = "normal bold 0.506667rem arial";
 	            //设置用户文本填充颜色
@@ -428,6 +449,7 @@
 	            ctx.fillText(user.name,text1X,text1Y);
 
 		    }else if(imgNum == 3){
+		    	ctx.drawImage(qrcodeImg,(576/750)*canvasWidth*ratio,(1159/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		    	//读取用户的文本
 	            ctx.font = "normal bold 0.506667rem arial";
 	            //设置用户文本填充颜色
@@ -438,6 +460,7 @@
 	            ctx.fillText(user.name,text1X,text1Y);
 
 		    }else if(imgNum == 4){
+		    	ctx.drawImage(qrcodeImg,(567/750)*canvasWidth*ratio,(1129/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		    	//读取用户的文本
 	            ctx.font = "normal bold 0.506667rem arial";
 	            //设置用户文本填充颜色
@@ -448,6 +471,7 @@
 	            ctx.fillText(user.name+"STYLIST",text1X,text1Y);
 
 		    }else if(imgNum == 5){
+		    	ctx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1154/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		    	//读取用户的文本
 	            ctx.font = "normal bold 0.506667rem arial";
 	            //设置用户文本填充颜色
@@ -457,6 +481,7 @@
 	            var text1Y=Math.floor(canvasHeight*0.2436);
 	            ctx.fillText(user.name,text1X,text1Y);
 		    }else if(imgNum == 6){
+		    	ctx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1133/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		    	//读取用户的文本
 	            ctx.font = "normal bold 0.506667rem arial";
 	            //设置用户文本填充颜色

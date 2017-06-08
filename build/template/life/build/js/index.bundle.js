@@ -66,7 +66,7 @@
 	//var demoImg = new Image();
 
 	Zepto(function() {
-
+		
 	    /**
 	     * 预加载图片
 	     */
@@ -295,12 +295,11 @@
 	 * 生成海报
 	 */
 	function generatePoster() {
-		console.log($word.attr('src'));
 	    var canvas = document.createElement('canvas');
 	    var clientWidth = document.documentElement.clientWidth;
         var canvasWidth = Math.floor(clientWidth);
         var canvasHeight = Math.floor(clientWidth*(1334/750));
-	    canvas.width = clientWidth;//CSS中定义了画布是580
+	    canvas.width = canvasWidth;//CSS中定义了画布是580
 	    canvas.height = canvasHeight;
 
 	    var ctx = canvas.getContext('2d');
@@ -309,6 +308,89 @@
 
 	    poster.drawImage(ctx, rotates[direction].image, poster.intersect($frame, $frameImg));
 	    poster.drawImage(ctx, $word, poster.intersect($frame, $word));
+
+	    // 设置参数方式
+		// var qrcode = new QRCode('#music', {
+		//   text: '111',
+		//   width: 256,
+		//   height: 256,
+		//   colorDark : '#000000',
+		//   colorLight : '#ffffff',
+		//   correctLevel : QRCode.CorrectLevel.H
+		// });
+		// console.log(qrcode);
+		var user='';
+		var uuid = getUrlParam('uuid');
+		var data={
+			'uuid':uuid
+		};
+		$.ajax({
+            url: 'http://47.92.29.81:8890/user/unl/otherpage.json',
+            type: 'GET',
+            data: data,
+            async: false,
+            success: function (resp) {
+            	// alert('授权成功');
+            	console.log(resp);
+                user=resp.data;
+            },
+            error: function () {
+                
+            }
+        });
+         // 获取url参数
+        function getUrlParam(name){  
+            //构造一个含有目标参数的正则表达式对象  
+            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");  
+            //匹配目标参数  
+            var r = window.location.search.substr(1).match(reg);  
+            //返回参数值  
+            if (r !== null) return unescape(r[2]);  
+            return null;  
+        }
+        // 生成二维码
+		var imgNum = getUrlParam('num');
+		new QRCode(document.getElementById('music'), 'http://syrapi.yueyishujia.com/yueAssistant/build/html/homePage/'+user.uuid);
+		var qrcodecanvas=$music.find('canvas').get(0);  
+		 // 添加二维码
+		var pageqrcodeimg = qrcodecanvas.toDataURL('image/jpg');
+	    var qrcodeImg = new Image();
+	    qrcodeImg.src = pageqrcodeimg;
+	    // 获取dpr
+        // polyfill 提供了这个方法用来获取设备的 pixel ratio
+	    var getPixelRatio = function(context) {
+	        var backingStore = context.backingStorePixelRatio ||
+	            context.webkitBackingStorePixelRatio ||
+	            context.mozBackingStorePixelRatio ||
+	            context.msBackingStorePixelRatio ||
+	            context.oBackingStorePixelRatio ||
+	            context.backingStorePixelRatio || 1;
+	    
+	        return (window.devicePixelRatio || 1) / backingStore;
+	    };
+
+	    var ratio = getPixelRatio(ctx);
+	    console.log(ratio);
+	    if (navigator.userAgent.match(/iphone/i)) {
+        	if(imgNum <= 5 || imgNum == 7 || imgNum == 10){
+		    	ctx.drawImage(qrcodeImg,(306/750)*canvasWidth,(1093/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		    }else if(imgNum == 6 || imgNum == 8 || imgNum == 9){
+		    	ctx.drawImage(qrcodeImg,(306/750)*canvasWidth,(1117/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		    }else if(11 <= imgNum <= 15){
+		    	ctx.drawImage(qrcodeImg,(542/750)*canvasWidth,(1118/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		    }
+    	}else{
+    		if(imgNum <= 5 || imgNum == 7 || imgNum == 10){
+    			console.log(canvas.width);
+		    	ctx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1093/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
+		    }else if(imgNum == 6 || imgNum == 8 || imgNum == 9){
+		    	ctx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1117/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
+		    }else if(11 <= imgNum <= 15){
+		    	ctx.drawImage(qrcodeImg,(542/750)*canvasWidth*ratio,(1118/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
+		    }
+    	}
+	    
+
 
 	    var base64 = canvas.toDataURL('image/jpeg');
 	    $compose[0].onload = function() {

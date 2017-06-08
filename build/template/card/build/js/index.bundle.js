@@ -360,429 +360,432 @@
 	    var ratio = getPixelRatio(ctx);
 	    poster.drawImage(ctx, rotates[direction].image, poster.intersect($frame, $frameImg));
 	    poster.drawImage(ctx, $word, poster.intersect($frame, $word));
-	    if (navigator.userAgent.match(/iphone/i)) {
-	    	if(4 <= imgNum <= 8){
-        		ctx.drawImage(qrcodeImg,(577/750)*canvasWidth*ratio,(1139/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
+	    qrcodeImg.onload=function(){
+	    	if (navigator.userAgent.match(/iphone/i)) {
+		    	if(4 <= imgNum <= 8){
+	        		ctx.drawImage(qrcodeImg,(577/750)*canvasWidth,(1139/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+		    	}
+	        	if(imgNum == 4){
+			    	//读取用户的文本
+		            ctx.font = "normal bold 30px arial";
+		            //设置用户文本填充颜色
+		            ctx.fillStyle = "#486a00";
+		            ctx.textAlign='center';
+		            //从坐标点(50,50)开始绘制文字
+		            var text1X=Math.floor(clientWidth*0.5);
+		            var text1Y=Math.floor(canvasHeight*0.611);
+		            var text1Yy=Math.floor(canvasHeight*0.651);
+		            var text1Y1=Math.floor(canvasHeight*0.681);
+		            var text1Y2=Math.floor(canvasHeight*0.721);
+		            var text1Y3=Math.floor(canvasHeight*0.769);
+		            var text1Y4=Math.floor(canvasHeight*0.809);
+		            var text1Y5=Math.floor(canvasHeight*0.849);
+		            var text1Y6=Math.floor(canvasHeight*0.889);
+		            ctx.fillText(user.name,text1X,text1Y);
+		            ctx.font = "normal bold 28px arial";
+		            ctx.fillText(user.storename,text1X,text1Yy);
+
+		            ctx.fillStyle = "#fff";
+		            ctx.fillText(user.worklevel,text1X,text1Y1);
+
+		            ctx.font = "normal bold 24px arial";
+		            ctx.fillStyle = "#a7c940";
+		            ctx.fillText(user.userflags[0],text1X,text1Y2);
+
+		            ctx.font = "normal bold 28px arial";
+		            ctx.fillStyle = "#fff";
+		            ctx.fillText(user.storeplace,text1X,text1Y3);
+		            ctx.fillText("洗剪吹："+user.cutprice+"元",text1X,text1Y4);
+		            ctx.fillText("烫发："+user.permpricelow+"-"+user.permpricehigh+"元",text1X,text1Y5);
+		            ctx.fillText("染发："+user.colorpricelow+"-"+user.colorpricehigh+"元",text1X,text1Y6);
+			    }else if(imgNum == 5){
+			    	//读取用户的文本
+		            ctx.font = "normal bold 28px arial";
+		            //设置用户文本填充颜色
+		            ctx.fillStyle = "#2b2822";
+		            //从坐标点(50,50)开始绘制文字
+		            var text2X=Math.floor(clientWidth*0.8586);
+		            var text2Xx=Math.floor(clientWidth*0.0933);
+		            var text2Xxx=Math.floor(clientWidth*0.416);
+		            var text2Xxxx=Math.floor(clientWidth*0.1433);
+		            var text2Y=Math.floor(canvasHeight*0.1567);
+		            var text2Yy=Math.floor(canvasHeight*0.5097);
+		            var text2Y1=Math.floor(canvasHeight*0.4997);
+		            var text2Y2=Math.floor(canvasHeight*0.612);
+
+		            var text2Y3=Math.floor(canvasHeight*0.659);
+		            var text2Y4=Math.floor(canvasHeight*0.699);
+		            var text2Y5=Math.floor(canvasHeight*0.739);
+		            var text2Y6=Math.floor(canvasHeight*0.779);
+		            for(var l=0;l<user.storename.length;l++){
+		            	var textH=Math.floor(canvasHeight*(0.1367+0.03*l));
+		            	ctx.fillText(user.storename[l],text2X,textH);
+		            }
+
+		            ctx.font = "normal bold 100px arial";
+		            //设置用户文本填充颜色
+		            ctx.fillStyle = "#fff";
+		            ctx.fillText(user.name,text2Xx,text2Yy);
+
+		            ctx.font = "normal bold 28px arial";
+		            ctx.fillText(user.worklevel,text2Xxx,text2Y1);
+
+		            ctx.font = "normal bold 24px arial";
+		            //设置用户文本填充颜色
+		            ctx.fillStyle = "#573324";
+		            ctx.fillText(user.userflags[0],text2Xxxx,text2Y2);
+
+		            ctx.font = "normal bold 28px arial";
+		            ctx.fillStyle = "#fff";
+		            ctx.fillText(user.storeplace,text2Xx,text2Y3);
+		            ctx.fillText("洗剪吹："+user.cutprice+"元",text2Xx,text2Y4);
+		            ctx.fillText("烫发："+user.permpricelow+"-"+user.permpricehigh+"元",text2Xx,text2Y5);
+		            ctx.fillText("染发："+user.colorpricelow+"-"+user.colorpricehigh+"元",text2Xx,text2Y6);
+
+			    }else if(imgNum == 6){
+			    	//读取用户的文本
+		            ctx.font = "normal bold 28px arial";
+		            //设置用户文本填充颜色
+		            ctx.fillStyle = "#121917";
+		            //从坐标点(50,50)开始绘制文字
+		            var text3X=Math.floor(clientWidth*0.9153);
+		            var text3Xx=Math.floor(clientWidth*0.1033);
+		            var text3Xxx=Math.floor(clientWidth*0.466);
+		            var text3Xxxx=Math.floor(clientWidth*0.1433);
+		            var text3Y=Math.floor(canvasHeight*0.117);
+		            var text3Yy=Math.floor(canvasHeight*0.6897);
+		            var text3Y1=Math.floor(canvasHeight*0.7197);
+		            var text3Y2=Math.floor(canvasHeight*0.752);
+
+		            var text3Y3=Math.floor(canvasHeight*0.809);
+		            var text3Y4=Math.floor(canvasHeight*0.849);
+		            var text3Y5=Math.floor(canvasHeight*0.889);
+		            var text3Y6=Math.floor(canvasHeight*0.929);
+		            for(var l=0;l<user.storename.length;l++){
+		            	var textH=Math.floor(canvasHeight*(0.0933+0.03*l));
+		            	ctx.fillText(user.storename[l],text3X,textH);
+		            }
+
+		            ctx.font = "normal bold 60px arial";
+		            //设置用户文本填充颜色
+		            ctx.fillStyle = "#011514";
+		            ctx.fillText(user.name,text3Xx,text3Yy);
+
+
+		            ctx.fillStyle = "#0d110f";
+		            ctx.font = "normal bold 28px arial";
+		            ctx.fillText(user.worklevel,text3Xxx,text3Y1);
+
+		            ctx.font = "normal bold 24px arial";
+		            //设置用户文本填充颜色
+		            ctx.fillStyle = "#fff";
+		            ctx.fillText(user.userflags[0],text3Xxxx,text3Y2);
+
+		            ctx.font = "normal bold 28px arial";
+		            ctx.fillStyle = "#121b18";
+		            ctx.fillText(user.storeplace,text3Xx,text3Y3);
+		            ctx.fillText("洗剪吹："+user.cutprice+"元",text3Xx,text3Y4);
+		            ctx.fillText("烫发："+user.permpricelow+"-"+user.permpricehigh+"元",text3Xx,text3Y5);
+		            ctx.fillText("染发："+user.colorpricelow+"-"+user.colorpricehigh+"元",text3Xx,text3Y6);
+
+			    }else if(imgNum == 7){
+			    	//读取用户的文本
+		            ctx.font = "normal bold 28px arial";
+		            //设置用户文本填充颜色
+		            ctx.fillStyle = "#121917";
+		            //从坐标点(50,50)开始绘制文字
+		            var text3X=Math.floor(clientWidth*0.9153);
+		            var text3Xx=Math.floor(clientWidth*0.1033);
+		            var text3Xxx=Math.floor(clientWidth*0.466);
+		            var text3Xxxx=Math.floor(clientWidth*0.1433);
+		            var text3Y=Math.floor(canvasHeight*0.117);
+		            var text3Yy=Math.floor(canvasHeight*0.6897);
+		            var text3Y1=Math.floor(canvasHeight*0.7197);
+		            var text3Y2=Math.floor(canvasHeight*0.752);
+
+		            var text3Y3=Math.floor(canvasHeight*0.809);
+		            var text3Y4=Math.floor(canvasHeight*0.849);
+		            var text3Y5=Math.floor(canvasHeight*0.889);
+		            var text3Y6=Math.floor(canvasHeight*0.929);
+		            for(var l=0;l<user.storename.length;l++){
+		            	var textH=Math.floor(canvasHeight*(0.0933+0.03*l));
+		            	ctx.fillText(user.storename[l],text3X,textH);
+		            }
+
+		            ctx.font = "normal bold 60px arial";
+		            //设置用户文本填充颜色
+		            ctx.fillStyle = "#fff";
+		            ctx.fillText(user.name,text3Xx,text3Yy);
+
+
+		            ctx.fillStyle = "#0d110f";
+		            ctx.font = "normal bold 28px arial";
+		            ctx.fillText(user.worklevel,text3Xxx,text3Y1);
+
+		            ctx.font = "normal bold 24px arial";
+		            //设置用户文本填充颜色
+		            ctx.fillStyle = "#fff";
+		            ctx.fillText(user.userflags[0],text3Xxxx,text3Y2);
+
+		            ctx.font = "normal bold 28px arial";
+		            ctx.fillText(user.storeplace,text3Xx,text3Y3);
+		            ctx.fillText("洗剪吹："+user.cutprice+"元",text3Xx,text3Y4);
+		            ctx.fillText("烫发："+user.permpricelow+"-"+user.permpricehigh+"元",text3Xx,text3Y5);
+		            ctx.fillText("染发："+user.colorpricelow+"-"+user.colorpricehigh+"元",text3Xx,text3Y6);
+
+			    }else if(imgNum == 8){
+			    	//读取用户的文本
+		            ctx.font = "normal bold 30px arial";
+		            //设置用户文本填充颜色
+		            ctx.fillStyle = "#fff";
+		            ctx.textAlign='center';
+		            //从坐标点(50,50)开始绘制文字
+		            var text1X=Math.floor(clientWidth*0.5);
+		            var text1Xx=Math.floor(clientWidth*0.093);
+		            var text1Y=Math.floor(canvasHeight*0.596);
+		            var text1Yy=Math.floor(canvasHeight*0.646);
+		            var text1Y1=Math.floor(canvasHeight*0.676);
+		            var text1Y2=Math.floor(canvasHeight*0.711);
+		            var text1Y3=Math.floor(canvasHeight*0.841);
+		            var text1Y4=Math.floor(canvasHeight*0.881);
+		            var text1Y5=Math.floor(canvasHeight*0.921);
+		            var text1Y6=Math.floor(canvasHeight*0.961);
+		            ctx.fillText(user.name,text1X,text1Y);
+		            ctx.fillStyle = "#000";
+		            ctx.font = "normal bold 28px arial";
+		            ctx.fillText(user.storename,text1X,text1Yy);
+
+		            ctx.fillStyle = "#fff";
+		            ctx.fillText(user.worklevel,text1X,text1Y1);
+
+		            ctx.font = "normal bold 24px arial";
+		            ctx.fillText(user.userflags[0],text1X,text1Y2);
+
+		            ctx.font = "normal bold 28px arial";
+		            ctx.textAlign='left';
+		            ctx.fillText(user.storeplace,text1Xx,text1Y3);
+		            ctx.fillText("洗剪吹："+user.cutprice+"元",text1Xx,text1Y4);
+		            ctx.fillText("烫发："+user.permpricelow+"-"+user.permpricehigh+"元",text1Xx,text1Y5);
+		            ctx.fillText("染发："+user.colorpricelow+"-"+user.colorpricehigh+"元",text1Xx,text1Y6);
+			    }
+	    	}else{
+		    	if(4 <= imgNum <= 8){
+	        		ctx.drawImage(qrcodeImg,(577/750)*canvasWidth*ratio,(1139/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
+		    	}
+	    		if(imgNum == 4){
+			    	//读取用户的文本
+		            ctx.font = "normal bold 0.48rem arial";
+		            //设置用户文本填充颜色
+		            ctx.fillStyle = "#486a00";
+		            ctx.textAlign='center';
+		            //从坐标点(50,50)开始绘制文字
+		            var text1X=Math.floor(clientWidth*0.5);
+		            var text1Y=Math.floor(canvasHeight*0.611);
+		            var text1Yy=Math.floor(canvasHeight*0.651);
+		            var text1Y1=Math.floor(canvasHeight*0.681);
+		            var text1Y2=Math.floor(canvasHeight*0.721);
+		            var text1Y3=Math.floor(canvasHeight*0.769);
+		            var text1Y4=Math.floor(canvasHeight*0.809);
+		            var text1Y5=Math.floor(canvasHeight*0.849);
+		            var text1Y6=Math.floor(canvasHeight*0.889);
+		            ctx.fillText(user.name,text1X,text1Y);
+		            ctx.font = "normal bold 0.373333rem arial";
+		            ctx.fillText(user.storename,text1X,text1Yy);
+
+		            ctx.fillStyle = "#fff";
+		            ctx.fillText(user.worklevel,text1X,text1Y1);
+
+		            ctx.font = "normal bold 0.32rem arial";
+		            ctx.fillStyle = "#a7c940";
+		            ctx.fillText(user.userflags[0],text1X,text1Y2);
+
+		            ctx.font = "normal bold 0.373333rem arial";
+		            ctx.fillStyle = "#fff";
+		            ctx.fillText(user.storeplace,text1X,text1Y3);
+		            ctx.fillText("洗剪吹："+user.cutprice+"元",text1X,text1Y4);
+		            ctx.fillText("烫发："+user.permpricelow+"-"+user.permpricehigh+"元",text1X,text1Y5);
+		            ctx.fillText("染发："+user.colorpricelow+"-"+user.colorpricehigh+"元",text1X,text1Y6);
+			    }else if(imgNum == 5){
+			    	//读取用户的文本
+		            ctx.font = "normal bold 0.373333rem arial";
+		            //设置用户文本填充颜色
+		            ctx.fillStyle = "#2b2822";
+		            //从坐标点(50,50)开始绘制文字
+		            var text2X=Math.floor(clientWidth*0.8586);
+		            var text2Xx=Math.floor(clientWidth*0.0933);
+		            var text2Xxx=Math.floor(clientWidth*0.416);
+		            var text2Xxxx=Math.floor(clientWidth*0.1433);
+		            var text2Y=Math.floor(canvasHeight*0.1567);
+		            var text2Yy=Math.floor(canvasHeight*0.5097);
+		            var text2Y1=Math.floor(canvasHeight*0.4997);
+		            var text2Y2=Math.floor(canvasHeight*0.612);
+
+		            var text2Y3=Math.floor(canvasHeight*0.659);
+		            var text2Y4=Math.floor(canvasHeight*0.699);
+		            var text2Y5=Math.floor(canvasHeight*0.739);
+		            var text2Y6=Math.floor(canvasHeight*0.779);
+		            for(var l=0;l<user.storename.length;l++){
+		            	var textH=Math.floor(canvasHeight*(0.1367+0.03*l));
+		            	ctx.fillText(user.storename[l],text2X,textH);
+		            }
+
+		            ctx.font = "normal bold 1.333333rem arial";
+		            //设置用户文本填充颜色
+		            ctx.fillStyle = "#fff";
+		            ctx.fillText(user.name,text2Xx,text2Yy);
+
+		            ctx.font = "normal bold 0.373333rem arial";
+		            ctx.fillText(user.worklevel,text2Xxx,text2Y1);
+
+		            ctx.font = "normal bold 0.32rem arial";
+		            //设置用户文本填充颜色
+		            ctx.fillStyle = "#573324";
+		            ctx.fillText(user.userflags[0],text2Xxxx,text2Y2);
+
+		            ctx.font = "normal bold 0.373333rem arial";
+		            ctx.fillStyle = "#fff";
+		            ctx.fillText(user.storeplace,text2Xx,text2Y3);
+		            ctx.fillText("洗剪吹："+user.cutprice+"元",text2Xx,text2Y4);
+		            ctx.fillText("烫发："+user.permpricelow+"-"+user.permpricehigh+"元",text2Xx,text2Y5);
+		            ctx.fillText("染发："+user.colorpricelow+"-"+user.colorpricehigh+"元",text2Xx,text2Y6);
+
+			    }else if(imgNum == 6){
+			    	//读取用户的文本
+		            ctx.font = "normal bold 0.373333rem arial";
+		            //设置用户文本填充颜色
+		            ctx.fillStyle = "#121917";
+		            //从坐标点(50,50)开始绘制文字
+		            var text3X=Math.floor(clientWidth*0.9153);
+		            var text3Xx=Math.floor(clientWidth*0.1033);
+		            var text3Xxx=Math.floor(clientWidth*0.466);
+		            var text3Xxxx=Math.floor(clientWidth*0.1433);
+		            var text3Y=Math.floor(canvasHeight*0.117);
+		            var text3Yy=Math.floor(canvasHeight*0.6897);
+		            var text3Y1=Math.floor(canvasHeight*0.7197);
+		            var text3Y2=Math.floor(canvasHeight*0.752);
+
+		            var text3Y3=Math.floor(canvasHeight*0.809);
+		            var text3Y4=Math.floor(canvasHeight*0.849);
+		            var text3Y5=Math.floor(canvasHeight*0.889);
+		            var text3Y6=Math.floor(canvasHeight*0.929);
+		            for(var l=0;l<user.storename.length;l++){
+		            	var textH=Math.floor(canvasHeight*(0.0933+0.03*l));
+		            	ctx.fillText(user.storename[l],text3X,textH);
+		            }
+
+		            ctx.font = "normal bold 0.8rem arial";
+		            //设置用户文本填充颜色
+		            ctx.fillStyle = "#011514";
+		            ctx.fillText(user.name,text3Xx,text3Yy);
+
+
+		            ctx.fillStyle = "#0d110f";
+		            ctx.font = "normal bold 0.373333rem arial";
+		            ctx.fillText(user.worklevel,text3Xxx,text3Y1);
+
+		            ctx.font = "normal bold 0.32rem arial";
+		            //设置用户文本填充颜色
+		            ctx.fillStyle = "#fff";
+		            ctx.fillText(user.userflags[0],text3Xxxx,text3Y2);
+
+		            ctx.font = "normal bold 0.373333rem arial";
+		            ctx.fillStyle = "#121b18";
+		            ctx.fillText(user.storeplace,text3Xx,text3Y3);
+		            ctx.fillText("洗剪吹："+user.cutprice+"元",text3Xx,text3Y4);
+		            ctx.fillText("烫发："+user.permpricelow+"-"+user.permpricehigh+"元",text3Xx,text3Y5);
+		            ctx.fillText("染发："+user.colorpricelow+"-"+user.colorpricehigh+"元",text3Xx,text3Y6);
+
+			    }else if(imgNum == 7){
+			    	//读取用户的文本
+		            ctx.font = "normal bold 0.373333rem arial";
+		            //设置用户文本填充颜色
+		            ctx.fillStyle = "#121917";
+		            //从坐标点(50,50)开始绘制文字
+		            var text3X=Math.floor(clientWidth*0.9153);
+		            var text3Xx=Math.floor(clientWidth*0.1033);
+		            var text3Xxx=Math.floor(clientWidth*0.466);
+		            var text3Xxxx=Math.floor(clientWidth*0.1433);
+		            var text3Y=Math.floor(canvasHeight*0.117);
+		            var text3Yy=Math.floor(canvasHeight*0.6897);
+		            var text3Y1=Math.floor(canvasHeight*0.7197);
+		            var text3Y2=Math.floor(canvasHeight*0.752);
+
+		            var text3Y3=Math.floor(canvasHeight*0.809);
+		            var text3Y4=Math.floor(canvasHeight*0.849);
+		            var text3Y5=Math.floor(canvasHeight*0.889);
+		            var text3Y6=Math.floor(canvasHeight*0.929);
+		            for(var l=0;l<user.storename.length;l++){
+		            	var textH=Math.floor(canvasHeight*(0.0933+0.03*l));
+		            	ctx.fillText(user.storename[l],text3X,textH);
+		            }
+
+		            ctx.font = "normal bold 0.8rem arial";
+		            //设置用户文本填充颜色
+		            ctx.fillStyle = "#fff";
+		            ctx.fillText(user.name,text3Xx,text3Yy);
+
+
+		            ctx.fillStyle = "#0d110f";
+		            ctx.font = "normal bold 0.373333rem arial";
+		            ctx.fillText(user.worklevel,text3Xxx,text3Y1);
+
+		            ctx.font = "normal bold 0.32rem arial";
+		            //设置用户文本填充颜色
+		            ctx.fillStyle = "#fff";
+		            ctx.fillText(user.userflags[0],text3Xxxx,text3Y2);
+
+		            ctx.font = "normal bold 0.373333rem arial";
+		            ctx.fillText(user.storeplace,text3Xx,text3Y3);
+		            ctx.fillText("洗剪吹："+user.cutprice+"元",text3Xx,text3Y4);
+		            ctx.fillText("烫发："+user.permpricelow+"-"+user.permpricehigh+"元",text3Xx,text3Y5);
+		            ctx.fillText("染发："+user.colorpricelow+"-"+user.colorpricehigh+"元",text3Xx,text3Y6);
+
+			    }else if(imgNum == 8){
+			    	//读取用户的文本
+		            ctx.font = "normal bold 0.4rem arial";
+		            //设置用户文本填充颜色
+		            ctx.fillStyle = "#fff";
+		            ctx.textAlign='center';
+		            //从坐标点(50,50)开始绘制文字
+		            var text1X=Math.floor(clientWidth*0.5);
+		            var text1Xx=Math.floor(clientWidth*0.093);
+		            var text1Y=Math.floor(canvasHeight*0.596);
+		            var text1Yy=Math.floor(canvasHeight*0.646);
+		            var text1Y1=Math.floor(canvasHeight*0.676);
+		            var text1Y2=Math.floor(canvasHeight*0.711);
+		            var text1Y3=Math.floor(canvasHeight*0.841);
+		            var text1Y4=Math.floor(canvasHeight*0.881);
+		            var text1Y5=Math.floor(canvasHeight*0.921);
+		            var text1Y6=Math.floor(canvasHeight*0.961);
+		            ctx.fillText(user.name,text1X,text1Y);
+		            ctx.fillStyle = "#000";
+		            ctx.font = "normal bold 0.373333rem arial";
+		            ctx.fillText(user.storename,text1X,text1Yy);
+
+		            ctx.fillStyle = "#fff";
+		            ctx.fillText(user.worklevel,text1X,text1Y1);
+
+		            ctx.font = "normal bold 0.32rem arial";
+		            ctx.fillText(user.userflags[0],text1X,text1Y2);
+
+		            ctx.font = "normal bold 0.373333rem arial";
+		            ctx.textAlign='left';
+		            ctx.fillText(user.storeplace,text1Xx,text1Y3);
+		            ctx.fillText("洗剪吹："+user.cutprice+"元",text1Xx,text1Y4);
+		            ctx.fillText("烫发："+user.permpricelow+"-"+user.permpricehigh+"元",text1Xx,text1Y5);
+		            ctx.fillText("染发："+user.colorpricelow+"-"+user.colorpricehigh+"元",text1Xx,text1Y6);
+			    }
 	    	}
-        	if(imgNum == 4){
-		    	//读取用户的文本
-	            ctx.font = "normal bold 30px arial";
-	            //设置用户文本填充颜色
-	            ctx.fillStyle = "#486a00";
-	            ctx.textAlign='center';
-	            //从坐标点(50,50)开始绘制文字
-	            var text1X=Math.floor(clientWidth*0.5);
-	            var text1Y=Math.floor(canvasHeight*0.611);
-	            var text1Yy=Math.floor(canvasHeight*0.651);
-	            var text1Y1=Math.floor(canvasHeight*0.681);
-	            var text1Y2=Math.floor(canvasHeight*0.721);
-	            var text1Y3=Math.floor(canvasHeight*0.769);
-	            var text1Y4=Math.floor(canvasHeight*0.809);
-	            var text1Y5=Math.floor(canvasHeight*0.849);
-	            var text1Y6=Math.floor(canvasHeight*0.889);
-	            ctx.fillText(user.name,text1X,text1Y);
-	            ctx.font = "normal bold 28px arial";
-	            ctx.fillText(user.storename,text1X,text1Yy);
-
-	            ctx.fillStyle = "#fff";
-	            ctx.fillText(user.worklevel,text1X,text1Y1);
-
-	            ctx.font = "normal bold 24px arial";
-	            ctx.fillStyle = "#a7c940";
-	            ctx.fillText(user.userflags[0],text1X,text1Y2);
-
-	            ctx.font = "normal bold 28px arial";
-	            ctx.fillStyle = "#fff";
-	            ctx.fillText(user.storeplace,text1X,text1Y3);
-	            ctx.fillText("洗剪吹："+user.cutprice+"元",text1X,text1Y4);
-	            ctx.fillText("烫发："+user.permpricelow+"-"+user.permpricehigh+"元",text1X,text1Y5);
-	            ctx.fillText("染发："+user.colorpricelow+"-"+user.colorpricehigh+"元",text1X,text1Y6);
-		    }else if(imgNum == 5){
-		    	//读取用户的文本
-	            ctx.font = "normal bold 28px arial";
-	            //设置用户文本填充颜色
-	            ctx.fillStyle = "#2b2822";
-	            //从坐标点(50,50)开始绘制文字
-	            var text2X=Math.floor(clientWidth*0.8586);
-	            var text2Xx=Math.floor(clientWidth*0.0933);
-	            var text2Xxx=Math.floor(clientWidth*0.416);
-	            var text2Xxxx=Math.floor(clientWidth*0.1433);
-	            var text2Y=Math.floor(canvasHeight*0.1567);
-	            var text2Yy=Math.floor(canvasHeight*0.5097);
-	            var text2Y1=Math.floor(canvasHeight*0.4997);
-	            var text2Y2=Math.floor(canvasHeight*0.612);
-
-	            var text2Y3=Math.floor(canvasHeight*0.659);
-	            var text2Y4=Math.floor(canvasHeight*0.699);
-	            var text2Y5=Math.floor(canvasHeight*0.739);
-	            var text2Y6=Math.floor(canvasHeight*0.779);
-	            for(var l=0;l<user.storename.length;l++){
-	            	var textH=Math.floor(canvasHeight*(0.1367+0.03*l));
-	            	ctx.fillText(user.storename[l],text2X,textH);
-	            }
-
-	            ctx.font = "normal bold 100px arial";
-	            //设置用户文本填充颜色
-	            ctx.fillStyle = "#fff";
-	            ctx.fillText(user.name,text2Xx,text2Yy);
-
-	            ctx.font = "normal bold 28px arial";
-	            ctx.fillText(user.worklevel,text2Xxx,text2Y1);
-
-	            ctx.font = "normal bold 24px arial";
-	            //设置用户文本填充颜色
-	            ctx.fillStyle = "#573324";
-	            ctx.fillText(user.userflags[0],text2Xxxx,text2Y2);
-
-	            ctx.font = "normal bold 28px arial";
-	            ctx.fillStyle = "#fff";
-	            ctx.fillText(user.storeplace,text2Xx,text2Y3);
-	            ctx.fillText("洗剪吹："+user.cutprice+"元",text2Xx,text2Y4);
-	            ctx.fillText("烫发："+user.permpricelow+"-"+user.permpricehigh+"元",text2Xx,text2Y5);
-	            ctx.fillText("染发："+user.colorpricelow+"-"+user.colorpricehigh+"元",text2Xx,text2Y6);
-
-		    }else if(imgNum == 6){
-		    	//读取用户的文本
-	            ctx.font = "normal bold 28px arial";
-	            //设置用户文本填充颜色
-	            ctx.fillStyle = "#121917";
-	            //从坐标点(50,50)开始绘制文字
-	            var text3X=Math.floor(clientWidth*0.9153);
-	            var text3Xx=Math.floor(clientWidth*0.1033);
-	            var text3Xxx=Math.floor(clientWidth*0.466);
-	            var text3Xxxx=Math.floor(clientWidth*0.1433);
-	            var text3Y=Math.floor(canvasHeight*0.117);
-	            var text3Yy=Math.floor(canvasHeight*0.6897);
-	            var text3Y1=Math.floor(canvasHeight*0.7197);
-	            var text3Y2=Math.floor(canvasHeight*0.752);
-
-	            var text3Y3=Math.floor(canvasHeight*0.809);
-	            var text3Y4=Math.floor(canvasHeight*0.849);
-	            var text3Y5=Math.floor(canvasHeight*0.889);
-	            var text3Y6=Math.floor(canvasHeight*0.929);
-	            for(var l=0;l<user.storename.length;l++){
-	            	var textH=Math.floor(canvasHeight*(0.0933+0.03*l));
-	            	ctx.fillText(user.storename[l],text3X,textH);
-	            }
-
-	            ctx.font = "normal bold 60px arial";
-	            //设置用户文本填充颜色
-	            ctx.fillStyle = "#011514";
-	            ctx.fillText(user.name,text3Xx,text3Yy);
-
-
-	            ctx.fillStyle = "#0d110f";
-	            ctx.font = "normal bold 28px arial";
-	            ctx.fillText(user.worklevel,text3Xxx,text3Y1);
-
-	            ctx.font = "normal bold 24px arial";
-	            //设置用户文本填充颜色
-	            ctx.fillStyle = "#fff";
-	            ctx.fillText(user.userflags[0],text3Xxxx,text3Y2);
-
-	            ctx.font = "normal bold 28px arial";
-	            ctx.fillStyle = "#121b18";
-	            ctx.fillText(user.storeplace,text3Xx,text3Y3);
-	            ctx.fillText("洗剪吹："+user.cutprice+"元",text3Xx,text3Y4);
-	            ctx.fillText("烫发："+user.permpricelow+"-"+user.permpricehigh+"元",text3Xx,text3Y5);
-	            ctx.fillText("染发："+user.colorpricelow+"-"+user.colorpricehigh+"元",text3Xx,text3Y6);
-
-		    }else if(imgNum == 7){
-		    	//读取用户的文本
-	            ctx.font = "normal bold 28px arial";
-	            //设置用户文本填充颜色
-	            ctx.fillStyle = "#121917";
-	            //从坐标点(50,50)开始绘制文字
-	            var text3X=Math.floor(clientWidth*0.9153);
-	            var text3Xx=Math.floor(clientWidth*0.1033);
-	            var text3Xxx=Math.floor(clientWidth*0.466);
-	            var text3Xxxx=Math.floor(clientWidth*0.1433);
-	            var text3Y=Math.floor(canvasHeight*0.117);
-	            var text3Yy=Math.floor(canvasHeight*0.6897);
-	            var text3Y1=Math.floor(canvasHeight*0.7197);
-	            var text3Y2=Math.floor(canvasHeight*0.752);
-
-	            var text3Y3=Math.floor(canvasHeight*0.809);
-	            var text3Y4=Math.floor(canvasHeight*0.849);
-	            var text3Y5=Math.floor(canvasHeight*0.889);
-	            var text3Y6=Math.floor(canvasHeight*0.929);
-	            for(var l=0;l<user.storename.length;l++){
-	            	var textH=Math.floor(canvasHeight*(0.0933+0.03*l));
-	            	ctx.fillText(user.storename[l],text3X,textH);
-	            }
-
-	            ctx.font = "normal bold 60px arial";
-	            //设置用户文本填充颜色
-	            ctx.fillStyle = "#fff";
-	            ctx.fillText(user.name,text3Xx,text3Yy);
-
-
-	            ctx.fillStyle = "#0d110f";
-	            ctx.font = "normal bold 28px arial";
-	            ctx.fillText(user.worklevel,text3Xxx,text3Y1);
-
-	            ctx.font = "normal bold 24px arial";
-	            //设置用户文本填充颜色
-	            ctx.fillStyle = "#fff";
-	            ctx.fillText(user.userflags[0],text3Xxxx,text3Y2);
-
-	            ctx.font = "normal bold 28px arial";
-	            ctx.fillText(user.storeplace,text3Xx,text3Y3);
-	            ctx.fillText("洗剪吹："+user.cutprice+"元",text3Xx,text3Y4);
-	            ctx.fillText("烫发："+user.permpricelow+"-"+user.permpricehigh+"元",text3Xx,text3Y5);
-	            ctx.fillText("染发："+user.colorpricelow+"-"+user.colorpricehigh+"元",text3Xx,text3Y6);
-
-		    }else if(imgNum == 8){
-		    	//读取用户的文本
-	            ctx.font = "normal bold 30px arial";
-	            //设置用户文本填充颜色
-	            ctx.fillStyle = "#fff";
-	            ctx.textAlign='center';
-	            //从坐标点(50,50)开始绘制文字
-	            var text1X=Math.floor(clientWidth*0.5);
-	            var text1Xx=Math.floor(clientWidth*0.093);
-	            var text1Y=Math.floor(canvasHeight*0.596);
-	            var text1Yy=Math.floor(canvasHeight*0.646);
-	            var text1Y1=Math.floor(canvasHeight*0.676);
-	            var text1Y2=Math.floor(canvasHeight*0.711);
-	            var text1Y3=Math.floor(canvasHeight*0.841);
-	            var text1Y4=Math.floor(canvasHeight*0.881);
-	            var text1Y5=Math.floor(canvasHeight*0.921);
-	            var text1Y6=Math.floor(canvasHeight*0.961);
-	            ctx.fillText(user.name,text1X,text1Y);
-	            ctx.fillStyle = "#000";
-	            ctx.font = "normal bold 28px arial";
-	            ctx.fillText(user.storename,text1X,text1Yy);
-
-	            ctx.fillStyle = "#fff";
-	            ctx.fillText(user.worklevel,text1X,text1Y1);
-
-	            ctx.font = "normal bold 24px arial";
-	            ctx.fillText(user.userflags[0],text1X,text1Y2);
-
-	            ctx.font = "normal bold 28px arial";
-	            ctx.textAlign='left';
-	            ctx.fillText(user.storeplace,text1Xx,text1Y3);
-	            ctx.fillText("洗剪吹："+user.cutprice+"元",text1Xx,text1Y4);
-	            ctx.fillText("烫发："+user.permpricelow+"-"+user.permpricehigh+"元",text1Xx,text1Y5);
-	            ctx.fillText("染发："+user.colorpricelow+"-"+user.colorpricehigh+"元",text1Xx,text1Y6);
-		    }
-    	}else{
-	    	if(4 <= imgNum <= 8){
-        		ctx.drawImage(qrcodeImg,(577/750)*canvasWidth*ratio,(1139/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
-	    	}
-    		if(imgNum == 4){
-		    	//读取用户的文本
-	            ctx.font = "normal bold 0.48rem arial";
-	            //设置用户文本填充颜色
-	            ctx.fillStyle = "#486a00";
-	            ctx.textAlign='center';
-	            //从坐标点(50,50)开始绘制文字
-	            var text1X=Math.floor(clientWidth*0.5);
-	            var text1Y=Math.floor(canvasHeight*0.611);
-	            var text1Yy=Math.floor(canvasHeight*0.651);
-	            var text1Y1=Math.floor(canvasHeight*0.681);
-	            var text1Y2=Math.floor(canvasHeight*0.721);
-	            var text1Y3=Math.floor(canvasHeight*0.769);
-	            var text1Y4=Math.floor(canvasHeight*0.809);
-	            var text1Y5=Math.floor(canvasHeight*0.849);
-	            var text1Y6=Math.floor(canvasHeight*0.889);
-	            ctx.fillText(user.name,text1X,text1Y);
-	            ctx.font = "normal bold 0.373333rem arial";
-	            ctx.fillText(user.storename,text1X,text1Yy);
-
-	            ctx.fillStyle = "#fff";
-	            ctx.fillText(user.worklevel,text1X,text1Y1);
-
-	            ctx.font = "normal bold 0.32rem arial";
-	            ctx.fillStyle = "#a7c940";
-	            ctx.fillText(user.userflags[0],text1X,text1Y2);
-
-	            ctx.font = "normal bold 0.373333rem arial";
-	            ctx.fillStyle = "#fff";
-	            ctx.fillText(user.storeplace,text1X,text1Y3);
-	            ctx.fillText("洗剪吹："+user.cutprice+"元",text1X,text1Y4);
-	            ctx.fillText("烫发："+user.permpricelow+"-"+user.permpricehigh+"元",text1X,text1Y5);
-	            ctx.fillText("染发："+user.colorpricelow+"-"+user.colorpricehigh+"元",text1X,text1Y6);
-		    }else if(imgNum == 5){
-		    	//读取用户的文本
-	            ctx.font = "normal bold 0.373333rem arial";
-	            //设置用户文本填充颜色
-	            ctx.fillStyle = "#2b2822";
-	            //从坐标点(50,50)开始绘制文字
-	            var text2X=Math.floor(clientWidth*0.8586);
-	            var text2Xx=Math.floor(clientWidth*0.0933);
-	            var text2Xxx=Math.floor(clientWidth*0.416);
-	            var text2Xxxx=Math.floor(clientWidth*0.1433);
-	            var text2Y=Math.floor(canvasHeight*0.1567);
-	            var text2Yy=Math.floor(canvasHeight*0.5097);
-	            var text2Y1=Math.floor(canvasHeight*0.4997);
-	            var text2Y2=Math.floor(canvasHeight*0.612);
-
-	            var text2Y3=Math.floor(canvasHeight*0.659);
-	            var text2Y4=Math.floor(canvasHeight*0.699);
-	            var text2Y5=Math.floor(canvasHeight*0.739);
-	            var text2Y6=Math.floor(canvasHeight*0.779);
-	            for(var l=0;l<user.storename.length;l++){
-	            	var textH=Math.floor(canvasHeight*(0.1367+0.03*l));
-	            	ctx.fillText(user.storename[l],text2X,textH);
-	            }
-
-	            ctx.font = "normal bold 1.333333rem arial";
-	            //设置用户文本填充颜色
-	            ctx.fillStyle = "#fff";
-	            ctx.fillText(user.name,text2Xx,text2Yy);
-
-	            ctx.font = "normal bold 0.373333rem arial";
-	            ctx.fillText(user.worklevel,text2Xxx,text2Y1);
-
-	            ctx.font = "normal bold 0.32rem arial";
-	            //设置用户文本填充颜色
-	            ctx.fillStyle = "#573324";
-	            ctx.fillText(user.userflags[0],text2Xxxx,text2Y2);
-
-	            ctx.font = "normal bold 0.373333rem arial";
-	            ctx.fillStyle = "#fff";
-	            ctx.fillText(user.storeplace,text2Xx,text2Y3);
-	            ctx.fillText("洗剪吹："+user.cutprice+"元",text2Xx,text2Y4);
-	            ctx.fillText("烫发："+user.permpricelow+"-"+user.permpricehigh+"元",text2Xx,text2Y5);
-	            ctx.fillText("染发："+user.colorpricelow+"-"+user.colorpricehigh+"元",text2Xx,text2Y6);
-
-		    }else if(imgNum == 6){
-		    	//读取用户的文本
-	            ctx.font = "normal bold 0.373333rem arial";
-	            //设置用户文本填充颜色
-	            ctx.fillStyle = "#121917";
-	            //从坐标点(50,50)开始绘制文字
-	            var text3X=Math.floor(clientWidth*0.9153);
-	            var text3Xx=Math.floor(clientWidth*0.1033);
-	            var text3Xxx=Math.floor(clientWidth*0.466);
-	            var text3Xxxx=Math.floor(clientWidth*0.1433);
-	            var text3Y=Math.floor(canvasHeight*0.117);
-	            var text3Yy=Math.floor(canvasHeight*0.6897);
-	            var text3Y1=Math.floor(canvasHeight*0.7197);
-	            var text3Y2=Math.floor(canvasHeight*0.752);
-
-	            var text3Y3=Math.floor(canvasHeight*0.809);
-	            var text3Y4=Math.floor(canvasHeight*0.849);
-	            var text3Y5=Math.floor(canvasHeight*0.889);
-	            var text3Y6=Math.floor(canvasHeight*0.929);
-	            for(var l=0;l<user.storename.length;l++){
-	            	var textH=Math.floor(canvasHeight*(0.0933+0.03*l));
-	            	ctx.fillText(user.storename[l],text3X,textH);
-	            }
-
-	            ctx.font = "normal bold 0.8rem arial";
-	            //设置用户文本填充颜色
-	            ctx.fillStyle = "#011514";
-	            ctx.fillText(user.name,text3Xx,text3Yy);
-
-
-	            ctx.fillStyle = "#0d110f";
-	            ctx.font = "normal bold 0.373333rem arial";
-	            ctx.fillText(user.worklevel,text3Xxx,text3Y1);
-
-	            ctx.font = "normal bold 0.32rem arial";
-	            //设置用户文本填充颜色
-	            ctx.fillStyle = "#fff";
-	            ctx.fillText(user.userflags[0],text3Xxxx,text3Y2);
-
-	            ctx.font = "normal bold 0.373333rem arial";
-	            ctx.fillStyle = "#121b18";
-	            ctx.fillText(user.storeplace,text3Xx,text3Y3);
-	            ctx.fillText("洗剪吹："+user.cutprice+"元",text3Xx,text3Y4);
-	            ctx.fillText("烫发："+user.permpricelow+"-"+user.permpricehigh+"元",text3Xx,text3Y5);
-	            ctx.fillText("染发："+user.colorpricelow+"-"+user.colorpricehigh+"元",text3Xx,text3Y6);
-
-		    }else if(imgNum == 7){
-		    	//读取用户的文本
-	            ctx.font = "normal bold 0.373333rem arial";
-	            //设置用户文本填充颜色
-	            ctx.fillStyle = "#121917";
-	            //从坐标点(50,50)开始绘制文字
-	            var text3X=Math.floor(clientWidth*0.9153);
-	            var text3Xx=Math.floor(clientWidth*0.1033);
-	            var text3Xxx=Math.floor(clientWidth*0.466);
-	            var text3Xxxx=Math.floor(clientWidth*0.1433);
-	            var text3Y=Math.floor(canvasHeight*0.117);
-	            var text3Yy=Math.floor(canvasHeight*0.6897);
-	            var text3Y1=Math.floor(canvasHeight*0.7197);
-	            var text3Y2=Math.floor(canvasHeight*0.752);
-
-	            var text3Y3=Math.floor(canvasHeight*0.809);
-	            var text3Y4=Math.floor(canvasHeight*0.849);
-	            var text3Y5=Math.floor(canvasHeight*0.889);
-	            var text3Y6=Math.floor(canvasHeight*0.929);
-	            for(var l=0;l<user.storename.length;l++){
-	            	var textH=Math.floor(canvasHeight*(0.0933+0.03*l));
-	            	ctx.fillText(user.storename[l],text3X,textH);
-	            }
-
-	            ctx.font = "normal bold 0.8rem arial";
-	            //设置用户文本填充颜色
-	            ctx.fillStyle = "#fff";
-	            ctx.fillText(user.name,text3Xx,text3Yy);
-
-
-	            ctx.fillStyle = "#0d110f";
-	            ctx.font = "normal bold 0.373333rem arial";
-	            ctx.fillText(user.worklevel,text3Xxx,text3Y1);
-
-	            ctx.font = "normal bold 0.32rem arial";
-	            //设置用户文本填充颜色
-	            ctx.fillStyle = "#fff";
-	            ctx.fillText(user.userflags[0],text3Xxxx,text3Y2);
-
-	            ctx.font = "normal bold 0.373333rem arial";
-	            ctx.fillText(user.storeplace,text3Xx,text3Y3);
-	            ctx.fillText("洗剪吹："+user.cutprice+"元",text3Xx,text3Y4);
-	            ctx.fillText("烫发："+user.permpricelow+"-"+user.permpricehigh+"元",text3Xx,text3Y5);
-	            ctx.fillText("染发："+user.colorpricelow+"-"+user.colorpricehigh+"元",text3Xx,text3Y6);
-
-		    }else if(imgNum == 8){
-		    	//读取用户的文本
-	            ctx.font = "normal bold 0.4rem arial";
-	            //设置用户文本填充颜色
-	            ctx.fillStyle = "#fff";
-	            ctx.textAlign='center';
-	            //从坐标点(50,50)开始绘制文字
-	            var text1X=Math.floor(clientWidth*0.5);
-	            var text1Xx=Math.floor(clientWidth*0.093);
-	            var text1Y=Math.floor(canvasHeight*0.596);
-	            var text1Yy=Math.floor(canvasHeight*0.646);
-	            var text1Y1=Math.floor(canvasHeight*0.676);
-	            var text1Y2=Math.floor(canvasHeight*0.711);
-	            var text1Y3=Math.floor(canvasHeight*0.841);
-	            var text1Y4=Math.floor(canvasHeight*0.881);
-	            var text1Y5=Math.floor(canvasHeight*0.921);
-	            var text1Y6=Math.floor(canvasHeight*0.961);
-	            ctx.fillText(user.name,text1X,text1Y);
-	            ctx.fillStyle = "#000";
-	            ctx.font = "normal bold 0.373333rem arial";
-	            ctx.fillText(user.storename,text1X,text1Yy);
-
-	            ctx.fillStyle = "#fff";
-	            ctx.fillText(user.worklevel,text1X,text1Y1);
-
-	            ctx.font = "normal bold 0.32rem arial";
-	            ctx.fillText(user.userflags[0],text1X,text1Y2);
-
-	            ctx.font = "normal bold 0.373333rem arial";
-	            ctx.textAlign='left';
-	            ctx.fillText(user.storeplace,text1Xx,text1Y3);
-	            ctx.fillText("洗剪吹："+user.cutprice+"元",text1Xx,text1Y4);
-	            ctx.fillText("烫发："+user.permpricelow+"-"+user.permpricehigh+"元",text1Xx,text1Y5);
-	            ctx.fillText("染发："+user.colorpricelow+"-"+user.colorpricehigh+"元",text1Xx,text1Y6);
-		    }
-    	}
-	    
-	    var base64 = canvas.toDataURL('image/jpeg');
-	    $compose[0].onload = function() {
-	        next($second);
-	        endLoading();
+		    
+		    var base64 = canvas.toDataURL('image/jpeg');
+		    $compose[0].onload = function() {
+		        next($second);
+		        endLoading();
+		    };
+		    //合成的图片
+		    $compose.attr('src', base64);
 	    };
-	    //合成的图片
-	    $compose.attr('src', base64);
+	    
 	}
 
 	/**

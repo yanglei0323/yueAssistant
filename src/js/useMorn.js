@@ -390,7 +390,7 @@ index.controller('useMornCtrl',
     function saveImageInfo() {
         $scope.showcanvas=false;
         var mycanvas = document.getElementById("main");
-        var image = mycanvas.toDataURL("image/jpg",0.5);
+        var image = mycanvas.toDataURL("image/jpeg",0.7);
         $scope.canvasImg =image;
         $scope.btnText = '长按保存至手机，再发到朋友圈炫耀';
   //       var dom = document.createElement("a");

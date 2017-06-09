@@ -195,7 +195,7 @@ index.config(['$routeProvider','$locationProvider', function ($routeProvider,$lo
             	// alert('授权成功');
                 resp = JSON.parse(resp);
                 if (resp.errcode) {
-                  alert(resp.errmsg);
+                  // alert(resp.errmsg);
                 }
                 else {
                   // 获取授权信息成功

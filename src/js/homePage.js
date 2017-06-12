@@ -131,13 +131,13 @@ index.controller('homePageCtrl',
     	e.stopPropagation();
     };
     // 获取分享信息
-	$http.post('/user/mypage/share.json', postCfg)
-	.then(function (resp) {
-		console.log(resp);
-		if (1 === resp.data.code) {
+	// $http.post('/user/mypage/share.json', postCfg)
+	// .then(function (resp) {
+	// 	console.log(resp);
+	// 	if (1 === resp.data.code) {
 			
-		}
-	}, function (resp) {
-        // alert('数据请求失败，请稍后再试！');
-	});
+	// 	}
+	// }, function (resp) {
+ //        // alert('数据请求失败，请稍后再试！');
+	// });
 }]);

@@ -13,8 +13,8 @@ index.controller('useMornCtrl',
 	$("#main").attr('width',canvasWidth+'px');
 	$("#main").attr('height',canvasHeight+'px');
 	console.log($scope.user);
-	if($scope.user.name.length >= 3){
-		$scope.user.name=$scope.user.name[0]+$scope.user.name[1]+$scope.user.name[2];
+	if($scope.user.name.length >= 4){
+		$scope.user.name=$scope.user.name[0]+$scope.user.name[1]+$scope.user.name[2]+$scope.user.name[3];
 	}
 	// 类型type
 	var type = $routeParams.type;
@@ -230,8 +230,9 @@ index.controller('useMornCtrl',
 		            mainCtx.font = "normal bold 34px myFirstFont";
 		            //设置用户文本填充颜色
 		            mainCtx.fillStyle = "#7a8776";
+		            mainCtx.textAlign="right"; 
 		            //从坐标点(50,50)开始绘制文字
-		            var text55X=Math.floor(clientWidth*0.773);
+		            var text55X=Math.floor(clientWidth*0.933);
 		            var text55Y=Math.floor(canvasHeight*0.736);
 		            mainCtx.fillText("BY"+$scope.user.name,text55X,text55Y);
 		            //设置时间填充颜色
@@ -332,8 +333,9 @@ index.controller('useMornCtrl',
 		            mainCtx.font = "normal bold 0.453333rem myFirstFont";
 		            //设置用户文本填充颜色
 		            mainCtx.fillStyle = "#7a8776";
+		            mainCtx.textAlign="right"; 
 		            //从坐标点(50,50)开始绘制文字
-		            var text5X=Math.floor(clientWidth*0.773);
+		            var text5X=Math.floor(clientWidth*0.933);
 		            var text5Y=Math.floor(canvasHeight*0.736);
 		            mainCtx.fillText("BY"+$scope.user.name,text5X,text5Y);
 		            //设置时间填充颜色

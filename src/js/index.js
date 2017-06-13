@@ -230,11 +230,6 @@ index.config(['$routeProvider','$locationProvider', function ($routeProvider,$lo
             }
         });
     }
-    else{
-    	var openedcode = window.open('about:blank', '_self');
-        openedcode.opener = null;
-        openedcode.close();
-    }
     // 对浏览器的UserAgent进行正则匹配，不含有微信独有标识的则为其他浏览器
     var useragent = navigator.userAgent;
     if (useragent.match(/MicroMessenger/i) != 'MicroMessenger') {

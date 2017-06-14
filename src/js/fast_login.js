@@ -74,6 +74,7 @@ index.controller('fastLoginCtrl', ['$scope', '$http', '$window', '$location', '$
 
     // 绑定手机
     $scope.confirmLogin = function () {
+        console.log('点击事件执行');
         if (-1 === checkParams()) {
             return;
         }
@@ -88,7 +89,7 @@ index.controller('fastLoginCtrl', ['$scope', '$http', '$window', '$location', '$
                 var user = resp.data.data;
                 sessionStorage.setItem('user', JSON.stringify(user));
                 $timeout(function () {
-                    $window.history.back();
+                    window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx45618195d7038b9d&redirect_uri=http://syrapi.yueyishujia.com/yueAssistant/build/html/&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';
                 });
             }
             else if (0 === resp.data.code) {

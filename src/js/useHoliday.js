@@ -12,8 +12,8 @@ index.controller('useHolidayCtrl',
 	var clientWidth = document.documentElement.clientWidth;
 	var canvasWidth = Math.floor(clientWidth);
 	var canvasHeight = Math.floor(clientWidth*1.83);
-	$("#main").attr('width',canvasWidth+'px');
-	$("#main").attr('height',canvasHeight+'px');
+	$("#main").css('width',canvasWidth+'px');
+	$("#main").css('height',canvasHeight+'px');
 	console.log($scope.user);
 	if($scope.name.length >= 4){
 		$scope.name=$scope.name[0]+$scope.name[1]+$scope.name[2];
@@ -84,25 +84,26 @@ index.controller('useHolidayCtrl',
 	// 	}
 	// 	hechen();
 	// };
-	var mainCtx = getCanvasContext('main');
-    mainCtx.width =canvasWidth;
-    mainCtx.height = canvasHeight;
+	var canvas= document.getElementById("main");
+	var mainCtx = canvas.getContext('2d');
+    canvas.width =canvasWidth*2;
+    canvas.height = canvasHeight*2;
     // mainCtx.clearRect(0,0,1000,1000);
     // console.log(mainCtx.width+'----'+canvasWidth);
 
     // polyfill 提供了这个方法用来获取设备的 pixel ratio
-    var getPixelRatio = function(context) {
-        var backingStore = context.backingStorePixelRatio ||
-            context.webkitBackingStorePixelRatio ||
-            context.mozBackingStorePixelRatio ||
-            context.msBackingStorePixelRatio ||
-            context.oBackingStorePixelRatio ||
-            context.backingStorePixelRatio || 1;
+    // var getPixelRatio = function(context) {
+    //     var backingStore = context.backingStorePixelRatio ||
+    //         context.webkitBackingStorePixelRatio ||
+    //         context.mozBackingStorePixelRatio ||
+    //         context.msBackingStorePixelRatio ||
+    //         context.oBackingStorePixelRatio ||
+    //         context.backingStorePixelRatio || 1;
     
-        return (window.devicePixelRatio || 1) / backingStore;
-    };
+    //     return (window.devicePixelRatio || 1) / backingStore;
+    // };
 
-    var ratio = getPixelRatio(mainCtx);
+    // var ratio = getPixelRatio(mainCtx);
 	$(function(){
         hechen();
     });
@@ -130,46 +131,25 @@ index.controller('useHolidayCtrl',
         starImg.src=$scope.showImg;
         starImg.onload=function(){
             //先把图片绘制在这里
-            mainCtx.drawImage(starImg,0,0,canvasWidth*ratio,canvasHeight*ratio);
-            if (navigator.userAgent.match(/iphone/i)) {
+            mainCtx.drawImage(starImg,0,0,canvasWidth*2,canvasHeight*2);
             	if(type == 1 && num == 2){
 	            	//读取用户的文本
-		            mainCtx.font = "normal bold "+40/750*canvasWidth+"px myFirstFont";
+		            mainCtx.font = "normal bold "+40/750*canvasWidth*2+"px myFirstFont";
 		            //设置用户文本填充颜色
 		            mainCtx.fillStyle = "#fff";
 		            //从坐标点(50,50)开始绘制文字
-		            var text11X=Math.floor(clientWidth*0.153);
-		            var text11Y=Math.floor(canvasHeight*0.335);
+		            var text11X=Math.floor(clientWidth*0.153*2);
+		            var text11Y=Math.floor(canvasHeight*0.335*2);
 		            mainCtx.fillText($scope.name+"祝您",text11X,text11Y);
 	            }else if(type == 3 && num == 1){
-		            mainCtx.drawImage(qrcodeImg,(573/750)*canvasWidth*ratio,(1137/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
+		            mainCtx.drawImage(qrcodeImg,(573/750)*canvasWidth*2,(1137/1334)*canvasHeight*2,(14/75)*canvasWidth*2,(14/75)*canvasWidth*2);
 	            }else if(type == 3 && num == 2){
-		            mainCtx.drawImage(qrcodeImg,(44/750)*canvasWidth*ratio,(1134/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
+		            mainCtx.drawImage(qrcodeImg,(44/750)*canvasWidth*2,(1134/1334)*canvasHeight*2,(14/75)*canvasWidth*2,(14/75)*canvasWidth*2);
 	            }else if(type == 5 && num == 1){
-		            mainCtx.drawImage(qrcodeImg,(36/750)*canvasWidth*ratio,(1138/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
+		            mainCtx.drawImage(qrcodeImg,(36/750)*canvasWidth*2,(1138/1334)*canvasHeight*2,(14/75)*canvasWidth*2,(14/75)*canvasWidth*2);
 	            }else if(type == 5 && num == 2){
-		            mainCtx.drawImage(qrcodeImg,(36/750)*canvasWidth*ratio,(1122/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
+		            mainCtx.drawImage(qrcodeImg,(36/750)*canvasWidth*2,(1122/1334)*canvasHeight*2,(14/75)*canvasWidth*2,(14/75)*canvasWidth*2);
 	            }
-            }else{
-	            if(type == 1 && num == 2){
-	            	//读取用户的文本
-		            mainCtx.font = "normal bold 0.533333rem myFirstFont";
-		            //设置用户文本填充颜色
-		            mainCtx.fillStyle = "#fff";
-		            //从坐标点(50,50)开始绘制文字
-		            var text1X=Math.floor(clientWidth*0.153);
-		            var text1Y=Math.floor(canvasHeight*0.335);
-		            mainCtx.fillText($scope.name+"祝您",text1X,text1Y);
-	            }else if(type == 3 && num == 1){
-		            mainCtx.drawImage(qrcodeImg,(573/750)*canvasWidth*ratio,(1137/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
-	            }else if(type == 3 && num == 2){
-		            mainCtx.drawImage(qrcodeImg,(44/750)*canvasWidth*ratio,(1134/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
-	            }else if(type == 5 && num == 1){
-		            mainCtx.drawImage(qrcodeImg,(36/750)*canvasWidth*ratio,(1138/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
-	            }else if(type == 5 && num == 2){
-		            mainCtx.drawImage(qrcodeImg,(36/750)*canvasWidth*ratio,(1122/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
-	            }
-            }
             
 
         };

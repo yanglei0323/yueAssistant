@@ -16,8 +16,8 @@ index.controller('useGreetCtrl',
 	var clientWidth = document.documentElement.clientWidth;
 	var canvasWidth = Math.floor(clientWidth);
 	var canvasHeight = Math.floor(clientWidth*1.83);
-	$("#main").attr('width',canvasWidth+'px');
-	$("#main").attr('height',canvasHeight+'px');
+	$("#main").css('width',canvasWidth+'px');
+	$("#main").css('height',canvasHeight+'px');
 	console.log($scope.user);
 	// 类型type
 	var type = $routeParams.type;
@@ -90,25 +90,26 @@ index.controller('useGreetCtrl',
 	// 	}
 	// 	hechen();
 	// };
-	var mainCtx = getCanvasContext('main');
-    mainCtx.width =canvasWidth;
-    mainCtx.height = canvasHeight;
+	var canvas= document.getElementById("main");
+	var mainCtx = canvas.getContext('2d');
+    canvas.width =canvasWidth*2;
+    canvas.height = canvasHeight*2;
     // mainCtx.clearRect(0,0,1000,1000);
     // console.log(mainCtx.width+'----'+canvasWidth);
 
     // polyfill 提供了这个方法用来获取设备的 pixel ratio
-    var getPixelRatio = function(context) {
-        var backingStore = context.backingStorePixelRatio ||
-            context.webkitBackingStorePixelRatio ||
-            context.mozBackingStorePixelRatio ||
-            context.msBackingStorePixelRatio ||
-            context.oBackingStorePixelRatio ||
-            context.backingStorePixelRatio || 1;
+    // var getPixelRatio = function(context) {
+    //     var backingStore = context.backingStorePixelRatio ||
+    //         context.webkitBackingStorePixelRatio ||
+    //         context.mozBackingStorePixelRatio ||
+    //         context.msBackingStorePixelRatio ||
+    //         context.oBackingStorePixelRatio ||
+    //         context.backingStorePixelRatio || 1;
     
-        return (window.devicePixelRatio || 1) / backingStore;
-    };
+    //     return (window.devicePixelRatio || 1) / backingStore;
+    // };
 
-    var ratio = getPixelRatio(mainCtx);
+    // var ratio = getPixelRatio(mainCtx);
 	$(function(){
         hechen();
     });
@@ -136,84 +137,44 @@ index.controller('useGreetCtrl',
         starImg.src=$scope.showImg;
         starImg.onload=function(){
             //先把图片绘制在这里
-            mainCtx.drawImage(starImg,0,0,canvasWidth*ratio,canvasHeight*ratio);
-            if (navigator.userAgent.match(/iphone/i)) {
+            mainCtx.drawImage(starImg,0,0,canvasWidth*2,canvasHeight*2);
             	if(type == 1 && num == 1){
 	            	//读取用户的文本
-		            mainCtx.font = "normal bold "+72/750*canvasWidth+"px myFirstFont";
+		            mainCtx.font = "normal bold "+72/750*canvasWidth*2+"px myFirstFont";
 		            //设置用户文本填充颜色
 		            mainCtx.fillStyle = "#fff";
 		            //从坐标点(50,50)开始绘制文字
-		            var text11X=Math.floor(clientWidth*0.066);
-		            var text11Xx=Math.floor(clientWidth*0.1466);
-		            var text11Y=Math.floor(canvasHeight*0.145);
-		            var text11Yy=Math.floor(canvasHeight*0.349);
+		            var text11X=Math.floor(clientWidth*0.066*2);
+		            var text11Xx=Math.floor(clientWidth*0.1466*2);
+		            var text11Y=Math.floor(canvasHeight*0.145*2);
+		            var text11Yy=Math.floor(canvasHeight*0.349*2);
 		            mainCtx.fillText($scope.title,text11X,text11Y);
 
 		            //读取用户的文本
-		            mainCtx.font = "normal bold "+30/750*canvasWidth+"px myFirstFont";
+		            mainCtx.font = "normal bold "+30/750*canvasWidth*2+"px myFirstFont";
 		            //设置用户文本填充颜色
 		            mainCtx.fillStyle = "#0f0f0b";
 		            mainCtx.fillText($scope.desc,text11Xx,text11Yy);
 	            }else if(type == 1 && num == 2){
 	            	//读取用户的文本
-		            mainCtx.font = "normal bold "+30/750*canvasWidth+"px myFirstFont";
+		            mainCtx.font = "normal bold "+30/750*canvasWidth*2+"px myFirstFont";
 		            //设置用户文本填充颜色
 		            mainCtx.fillStyle = "#fff";
 		            //从坐标点(50,50)开始绘制文字
-		            var text22X=Math.floor(clientWidth*0.586);
-		            var text22Y=Math.floor(canvasHeight*0.731);
-		            var text22Yy=Math.floor(canvasHeight*0.6848);
-		            var text22Yyy=Math.floor(canvasHeight*0.638);
+		            var text22X=Math.floor(clientWidth*0.586*2);
+		            var text22Y=Math.floor(canvasHeight*0.731*2);
+		            var text22Yy=Math.floor(canvasHeight*0.6848*2);
+		            var text22Yyy=Math.floor(canvasHeight*0.638*2);
 		            mainCtx.fillText($scope.desc3,text22X,text22Y);
 
 		            
 		            mainCtx.fillText($scope.desc2,text22X,text22Yy);
 		            mainCtx.fillText($scope.desc1,text22X,text22Yyy);
 	            }else if(type == 3 && num == 1){
-		            mainCtx.drawImage(qrcodeImg,(72/750)*canvasWidth*ratio,(1099/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
+		            mainCtx.drawImage(qrcodeImg,(72/750)*canvasWidth*2,(1099/1334)*canvasHeight*2,(14/75)*canvasWidth*2,(14/75)*canvasWidth*2);
 	            }else if(type == 3 && num == 2){
-		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1099/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
+		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*2,(1099/1334)*canvasHeight*2,(14/75)*canvasWidth*2,(14/75)*canvasWidth*2);
 	            }
-            }else{
-	            if(type == 1 && num == 1){
-	            	//读取用户的文本
-		            mainCtx.font = "normal bold 0.96rem myFirstFont";
-		            //设置用户文本填充颜色
-		            mainCtx.fillStyle = "#fff";
-		            //从坐标点(50,50)开始绘制文字
-		            var text1X=Math.floor(clientWidth*0.066);
-		            var text1Xx=Math.floor(clientWidth*0.1466);
-		            var text1Y=Math.floor(canvasHeight*0.145);
-		            var text1Yy=Math.floor(canvasHeight*0.349);
-		            mainCtx.fillText($scope.title,text1X,text1Y);
-
-		            //读取用户的文本
-		            mainCtx.font = "normal bold 0.4rem myFirstFont";
-		            //设置用户文本填充颜色
-		            mainCtx.fillStyle = "#0f0f0b";
-		            mainCtx.fillText($scope.desc,text1Xx,text1Yy);
-	            }else if(type == 1 && num == 2){
-	            	//读取用户的文本
-		            mainCtx.font = "normal bold 0.4rem myFirstFont";
-		            //设置用户文本填充颜色
-		            mainCtx.fillStyle = "#fff";
-		            //从坐标点(50,50)开始绘制文字
-		            var text2X=Math.floor(clientWidth*0.586);
-		            var text2Y=Math.floor(canvasHeight*0.731);
-		            var text2Yy=Math.floor(canvasHeight*0.6848);
-		            var text2Yyy=Math.floor(canvasHeight*0.638);
-		            mainCtx.fillText($scope.desc3,text2X,text2Y);
-
-		            
-		            mainCtx.fillText($scope.desc2,text2X,text2Yy);
-		            mainCtx.fillText($scope.desc1,text2X,text2Yyy);
-	            }else if(type == 3 && num == 1){
-		            mainCtx.drawImage(qrcodeImg,(72/750)*canvasWidth*ratio,(1099/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
-	            }else if(type == 3 && num == 2){
-		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1099/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
-	            }
-            }
             
             
 

@@ -12,8 +12,8 @@ index.controller('usejokeCtrl',
 	var clientWidth = document.documentElement.clientWidth;
 	var canvasWidth = Math.floor(clientWidth);
 	var canvasHeight = Math.floor(clientWidth*1.83);
-	$("#main").attr('width',canvasWidth+'px');
-	$("#main").attr('height',canvasHeight+'px');
+	$("#main").css('width',canvasWidth+'px');
+	$("#main").css('height',canvasHeight+'px');
 	console.log($scope.user);
 	if($scope.name.length >= 4){
 		$scope.name=$scope.name[0]+$scope.name[1]+$scope.name[2];
@@ -84,25 +84,26 @@ index.controller('usejokeCtrl',
 	// 	}
 	// 	hechen();
 	// };
-	var mainCtx = getCanvasContext('main');
-    mainCtx.width =canvasWidth;
-    mainCtx.height = canvasHeight;
+	var canvas= document.getElementById("main");
+	var mainCtx = canvas.getContext('2d');
+    canvas.width =canvasWidth*2;
+    canvas.height = canvasHeight*2;
     // mainCtx.clearRect(0,0,1000,1000);
     // console.log(mainCtx.width+'----'+canvasWidth);
 
     // polyfill 提供了这个方法用来获取设备的 pixel ratio
-    var getPixelRatio = function(context) {
-        var backingStore = context.backingStorePixelRatio ||
-            context.webkitBackingStorePixelRatio ||
-            context.mozBackingStorePixelRatio ||
-            context.msBackingStorePixelRatio ||
-            context.oBackingStorePixelRatio ||
-            context.backingStorePixelRatio || 1;
+    // var getPixelRatio = function(context) {
+    //     var backingStore = context.backingStorePixelRatio ||
+    //         context.webkitBackingStorePixelRatio ||
+    //         context.mozBackingStorePixelRatio ||
+    //         context.msBackingStorePixelRatio ||
+    //         context.oBackingStorePixelRatio ||
+    //         context.backingStorePixelRatio || 1;
     
-        return (window.devicePixelRatio || 1) / backingStore;
-    };
+    //     return (window.devicePixelRatio || 1) / backingStore;
+    // };
 
-    var ratio = getPixelRatio(mainCtx);
+    // var ratio = getPixelRatio(mainCtx);
 	$(function(){
         hechen();
     });
@@ -130,32 +131,18 @@ index.controller('usejokeCtrl',
         starImg.src=$scope.showImg;
         starImg.onload=function(){
             //先把图片绘制在这里
-            mainCtx.drawImage(starImg,0,0,canvasWidth*ratio,canvasHeight*ratio);
-            if (navigator.userAgent.match(/iphone/i)) {
+            mainCtx.drawImage(starImg,0,0,canvasWidth*2,canvasHeight*2);
             	if(type == 1){
-		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1146/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
+		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*2,(1146/1334)*canvasHeight*2,(14/75)*canvasWidth*2,(14/75)*canvasWidth*2);
 	            }else if(type == 2){
-		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1128/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
+		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*2,(1128/1334)*canvasHeight*2,(14/75)*canvasWidth*2,(14/75)*canvasWidth*2);
 	            }else if(type == 3){
-		            mainCtx.drawImage(qrcodeImg,(577/750)*canvasWidth*ratio,(1137/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
+		            mainCtx.drawImage(qrcodeImg,(577/750)*canvasWidth*2,(1137/1334)*canvasHeight*2,(14/75)*canvasWidth*2,(14/75)*canvasWidth*2);
 	            }else if(type == 4){
-		            mainCtx.drawImage(qrcodeImg,(567/750)*canvasWidth*ratio,(1130/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
+		            mainCtx.drawImage(qrcodeImg,(567/750)*canvasWidth*2,(1130/1334)*canvasHeight*2,(14/75)*canvasWidth*2,(14/75)*canvasWidth*2);
 	            }else if(type == 5){
-		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1086/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
+		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*2,(1086/1334)*canvasHeight*2,(14/75)*canvasWidth*2,(14/75)*canvasWidth*2);
 	            }
-            }else{
-	            if(type == 1){
-		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1146/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
-	            }else if(type == 2){
-		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1128/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
-	            }else if(type == 3){
-		            mainCtx.drawImage(qrcodeImg,(577/750)*canvasWidth*ratio,(1137/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
-	            }else if(type == 4){
-		            mainCtx.drawImage(qrcodeImg,(567/750)*canvasWidth*ratio,(1130/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
-	            }else if(type == 5){
-		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1086/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
-	            }
-            }
             
 
         };

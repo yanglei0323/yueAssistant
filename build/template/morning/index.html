@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no"/>
+    <title>客照展示</title>
+    <script src="js/flexible.js"></script>
+    <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+    <!--音乐 Start-->
+    <aside id="music" class="music-pulse" style="display:none">
+        <audio id="audio" src="music.mp3" type="audio/mpeg"></audio>
+    </aside>
+    <!--音乐 End-->
+    <!--加载效果 Start-->
+    <div class="ui-loading-wrap" id="loading">
+        <i class="ui-loading"></i>
+        <p>加载中...</p>
+    </div>
+    <!--加载效果 End-->
+    <!--第一屏 Start-->
+    <section class="section" id="first" style="display:none">
+        <img src="img/blank.gif" data-src="img/slogan.png" class="slogan"/ style="display:none">
+        <img src="img/blank.gif" class=" father-img"/>
+
+        <button type="button" id="btnGenerateno" class="btn-large-x" data-track="生成海报" style="display:none;">
+            <input id="upload" name="upload" type="file" accept="image/*" onfocus="this.blur()"/>
+            立即使用
+        </button>
+        <button type="button" id="btnGenerate" class="btn-large-x" data-track="生成海报">
+            立即使用
+        </button>
+        <div style="width:100%;height:100%;position:fixed;left:0;top:0;z-index:999999;display:none;background:rgba(0,0,0,0.5);" id="fixedtext">
+            <button type="button" id="btnTrue" class="btn-large-x" data-track="生成海报">
+                立即使用
+            </button>
+        </div>
+    </section>
+    <!--第一屏 End-->
+    <!--第二屏 Start-->
+    <section class="section section-top" style="display:none" id="second">
+        <div class="frame" id="frame">
+            <img src="img/blank.gif" data-src="../../../assets/images/life/img_1.png" class="word" id="word"/>
+            <img src="img/blank.gif" id="frameImg" class="frame-img"/>
+        </div>
+        <div class="ui-justify">
+            <button type="button" id="btnRotate" class="btn-middle" style="display:none">旋转</button>
+            <button type="button" id="btnCancel" class="btn-middle" data-track="取消" style="display:none">修改图片</button>
+            <button type="button" id="btnConfirm" class="btn-large-x" data-track="确认">一键生成海报</button>
+        </div>
+    </section>
+    <!--第二屏 End-->
+    <!--第三屏 Start-->
+    <section class="section section-top2" style="display: none" id="third">
+        <div class="frame">
+            <img src="img/blank.gif" class="db-img" id="compose"/>
+        </div>
+        <div class="ui-justify">
+            <button type="button" id="btnShare" class="btn-large" data-track="分享现在" style="display:none">
+                <h2>朋友圈晒海报</h2>
+            </button>
+            <button type="button" id="btnBack" class="btn-large" style="display:none">
+                <h2>重新上传照片</h2>
+            </button>
+            <button type="button" class="btn-large">
+            <span class="leftRow"><img src="img/left_row.png" alt=""></span>
+                <h2>长按保存至手机，再发到朋友圈炫耀</h2>
+            </button>
+        </div>
+    </section>
+    <!--第三屏 End-->
+    <!--底部花纹 Start-->
+    <footer class="footer">
+    </footer>
+    <!--底部花纹 End-->
+    <!--弹出框 Start-->
+    <aside class="dialog" style="display: none" id="dialog">
+        <p>长按海报即可将图片保存至手机</p>
+        <button type="button" class="btn-large-x">我知道了</button>
+    </aside>
+    <!--弹出框 End-->
+    <script src="build/js/touch.js"></script>
+    <script src="build/js/hidpi-canvas.js"></script>
+    <script src="build/js/exif.js"></script>
+    <script src="build/js/index.bundle.js"></script>
+    <script src="build/js/qrcode.js"></script>
+    <script>
+        $(function(){
+            var imgNum = getUrlParam('num');
+            var type = getUrlParam('type');
+            $('.father-img').attr('src','../../../assets/images/morning/type'+type+'/img_'+imgNum+'.png');
+            $('.word').attr("src",'../../../assets/images/morning/type'+type+'/img_'+imgNum+'.png');
+            // console.log( $('#word').attr("src"));
+            // var clientWidth = document.documentElement.clientWidth;
+            // var canvasWidth = Math.floor(clientWidth);
+            // var canvasHeight = Math.floor(clientWidth*1.83);
+            // $('#frame').attr('width',canvasWidth+'px');
+            // $('#frame').attr('height',canvasHeight+'px');
+            // console.log($('#frame').attr('width'));
+             // 获取url参数
+            function getUrlParam(name){  
+                //构造一个含有目标参数的正则表达式对象  
+                var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");  
+                //匹配目标参数  
+                var r = window.location.search.substr(1).match(reg);  
+                //返回参数值  
+                if (r !== null) return unescape(r[2]);  
+                return null;  
+            }
+            
+            $('.leftRow').on('click',function(){
+                // window.location.href = '../../html/guest';
+                window.history.back();
+            });
+        });
+        
+    </script>
+</body>
+</html>

@@ -165,7 +165,7 @@ index.controller('useNightCtrl',
             if (navigator.userAgent.match(/iphone/i)) {
             	if(type == 1){
 	            	//读取用户的文本
-		            mainCtx.font = "normal bold 24px myFirstFont";
+		            mainCtx.font = "normal bold "+24/750*canvasWidth+"px myFirstFont";
 		            //设置用户文本填充颜色
 		            mainCtx.fillStyle = "#545454";
 		            //从坐标点(50,50)开始绘制文字
@@ -180,7 +180,7 @@ index.controller('useNightCtrl',
 		            mainCtx.fillText(date,text11X,text11Yyy);
 	            }else if(type == 2){
 	            	//读取用户的文本
-		            mainCtx.font = "normal bold 24px myFirstFont";
+		            mainCtx.font = "normal bold "+24/750*canvasWidth+"px myFirstFont";
 		            //设置用户文本填充颜色
 		            mainCtx.fillStyle = "#fff";
 		            //从坐标点(50,50)开始绘制文字
@@ -198,7 +198,7 @@ index.controller('useNightCtrl',
 		            mainCtx.fillText(date,text22X,text22Yyy);
 	            }else if(type == 3){
 	            	//读取用户的文本
-		            mainCtx.font = "normal bold 24px myFirstFont";
+		            mainCtx.font = "normal bold "+24/750*canvasWidth+"px myFirstFont";
 		            //设置用户文本填充颜色
 		            mainCtx.fillStyle = "white";
 		            //从坐标点(50,50)开始绘制文字
@@ -215,7 +215,7 @@ index.controller('useNightCtrl',
 		            }
 	            }else if(type == 4){
 	            	//读取用户的文本
-		            mainCtx.font = "normal bold 100px myFirstFont";
+		            mainCtx.font = "normal bold "+100/750*canvasWidth+"px myFirstFont";
 		            //设置用户文本填充颜色
 		            mainCtx.fillStyle = "white";
 		            //从坐标点(50,50)开始绘制文字
@@ -227,7 +227,7 @@ index.controller('useNightCtrl',
 		            var text44Yyyy=Math.floor(canvasHeight*0.329);
 		            mainCtx.fillText(mydate.getDate(),text44X,text44Y);
 		            //设置时间填充颜色
-		            mainCtx.font = "normal bold 24px myFirstFont";
+		            mainCtx.font = "normal bold "+24/750*canvasWidth+"px myFirstFont";
 		            mainCtx.fillText(mm+'.'+week,text44X,text44Yy);
 		            mainCtx.fillText(mydate.getFullYear(),text44X,text44Yyy);
 		            for(var z=0;z<$scope.user.name.length;z++){
@@ -235,7 +235,7 @@ index.controller('useNightCtrl',
 		            }
 	            }else if(type == 5){
 	            	//读取用户的文本
-		            mainCtx.font = "normal bold 24px myFirstFont";
+		            mainCtx.font = "normal bold "+24/750*canvasWidth+"px myFirstFont";
 		            //设置用户文本填充颜色
 		            mainCtx.fillStyle = "#545454";
 		            //从坐标点(50,50)开始绘制文字
@@ -253,7 +253,7 @@ index.controller('useNightCtrl',
 		            //设置时间填充颜色
 	            }else if(type == 6){
 	            	//读取用户的文本
-	            	mainCtx.font = "normal bold 124px myFirstFont";
+	            	mainCtx.font = "normal bold "+124/750*canvasWidth+"px myFirstFont";
 		            //设置用户文本填充颜色
 		            mainCtx.fillStyle = "#fff";
 		            //从坐标点(50,50)开始绘制文字
@@ -264,7 +264,7 @@ index.controller('useNightCtrl',
 		            var text66Yyy=Math.floor(canvasHeight*0.186);
 		            var text66Yyyy=Math.floor(canvasHeight*0.434);
 		            mainCtx.fillText(mydate.getDate(),text66X,text66Y);
-		            mainCtx.font = "normal bold 24px myFirstFont";
+		            mainCtx.font = "normal bold "+24/750*canvasWidth+"px myFirstFont";
 		            mainCtx.fillText(mm+'.'+week,text66X,text66Yy);
 		            mainCtx.fillText(mydate.getFullYear(),text66X,text66Yyy);
 		            for(var s=0;s<$scope.user.name.length;s++){
@@ -272,7 +272,7 @@ index.controller('useNightCtrl',
 		            }
 	            }else if(type == 7){
 	            	//读取用户的文本
-		            mainCtx.font = "normal bold 24px myFirstFont";
+		            mainCtx.font = "normal bold "+24/750*canvasWidth+"px myFirstFont";
 		            //设置用户文本填充颜色
 		            mainCtx.fillStyle = "#545454";
 		            //从坐标点(50,50)开始绘制文字
@@ -284,7 +284,7 @@ index.controller('useNightCtrl',
 		            mainCtx.fillText(date,text77X,text77Yy);
 	            }else if(type == 8){
 	            	//读取用户的文本
-	            	mainCtx.font = "normal bold 124px myFirstFont";
+	            	mainCtx.font = "normal bold "+124/750*canvasWidth+"px myFirstFont";
 		            //设置用户文本填充颜色
 		            mainCtx.fillStyle = "#1b273";
 		            //从坐标点(50,50)开始绘制文字
@@ -294,7 +294,7 @@ index.controller('useNightCtrl',
 		            var text88Yyy=Math.floor(canvasHeight*0.226);
 		            var text88Yyyy=Math.floor(canvasHeight*0.9078);
 		            mainCtx.fillText(mydate.getDate(),text88X,text88Y);
-		            mainCtx.font = "normal bold 24px myFirstFont";
+		            mainCtx.font = "normal bold "+24/750*canvasWidth+"px myFirstFont";
 		            mainCtx.fillText(mm+'.'+week,text88X,text88Yy);
 		            mainCtx.fillText(mydate.getFullYear(),text88X,text88Yyy);
 		            mainCtx.fillStyle = "#535353";

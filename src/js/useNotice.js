@@ -61,6 +61,21 @@ index.controller('useNoticeCtrl',
 	// 点击添加文字
 	$scope.chengeText = function (){
 		$scope.fastuse=true;
+		$scope.name = "";
+		$scope.zhekou = "";
+		$scope.lijian = "";
+		$scope.starttime = "";
+		$scope.endtime = "";
+		$scope.starttime1 = "";
+		$scope.endtime1 = "";
+		$scope.starttime2 = "";
+		$scope.endtime2 = "";
+		$scope.starttime3 = "";
+		$scope.endtime3 = "";
+		$scope.discount = "";
+		$scope.business = "";
+		$scope.businessMonth = "";
+		$scope.businessDate = "";
 		if($scope.showmodel){
 			return;
 		}
@@ -242,7 +257,7 @@ index.controller('useNoticeCtrl',
             if (navigator.userAgent.match(/iphone/i)) {
             	if(type == 1){
 	            	//读取用户的文本
-		            mainCtx.font = "normal bold 36px myFirstFont";
+		            mainCtx.font = "normal bold "+36/750*canvasWidth+"px myFirstFont";
 		            //设置用户文本填充颜色
 		            mainCtx.fillStyle = "#fff";
 		            //从坐标点(50,50)开始绘制文字
@@ -251,13 +266,13 @@ index.controller('useNoticeCtrl',
 		            var text11Yy=Math.floor(canvasHeight*0.91);
 		            var text11Yyy=Math.floor(canvasHeight*0.94);
 		            mainCtx.fillText($scope.name,text11X,text11Y);
-		            mainCtx.font = "normal bold 24px myFirstFont";
+		            mainCtx.font = "normal bold "+24/750*canvasWidth+"px myFirstFont";
 		            mainCtx.fillText(mm+'.'+week,text11X,text11Yy);
 		            mainCtx.fillText(date,text11X,text11Yyy);
 	            }else if(type == 2 && num==1){
 		            mainCtx.drawImage(qrcodeImg,(8/75)*canvasWidth*ratio,(1106/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		        	//读取用户的文本
-		            mainCtx.font = "normal bold 36px myFirstFont";
+		            mainCtx.font = "normal bold "+36/750*canvasWidth+"px myFirstFont";
 		            //设置用户文本填充颜色
 		            mainCtx.fillStyle = "#fff";
 		            //从坐标点(50,50)开始绘制文字
@@ -270,14 +285,14 @@ index.controller('useNoticeCtrl',
 		            mainCtx.fillText($scope.zhekou,text22X,text22Y);
 		            mainCtx.fillStyle = "#333";
 		            mainCtx.fillText($scope.name,text22Xx,text22Yy);
-		            mainCtx.font = "normal bold 24px myFirstFont";
+		            mainCtx.font = "normal bold "+24/750*canvasWidth+"px myFirstFont";
 		            mainCtx.fillText(mm+'.'+week,text22Xx,text22Yyy);
 		            mainCtx.fillText(date,text22Xx,text22Yyyy);
 		        }else if(type == 2 && num==2){
 		        	// 添加二维码
 		            mainCtx.drawImage(qrcodeImg,(558/750)*canvasWidth*ratio,(1120/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		        	//读取用户的文本
-		            mainCtx.font = "normal bold 30px myFirstFont";
+		            mainCtx.font = "normal bold "+30/750*canvasWidth+"px myFirstFont";
 		            //设置用户文本填充颜色
 		            mainCtx.fillStyle = "#333";
 		            //从坐标点(50,50)开始绘制文字
@@ -289,10 +304,10 @@ index.controller('useNoticeCtrl',
 		            var text33Yyyy=Math.floor(canvasHeight*0.9285);
 		            mainCtx.fillText($scope.lijian,text33X,text33Y);
 
-		            mainCtx.font = "normal bold 36px myFirstFont";
+		            mainCtx.font = "normal bold "+36/750*canvasWidth+"px myFirstFont";
 		            mainCtx.fillStyle = "#fff";
 		            mainCtx.fillText($scope.name,text33Xx,text33Yy);
-		            mainCtx.font = "normal bold 24px myFirstFont";
+		            mainCtx.font = "normal bold "+24/750*canvasWidth+"px myFirstFont";
 		            mainCtx.fillStyle = "#333";
 		            mainCtx.fillText(mm+'.'+week,text33Xx,text33Yyy);
 		            mainCtx.fillText(date,text33Xx,text33Yyyy);
@@ -300,7 +315,7 @@ index.controller('useNoticeCtrl',
 		        	// 添加二维码
 		            mainCtx.drawImage(qrcodeImg,(555/750)*canvasWidth*ratio,(1119/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		        	//读取用户的文本
-		            mainCtx.font = "normal bold 100px myFirstFont";
+		            mainCtx.font = "normal bold "+100/750*canvasWidth+"px myFirstFont";
 		            //设置用户文本填充颜色
 		            mainCtx.fillStyle = "#b8742b";
 		            //从坐标点(50,50)开始绘制文字
@@ -314,17 +329,17 @@ index.controller('useNoticeCtrl',
 		            mainCtx.fillText($scope.starttime,text44X,text44Y);
 		            mainCtx.fillText($scope.endtime,text44Xx,text44Y);
 
-		            mainCtx.font = "normal bold 36px myFirstFont";
+		            mainCtx.font = "normal bold "+36/750*canvasWidth+"px myFirstFont";
 		            mainCtx.fillStyle = "#333";
 		            mainCtx.fillText($scope.name,text44Xxx,text44Yy);
-		            mainCtx.font = "normal bold 24px myFirstFont";
+		            mainCtx.font = "normal bold "+24/750*canvasWidth+"px myFirstFont";
 		            mainCtx.fillText(mm+'.'+week,text44Xxx,text44Yyy);
 		            mainCtx.fillText(date,text44Xxx,text44Yyyy);
 		        }else if(type == 3 && num==2){
 		        	// 添加二维码
 		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(786/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		        	//读取用户的文本
-		            mainCtx.font = "normal bold 48px myFirstFont";
+		            mainCtx.font = "normal bold "+48/750*canvasWidth+"px myFirstFont";
 		            //设置用户文本填充颜色
 		            mainCtx.fillStyle = "#fff";
 		            //从坐标点(50,50)开始绘制文字
@@ -338,16 +353,16 @@ index.controller('useNoticeCtrl',
 		            mainCtx.fillText($scope.starttime1,text55X,text55Y);
 		            mainCtx.fillText($scope.endtime1,text55Xx,text55Y);
 
-		            mainCtx.font = "normal bold 36px myFirstFont";
+		            mainCtx.font = "normal bold "+36/750*canvasWidth+"px myFirstFont";
 		            mainCtx.fillText($scope.name,text55Xxx,text55Yy);
-		            mainCtx.font = "normal bold 24px myFirstFont";
+		            mainCtx.font = "normal bold "+24/750*canvasWidth+"px myFirstFont";
 		            mainCtx.fillText(mm+'.'+week,text55Xxx,text55Yyy);
 		            mainCtx.fillText(date,text55Xxx,text55Yyyy);
 		        }else if(type == 4 && num==1){
 		        	// 添加二维码
 		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1079/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		        	//读取用户的文本
-		            mainCtx.font = "normal bold 48px myFirstFont";
+		            mainCtx.font = "normal bold "+48/750*canvasWidth+"px myFirstFont";
 		            //设置用户文本填充颜色
 		            mainCtx.fillStyle = "#000";
 		            //从坐标点(50,50)开始绘制文字
@@ -358,7 +373,7 @@ index.controller('useNoticeCtrl',
 		        	// 添加二维码
 		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1090/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		        	//读取用户的文本
-		            mainCtx.font = "normal bold 100px myFirstFont";
+		            mainCtx.font = "normal bold "+100/750*canvasWidth+"px myFirstFont";
 		            //设置用户文本填充颜色
 		            mainCtx.fillStyle = "#f02964";
 		            //从坐标点(50,50)开始绘制文字
@@ -368,7 +383,7 @@ index.controller('useNoticeCtrl',
 		            var text77Y=Math.floor(canvasHeight*0.422);
 		            var text77Yy=Math.floor(canvasHeight*0.6808);
 		            mainCtx.fillText($scope.discount,text77X,text77Y);
-		            mainCtx.font = "normal bold 36px myFirstFont";
+		            mainCtx.font = "normal bold "+36/750*canvasWidth+"px myFirstFont";
 		            mainCtx.fillStyle = "#333";
 		            mainCtx.fillText($scope.starttime2,text77Xx,text77Yy);
 		            mainCtx.fillText($scope.endtime2,text77Xxx,text77Yy);
@@ -376,7 +391,7 @@ index.controller('useNoticeCtrl',
 		        	// 添加二维码
 		            mainCtx.drawImage(qrcodeImg,(550/750)*canvasWidth*ratio,(1110/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		        	//读取用户的文本
-		            mainCtx.font = "normal bold 100px myFirstFont";
+		            mainCtx.font = "normal bold "+100/750*canvasWidth+"px myFirstFont";
 		            //设置用户文本填充颜色
 		            mainCtx.fillStyle = "#000";
 		            //从坐标点(50,50)开始绘制文字
@@ -393,19 +408,19 @@ index.controller('useNoticeCtrl',
 		            var text88Yyyy2=Math.floor(canvasHeight*0.95);
 		            mainCtx.fillText($scope.starttime3,text88X,text88Y);
 		            mainCtx.fillText($scope.endtime3,text88Xx,text88Y);
-		            mainCtx.font = "normal bold 36px myFirstFont";
+		            mainCtx.font = "normal bold "+36/750*canvasWidth+"px myFirstFont";
 		            mainCtx.fillStyle = "#fb5b64";
 		            mainCtx.fillText($scope.business,text88Xxx,text88Yy);
 		            mainCtx.fillStyle = "#333";
 		            mainCtx.fillText($scope.name,text88Xxxx,text88Yyyy);
-		            mainCtx.font = "normal bold 24px myFirstFont";
+		            mainCtx.font = "normal bold "+24/750*canvasWidth+"px myFirstFont";
 		            mainCtx.fillText(mm+'.'+week,text88Xxxx,text88Yyyy1);
 		            mainCtx.fillText(date,text88Xxxx,text88Yyyy2);
 		        }else if(type == 5 && num==2){
 		        	// 添加二维码
 		            mainCtx.drawImage(qrcodeImg,(551/750)*canvasWidth*ratio,(1111/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 		        	//读取用户的文本
-		            mainCtx.font = "normal bold 30px myFirstFont";
+		            mainCtx.font = "normal bold "+30/750*canvasWidth+"px myFirstFont";
 		            //设置用户文本填充颜色
 		            mainCtx.fillStyle = "#f6c33b";
 		            //从坐标点(50,50)开始绘制文字
@@ -423,7 +438,7 @@ index.controller('useNoticeCtrl',
 
 		            mainCtx.fillStyle = "#333";
 		            mainCtx.fillText($scope.name,text99Xxx,text99Yyy);
-		            mainCtx.font = "normal bold 24px myFirstFont";
+		            mainCtx.font = "normal bold "+24/750*canvasWidth+"px myFirstFont";
 		            mainCtx.fillText(mm+'.'+week,text99Xxx,text99Yyy1);
 		            mainCtx.fillText(date,text99Xxx,text99Yyy2);
 		        }

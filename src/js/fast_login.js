@@ -15,7 +15,18 @@ index.controller('fastLoginCtrl', ['$scope', '$http', '$window', '$location', '$
             $('.prompt-container').show().fadeOut(2000);
             return;
         }
-    	$http.post('/user/unl/sendlogin.json', {telephone: $scope.phone}, postCfg)
+        // 获取当前时间戳
+        var _timestamp = (new Date()).valueOf();
+        var startMd5='_timestamp='+_timestamp+'&telephone='+$scope.phone+'&key=C5F3EB5D7DC2748AED89E90AF00081E6';
+        var sign= md5(startMd5).toUpperCase();//md5加密并转为大写
+        console.log(_timestamp);
+        console.log(sign);
+        var md5Data={
+            telephone: $scope.phone,
+            _timestamp:_timestamp,
+            sign:sign
+        };
+    	$http.post('/user/unl/sign/sendlogin.json', md5Data, postCfg)
     	.then(function (resp) {
             console.log(resp);
     		if (1 === resp.data.code) {
@@ -74,7 +85,6 @@ index.controller('fastLoginCtrl', ['$scope', '$http', '$window', '$location', '$
 
     // 绑定手机
     $scope.confirmLogin = function () {
-        console.log('点击事件执行');
         if (-1 === checkParams()) {
             return;
         }

@@ -365,7 +365,7 @@
 	        	if(imgNum == 1){
 	        		ctx.drawImage(qrcodeImg,(306/750)*canvasWidth,(1154/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
 			    	//读取用户的文本
-		            ctx.font = "normal bold 38px arial";
+		            ctx.font = "normal bold "+38/750*canvasWidth+"px arial";
 		            //设置用户文本填充颜色
 		            ctx.fillStyle = "#000";
 		            ctx.textAlign='center';
@@ -376,7 +376,7 @@
 			    }else if(imgNum == 2){
 			    	ctx.drawImage(qrcodeImg,(566/750)*canvasWidth,(1128/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
 			    	//读取用户的文本
-		            ctx.font = "normal bold 38px arial";
+		            ctx.font = "normal bold "+38/750*canvasWidth+"px arial";
 		            //设置用户文本填充颜色
 		            ctx.fillStyle = "#fff";
 		            //从坐标点(50,50)开始绘制文字
@@ -387,7 +387,7 @@
 			    }else if(imgNum == 3){
 			    	ctx.drawImage(qrcodeImg,(576/750)*canvasWidth,(1159/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
 			    	//读取用户的文本
-		            ctx.font = "normal bold 38px arial";
+		            ctx.font = "normal bold "+38/750*canvasWidth+"px arial";
 		            //设置用户文本填充颜色
 		            ctx.fillStyle = "#000";
 		            //从坐标点(50,50)开始绘制文字
@@ -398,7 +398,7 @@
 			    }else if(imgNum == 4){
 			    	ctx.drawImage(qrcodeImg,(567/750)*canvasWidth,(1129/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
 			    	//读取用户的文本
-		            ctx.font = "normal bold 38px arial";
+		            ctx.font = "normal bold "+38/750*canvasWidth+"px arial";
 		            //设置用户文本填充颜色
 		            ctx.fillStyle = "#ca0808";
 		            //从坐标点(50,50)开始绘制文字
@@ -409,7 +409,7 @@
 			    }else if(imgNum == 5){
 			    	ctx.drawImage(qrcodeImg,(306/750)*canvasWidth,(1154/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
 			    	//读取用户的文本
-		            ctx.font = "normal bold 38px arial";
+		            ctx.font = "normal bold "+38/750*canvasWidth+"px arial";
 		            //设置用户文本填充颜色
 		            ctx.fillStyle = "#000";
 		            //从坐标点(50,50)开始绘制文字
@@ -419,7 +419,7 @@
 			    }else if(imgNum == 6){
 			    	ctx.drawImage(qrcodeImg,(306/750)*canvasWidth,(1133/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
 			    	//读取用户的文本
-		            ctx.font = "normal bold 38px arial";
+		            ctx.font = "normal bold "+38/750*canvasWidth+"px arial";
 		            //设置用户文本填充颜色
 		            ctx.fillStyle = "#000";
 		            //从坐标点(50,50)开始绘制文字

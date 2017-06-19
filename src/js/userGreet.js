@@ -140,7 +140,7 @@ index.controller('useGreetCtrl',
             if (navigator.userAgent.match(/iphone/i)) {
             	if(type == 1 && num == 1){
 	            	//读取用户的文本
-		            mainCtx.font = "normal bold 72px myFirstFont";
+		            mainCtx.font = "normal bold "+72/750*canvasWidth+"px myFirstFont";
 		            //设置用户文本填充颜色
 		            mainCtx.fillStyle = "#fff";
 		            //从坐标点(50,50)开始绘制文字
@@ -151,13 +151,13 @@ index.controller('useGreetCtrl',
 		            mainCtx.fillText($scope.title,text11X,text11Y);
 
 		            //读取用户的文本
-		            mainCtx.font = "normal bold 30px myFirstFont";
+		            mainCtx.font = "normal bold "+30/750*canvasWidth+"px myFirstFont";
 		            //设置用户文本填充颜色
 		            mainCtx.fillStyle = "#0f0f0b";
 		            mainCtx.fillText($scope.desc,text11Xx,text11Yy);
 	            }else if(type == 1 && num == 2){
 	            	//读取用户的文本
-		            mainCtx.font = "normal bold 30px myFirstFont";
+		            mainCtx.font = "normal bold "+30/750*canvasWidth+"px myFirstFont";
 		            //设置用户文本填充颜色
 		            mainCtx.fillStyle = "#fff";
 		            //从坐标点(50,50)开始绘制文字

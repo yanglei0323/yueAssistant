@@ -173,7 +173,7 @@ index.controller('useMornCtrl',
             if (navigator.userAgent.match(/iphone/i)) {
             	if(type == 1){
 	            	//读取用户的文本
-		            mainCtx.font = "normal bold 36px myFirstFont";
+		            mainCtx.font = "normal bold "+36/750*canvasWidth+"px myFirstFont";
 		            //设置用户文本填充颜色
 		            mainCtx.fillStyle = "black";
 		            mainCtx.textAlign="right";
@@ -183,7 +183,7 @@ index.controller('useMornCtrl',
 		            mainCtx.fillText("BY"+$scope.user.name,text11X,text11Y);
 	            }else if(type == 2){
 	            	//读取用户的文本
-		            mainCtx.font = "normal bold 30px myFirstFont";
+		            mainCtx.font = "normal bold "+30/750*canvasWidth+"px myFirstFont";
 		            //设置用户文本填充颜色
 		            mainCtx.fillStyle = "black";
 		            //从坐标点(50,50)开始绘制文字
@@ -196,7 +196,7 @@ index.controller('useMornCtrl',
 		            mainCtx.fillText(date,text22X,text22Yy);
 	            }else if(type == 3){
 	            	//读取用户的文本
-		            mainCtx.font = "normal bold 100px myFirstFont";
+		            mainCtx.font = "normal bold "+100/750*canvasWidth+"px myFirstFont";
 		            //设置用户文本填充颜色
 		            mainCtx.fillStyle = "white";
 		            //从坐标点(50,50)开始绘制文字
@@ -206,12 +206,12 @@ index.controller('useMornCtrl',
 		            var text33Yyy=Math.floor(canvasHeight*0.947);
 		            mainCtx.fillText(mydate.getDate(),text33X,text33Y);
 		            //设置时间填充颜色
-		            mainCtx.font = "normal bold 30px myFirstFont";
+		            mainCtx.font = "normal bold "+30/750*canvasWidth+"px myFirstFont";
 		            mainCtx.fillText(mm+'.'+week,text33X,text33Yy);
 		            mainCtx.fillText("BY"+$scope.user.name,text33X,text33Yyy);
 	            }else if(type == 4){
 	            	//读取用户的文本
-		            mainCtx.font = "normal bold 34px myFirstFont";
+		            mainCtx.font = "normal bold "+34/750*canvasWidth+"px myFirstFont";
 		            //设置用户文本填充颜色
 		            mainCtx.fillStyle = "black";
 		            mainCtx.textAlign="right"; 
@@ -227,7 +227,7 @@ index.controller('useMornCtrl',
 		            mainCtx.fillText("BY"+$scope.user.name,text44X,text44Yyy);
 	            }else if(type == 5){
 	            	//读取用户的文本
-		            mainCtx.font = "normal bold 34px myFirstFont";
+		            mainCtx.font = "normal bold "+34/750*canvasWidth+"px myFirstFont";
 		            //设置用户文本填充颜色
 		            mainCtx.fillStyle = "#7a8776";
 		            mainCtx.textAlign="right"; 
@@ -238,7 +238,7 @@ index.controller('useMornCtrl',
 		            //设置时间填充颜色
 	            }else if(type == 6){
 	            	//读取用户的文本
-		            mainCtx.font = "normal bold 0.46rem myFirstFont";
+		            mainCtx.font = "normal bold "+34/750*canvasWidth+"px myFirstFont";
 		            //设置用户文本填充颜色
 		            mainCtx.fillStyle = "#fff";
 		            //从坐标点(50,50)开始绘制文字
@@ -248,7 +248,7 @@ index.controller('useMornCtrl',
 		            //设置时间填充颜色
 	            }else if(type == 7){
 	            	//读取用户的文本
-		            mainCtx.font = "normal bold 30px myFirstFont";
+		            mainCtx.font = "normal bold "+30/750*canvasWidth+"px myFirstFont";
 		            //设置用户文本填充颜色
 		            mainCtx.fillStyle = "#000";
 		            //从坐标点(50,50)开始绘制文字
@@ -261,7 +261,7 @@ index.controller('useMornCtrl',
 		            mainCtx.fillText("BY"+$scope.user.name,text77X,text77Yyy);
 	            }else if(type == 8){
 	            	//读取用户的文本
-	            	mainCtx.font = "normal bold 100px myFirstFont";
+	            	mainCtx.font = "normal bold "+100/750*canvasWidth+"px myFirstFont";
 		            //设置用户文本填充颜色
 		            mainCtx.fillStyle = "#96bfad";
 		            //从坐标点(50,50)开始绘制文字
@@ -270,7 +270,7 @@ index.controller('useMornCtrl',
 		            var text88Yy=Math.floor(canvasHeight*0.146);
 		            var text88Yyy=Math.floor(canvasHeight*0.186);
 		            mainCtx.fillText(mydate.getDate(),text88X,text88Y);
-		            mainCtx.font = "normal bold 30px myFirstFont";
+		            mainCtx.font = "normal bold "+30/750*canvasWidth+"px myFirstFont";
 		            mainCtx.fillText(week,text88X,text88Yy);
 		            mainCtx.fillText("BY"+$scope.user.name,text88X,text88Yyy);
 	            }

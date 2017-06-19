@@ -65,10 +65,12 @@ index.controller('editInformationCtrl',
 	};
 	// 保存信息
 	$scope.saveInformation = function (){
+		$scope.flagid=[];
 		for(var i=0;i<$scope.pointLabel.length;i++){
 			if($scope.pointLabel[i].ischoose === true){
 				$scope.flagid.push($scope.pointLabel[i].id);
 			}
+			console.log($scope.flagid);
 		}
 		if($scope.name === '' ||$scope.worktime === ''||$scope.worklevelid === ''||$scope.storename === ''||$scope.storeplace === ''||$scope.cutprice === ''||$scope.colorpricelow === ''||$scope.colorpricehigh === ''||$scope.permpricelow === ''||$scope.permpricehigh === ''||$scope.flagid.length === 0){
 			$('.prompt-fixed').show();
@@ -103,7 +105,7 @@ index.controller('editInformationCtrl',
 		};
 		$http.post('/user/edit.json',data, postCfg)
 		.then(function (resp) {
-			// console.log(resp);
+			console.log(resp);
 			if (-1 === resp.data.code) {
 				// 用户未登录
 				$scope.isLogin = false;

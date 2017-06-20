@@ -19,8 +19,8 @@ index.controller('fastLoginCtrl', ['$scope', '$http', '$window', '$location', '$
         var _timestamp = (new Date()).valueOf();
         var startMd5='_timestamp='+_timestamp+'&telephone='+$scope.phone+'&key=C5F3EB5D7DC2748AED89E90AF00081E6';
         var sign= md5(startMd5).toUpperCase();//md5加密并转为大写
-        console.log(_timestamp);
-        console.log(sign);
+        // console.log(_timestamp);
+        // console.log(sign);
         var md5Data={
             telephone: $scope.phone,
             _timestamp:_timestamp,
@@ -47,7 +47,7 @@ index.controller('fastLoginCtrl', ['$scope', '$http', '$window', '$location', '$
     		// console.log(resp);
     	});
     };
-    // 确认登录
+    // 确认登录(开发测试时使用)
     // $scope.confirmLogin = function () {
     //     if (-1 === checkParams()) {
     //         return;

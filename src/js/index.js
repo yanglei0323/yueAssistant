@@ -181,7 +181,7 @@ index.config(['$routeProvider','$locationProvider', function ($routeProvider,$lo
     if (code) {
         // 通过code获取access_token等信息
         var data = {
-            appid: 'wx45618195d7038b9d',                    //新空间公众号配置信息
+            appid: 'wx45618195d7038b9d',                    //新空间YOUNGSPACE公众号配置信息
             secret: '7156c0de543979bbb701006487a4e04a',
             code: code,
             grant_type: 'authorization_code'
@@ -231,15 +231,15 @@ index.config(['$routeProvider','$locationProvider', function ($routeProvider,$lo
         });
     }
     // 对浏览器的UserAgent进行正则匹配，不含有微信独有标识的则为其他浏览器
-    var useragent = navigator.userAgent;
-    if (useragent.match(/MicroMessenger/i) != 'MicroMessenger') {
-        // 这里警告框会阻塞当前页面继续加载
-        alert('已禁止本次访问：请用微信内置浏览器访问本页面！');
-        // 以下代码是用javascript强行关闭当前页面
-        var opened = window.open('about:blank', '_self');
-        opened.opener = null;
-        opened.close();
-    }
+    // var useragent = navigator.userAgent;
+    // if (useragent.match(/MicroMessenger/i) != 'MicroMessenger') {
+    //     // 这里警告框会阻塞当前页面继续加载
+    //     alert('已禁止本次访问：请用微信内置浏览器访问本页面！');
+    //     // 以下代码是用javascript强行关闭当前页面
+    //     var opened = window.open('about:blank', '_self');
+    //     opened.opener = null;
+    //     opened.close();
+    // }
 	
 	// if (navigator.geolocation) {
  //    	navigator.geolocation.getCurrentPosition(showPosition);

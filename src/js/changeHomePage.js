@@ -50,34 +50,6 @@ index.controller('changeHomePageCtrl',
                 $(".home-page-store").attr("src","../../assets/images/home_page_home2.png");
                 $(".home-page-place").attr("src","../../assets/images/home_page_place2.png");
 			}
-			// switch ($scope.user.displaytype) {
-	  //           case 1:
-	  //               break;
-	  //           case 2:
-	  //               $(".user-info").addClass("user-info2");
-	  //               $(".line-title-text").addClass("background-333");
-	  //               $(".line-title-line").addClass("background-333");
-	  //               $(".call-designer").addClass("background-333");
-	  //               $(".appointment-btn").addClass("color-333");
-	  //               $(".dashed-line").addClass("dashed-line-333");
-	  //               $(".home-page-price").attr("src","../../assets/images/home_page_price1.png");
-	  //               $(".home-page-time").attr("src","../../assets/images/home_page_time1.png");
-	  //               $(".home-page-store").attr("src","../../assets/images/home_page_home1.png");
-	  //               $(".home-page-place").attr("src","../../assets/images/home_page_place1.png");
-	  //               break;
-	  //           case 3:
-	  //               $(".user-info").addClass("user-info3");
-	  //               $(".line-title-text").addClass("background-f5a623");
-	  //               $(".line-title-line").addClass("background-f5a623");
-	  //               $(".call-designer").addClass("background-f5a623");
-	  //               $(".appointment-btn").addClass("color-f5a623");
-	  //               $(".dashed-line").addClass("dashed-line-f5a623");
-	  //               $(".home-page-price").attr("src","../../assets/images/home_page_price2.png");
-	  //               $(".home-page-time").attr("src","../../assets/images/home_page_time2.png");
-	  //               $(".home-page-store").attr("src","../../assets/images/home_page_home2.png");
-	  //               $(".home-page-place").attr("src","../../assets/images/home_page_place2.png");
-	  //               break;
-	  //       }
 	        var wxdata={
 				'url':$window.location.href.split('#')[0]  
 			};

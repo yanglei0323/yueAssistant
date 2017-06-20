@@ -148,8 +148,6 @@ index.controller('useNoticeCtrl',
 	var mainCtx = canvas.getContext('2d');
     canvas.width =canvasWidth*2;
     canvas.height = canvasHeight*2;
-    // mainCtx.clearRect(0,0,1000,1000);
-    // console.log(mainCtx.width+'----'+canvasWidth);
 
     // polyfill 提供了这个方法用来获取设备的 pixel ratio
     // var getPixelRatio = function(context) {

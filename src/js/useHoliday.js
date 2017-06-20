@@ -121,11 +121,6 @@ index.controller('useHolidayCtrl',
     function hechen(){
     	$scope.btnText = '一键生成海报';
     	$scope.showcanvas=true;
-        // var mainCtx = getCanvasContext('main');
-        // var maxWidth = mainCtx.width;
-        // var maxHeight = mainCtx.height;
-        // mainCtx.clearRect(0,0,1000,1000);
-        //因为没法直接读取本地图片 所以做了这部操作
 
         var starImg = new Image();
         starImg.src=$scope.showImg;

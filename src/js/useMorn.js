@@ -163,6 +163,7 @@ index.controller('useMornCtrl',
             // 添加二维码
 			// var pageqrcode = picBasePath + $scope.user.pageqrcode;
    //          var qrcodeImg = new Image();
+    //         qrcodeImg.crossOrigin = "Anonymous"; 
    //          qrcodeImg.src = pageqrcode;
    //          qrcodeImg.onload=function(){
    //          	mainCtx.drawImage(qrcodeImg,(23/30)*canvasWidth,(47/54)*canvasHeight,(7/30)*canvasWidth,(7/30)*canvasWidth);

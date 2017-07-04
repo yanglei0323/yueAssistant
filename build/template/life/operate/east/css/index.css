@@ -73,14 +73,15 @@ a:hover{
   float:left;
 }
 .footer{
-  width:80%;
+  width:16%;
   position:absolute;
-  left:0;
-  bottom:1.253333rem;
+  right:1.8rem;
+  bottom:2.466667rem;
   line-height:0.4rem;
   text-align:center;
   font-size:0.4rem;
   opacity:0;
+  overflow:hidden;
 }
 .fixedContent{
   position:fixed;

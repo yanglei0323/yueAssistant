@@ -295,6 +295,124 @@ index.controller('useNightCtrl',
 		            mainCtx.fillText(mydate.getFullYear(),text88X,text88Yyy);
 		            mainCtx.fillStyle = "#535353";
 		            mainCtx.fillText("BY"+$scope.user.name,text88X,text88Yyyy);
+	            }else if(type == 9 && num == 1){
+	            	//读取用户的文本
+	            	mainCtx.font = "normal bold "+38/750*canvasWidth*2+"px myFirstFont";
+		            //设置用户文本填充颜色
+		            mainCtx.fillStyle = "#fff";
+		            //从坐标点(50,50)开始绘制文字
+		            var text91X=Math.floor(clientWidth*0.224*2);
+		            var text91Y=Math.floor(canvasHeight*0.5792*2);
+		            var text91Yy=Math.floor(canvasHeight*0.6197*2);
+		            mainCtx.fillText(date,text91X,text91Y);
+		            mainCtx.fillText("BY"+$scope.user.name,text91X,text91Yy);
+	            }else if(type == 9 && num == 2){
+	            	//读取用户的文本
+	            	mainCtx.font = "normal bold "+34/750*canvasWidth*2+"px myFirstFont";
+		            //设置用户文本填充颜色
+		            mainCtx.fillStyle = "#fff";
+		            //从坐标点(50,50)开始绘制文字
+		            var text92X=Math.floor(clientWidth*0.112*2);
+		            var text92Y=Math.floor(canvasHeight*0.2614*2);
+		            mainCtx.fillText("BY"+$scope.user.name,text92X,text92Y);
+	            }else if(type == 9 && num == 3){
+	            	//读取用户的文本
+	            	mainCtx.font = "normal bold "+80/750*canvasWidth*2+"px myFirstFont";
+		            //设置用户文本填充颜色
+		            mainCtx.fillStyle = "#fff";
+		            mainCtx.textAlign="center";
+		            //从坐标点(50,50)开始绘制文字
+		            var text93X=Math.floor(clientWidth*0.5*2);
+		            var text93Y=Math.floor(canvasHeight*0.0705*2);
+		            var text93Yy=Math.floor(canvasHeight*0.1169*2);
+		            var text93Yyy=Math.floor(canvasHeight*0.1619*2);
+		            mainCtx.fillText(mydate.getDate(),text93X,text93Y);
+	            	mainCtx.font = "normal bold "+38/750*canvasWidth*2+"px myFirstFont";
+		            mainCtx.fillText(mm+'.'+week,text93X,text93Yy);
+		            mainCtx.fillText("BY"+$scope.user.name,text93X,text93Yyy);
+	            }else if(type == 9 && num == 4){
+	            	//读取用户的文本
+	            	mainCtx.font = "normal bold "+80/750*canvasWidth*2+"px myFirstFont";
+		            //设置用户文本填充颜色
+		            mainCtx.fillStyle = "#fff";
+		            //从坐标点(50,50)开始绘制文字
+		            var text94X=Math.floor(clientWidth*0.064*2);
+		            var text94Xx=Math.floor(clientWidth*0.736*2);
+		            var text94Y=Math.floor(canvasHeight*0.0715*2);
+		            var text94Yy=Math.floor(canvasHeight*0.1137*2);
+		            var text94Yyy=Math.floor(canvasHeight*0.8926*2);
+		            mainCtx.fillText(mydate.getDate(),text94X,text94Y);
+	            	mainCtx.font = "normal bold "+38/750*canvasWidth*2+"px myFirstFont";
+		            mainCtx.fillText(mm+'.'+week,text94X,text94Yy);
+		            mainCtx.textAlign="right";
+		            mainCtx.fillText("BY"+$scope.user.name,text94Xx,text94Yyy);
+	            }else if(type == 9 && num == 5){
+	            	//读取用户的文本
+	            	mainCtx.font = "normal bold "+36/750*canvasWidth*2+"px myFirstFont";
+		            //设置用户文本填充颜色
+		            mainCtx.fillStyle = "#fff";
+		            mainCtx.textAlign="center";
+		            //从坐标点(50,50)开始绘制文字
+		            var text95X=Math.floor(clientWidth*0.5*2);
+		            var text95Y=Math.floor(canvasHeight*0.9183*2);
+		            var text95Yy=Math.floor(canvasHeight*0.9555*2);
+		            mainCtx.fillText(date,text95X,text95Y);
+		            mainCtx.fillText("BY"+$scope.user.name,text95X,text95Yy);
+	            }else if(type == 10 && num == 1){
+	            	//读取用户的文本
+	            	mainCtx.font = "normal bold "+30/750*canvasWidth*2+"px myFirstFont";
+		            //设置用户文本填充颜色
+		            mainCtx.fillStyle = "#fff";
+		            mainCtx.textAlign="right";
+		            //从坐标点(50,50)开始绘制文字
+		            var text101X=Math.floor(clientWidth*0.8227*2);
+		            var text101Y=Math.floor(canvasHeight*0.8041*2);
+		            mainCtx.fillText("BY"+$scope.user.name,text101X,text101Y);
+	            }else if(type == 10 && num == 2){
+	            	//读取用户的文本
+	            	mainCtx.font = "normal bold "+36/750*canvasWidth*2+"px myFirstFont";
+		            //设置用户文本填充颜色
+		            mainCtx.fillStyle = "#000";
+		            mainCtx.textAlign="right";
+		            //从坐标点(50,50)开始绘制文字
+		            var text102X=Math.floor(clientWidth*0.9013*2);
+		            var text102Y=Math.floor(canvasHeight*0.8716*2);
+		            mainCtx.fillText("BY"+$scope.user.name,text102X,text102Y);
+	            }else if(type == 10 && num == 3){
+	            	//读取用户的文本
+	            	mainCtx.font = "normal bold "+30/750*canvasWidth*2+"px myFirstFont";
+		            //设置用户文本填充颜色
+		            mainCtx.fillStyle = "#fff";
+		            mainCtx.textAlign="center";
+		            //从坐标点(50,50)开始绘制文字
+		            var text103X=Math.floor(clientWidth*0.5*2);
+		            var text103Xx=Math.floor(clientWidth*0.9013*2);
+		            var text103Y=Math.floor(canvasHeight*0.1639*2);
+		            var text103Yy=Math.floor(canvasHeight*0.924*2);
+		            mainCtx.fillText(date,text103X,text103Y);
+		            mainCtx.textAlign="right";
+	            	mainCtx.font = "normal bold "+36/750*canvasWidth*2+"px myFirstFont";
+		            mainCtx.fillText("BY"+$scope.user.name,text103Xx,text103Yy);
+	            }else if(type == 10 && num == 4){
+	            	//读取用户的文本
+	            	mainCtx.font = "normal bold "+36/750*canvasWidth*2+"px myFirstFont";
+		            //设置用户文本填充颜色
+		            mainCtx.fillStyle = "#fff";
+		            mainCtx.textAlign="right";
+		            //从坐标点(50,50)开始绘制文字
+		            var text104X=Math.floor(clientWidth*0.9227*2);
+		            var text104Y=Math.floor(canvasHeight*0.96*2);
+		            mainCtx.fillText("BY"+$scope.user.name,text104X,text104Y);
+	            }else if(type == 10 && num == 5){
+	            	//读取用户的文本
+	            	mainCtx.font = "normal bold "+36/750*canvasWidth*2+"px myFirstFont";
+		            //设置用户文本填充颜色
+		            mainCtx.fillStyle = "#8b775f";
+		            mainCtx.textAlign="center";
+		            //从坐标点(50,50)开始绘制文字
+		            var text105X=Math.floor(clientWidth*0.5*2);
+		            var text105Y=Math.floor(canvasHeight*0.9645*2);
+		            mainCtx.fillText("BY"+$scope.user.name,text105X,text105Y);
 	            }
             
             

@@ -3,7 +3,7 @@ index.controller('noticeListCtrl',
 	function ($scope, $http, $window, $location, $rootScope,$routeParams) {
     var type = $routeParams.num;
     $scope.imgList = [];
-    for(var k=1;k<3;k++){
+    for(var k=1;k<5;k++){
         $scope.imgList.push('../../assets/images/notice/sample/type'+type+'/img_'+k+'.png');
     }
     // console.log(type);

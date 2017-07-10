@@ -97,6 +97,15 @@ index.controller('useNoticeCtrl',
         	$(".name-input-fixed-7").show();
         }else if(type == 5 && num==2){
         	$(".name-input-fixed-8").show();
+        }else if(type == 5 && num==3){
+        	$(".name-input-fixed-9").show();
+        }else if(type == 5 && num==4){
+        	$(".name-input-fixed-10").show();
+        }else{
+        	saveImageInfo();
+			$scope.fastuse=false;
+			$scope.showmodel=true;
+			$scope.btnText = '长按保存至手机，再发到朋友圈炫耀';
         }
 	};
 	// 完成添加文字
@@ -120,6 +129,10 @@ index.controller('useNoticeCtrl',
         	$(".name-input-fixed-7").fadeOut(50);
         }else if(type == 5 && num==2){
         	$(".name-input-fixed-8").fadeOut(50);
+        }else if(type == 5 && num==3){
+        	$(".name-input-fixed-9").fadeOut(50);
+        }else if(type == 5 && num==4){
+        	$(".name-input-fixed-10").fadeOut(50);
         }
         $scope.fastuse=false;
 	};
@@ -309,6 +322,29 @@ index.controller('useNoticeCtrl',
 		            mainCtx.fillStyle = "#333";
 		            mainCtx.fillText(mm+'.'+week,text33Xx,text33Yyy);
 		            mainCtx.fillText(date,text33Xx,text33Yyyy);
+		        }else if(type == 2 && num==3){
+		        	// 添加二维码
+		            mainCtx.drawImage(qrcodeImg,(566/750)*canvasWidth*2,(1136/1334)*canvasHeight*2,(14/75)*canvasWidth*2,(14/75)*canvasWidth*2);
+		        	//读取用户的文本
+		            mainCtx.font = "normal bold "+36/750*canvasWidth*2+"px myFirstFont";
+		            //设置用户文本填充颜色
+		            mainCtx.fillStyle = "#122b87";
+		            mainCtx.textAlign="right";
+		            //从坐标点(50,50)开始绘制文字
+		            var text23X=Math.floor(clientWidth*0.9493*2);
+		            var text23Y=Math.floor(canvasHeight*0.044*2);
+		            mainCtx.fillText("BY"+$scope.user.name,text23X,text23Y);
+		        }else if(type == 2 && num==4){
+		        	// 添加二维码
+		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*2,(1122/1334)*canvasHeight*2,(14/75)*canvasWidth*2,(14/75)*canvasWidth*2);
+		        	//读取用户的文本
+		            mainCtx.font = "normal bold "+36/750*canvasWidth*2+"px myFirstFont";
+		            //设置用户文本填充颜色
+		            mainCtx.fillStyle = "#374e78";
+		            //从坐标点(50,50)开始绘制文字
+		            var text24X=Math.floor(clientWidth*0.1173*2);
+		            var text24Y=Math.floor(canvasHeight*0.6512*2);
+		            mainCtx.fillText("BY"+$scope.user.name,text24X,text24Y);
 		        }else if(type == 3 && num==1){
 		        	// 添加二维码
 		            mainCtx.drawImage(qrcodeImg,(555/750)*canvasWidth*2,(1119/1334)*canvasHeight*2,(14/75)*canvasWidth*2,(14/75)*canvasWidth*2);
@@ -356,6 +392,28 @@ index.controller('useNoticeCtrl',
 		            mainCtx.font = "normal bold "+24/750*canvasWidth*2+"px myFirstFont";
 		            mainCtx.fillText(mm+'.'+week,text55Xxx,text55Yyy);
 		            mainCtx.fillText(date,text55Xxx,text55Yyyy);
+		        }else if(type == 3 && num==3){
+		        	// 添加二维码
+		            mainCtx.drawImage(qrcodeImg,(566/750)*canvasWidth*2,(1136/1334)*canvasHeight*2,(14/75)*canvasWidth*2,(14/75)*canvasWidth*2);
+		        	//读取用户的文本
+		            mainCtx.font = "normal bold "+36/750*canvasWidth*2+"px myFirstFont";
+		            //设置用户文本填充颜色
+		            mainCtx.fillStyle = "#9fe1e0";
+		            //从坐标点(50,50)开始绘制文字
+		            var text3_3X=Math.floor(clientWidth*0.0613*2);
+		            var text3_3Y=Math.floor(canvasHeight*0.9705*2);
+		            mainCtx.fillText("BY"+$scope.user.name,text3_3X,text3_3Y);
+		        }else if(type == 3 && num==4){
+		        	// 添加二维码
+		            mainCtx.drawImage(qrcodeImg,(560/750)*canvasWidth*2,(1130/1334)*canvasHeight*2,(14/75)*canvasWidth*2,(14/75)*canvasWidth*2);
+		        	//读取用户的文本
+		            mainCtx.font = "normal bold "+36/750*canvasWidth*2+"px myFirstFont";
+		            //设置用户文本填充颜色
+		            mainCtx.fillStyle = "#fff";
+		            //从坐标点(50,50)开始绘制文字
+		            var text3_4X=Math.floor(clientWidth*0.176*2);
+		            var text3_4Y=Math.floor(canvasHeight*0.70665*2);
+		            mainCtx.fillText("BY"+$scope.user.name,text3_4X,text3_4Y);
 		        }else if(type == 4 && num==1){
 		        	// 添加二维码
 		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*2,(1079/1334)*canvasHeight*2,(14/75)*canvasWidth*2,(14/75)*canvasWidth*2);
@@ -385,6 +443,28 @@ index.controller('useNoticeCtrl',
 		            mainCtx.fillStyle = "#333";
 		            mainCtx.fillText($scope.starttime2,text77Xx,text77Yy);
 		            mainCtx.fillText($scope.endtime2,text77Xxx,text77Yy);
+		        }else if(type == 4 && num==3){
+		        	// 添加二维码
+		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*2,(1132/1334)*canvasHeight*2,(14/75)*canvasWidth*2,(14/75)*canvasWidth*2);
+		        	//读取用户的文本
+		            mainCtx.font = "normal bold "+32/750*canvasWidth*2+"px myFirstFont";
+		            //设置用户文本填充颜色
+		            mainCtx.fillStyle = "#000";
+		            //从坐标点(50,50)开始绘制文字
+		            var text4_3X=Math.floor(clientWidth*0.0667*2);
+		            var text4_3Y=Math.floor(canvasHeight*0.9735*2);
+		            mainCtx.fillText("BY"+$scope.user.name,text4_3X,text4_3Y);
+		        }else if(type == 4 && num==4){
+		        	// 添加二维码
+		            mainCtx.drawImage(qrcodeImg,(558/750)*canvasWidth*2,(1130/1334)*canvasHeight*2,(14/75)*canvasWidth*2,(14/75)*canvasWidth*2);
+		        	//读取用户的文本
+		            mainCtx.font = "normal bold "+36/750*canvasWidth*2+"px myFirstFont";
+		            //设置用户文本填充颜色
+		            mainCtx.fillStyle = "#000";
+		            //从坐标点(50,50)开始绘制文字
+		            var text4_4X=Math.floor(clientWidth*0.0987*2);
+		            var text4_4Y=Math.floor(canvasHeight*0.6452*2);
+		            mainCtx.fillText("BY"+$scope.user.name,text4_4X,text4_4Y);
 		        }else if(type == 5 && num==1){
 		        	// 添加二维码
 		            mainCtx.drawImage(qrcodeImg,(550/750)*canvasWidth*2,(1110/1334)*canvasHeight*2,(14/75)*canvasWidth*2,(14/75)*canvasWidth*2);
@@ -439,8 +519,47 @@ index.controller('useNoticeCtrl',
 		            mainCtx.font = "normal bold "+24/750*canvasWidth*2+"px myFirstFont";
 		            mainCtx.fillText(mm+'.'+week,text99Xxx,text99Yyy1);
 		            mainCtx.fillText(date,text99Xxx,text99Yyy2);
-		        }
-            
+		        }else if(type == 5 && num==3){
+		        	// 添加二维码
+		            mainCtx.drawImage(qrcodeImg,(306/750)*canvasWidth*2,(1143/1334)*canvasHeight*2,(14/75)*canvasWidth*2,(14/75)*canvasWidth*2);
+		        	//读取用户的文本
+		            mainCtx.font = "normal bold "+32/750*canvasWidth*2+"px myFirstFont";
+		            //设置用户文本填充颜色
+		            mainCtx.fillStyle = "#000";
+		            mainCtx.textAlign="center";
+		            //从坐标点(50,50)开始绘制文字
+		            var text5_3X=Math.floor(clientWidth*0.5*2);
+		            var text5_3Xx=Math.floor(clientWidth*0.2367*2);
+		            var text5_3Xxx=Math.floor(clientWidth*0.4387*2);
+		            var text5_3Y=Math.floor(canvasHeight*0.8413*2);
+		            var text5_3Yy=Math.floor(canvasHeight*0.7866*2);
+		            mainCtx.fillText("BY"+$scope.user.name,text5_3X,text5_3Y);
+		            mainCtx.font = "normal bold "+48/750*canvasWidth*2+"px myFirstFont";
+		        	mainCtx.fillText($scope.businessMonth,text5_3Xx,text5_3Yy);
+		        	mainCtx.fillText($scope.businessDate,text5_3Xxx,text5_3Yy);
+            	}else if(type == 5 && num==4){
+		        	// 添加二维码
+		            mainCtx.drawImage(qrcodeImg,(568/750)*canvasWidth*2,(1130/1334)*canvasHeight*2,(14/75)*canvasWidth*2,(14/75)*canvasWidth*2);
+		        	//读取用户的文本
+		            mainCtx.font = "normal bold "+32/750*canvasWidth*2+"px myFirstFont";
+		            //设置用户文本填充颜色
+		            mainCtx.fillStyle = "#fff";
+		            mainCtx.textAlign="center";
+		            //从坐标点(50,50)开始绘制文字
+		            var text5_4X=Math.floor(clientWidth*0.354*2);
+		            var text5_4Xx=Math.floor(clientWidth*0.3573*2);
+		            var text5_4Xxx=Math.floor(clientWidth*0.565*2);
+
+		            var text5_4Y=Math.floor(canvasHeight*0.936*2);
+		            var text5_4Yy=Math.floor(canvasHeight*0.6672*2);
+		            var text5_4Yyy=Math.floor(canvasHeight*0.7666*2);
+		            mainCtx.fillText("BY"+$scope.user.name,text5_4X,text5_4Y);
+		            mainCtx.font = "normal bold "+56/750*canvasWidth*2+"px myFirstFont";
+		        	mainCtx.fillText($scope.businessMonth,text5_4Xx,text5_4Yy);
+		        	mainCtx.fillText($scope.businessDate,text5_4Xxx,text5_4Yy);
+		        	mainCtx.fillText($scope.endtime3,text5_4Xx,text5_4Yyy);
+		        	mainCtx.fillText($scope.endtime,text5_4Xxx,text5_4Yyy);
+            	}
             
 
         };

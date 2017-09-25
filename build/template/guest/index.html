@@ -81,6 +81,9 @@
     <script>
         $(function(){
             var imgNum = getUrlParam('num');
+            if(imgNum >=7){
+                $('.frame').css('height','14.906667rem');
+            }
             $('.father-img').attr('src','../../../assets/images/guest/type'+imgNum+'.png');
             $('.word').attr("src",'../../../assets/images/guest/type4/img_'+imgNum+'.png');
             // console.log( $('#word').attr("src"));

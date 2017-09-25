@@ -71,6 +71,9 @@
 	     * 预加载图片
 	     */
 	    var imgNum = getUrlParam('num');
+	    if(imgNum >= 16){
+	    	$('.frame').css('height','14.906667rem');
+	    }
         $('#word').data("src",'../../../assets/images/life/img_'+imgNum+'.png');
         startLoading();
         var wordimg  = new Image();
@@ -295,10 +298,15 @@
 	 * 生成海报
 	 */
 	function generatePoster() {
+		var imgNum = getUrlParam('num');
 	    var canvas = document.createElement('canvas');
 	    var clientWidth = document.documentElement.clientWidth;
         var canvasWidth = Math.floor(clientWidth);
-        var canvasHeight = Math.floor(clientWidth*(1334/750));
+        if(imgNum >= 16 ){
+        	var canvasHeight = Math.floor(clientWidth*(1118/750));
+        }else{
+        	var canvasHeight = Math.floor(clientWidth*(1334/750));
+        }
 	    canvas.width = canvasWidth;//CSS中定义了画布是580
 	    canvas.height = canvasHeight;
 
@@ -349,7 +357,6 @@
             return null;  
         }
         // 生成二维码
-		var imgNum = getUrlParam('num');
 		new QRCode(document.getElementById('music'), 'http://syrapi.yueyishujia.com/yueAssistant/build/html/homePage/'+user.uuid);
 		var qrcodecanvas=$music.find('canvas').get(0);  
 		 // 添加二维码
@@ -377,17 +384,20 @@
 			    	ctx.drawImage(qrcodeImg,(306/750)*canvasWidth,(1093/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
 			    }else if(imgNum == 6 || imgNum == 8 || imgNum == 9){
 			    	ctx.drawImage(qrcodeImg,(306/750)*canvasWidth,(1117/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
-			    }else if(11 <= imgNum <= 15){
+			    }else if(11 <= imgNum && imgNum <= 15){
 			    	ctx.drawImage(qrcodeImg,(542/750)*canvasWidth,(1118/1334)*canvasHeight,(14/75)*canvasWidth,(14/75)*canvasWidth);
+			    }else if(imgNum >= 16){
+			    	
 			    }
 	    	}else{
 	    		if(imgNum <= 5 || imgNum == 7 || imgNum == 10){
-	    			console.log(canvas.width);
 			    	ctx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1093/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
 			    }else if(imgNum == 6 || imgNum == 8 || imgNum == 9){
 			    	ctx.drawImage(qrcodeImg,(306/750)*canvasWidth*ratio,(1117/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
-			    }else if(11 <= imgNum <= 15){
+			    }else if(11 <= imgNum && imgNum <= 15){
 			    	ctx.drawImage(qrcodeImg,(542/750)*canvasWidth*ratio,(1118/1334)*canvasHeight*ratio,(14/75)*canvasWidth*ratio,(14/75)*canvasWidth*ratio);
+			    }else if(imgNum >= 16){
+			    	
 			    }
 	    	}
 		    

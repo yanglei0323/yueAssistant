@@ -309,6 +309,9 @@
             	// alert('授权成功');
             	console.log(resp);
                 user=resp.data;
+                if(user.name.length>4){
+                	user.name=user.name[0]+user.name[1]+user.name[2]+user.name[3];
+                }
             },
             error: function () {
                 
@@ -337,6 +340,9 @@
 	    var clientWidth = document.documentElement.clientWidth;
         var canvasWidth = Math.floor(clientWidth);
         var canvasHeight = Math.floor(clientWidth*(1334/750));
+        if(imgNum >=7){
+            canvasHeight = Math.floor(clientWidth*(1118/750));
+        }
 	    canvas.width = clientWidth;//CSS中定义了画布是580
 	    canvas.height = canvasHeight;
 
@@ -360,6 +366,8 @@
 	    poster.drawImage(ctx, rotates[direction].image, poster.intersect($frame, $frameImg));
 	    poster.drawImage(ctx, $word, poster.intersect($frame, $word));
 
+	    var mydate = new Date();
+        var date = mydate.getFullYear()+'/'+(mydate.getMonth()+1)+'/'+mydate.getDate();
 	    qrcodeImg.onload=function(){
 		    if (navigator.userAgent.match(/iphone/i)) {
 	        	if(imgNum == 1){
@@ -426,6 +434,55 @@
 		            var text1X=Math.floor(clientWidth*0.3946);
 		            var text1Y=Math.floor(canvasHeight*0.1665);
 		            ctx.fillText(user.name,text1X,text1Y);
+			    }else if(imgNum == 7){
+			    	//读取用户的文本
+		            ctx.font = "normal bold "+36/750*canvasWidth+"px arial";
+		            //设置用户文本填充颜色
+		            ctx.fillStyle = "#474747";
+		            //从坐标点(50,50)开始绘制文字
+		            var text1X=Math.floor(clientWidth*0.067);
+		            var text1Y=Math.floor(canvasHeight*0.2239);
+		            var text2X=Math.floor(clientWidth*0.292);
+		            ctx.fillText(user.name,text1X,text1Y);
+		            ctx.fillText(date,text2X,text1Y);
+			    }else if(imgNum == 8){
+			    	//读取用户的文本
+		            ctx.font = "normal bold "+36/750*canvasWidth+"px arial";
+		            //设置用户文本填充颜色
+		            ctx.fillStyle = "#000";
+		            ctx.textAlign='center';
+		            //从坐标点(50,50)开始绘制文字
+		            var text1X=Math.floor(clientWidth*0.5);
+		            var text1Y=Math.floor(canvasHeight*0.6389);
+		            ctx.fillText(user.name,text1X,text1Y);
+
+			    }else if(imgNum == 9){
+			    	//读取用户的文本
+		            ctx.font = "normal bold "+36/750*canvasWidth+"px arial";
+		            //设置用户文本填充颜色
+		            ctx.fillStyle = "#000";
+		            ctx.textAlign='center';
+		            //从坐标点(50,50)开始绘制文字
+		            var text1X=Math.floor(clientWidth*0.5);
+		            var text1Y=Math.floor(canvasHeight*0.9413);
+		            var text2Y=Math.floor(canvasHeight*0.9724);
+		            ctx.fillText(user.name,text1X,text1Y);
+		            ctx.font = "normal bold "+28/750*canvasWidth+"px arial";
+		            ctx.fillText(date,text1X,text2Y);
+
+			    }else if(imgNum == 10){
+			    	//读取用户的文本
+		            ctx.font = "normal bold "+36/750*canvasWidth+"px arial";
+		            //设置用户文本填充颜色
+		            ctx.fillStyle = "#000";
+		            ctx.textAlign='center';
+		            //从坐标点(50,50)开始绘制文字
+		            var text1X=Math.floor(clientWidth*0.5);
+		            var text1Y=Math.floor(canvasHeight*0.8948);
+		            var text2Y=Math.floor(canvasHeight*0.9259);
+		            ctx.fillText(user.name,text1X,text1Y);
+		            ctx.fillText(date,text1X,text2Y);
+
 			    }
 	    	}else{
 	    		if(imgNum == 1){
@@ -492,6 +549,56 @@
 		            var text1X=Math.floor(clientWidth*0.3946);
 		            var text1Y=Math.floor(canvasHeight*0.1665);
 		            ctx.fillText(user.name,text1X,text1Y);
+			    }else if(imgNum == 7){
+			    	//读取用户的文本
+		            ctx.font = "normal bold 0.48rem arial";
+		            //设置用户文本填充颜色
+		            ctx.fillStyle = "#474747";
+		            //从坐标点(50,50)开始绘制文字
+		            var text1X=Math.floor(clientWidth*0.067);
+		            var text1Y=Math.floor(canvasHeight*0.2239);
+		            var text2X=Math.floor(clientWidth*0.292);
+		            ctx.fillText(user.name,text1X,text1Y);
+		            ctx.fillText(date,text2X,text1Y);
+
+			    }else if(imgNum == 8){
+			    	//读取用户的文本
+		            ctx.font = "normal bold 0.48rem arial";
+		            //设置用户文本填充颜色
+		            ctx.fillStyle = "#000";
+		            ctx.textAlign='center';
+		            //从坐标点(50,50)开始绘制文字
+		            var text1X=Math.floor(clientWidth*0.5);
+		            var text1Y=Math.floor(canvasHeight*0.6389);
+		            ctx.fillText(user.name,text1X,text1Y);
+
+			    }else if(imgNum == 9){
+			    	//读取用户的文本
+		            ctx.font = "normal bold 0.48rem arial";
+		            //设置用户文本填充颜色
+		            ctx.fillStyle = "#000";
+		            ctx.textAlign='center';
+		            //从坐标点(50,50)开始绘制文字
+		            var text1X=Math.floor(clientWidth*0.5);
+		            var text1Y=Math.floor(canvasHeight*0.9413);
+		            var text2Y=Math.floor(canvasHeight*0.9724);
+		            ctx.fillText(user.name,text1X,text1Y);
+		            ctx.font = "normal bold 0.373333rem arial";
+		            ctx.fillText(date,text1X,text2Y);
+
+			    }else if(imgNum == 10){
+			    	//读取用户的文本
+		            ctx.font = "normal bold 0.48rem arial";
+		            //设置用户文本填充颜色
+		            ctx.fillStyle = "#000";
+		            ctx.textAlign='center';
+		            //从坐标点(50,50)开始绘制文字
+		            var text1X=Math.floor(clientWidth*0.5);
+		            var text1Y=Math.floor(canvasHeight*0.8948);
+		            var text2Y=Math.floor(canvasHeight*0.9259);
+		            ctx.fillText(user.name,text1X,text1Y);
+		            ctx.fillText(date,text1X,text2Y);
+
 			    }
 	    	}
 		    
